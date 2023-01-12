@@ -512,7 +512,7 @@
                 <h2>Lorem <br><span>Be Creative!</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 <div class="btn">
-                    <a href="login" class="info-btn">нэвтрэх</a>
+                    <a href="login" class="info-btn" id="info-btn">нэвтрэх</a>
                 </div>
             </div>
         </div>
@@ -580,58 +580,6 @@
             <div class="t-line"></div>
             <div class="t-circle"></div>
         </div>
-        <!-- <div class="online-course">
-            <div class="online-cart">
-                <div class="online-img">
-                    <img src="http://exam.mle.mn/uploaded/images/2020/May/16464.png" alt="">
-                </div>
-                <div class="online-info">
-                    <p>Уул уурхайн газрын төлбөр бодох</p>
-                    <p>Газрын кадастрын мэдээллийн сангийн "Ланд менежер" програм хангамжид Уул уурхайн газрын төлбөр бодох</p>
-                    <p>2020-05-21</p>
-                </div>
-            </div>
-            <div class="online-cart">
-                <div class="online-img">
-                    <img src="http://exam.mle.mn/uploaded/images/2020/May/131313.png" alt="">
-                </div>
-                <div class="online-info">
-                    <p>Салбартай хуулийн этгээд бүртгэх</p>
-                    <p>Газрын кадастрын мэдээллийн сангийн цахим мэдээллийн системд салбартай хуулийн этгээд бүртгэх</p>
-                    <p>2020-05-21</p>
-                </div>
-            </div>
-            <div class="online-cart">
-                <div class="online-img">
-                    <img src="http://exam.mle.mn/uploaded/images/2019/Oct/9988.jpg" alt="">
-                </div>
-                <div class="online-info">
-                    <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
-                    <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
-                    <p>2019-10-31</p>
-                </div>
-            </div>
-            <div class="online-cart">
-                <div class="online-img">
-                    <img src="http://exam.mle.mn/uploaded/images/2019/Oct/1.jpg" alt="">
-                </div>
-                <div class="online-info">
-                    <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
-                    <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
-                    <p>2019-10-31</p>
-                </div>
-            </div>
-            <div class="online-cart">
-                <div class="online-img">
-                    <img src="http://exam.mle.mn/uploaded/images/2019/Oct/42696560_1115914141890559_4299975996666281984_o.jpg" alt="">
-                </div>
-                <div class="online-info">
-                    <p>Газрын кадастрын мэдээллийн сангийн танилцуулга</p>
-                    <p>Лэнд менежер программ хангамж</p>
-                    <p>2019-10-31</p>
-                </div>
-            </div>
-        </div> -->
     </section>
 
     <!-- pic and text sec -->
