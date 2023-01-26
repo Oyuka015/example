@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,19 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'base.users';
+    protected $primaryKey = 'id';
+
+    public static $rules = array(
+        'username' => 'required',
+        'register' => 'required',
+        'lastname' => 'required',
+        'firstname' => 'required',
+        'email' => 'required',
+        'phone' => 'required',
+        'password' => 'required',
+        'role_id' => 'required',
+    );
     protected $fillable = [
         'name',
         'email',
@@ -41,4 +55,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\UserRole', 'role_id');
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+    
+        // cause a delete of a product to cascade to children so they are also deleted
+        static::creating(function($user)
+        {
+            $user->created_by = Auth::user()->id;
+        });
+
+        static::updating(function($user)
+        {
+            $user->updated_by = Auth::user()->id;
+        });
+    }
 }
