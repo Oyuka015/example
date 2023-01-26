@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -10,305 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    }
-    header{
-        width:100%;
-        height:100px;
-        background-color: #00a98d65;
-    }
-    .h-container{
-        max-width: 1400px;
-        margin: auto;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-    }
-    .logo{
-        width:300px;
-        height: 100%;
-        margin: 20px 0;
-        padding:10px 0;
-    }
-    .logo img{
-        width:100%;
-        height:100%;
-    }
-
-.menu{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 40px;
-}
-.menu .link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: rgba(0, 0, 0, 0.715);
-    font-size: 0.9rem;
-    font-weight:700;
-    text-decoration: none;
-}
-.menu .link::after {
-    content: '';
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    height:3px;
-    width:0px;
-    /* background-color: #41c85a; */
-    /* background-color: #468A7D; */
-    background-color: #0C4F60;
-    transition: 0.4s ease;
-}
-.menu .link:hover::after{
-    width: 100%;
-}
-/* banner content */
-.header-section{
-    width: 100%;
-    height: 35vh;
-}
-.content{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.content::before {    
-    content: "";
-    background-image: url('https://img.freepik.com/free-photo/cropped-shot-view-young-smart-mature-female-businesswomen-working-online-via-laptop_273609-13657.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.65;
-}
-.content h1, .content .h-link a, .content .h-link p{
-    position: relative;
-    line-height: 1.5;
-    color: #252525;
-    font-weight: 900;
-    text-align: center;
-    text-decoration: none;
-}
-.h-link{
-    display: flex;
-    gap: 20px;
-    font-weight: 450;
-}
-.h-link p{
-    color: #9999;
-}
-
-/* courses */
-.courses{
-    width: 100%;
-    height: auto;
-    margin: 40px 0;
-}
-.courses-con{
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:20px;
-}
-.card{
-    width: 450px;
-    height: 250px;
-    /* background-color: #468a7d; */
-    background-color: #9cd1c5;
-    border-radius: 40px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-.card-img, .card-info{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.card-img .img{
-    width: 200px;
-    height: 200px;
-    margin-left: 20px;
-    border-radius: 30px;
-    overflow: hidden;
-}
-.card-img .img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.eye{
-    display: flex;
-    align-items: center;
-}
-.info{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 60px;
-    padding-top: 30px;
-}
-.info-p{
-    font-size: 20px;
-    font-weight: 700;
-}
-.infor{
-    display: flex;
-    gap: 30px;
-}
-.card:hover{
-    cursor: pointer;
-    box-shadow: 5px 5px 18px 5px #6666;
-}
-.card:hover .info-p{
-    color: rgba(71, 69, 69, 0.742);
-}
-
-
-/* footer */
-footer{
-    width: 100%;
-    height: auto;
-    background-color: #252525;
-}
-.f-container{
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 0;
-    gap: 20px;
-}
-.text{
-    font-size: 25px;
-    font-weight: 400;
-}
-.i-text{
-    margin-top: 20px;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 2;
-}
-.i-img{
-    width: 100%;
-    height: 90px;
-    overflow: hidden;
-    margin-top: 30px;
-}
-.i-img img{
-    width: 100%;
-    height: 100%;
-}
-.line{
-    width: 40px;
-    height: 2px;
-    margin-top: 15px;
-    background-color: #41c85a;
-}
-.intro, .sys, .holboo{
-    width: 450px;
-    color: white;
-}
-/* sys */
-
-
-
-/* holbo */
-.holboo-info{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-.info-1{
-    margin-top: 30px; 
-}
-.info-1 p{
-    line-height: 2;
-}
-.info-icon{
-    margin-top: 40px;
-    display: flex;
-    gap: 30px;
-}
-.info.icon i{
-    display: flex;
-    gap: 30px;
-}
-.c-con{
-    background-color: #333;
-}
-.copyright{
-    color: white;
-    max-width: 1400px;
-    margin: auto;
-    padding: 10px 0;
-}
-.bars{
-    display: none;
-}
-.bars:hover{
-    cursor:pointer;
-}
-@media(max-width:1100px){
-    header{
-        width: 100%;
-    }
-    .h-container{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 40px;
-    }
-    .menu{
-        display: none;
-    }
-    .bars{
-        display: block;
-        font-size: 25px;
-    }
-    .courses{
-        width:100%;
-
-    }
-    .courses-con{
-        max-width:1100px;
-        margin:auto;
-        margin:50px 0;
-        display:flex;
-        justify-content:center;
-    }
-
-}
-@media(max-width:850px){
-    .courses{
-        width:100%;
-    }
-    .courses-con{
-        max-width: 650px;
-        margin: auto;
-        margin:30px 0;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="/css/mystyle.css">
 </head>
 <body>
     <header>
@@ -347,13 +49,14 @@ footer{
                     </a>
                     
                 </div>
+                <a href="profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
                 <div class="bars">
                 <i class="fa-solid fa-bars"></i>
                 </div>
         </div>
     </header>
-    <div class="header-section">
-        <div class="content">
+    <div class="online-course-header-section">
+        <div class="small-header">
             <h1>Цахим хичээл</h1>
             <div class="h-link">
                 <a href="test">Нүүр</a>
@@ -362,110 +65,183 @@ footer{
             </div>
         </div>
     </div>
-    <div class="courses">
-        <div class="courses-con">
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <img src="{{ URL('images/2.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="info">
-                        <p class="info-p">Уул уурхайн газрын төлбөр бодох</p>
-                        <div class="infor">
-                            <div class="eye">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="date">
-                                <p>2022-12-12</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="online-course-main">
+        <div class="online-course-list-section">
+            <div class="lesson-search">
+                <input type="search" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="lesson-list">
+                <div class="lesson-title">
+                    Уул уурхайн газрын төлбөр бодох
+                    Уул уурхайн газрын төлбөр бодох
+                    Уул уурхайн газрын төлбөр бодох
+                    Уул уурхайн газрын төлбөр бодох
+                    Уул уурхайн газрын төлбөр бодох
                 </div>
             </div>
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <img src="{{ url('images/1.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="info">
-                        <p class="info-p">Уул уурхайн газрын төлбөр бодох</p>
-                        <div class="infor">
-                            <div class="eye">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="date">
-                                <p>2022-12-12</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="courses">
+            <div class="online-courses-title">
+                <div class="title-circle"></div>
+                <div class="title-line"></div>
+                {{trans('display.lessons')}}
+                <div class="title-line"></div>
+                <div class="title-circle"></div>
             </div>
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <img src="{{ url('images/3.jpg') }}" alt="">
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="info">
-                        <p class="info-p">Уул уурхайн газрын төлбөр бодох</p>
-                        <div class="infor">
-                            <div class="eye">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="date">
-                                <p>2022-12-12</p>
-                            </div>
+            <div class="online-courses-lessons">
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <img src="{{ url('images/1.jpg') }}" alt="">
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
                     </div>
                 </div>
-                <div class="card-info">
-                    <div class="info">
-                        <p class="info-p">Уул уурхайн газрын төлбөр бодох</p>
-                        <div class="infor">
-                            <div class="eye">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="date">
-                                <p>2022-12-12</p>
-                            </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">
-                    <div class="img">
-                        <img src="{{ url('images/2.jpg') }}" alt="">
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
                     </div>
                 </div>
-                <div class="card-info">
-                    <div class="info">
-                        <p class="info-p">Уул уурхайн газрын төлбөр бодох</p>
-                        <div class="infor">
-                            <div class="eye">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="date">
-                                <p>2022-12-12</p>
-                            </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
                         </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
+                    </div>
+                </div>
+                <div class="online-courses-lesson-card">
+                    <div class="lesson-card-img">
+                        <div class="lesson-img">
+                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="lesson-card-info">
+                        <div class="online-course-lesson-name">Уул уурхайн газрын төлбөр бодох</div>
+                        <div class="online-course-lesson_summary">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit, quasi vero. Neque.
+                        </div>
+                        <button class="lesson-card-btn">Үзэх</button>
                     </div>
                 </div>
             </div>
@@ -519,5 +295,5 @@ footer{
             <div class="copyright"><p>Copyright 2019 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн BitSoft</p></div>
         </div>
     </footer>
-</body>
+</body> 
 </html>

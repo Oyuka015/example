@@ -11,281 +11,293 @@
     <link rel="stylesheet" href="./exam.css">
     <style>
         *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-header{
-    width: 100%;
-    /* padding: 10px 100px; */
-    height: 100px;
-    background-color: #00a98d65;
-}
-.h-container{
-    max-width: 1400px;
-    margin: auto;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-.logo{
-    width:300px;
-    height: 100%;
-    margin: 20px 0;
-    padding: 10px 0;
-}
-.logo img{
-    width: 100%;
-    height: 100%;
-}
-.menu{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 40px;
-}
-.menu .link {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: rgba(0, 0, 0, 0.715);
-    font-size: 0.9rem;
-    font-weight:700;
-    text-decoration: none;
-}
-.menu .link::after {
-    content: '';
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    height:3px;
-    width:0px;
-    /* background-color: #41c85a; */
-    /* background-color: #468A7D; */
-    background-color: #0C4F60;
-    transition: 0.4s ease;
-}
-.menu .link:hover::after{
-    width: 100%;
-}
-/* banner content */
-.header-section{
-    width: 100%;
-    height: 35vh;
-}
-.content{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.content::before {    
-    content: "";
-    background-image: url('https://img.freepik.com/premium-photo/woman-s-hands-filling-standardized-test-form_9635-1603.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.65;
-}
-.content h1, .content .h-link a, .content .h-link p{
-    position: relative;
-    line-height: 1.5;
-    color: #252525;
-    font-weight: 900;
-    text-align: center;
-    text-decoration: none;
-}
-.h-link{
-    display: flex;
-    gap: 20px;
-    font-weight: 450;
-}
-.h-link p{
-    color: #9999;
-}
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            /* padding: 10px 100px; */
+            height: 100px;
+            background-color: #00a98d65;
+        }
+        .h-container{
+            max-width: 1400px;
+            margin: auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        .logo{
+            width:300px;
+            height: 100%;
+            margin: 20px 0;
+            padding: 10px 0;
+        }
+        .logo img{
+            width: 100%;
+            height: 100%;
+        }
+        .menu{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 40px;
+        }
+        .menu .link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgba(0, 0, 0, 0.715);
+            font-size: 0.9rem;
+            font-weight:700;
+            text-decoration: none;
+        }
+        .menu .link::after {
+            content: '';
+            position:absolute;
+            left:0;
+            bottom:-4px;
+            height:3px;
+            width:0px;
+            /* background-color: #41c85a; */
+            /* background-color: #468A7D; */
+            background-color: #0C4F60;
+            transition: 0.4s ease;
+        }
+        .menu .link:hover::after{
+            width: 100%;
+        }
+        /* banner content */
+        .header-section{
+            width: 100%;
+            height: 35vh;
+        }
+        .content{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .content::before {    
+            content: "";
+            background-image: url('https://img.freepik.com/premium-photo/woman-s-hands-filling-standardized-test-form_9635-1603.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            opacity: 0.65;
+        }
+        .content h1, .content .h-link a, .content .h-link p{
+            position: relative;
+            line-height: 1.5;
+            color: #252525;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: none;
+        }
+        .h-link{
+            display: flex;
+            gap: 20px;
+            font-weight: 450;
+        }
+        .h-link p{
+            color: #9999;
+        }
 
-/* exam card */
-.exam-card{
-    width: 100%;
-    height: 100%;
-    margin-top: 80px;
-    margin-bottom: 50px;
-}
-.cards{
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    justify-content:center;
-    flex-wrap: wrap;
-    gap:20px;
-    padding-left: 30px;
-}
-.e-card{
-    width: 300px;
-    height: 200px;
-    /* background-color: #468a7d4e; */
-    /* background-color: rgba(153, 153, 153, 0.276); */
-    border:1px solid red;
-    padding: 20px;
-    font-size: 18px;
-}
-.e-title{
-    font-weight: 700;
-}
-.e-descri{
-    font-size: 16px;
-    margin-top: 20px;
-    color: #555;
-}
-.e-date{
-    color: #0C4F60;
-    margin-top: 20px;
-    font-size: 16px;
-}
-.e-eye{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    font-size: 16px;
-}
-.eye{
-    display: flex;
-    align-items: center;
-}
-
-
+        /* exam card */
+        .exam-card{
+            width: 100%;
+            height: 100%;
+            margin-top: 80px;
+            margin-bottom: 50px;
+        }
+        .cards{
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content:center;
+            flex-wrap: wrap;
+            gap:20px;
+            padding-left: 30px;
+        }
+        .e-card{
+            width: 300px;
+            height: 200px;
+            /* background-color: #468a7d4e; */
+            /* background-color: rgba(153, 153, 153, 0.276); */
+            border:1px solid red;
+            padding: 20px;
+            font-size: 18px;
+        }
+        .e-title{
+            font-weight: 700;
+        }
+        .e-descri{
+            font-size: 16px;
+            margin-top: 20px;
+            color: #555;
+        }
+        .e-date{
+            color: #0C4F60;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .e-eye{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .eye{
+            display: flex;
+            align-items: center;
+        }
 
 
 
-/* footer */
-footer{
-    width: 100%;
-    height: auto;
-    background-color: #252525;
-}
-.f-container{
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 0;
-    gap: 20px;
-}
-.text{
-    font-size: 25px;
-    font-weight: 400;
-}
-.i-text{
-    margin-top: 20px;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 2;
-}
-.i-img{
-    width: 100%;
-    height: 90px;
-    overflow: hidden;
-    margin-top: 30px;
-}
-.i-img img{
-    width: 100%;
-    height: 100%;
-}
-.line{
-    width: 40px;
-    height: 2px;
-    margin-top: 15px;
-    background-color: #41c85a;
-}
-.intro, .sys, .holboo{
-    width: 450px;
-    color: white;
-}
-/* sys */
+
+
+        /* footer */
+        footer{
+            width: 100%;
+            height: auto;
+            background-color: #252525;
+        }
+        .f-container{
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 0;
+            gap: 20px;
+        }
+        .text{
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .i-text{
+            margin-top: 20px;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 2;
+        }
+        .i-img{
+            width: 100%;
+            height: 90px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        .i-img img{
+            width: 100%;
+            height: 100%;
+        }
+        .line{
+            width: 40px;
+            height: 2px;
+            margin-top: 15px;
+            background-color: #41c85a;
+        }
+        .intro, .sys, .holboo{
+            width: 450px;
+            color: white;
+        }
+        /* sys */
 
 
 
-/* holbo */
-.holboo-info{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-.info-1{
-    margin-top: 30px; 
-}
-.info-1 p{
-    line-height: 2;
-}
-.info-icon{
-    margin-top: 40px;
-    display: flex;
-    gap: 30px;
-}
-.info.icon i{
-    display: flex;
-    gap: 30px;
-}
-.c-con{
-    background-color: #333;
-}
-.copyright{
-    color: white;
-    max-width: 1400px;
-    margin: auto;
-    padding: 10px 0;
-}
-.bars{
-    display: none;
-}
-.bars:hover{
-    cursor:pointer;
-}
-@media(max-width:1100px){
-    header{
-        width: 100%;
-    }
-    .h-container{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 40px;
-    }
-    .menu{
-        display: none;
-    }
-    .bars{
-        display: block;
-        font-size: 25px;
-    }
-    .exam-card{
-        width:100%;   
-    }
-    .cards{
-        max-width:800px;
-        margin:auto;
-        display:flex;
-        justify-content:center;
-    }
-}
-@media(max-width:850px){
-    .exam-card{
-        width:100%;
-    }
-    .cards{
-        max-width:600px;
-        margin:auto;
-    }
-}
+        /* holbo */
+        .holboo-info{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .info-1{
+            margin-top: 30px; 
+        }
+        .info-1 p{
+            line-height: 2;
+        }
+        .info-icon{
+            margin-top: 40px;
+            display: flex;
+            gap: 30px;
+        }
+        .info.icon i{
+            display: flex;
+            gap: 30px;
+        }
+        .c-con{
+            background-color: #333;
+        }
+        .copyright{
+            color: white;
+            max-width: 1400px;
+            margin: auto;
+            padding: 10px 0;
+        }
+        .bars{
+            display: none;
+        }
+        .bars:hover{
+            cursor:pointer;
+        }
+        @media(max-width:1100px){
+            header{
+                width: 100%;
+            }
+            .h-container{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 40px;
+            }
+            .menu{
+                display: none;
+            }
+            .bars{
+                display: block;
+                font-size: 25px;
+            }
+            .exam-card{
+                width:100%;   
+            }
+            .cards{
+                max-width:800px;
+                margin:auto;
+                display:flex;
+                justify-content:center;
+            }
+        }
+        @media(max-width:850px){
+            .exam-card{
+                width:100%;
+            }
+            .cards{
+                max-width:600px;
+                margin:auto;
+            }
+        }
+        .header-user-profile{
+            width: 50px;
+            height: 50px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+            color:#1f1f1f;
+        }
+        .header-user-profile i{
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -325,6 +337,7 @@ footer{
                     </a>
                     
             </div>
+            <a href="profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
             <div class="bars">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -332,7 +345,7 @@ footer{
     </header>
     <div class="header-section">
         <div class="content">
-            <h1>Шалгалтууд</h1>
+            <h1>Шалгалтууд 1. erh zuin test, 2.practical</h1>
             <div class="h-link">
                 <a href="test">Нүүр</a>
                 <p>/</p>

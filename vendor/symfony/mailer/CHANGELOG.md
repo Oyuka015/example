@@ -1,6 +1,17 @@
 CHANGELOG
 =========
 
+6.3
+---
+
+ * Add `MessageEvent::reject()` to allow rejecting an email before sending it
+
+6.2
+---
+
+ * Add a `mailer:test` command
+ * Add `SentMessageEvent` and `FailedMessageEvent` events
+
 6.1
 ---
 

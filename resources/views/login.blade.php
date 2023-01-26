@@ -36,26 +36,15 @@
             color: #1d1d1d;
             margin-top: 80px;
         }
-        /* .username{
-            margin-top: 50px;
-            display:flex;
-            flex-direction:column;
-        }
-        .username input{
-            border-radius:5px;
-            height:35px;
-            border:none;
-        } */
 
-
-        .password, .username{
+        .login-password, .login-username{
             display:flex;
             align-items:center;
         }
-        .username{
+        .login-username{
             margin-top: 50px;
         }
-        .password{
+        .login-password{
             margin-top: 20px;
         }
         .ico{
@@ -69,7 +58,7 @@
             align-items:center;
             color: #999;
         }
-        .password input, .username input{
+        .login-password input, .login-username input{
             height:35px;
             width:350px;
             border:none;
@@ -80,11 +69,15 @@
         .remember{
             margin-top: 10px;
         }
+        .btn-part{
+            display:flex;
+            gap:20px;
+        }
         .login-btn{
             width:200px;
             height:50px;
-            background-color: cyan;
             border-radius:5px;
+            background-color: cyan;
             margin-top: 30px;
         }
         .login-btn a{
@@ -104,21 +97,26 @@
     <div class="login">
         <div class="login-con">
             <div class="title">Нэвтрэх</div>
-            <div class="username">
+            <div class="login-username">
                 <div class="ico"><i class="fa-solid fa-user"></i></div>
-                <input type="text">
+                <input type="text" placeholder="Хэрэглэгчийн нэр">
             </div>
-            <div class="password">
+            <div class="login-password">
                 <div class="ico"><i class="fa-solid fa-lock"></i></div>
-                <input type="text">
+                <input type="text" placeholder="Нууц үг">
             </div>
             <div class="btn">
                 <div class="remember">
                     <input type="checkbox">
                     <label for="checkbox">Намайг сана.</label>
                 </div>
-                <div class="login-btn">
-                    <a href="#">Нэвтрэх</a>
+                <div class="btn-part">
+                    <div class="login-btn">
+                        <a href="#">Нэвтрэх</a>
+                    </div>
+                    <div class="login-btn">
+                        <a href="register">Бүртгүүлэх</a>
+                    </div>
                 </div>
             </div>
         </div>

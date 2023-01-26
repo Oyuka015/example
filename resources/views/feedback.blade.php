@@ -228,27 +228,39 @@ footer{
 .bars:hover{
     cursor:pointer;
 }
-@media(max-width:1100px){
-    header{
-        width: 100%;
-    }
-    .h-container{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 40px;
-    }
-    .menu{
-        display: none;
-    }
-    .bars{
-        display: block;
-        font-size:25px;
-    }
-    .feed{
-        margin: 40px 40px;
-    }
+        @media(max-width:1100px){
+            header{
+                width: 100%;
+            }
+            .h-container{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 40px;
+            }
+            .menu{
+                display: none;
+            }
+            .bars{
+                display: block;
+                font-size:25px;
+            }
+            .feed{
+                margin: 40px 40px;
+            }
 
-}
+        }
+        .header-user-profile{
+            width: 50px;
+            height: 50px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+            color:#1f1f1f;
+        }
+        .header-user-profile i{
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -288,6 +300,7 @@ footer{
                     </a>
                     
                 </div>
+                <a href="profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
                 <div class="bars">
                 <i class="fa-solid fa-bars"></i>
                 </div>

@@ -276,16 +276,28 @@ footer{
     }
 
 }
-@media(max-width:850px){
-    .courses{
-        width:100%;
-    }
-    .courses-con{
-        max-width: 650px;
-        margin: auto;
-        margin:30px 0;
-    }
-}
+        @media(max-width:850px){
+            .courses{
+                width:100%;
+            }
+            .courses-con{
+                max-width: 650px;
+                margin: auto;
+                margin:30px 0;
+            }
+        }
+        .header-user-profile{
+            width: 50px;
+            height: 50px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+            color:#1f1f1f;
+        }
+        .header-user-profile i{
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -325,6 +337,7 @@ footer{
                     </a>
                     
             </div>
+            <a href="profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
             <div class="bars">
                 <i class="fa-solid fa-bars"></i>
             </div>
