@@ -66,21 +66,6 @@
         </div>
     </div>
     <div class="online-course-main">
-        <div class="online-course-list-section">
-            <div class="lesson-search">
-                <input type="search" placeholder="Search...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div class="lesson-list">
-                <div class="lesson-title">
-                    Уул уурхайн газрын төлбөр бодох
-                    Уул уурхайн газрын төлбөр бодох
-                    Уул уурхайн газрын төлбөр бодох
-                    Уул уурхайн газрын төлбөр бодох
-                    Уул уурхайн газрын төлбөр бодох
-                </div>
-            </div>
-        </div>
         <div class="courses">
             <div class="online-courses-title">
                 <div class="title-circle"></div>

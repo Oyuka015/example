@@ -2,7 +2,7 @@
  
 @section('content')
 <section class="admin_register_section">
-  <h1 class="admin_register_title">{{trans('display.role_register')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.faq_register')}}</h1>
   <div class="form-sub-heading">
 
   </div>
@@ -24,12 +24,7 @@
           <div class="row">
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="code" name="code" placeholder="{{trans('display.code')}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div style="padding:5px">
-                <input type="text" id="name" name="name" placeholder="{{trans('display.name')}}">
+                <input type="text" id="question" name="question" placeholder="{{trans('display.question')}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -52,8 +47,8 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:50%">{{trans('display.code')}}</th>
-        <th style="width:50%">{{trans('display.name')}}</th>
+        <th style="width:50%">{{trans('display.question')}}</th>
+        <th style="width:50%">{{trans('display.answer')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -200,16 +195,9 @@
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
-              var dateArr = {};
-              $('#app-search-form input[name^="search_date"]').map(function(){ 
-                  dateArr[this.id] = this.value;
-              }).get();
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.date = dateArr;
-              d.code = $('#faq-search-form input[id="code"]').val();
-              d.name = $('#faq-search-form input[id="name"]').val();
-
+              d.question = $('#faq-search-form input[id="question"]').val();
           }
       },
       columns: [
@@ -219,8 +207,8 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'code', "defaultContent": ''},
-        { data: 'name', "defaultContent": ''},
+        { data: 'question', "defaultContent": ''},
+        { data: 'answer', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
@@ -358,8 +346,9 @@
       });
     });
   });
+
   //delete role
-  $('#faq-table tbody').on( 'click', 'tr td a.faq-delete', function () {
+ $('#faq-table tbody').on( 'click', 'tr td a.faq-delete', function () {
     var faqId = $(this).data('faqid');
 
     $.confirm({
@@ -400,6 +389,7 @@
       }
     });
   });
+
   // search
   $('#faq-search-form').on('submit', function(e) {
     faqTable.draw();

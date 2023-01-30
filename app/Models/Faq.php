@@ -11,13 +11,12 @@ use Eloquent;
 
 class Faq extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'help_question';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
-        'name' => 'required',
-        'code' => 'required',
-        'name_en' => 'required',
+        'question' => 'required',
+        'answer' => 'required',
     );
 }

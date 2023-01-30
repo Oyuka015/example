@@ -393,11 +393,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/certificate/' + typeId,
+                url: '/admin/certificate/' + certificateId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  typeTable.draw();
+                  certificateTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);

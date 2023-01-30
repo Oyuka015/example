@@ -50,7 +50,6 @@ class FaqController extends BaseController
 
     public function store(Request $request)
     {
-        
         $validator = Validator::make($request->input(), Faq::$rules);
         // process the save
         if ($validator->fails()) 

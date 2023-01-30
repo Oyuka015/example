@@ -11,13 +11,19 @@ use Eloquent;
 
 class Certificate extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'certificate';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
-        'name' => 'required',
-        'code' => 'required',
-        'name_en' => 'required',
+        'user_name' => 'required',
+        'certificate_id' => 'required',
+        'register' => 'required',
+        'registered_date' => 'required',
+        'registered_user' => 'required',
+        'lastname' => 'required',
+        'surname' => 'required',
+        'valid_for' => 'required',
+        'signature' => 'required',
     );
 }

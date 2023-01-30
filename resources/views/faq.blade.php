@@ -353,42 +353,17 @@ footer{
             <div class="q-line"></div>
         </div>
         <div class="q-list">
-            <div class="list ">
-                <div class="faq-q">
-                    <i class="fa-regular fa-circle-dot"></i>
-                    <p>Сургалт хэзээ болох вэ?</p>
+            @foreach($faqs as $faq)
+                <div class="list ">
+                    <div class="faq-q">
+                        <i class="fa-regular fa-circle-dot"></i>
+                        <p>{{$faq->question}}</p>
+                    </div>
+                    <div class="faq-a">
+                        <p>{{$faq->answer}}</p>
+                    </div>
                 </div>
-                <div class="faq-a">
-                    <p>Сургалт улирал тутамд нэгээс доошгүй удаа зохион байгуулагдана.</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="faq-q">
-                    <i class="fa-regular fa-circle-dot"></i>
-                    <p>Чадамжийн гэрчилгээ олгох уу?</p>
-                </div>
-                <div class="faq-a">
-                    <p>Сургалт улирал тутамд нэгээс доошгүй удаа зохион байгуулагдана.</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="faq-q">
-                    <i class="fa-regular fa-circle-dot"></i>
-                    <p>Сургалт хэд хоног явагдах вэ?</p>
-                </div>
-                <div class="faq-a">
-                    <p>Сургалт улирал тутамд нэгээс доошгүй удаа зохион байгуулагдана.</p>
-                </div>
-            </div>
-            <div class="list">
-                <div class="faq-q">
-                    <i class="fa-regular fa-circle-dot"></i>
-                    <p>Сургалтын төлбөр хэд вэ?</p>
-                </div>
-                <div class="faq-a">
-                    <p>Сургалт улирал тутамд нэгээс доошгүй удаа зохион байгуулагдана.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <script>

@@ -364,11 +364,11 @@ footer{
         <div class="news-cart">
             <div class="cart"> <!-- cart-->
                 <div class="news-cart-img">
-                    <img src="{{ URl('images/1.jpg') }}" alt="">
+                    <img src="images2.jpg" alt="">
                 </div>
                 <div class="news-cart-content">
                     <div class="news-cart-content-text">
-                        <h1>Газрын цахим биржийн танилцуулга</h1>
+                        <h1>title end bn</h1>
                     </div>
                     <div class="news-cart-content-info">
                         <div class="news-cart-content-info-icon">
@@ -376,25 +376,6 @@ footer{
                             <p>0</p>
                         </div>
                         <div class="news-cart-content-info-date ">
-                            <p>2022-12-12</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cart"> <!-- cart-->
-                <div class="news-cart-img">
-                    <img src="{{ URl('images/1.jpg') }}" alt="">
-                </div>
-                <div class="news-cart-content">
-                    <div class="news-cart-content-text">
-                        <h1>Газрын цахим биржийн танилцуулга</h1>
-                    </div>
-                    <div class="news-cart-content-info flex justify-between">
-                        <div class="news-cart-content-info-icon">
-                            <i class="fa-solid fa-eye"></i>
-                            <p>0</p>
-                        </div>
-                        <div class="news-cart-content-info-date">
                             <p>2022-12-12</p>
                         </div>
                     </div>

@@ -470,40 +470,6 @@ footer{
 .h-link p{
     color: #9999;
 }
-.online-course-main{
-    display:grid;
-    grid-template-columns: 20% 80%;
-}
-.online-course-list-section{
-    background-color: #00a98d33;
-}
-.lesson-search{
-    width: 80%;
-    margin:auto;
-    margin-top:40px;
-    display: flex;
-    background-color: rgba(247, 245, 245, 0.87);
-}
-.lesson-search input{
-    padding:5px 15px;
-    width:90%;
-    background-color: rgba(247, 245, 245, 0.87);
-}
-.lesson-search i{
-    width: 10%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 19px;
-    color: #252525;
-    border-left:1px solid #9999;
-    cursor:pointer;
-}
-.lesson-list{
-    width: 80%;
-    margin:auto;
-    margin-top: 40px;
-}
 .courses{
     width: 100%;
     height: auto;

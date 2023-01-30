@@ -10,6 +10,11 @@ use Yajra\DataTables\Html\Builder;
 
 class FaqRepository implements FaqInterface
 {
+    public function all()
+    {
+        return Faq::all();
+    }
+
     public function find($id)
     {
         return Faq::find($id);
@@ -18,10 +23,8 @@ class FaqRepository implements FaqInterface
     public function create($input)
     {
         $faq = new Faq;
-        // $faq->question = @$input['question'];
-        // $faq->answer = @$input['answer'];
-        $faq->code = @$input['code'];
-        $faq->name = @$input['name'];
+        $faq->question = @$input['question'];
+        $faq->answer = @$input['answer'];
 
         return $faq->save();
     }
@@ -30,10 +33,8 @@ class FaqRepository implements FaqInterface
     {
         $faq = Faq::find($id);
 
-        // $faq->question = @$input['question'];
-        // $faq->answer = @$input['answer'];
-        $faq->code = @$input['code'];
-        $faq->name = @$input['name'];
+        $faq->question = @$input['question'];
+        $faq->answer = @$input['answer'];
 
         return $faq->save();
     }
@@ -57,14 +58,9 @@ class FaqRepository implements FaqInterface
                 // {
                 //     $qry->whereRaw('LOWER(question) like ?', array('%'.mb_strtolower($searchData->get('question')).'%'));
                 // }
-                if($searchData->has('code') && $searchData->get('code') !== null)
+                if($searchData->has('question') && $searchData->get('question') !== null)
                 {
-                    $qry->where('code', $searchData->get('code'));
-                }
-
-                if($searchData->has('name') && $searchData->get('name') !== null)
-                {
-                    $qry->whereRaw('LOWER(name) like ?', array('%'.mb_strtolower($searchData->get('name')).'%'));
+                    $qry->where('question', $searchData->get('question'));
                 }
             })
             ->addColumn('action', function ($place) {
