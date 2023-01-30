@@ -350,7 +350,7 @@
   //delete role
  $('#faq-table tbody').on( 'click', 'tr td a.faq-delete', function () {
     var faqId = $(this).data('faqid');
-
+    console.log(faqId);
     $.confirm({
       title: '{{trans('messages.warning_title')}}',
       content: '{{trans('messages.confirm_delete_content')}}',

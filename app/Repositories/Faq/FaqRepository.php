@@ -63,7 +63,7 @@ class FaqRepository implements FaqInterface
                     $qry->where('question', $searchData->get('question'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($faq) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary faq-edit" style="margin:3px" data-faqid="'.@$faq->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger faq-delete" style="margin:3px" data-faqid="'.@$faq->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
