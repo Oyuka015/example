@@ -95,31 +95,42 @@
 </head>
 <body>
     <div class="login">
-        <div class="login-con">
-            <div class="title">Нэвтрэх</div>
-            <div class="login-username">
-                <div class="ico"><i class="fa-solid fa-user"></i></div>
-                <input type="text" placeholder="Хэрэглэгчийн нэр">
-            </div>
-            <div class="login-password">
-                <div class="ico"><i class="fa-solid fa-lock"></i></div>
-                <input type="text" placeholder="Нууц үг">
-            </div>
-            <div class="btn">
-                <div class="remember">
-                    <input type="checkbox">
-                    <label for="checkbox">Намайг сана.</label>
+        <form method="POST" action="{{ route('login.custom') }}">
+            <div class="login-con">
+                <div class="title">Нэвтрэх</div>
+                <div class="login-username">
+                    <div class="ico"><i class="fa-solid fa-user"></i></div>
+                    <input type="text" name="username" placeholder="Хэрэглэгчийн нэр">
                 </div>
-                <div class="btn-part">
-                    <div class="login-btn">
-                        <a href="#">Нэвтрэх</a>
+                @if ($errors->has('username'))
+                    <span class="text-danger">{{ $errors->first('username') }}</span>
+                @endif
+                <div class="login-password">
+                    <div class="ico"><i class="fa-solid fa-lock"></i></div>
+                    <input type="password" name="password" placeholder="Нууц үг">
+                </div>
+                @if ($errors->has('password'))
+                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                @endif
+                <div class="btn">
+                    <div class="remember">
+                        <input type="checkbox">
+                        <label for="checkbox">Намайг сана.</label>
                     </div>
-                    <div class="login-btn">
-                        <a href="register">Бүртгүүлэх</a>
+                    @if(session('success'))
+                        <span class="text-danger">{{session('success')}}</span>
+                    @endif
+                    <div class="btn-part">
+                        <div class="login-btn">
+                            <button type="submit" style="width: 100%;height: 100%;background-color: aqua;border: none;border-radius: 15px;">Нэвтрэх</button>
+                        </div>
+                        <div class="login-btn">
+                            <a href="register">Бүртгүүлэх</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 </html>

@@ -21,8 +21,13 @@ Route::get('/certi', 'App\Http\Controllers\Controller@certi');
 Route::get('/faq', 'App\Http\Controllers\Controller@faq');
 Route::get('/online', 'App\Http\Controllers\Controller@online');
 Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
-Route::get('/login', 'App\Http\Controllers\Controller@login');
 
+Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
+Route::post('custom-login', [App\Http\Controllers\LoginController::class, 'customLogin'])->name('login.custom'); 
+Route::get('registration', [App\Http\Controllers\LoginController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [App\Http\Controllers\LoginController::class, 'customRegistration'])->name('register.custom'); 
+Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])->name('signout');
 
 Route::resource('/admin/information', "App\Http\Controllers\InformationController");
 Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
@@ -47,8 +52,6 @@ Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\Certificat
 
 Route::resource('/admin/systemuser', "App\Http\Controllers\SystemuserController");
 Route::any('/admin/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
-
-
 Route::get('/register', function () {
     return view('register');
 });
