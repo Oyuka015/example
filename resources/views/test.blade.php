@@ -48,7 +48,14 @@
                     <p>Санал хүсэлт</p>
                 </a> 
             </div>
-            <a href="user_profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+            @if(Auth::user())
+                <div>
+                    <a href="user_profile" class=""><i class="fa-solid fa-user"></i></a>
+                    <a href="#" class="info-btn" id="info-btn">{{Auth::user()->firstname}}</a>
+                </div>
+            @else
+                <a href="login" class="info-btn" id="info-btn">Нэвтрэх</a>
+            @endif
             <div class="bars">
                 <i class="fa-solid fa-bars"></i>
             </div>
@@ -60,8 +67,10 @@
                 <h2>Lorem <br><span>Be Creative!</span></h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 <div class="training-login-btn">
+                @if(!Auth::user())
                     <a href="login" class="info-btn" id="info-btn">Нэвтрэх</a>
                     <a href="register" class="info-btn" id="info-btn">Бүртгүүлэх</a>
+                @endif
                 </div>
             </div>
         </div>
