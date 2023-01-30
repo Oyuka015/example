@@ -370,11 +370,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/feedback/' + typeId,
+                url: '/admin/feedback/' + feedbackId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  typeTable.draw();
+                  feedbackTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);

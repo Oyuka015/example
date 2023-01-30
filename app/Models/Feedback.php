@@ -11,13 +11,12 @@ use Eloquent;
 
 class Feedback extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'feedback';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
-        'name' => 'required',
-        'code' => 'required',
-        'name_en' => 'required',
+        'user_name' => 'required',
+        'feedback' => 'required',
     );
 }

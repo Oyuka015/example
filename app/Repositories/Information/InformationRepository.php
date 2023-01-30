@@ -56,7 +56,7 @@ class InformationRepository implements InformationInterface
                     $qry->whereRaw('LOWER(title) like ?', array('%'.mb_strtolower($searchData->get('title')).'%'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($information) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary information-edit" style="margin:3px" data-informationid="'.@$information->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger information-delete" style="margin:3px" data-informationid="'.@$information->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

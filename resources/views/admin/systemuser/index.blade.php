@@ -389,7 +389,7 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/systemuser/' + typeId,
+                url: '/admin/systemuser/' + systemuserId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();

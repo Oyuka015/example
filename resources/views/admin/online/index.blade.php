@@ -200,13 +200,8 @@
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
-              var dateArr = {};
-              $('#app-search-form input[name^="search_date"]').map(function(){ 
-                  dateArr[this.id] = this.value;
-              }).get();
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.date = dateArr;
               d.lesson_name = $('#online-search-form input[id="lesson_name"]').val();
           }
       },
@@ -305,9 +300,9 @@
                 console.log(error);
             },
             async: false          
-        }).done(function(data) {
-            //submitButton.prop('disabled', false);
-        });
+          }).done(function(data) {
+              //submitButton.prop('disabled', false);
+          });
         },
         errorPlacement: function(error, element) {
             error.insertAfter(element);
@@ -378,11 +373,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/online/' + typeId,
+                url: '/admin/online/' + onlineId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  typeTable.draw();
+                  onlineTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);

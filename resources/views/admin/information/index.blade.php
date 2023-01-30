@@ -372,11 +372,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/information/' + typeId,
+                url: '/admin/information/' + informationId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  typeTable.draw();
+                  informationTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);

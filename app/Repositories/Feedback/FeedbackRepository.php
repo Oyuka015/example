@@ -54,7 +54,7 @@ class FeedbackRepository implements FeedbackInterface
                     $qry->whereRaw('LOWER(feedback) like ?', array('%'.mb_strtolower($searchData->get('feedback')).'%'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($feedback) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary feedback-edit" style="margin:3px" data-feedbackid="'.@$feedback->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger feedback-delete" style="margin:3px" data-feedbackid="'.@$feedback->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

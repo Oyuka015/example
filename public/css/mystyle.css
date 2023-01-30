@@ -18,12 +18,13 @@ header{
     background-color: #00a98d65;
 }
 .h-container{
-    max-width:80%;
+    max-width: 1400px;
     margin:auto;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 40px;
 }
 .logo{
     width:300px;
@@ -176,6 +177,13 @@ section.news{
 
 }
 /* news cart */
+/* user-medeelel */
+.news{
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
 .news-cart{
     display:flex;
     gap:30px;
@@ -429,47 +437,6 @@ footer{
     }
 }
 /* user - online course */
-.online-course-header-section{
-    width: 100%;
-    height: 35vh;
-}
-.small-header{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.small-header::before {    
-    content: "";
-    background-image: url('https://img.freepik.com/free-photo/cropped-shot-view-young-smart-mature-female-businesswomen-working-online-via-laptop_273609-13657.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.65;
-}
-.small-header h1, .small-header .h-link a, .small-header .h-link p{
-    position: relative;
-    line-height: 1.5;
-    color: #252525;
-    font-weight: 900;
-    text-align: center;
-    text-decoration: none;
-}
-.h-link{
-    display: flex;
-    gap: 20px;
-    font-weight: 450;
-}
-.h-link p{
-    color: #9999;
-}
 .courses{
     width: 100%;
     height: auto;
@@ -608,8 +575,6 @@ footer{
 .modal-content {
     padding: 2rem 2rem;
     border-radius: 0.8rem;
-    /* not sure */
-    background: var(--background);
     box-shadow: var(--m-shadow, 0.4rem 0.4rem 10.2rem 0.2rem) var(--shadow-1);
 }
 .modal-content label {
@@ -854,12 +819,13 @@ button::-moz-focus-inner {
 }
 .profile-information-section{
     background-color: #fff;
-    width: 80%;
+    width: 90%;
     margin: auto;
-    height:auto;
+    height: auto    ;
     /* margin-top: 10%; */
-    margin-top: 150px;
+    margin-top: 70px;
     padding: 20px 25px;
+    border-radius:10px;
 }
 .information-select ul{
     display: flex;
@@ -886,14 +852,16 @@ button::-moz-focus-inner {
     background-color: lightblue;
     display: grid;
     grid-template-columns: 30% 70%;
-    height: 50%;
+    height: auto;
     margin-top: 30px;
+    padding-bottom: 40px;
+    padding-right: 10px;
 }
 .user-img-section{
     width: 180px;
     height: 220px;
     margin: auto;
-    margin-top: 30%;
+    margin-top:120px;
     overflow: hidden;
 }
 .user-img-section img{
@@ -915,6 +883,318 @@ button::-moz-focus-inner {
     border-radius: 10px;
 }
 .user-profile-info{
-    border:1px solid salmon;
-    margin-top: 30px;
+    margin-top: 60px;
+}
+.user-profile-info label{
+    font-size: 17.5px;
+    display: block;
+    color:#6e6c6c;
+}
+.user-profile-info input{
+    font-size: 14px;
+    width: 300px;
+    border:none;
+    padding:10px 20px;
+    margin-top: 3px;
+    background-color: #e3e2e2;
+}
+
+/* user-faq-style */
+
+.lil-header-section{ /* banner content */
+    width: 100%;
+    height: 35vh;
+}
+.lil-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lil-content::before {    
+    content: "";
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.65;
+}
+.lil-content h1, .lil-content .h-link a, .lil-content .h-link p{
+    position: relative;
+    line-height: 1.5;
+    color: #252525;
+    font-weight: 900;
+    text-align: center;
+    text-decoration: none;
+}
+.lil-h-link{
+    display: flex;
+    gap: 20px;
+    font-weight: 450;
+    
+}
+.lil-h-link a, .lil-h-link p{
+    color:#252525;
+    opacity: .8;
+}
+/* faq start */
+.q-container{
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.q-title h1{
+    font-size: 40px;
+    color: #252525;
+}
+.q-title span{
+    color: rgb(248, 211, 28);
+}
+.q-line{
+    width: 35px;
+    height: 2.5px;
+    margin-top: 20px;
+    background-color: #252525;
+}
+.q-list{
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 50px;
+}
+.list{
+    width: 600px;
+    margin-bottom: 10px;
+}
+.list .faq-q{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(194, 190, 190, 0.76);
+    padding: 5px 10px;
+    font-size: 17px;
+    font-weight: 500;
+    gap: 10px;
+    cursor: pointer;
+}
+.list .faq-a{
+    width: 100%;
+    height: 40px;
+    padding: 10px 37px 0;
+    display: none;
+    border: 1px solid rgba(206, 203, 203, 0.726);
+}
+.list .faq-q p{
+    width: 100%;
+}
+.list.showMenu .faq-a{
+    display: block;
+}
+
+/* user-information-style */
+
+.news{ /* news */
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.news-cart{
+    display:flex;
+    gap:30px;
+
+}
+.cart{
+    width:450px;
+    height:550px;
+    display:grid;
+    grid-template-rows: 70% 30%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.news-cart-img img{
+    position: relative;
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+}
+.news-cart-content{
+    width: 100%;
+    height: 100%;
+    padding:20px;
+    background-color: #eaeaea;
+}
+
+.news-cart-content-text h1{
+    font-size: 30px;
+    font-weight: 500;
+}
+.news-cart-content-info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.news-cart-content-info-icon{
+    display:flex;
+    align-items:center;
+    gap: 5px;
+    color: #41c85a;
+}
+.news-cart-content-info-date {
+    color: #888;
+    font-weight: 600;
+}
+.cart:hover{
+    /* box-shadow: x y blur color */
+    box-shadow: 5px 10px 18px #888888;
+}
+.news-cart-img{
+    transition: transform .75s;
+}
+
+.cart:hover .news-cart-img{
+    transform: scale(1.15);
+}
+
+/* user-exam-style */
+ /* exam card */
+ .exam-card{
+    width: 100%;
+    height: 100%;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+.cards{
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap:20px;
+    padding-left: 30px;
+}
+.e-card{
+    width: 300px;
+    height: 200px;
+    border:1px solid red;
+    padding: 20px;
+    font-size: 18px;
+}
+.e-title{
+    font-weight: 700;
+}
+.e-descri{
+    font-size: 16px;
+    margin-top: 20px;
+    color: #555;
+}
+.e-date{
+    color: #0C4F60;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.e-eye{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 16px;
+}
+.eye{
+    display: flex;
+    align-items: center;
+}
+/* user-certificate-style */
+
+/* certificate */
+.certi{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+.certi-con{
+    /* height: 100%; */
+    width: 850px;
+    background-color: #468A7D;
+    position: absolute;
+    z-index: 2;
+    top: 320px;
+}
+.certi-con .title{
+    font-size:34px;
+    padding-top: 20px;
+}
+.certi-con .des{
+    padding-top:10px;
+}
+.certi-search{
+    display: flex;
+    flex-direction: column;
+    /* padding: 30px 20px; */
+    padding: 0  30px 20px 20px;
+    color: white;
+}
+.certi-search input{
+    margin-top: 20px;
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 15px;
+    color:black;
+}
+.certi-search button{
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #252525a5;
+}
+.certi-search button:hover{
+    cursor:pointer;
+    background-color: #383f37a5;
+}
+
+/* user-feedback-style */
+/* feedback form */
+.feed{
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+.feed button{
+    width: 200px;
+    height: 50px;
+    background-color: #468A7D;
+    border: none;
+    border-radius: 10px;
+}
+.feed button:hover{
+    cursor: pointer;
+}
+.feed input{
+    height: 30px;
+    padding: 15px 20px;
+    border: 1px solid #999;
+}
+.feed textarea{
+    border: 1px solid #999;
 }

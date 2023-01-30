@@ -11,9 +11,9 @@ use Eloquent;
 
 class Examtakers extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'examtakers';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
         'user_name' => 'required',

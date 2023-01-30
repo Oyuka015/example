@@ -411,11 +411,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/examtakers/' + typeId,
+                url: '/admin/examtakers/' + examtakersId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  typeTable.draw();
+                  examtakersTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);

@@ -64,10 +64,47 @@
                     </div>
                 </div>
                 <div class="user-profile-info">
-                    <label  for="name">{{trans('display.user_name')}}</label>
-                    <input contenteditable="true" type="text" name="name">
-                    <label for="email">{{trans('display.email')}}</label>
-                    <input type="email">
+                    <div style="font-size:25px; font-weight:700">{{trans('display.login_information')}}</div>
+                    <div style="display:flex;  gap:30px;  margin-top:10px;">
+                        <div>
+                            <label  for="name">{{trans('display.user_name')}}</label>
+                            <input value="user_name " type="text" name="name">
+                        </div>
+                        <div>
+                            <label for="email">{{trans('display.email')}}</label>
+                            <input type="email" value="email@email.com">
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:30px; margin-top:20px;">
+                        <div>
+                            <label for="phone">{{trans('display.phone')}}</label>
+                            <input type="tel" value="phone number">
+                        </div>
+                        <div>
+                            <label for="active_status">{{trans('display.active_status')}}</label>
+                            <input type="text" value="idewhtei">
+                        </div>
+                    </div>
+                    <div style="font-size:25px; margin-top:20px; font-weight:700">{{trans('display.reset_password')}}</div>
+                    <div style="display:flex; gap:30px; margin-top:15px;">
+                        <div>
+                            <label for="old_password">{{trans('display.old_password')}}</label>
+                            <input type="password">
+                        </div >
+                        <div>
+                            <label for="password_rewrite">{{trans('display.password_rewrite')}}</label>
+                            <input type="password">
+                        </div >
+                    </div>
+                    <div style="display:flex; gap:30px; margin-top:15px;">
+                        <div>
+                            <label for="new_password">{{trans('display.new_password')}}</label>
+                            <input type="password">
+                        </div >
+                        <div style="display:flex; align-items:center; justify-content:center; margin-top:20px;  ">
+                           <button style="padding:10px 20px;">{{trans('display.reset_password')}}</button>
+                        </div >
+                    </div>
                 </div>
             </div>
         </div>

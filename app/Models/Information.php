@@ -11,13 +11,12 @@ use Eloquent;
 
 class Information extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'information_register';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
-        'name' => 'required',
-        'code' => 'required',
-        'name_en' => 'required',
+        'title' => 'required',
+        'information' => 'required',
     );
 }

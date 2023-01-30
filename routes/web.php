@@ -64,5 +64,9 @@ Route::get('/user_certificate', function () {
 });
 
 Route::get('/hihi', function () {
-    return view('hihi');
+    return view('editable_input');
+});
+
+Route::get('/haha', function () {
+    return view('ulayout.header');
 });

@@ -18,10 +18,13 @@ class SystemuserRepository implements SystemuserInterface
     public function create($input)
     {
         $systemuser = new Systemuser;
-        // $faq->question = @$input['question'];
-        // $faq->answer = @$input['answer'];
-        $systemuser->name = @$input['name'];
-        $systemuser->code = @$input['code'];
+        $systemuser->user_name = @$input['user_name'];
+        $systemuser->province = @$input['province'];
+        $systemuser->surname = @$input['surname'];
+        $systemuser->lastname = @$input['lastname'];
+        $systemuser->email = @$input['email'];
+        $systemuser->phone = @$input['phone'];
+        $systemuser->active_status = @$input['active_status'];
 
         return $systemuser->save();
     }
@@ -30,10 +33,13 @@ class SystemuserRepository implements SystemuserInterface
     {
         $systemuser = Systemuser::find($id);
 
-        // $faq->question = @$input['question'];
-        // $faq->answer = @$input['answer'];
-        $systemuser->name = @$input['name'];
-        $systemuser->code = @$input['code'];
+        $systemuser->user_name = @$input['user_name'];
+        $systemuser->province = @$input['province'];
+        $systemuser->surname = @$input['surname'];
+        $systemuser->lastname = @$input['lastname'];
+        $systemuser->email = @$input['email'];
+        $systemuser->phone = @$input['phone'];
+        $systemuser->active_status = @$input['active_status'];
 
         return $systemuser->save();
     }
@@ -53,21 +59,20 @@ class SystemuserRepository implements SystemuserInterface
         $data = Datatables::make($qry) 
             ->filter(function ($qry) use ($searchData) {
 
-                // if($searchData->has('question') && $searchData->get('question') !== null)
-                // {
-                //     $qry->whereRaw('LOWER(question) like ?', array('%'.mb_strtolower($searchData->get('question')).'%'));
-                // }
-                if($searchData->has('code') && $searchData->get('code') !== null)
+                if($searchData->has('user_name') && $searchData->get('user_name') !== null)
                 {
-                    $qry->where('code', $searchData->get('code'));
+                    $qry->whereRaw('LOWER(user_name) like ?', array('%'.mb_strtolower($searchData->get('user_name')).'%'));
                 }
-
-                if($searchData->has('name') && $searchData->get('name') !== null)
+                if($searchData->has('surname') && $searchData->get('surname') !== null)
                 {
-                    $qry->whereRaw('LOWER(name) like ?', array('%'.mb_strtolower($searchData->get('name')).'%'));
+                    $qry->whereRaw('LOWER(surname) like ?', array('%'.mb_strtolower($searchData->get('surname')).'%'));
+                }
+                if($searchData->has('lastname') && $searchData->get('lastname') !== null)
+                {
+                    $qry->whereRaw('LOWER(lastname) like ?', array('%'.mb_strtolower($searchData->get('lastname')).'%'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($systemuser) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary systemuser-edit" style="margin:3px" data-systemuserid="'.@$systemuser->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger systemuser-delete" style="margin:3px" data-systemuserid="'.@$systemuser->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

@@ -74,7 +74,12 @@ return [
     'male' => 'Эрэгтэй',
     'female' => 'Эмэгтэй',
     'password' => 'Нууц үг',
+    'password_rewrite' => 'Нууц үг давтах',
     'change_image' => 'Зураг солих',
+    'reset_password' => 'Нууц үг солих',
+    'old_password' => 'Хуучин нууц үг',
+    'new_password' => 'Шинэ нууц үг',
+    'login_information' => 'Нэвтрэх мэдээлэл',
 
 
 

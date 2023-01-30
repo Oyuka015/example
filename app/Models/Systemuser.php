@@ -11,9 +11,9 @@ use Eloquent;
 
 class Systemuser extends Eloquent
 {
-    protected $table = 'user_role';
+    protected $table = 'systemuser';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    // public $timestamps = false;
     
     public static $rules = array(
         'user_name' => 'required',

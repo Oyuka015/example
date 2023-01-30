@@ -84,7 +84,7 @@ class ExamtakersRepository implements ExamtakersInterface
                 }
 
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($examtakers) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary examtakers-edit" style="margin:3px" data-examtakersid="'.@$examtakers->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger examtakers-delete" style="margin:3px" data-examtakersid="'.@$examtakers->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

@@ -62,7 +62,7 @@ class OnlineRepository implements OnlineInterface
                     $qry->whereRaw('LOWER(lesson_name) like ?', array('%'.mb_strtolower($searchData->get('lesson_name')).'%'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($online) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary online-edit" style="margin:3px" data-onlineid="'.@$online->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger online-delete" style="margin:3px" data-onlineid="'.@$online->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
