@@ -7,6 +7,7 @@ use App\Repositories\Exam\ExamInterface as ExamInterface;
 use App\Models\Exam;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use Config;
 
 class ExamRepository implements ExamInterface
 {
@@ -18,10 +19,15 @@ class ExamRepository implements ExamInterface
     public function create($input)
     {
         $exam = new Exam;
-        $exam->exam_name = @$input['exam_name'];
-        $exam->exam_file = @$input['exam_file'];
+        $exam->name = @$input['name'];
+        $exam->lower_percent = @$input['lower_percent'];
+        $exam->is_active = @$input['is_active'] ? true : false;
 
-        return $exam->save();
+        $exam->save();
+
+        $exam->questions()->attach(@$input['questions']);
+
+        return $exam;
     }
 
     public function update($id, $input)
@@ -54,10 +60,22 @@ class ExamRepository implements ExamInterface
                     $qry->whereRaw('LOWER(exam_name) like ?', array('%'.mb_strtolower($searchData->get('exam_name')).'%'));
                 }
             })
+            ->editColumn('is_active', function ($exam) {
+                return Config::get('base.is_active')[$exam->is_active];
+            })
+            ->addColumn('question_count', function ($exam) {
+                return $exam->questions()->count();
+            })
+            ->addColumn('question_score', function ($exam) {
+                return $exam->questions()->sum('score');
+            })
             ->addColumn('action', function ($exam) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary exam-edit" style="margin:3px" data-examid="'.@$exam->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
-                $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger exam-delete" style="margin:3px" data-examid="'.@$exam->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
+                if($exam->users->count() == 0)
+                {
+                    $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger exam-delete" style="margin:3px" data-examid="'.@$exam->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
+                }
                 return $actionHtml;
             })
             ->rawColumns(['action'])

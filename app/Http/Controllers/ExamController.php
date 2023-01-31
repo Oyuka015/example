@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Exam;
+use App\Models\Question;
 
 use App\Repositories\Exam\ExamInterface;
 
@@ -36,13 +37,18 @@ class ExamController extends BaseController
 
     public function create()
     {
-        return view($this->view_path.'.add');
+        $questions = Question::where('is_active', true)->get();
+
+        $data['questions'] = $questions;
+        return view($this->view_path.'.add', $data);
     }
 
     public function edit($id)
     {
         $exam = $this->exam->find($id);
+        $questions = Question::where('is_active', true)->get();
 
+        $data['questions'] = $questions;
         $data['exam'] = $exam;
 
         return View::make($this->view_path.'.edit', $data);

@@ -54,7 +54,10 @@
       <tr>
         <th style="width:30px">№</th>
         <th style="width:50%">{{trans('display.exam_name')}}</th>
-        <th style="width:50%">{{trans('display.exam_file')}}</th>
+        <th style="width:20%">{{trans('display.exam_score')}}</th>
+        <th style="width:8%">{{trans('display.question')}}</th>
+        <th style="width:8%">{{trans('display.question_score')}}</th>
+        <th style="width:8%">{{trans('display.is_active')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -103,80 +106,7 @@
 
 </section>
 <!-- collapse style -->
-<style>
-  .text-right{
-    float: right;
-  }
-  * {
-    box-sizing: border-box;
-  }
 
-  input[type=text], select, textarea {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-
-  .chosen-single{
-    width: 100%;
-    padding: 12px !important;
-    height: 45px !important;
-  }
-
-  .chosen-choices{
-    width: 100%;
-    padding: 12px !important;
-    height: 45px !important;
-    border-radius: 5px;
-  }
-
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
-
-  input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-  }
-
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-
-  .col-35 {
-    float: left;
-    width: 30%;
-    margin-top: 6px;
-  }
-
-  .col-65 {
-    float: left;
-    width: 65%;
-    margin-top: 6px;
-  }
-
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  /* Responsive layout - when the screen is less than 350px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 350px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-</style>
 <!-- collapse style end -->
 <script>
   var examTable = $('#exam-table').DataTable( {
@@ -215,20 +145,23 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'exam_name', "defaultContent": ''},
-        { data: 'exam_title', "defaultContent": ''},
+        { data: 'name', "defaultContent": ''},
+        { data: 'lower_percent', "defaultContent": ''},
+        { data: 'question_count', "defaultContent": ''},
+        { data: 'question_score', "defaultContent": ''},
+        { data: 'is_active', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,3]
+            targets: [0,6]
         },{
             class: "text-center",
-            targets: [0,3]
+            targets: [0,6]
         },{
-            targets: [0,2],
+            targets: [0,5],
             class: "border-right"
         }
       ],

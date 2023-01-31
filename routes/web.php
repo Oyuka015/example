@@ -29,6 +29,11 @@ Route::get('registration', [App\Http\Controllers\LoginController::class, 'regist
 Route::post('custom-registration', [App\Http\Controllers\LoginController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])->name('signout');
 
+Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
+    Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
+    Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
+});
+
 Route::resource('/admin/information', "App\Http\Controllers\InformationController");
 Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
 
@@ -40,9 +45,6 @@ Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackContr
 
 Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
 Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
-
-Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
-Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
 Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
 Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');

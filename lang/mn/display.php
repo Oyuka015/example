@@ -84,7 +84,9 @@ return [
     'old_password' => 'Хуучин нууц үг',
     'new_password' => 'Шинэ нууц үг',
     'login_information' => 'Нэвтрэх мэдээлэл',
-
-
-
+    'is_active' => 'Хүчинтэй эсэх',
+    'exam_score' => 'Тэнцэх хувь',
+    'select' => 'Сонгох',
+    'lower_score' => 'Тэнцүүлэх үнэлгээ /% хувиар/',
+    'question_score' => 'Асуултуудын оноо',
 ];
