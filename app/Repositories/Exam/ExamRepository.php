@@ -54,7 +54,7 @@ class ExamRepository implements ExamInterface
                     $qry->whereRaw('LOWER(exam_name) like ?', array('%'.mb_strtolower($searchData->get('exam_name')).'%'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($exam) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary exam-edit" style="margin:3px" data-examid="'.@$exam->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger exam-delete" style="margin:3px" data-examid="'.@$exam->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

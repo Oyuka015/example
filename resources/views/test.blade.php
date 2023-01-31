@@ -54,7 +54,7 @@
                     <a href="#" class="info-btn" id="info-btn">{{Auth::user()->firstname}}</a>
                 </div>
             @else
-                <a href="login" class="info-btn" id="info-btn">Нэвтрэх</a>
+                <a style="border:2px outset grey ; padding:10px 20px; border-radius:10pc;" href="login" class="info-btn new_btn" id="info-btn">Нэвтрэх</a>
             @endif
             <div class="bars">
                 <i class="fa-solid fa-bars"></i>

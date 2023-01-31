@@ -102,7 +102,7 @@
                             <input type="password">
                         </div >
                         <div style="display:flex; align-items:center; justify-content:center; margin-top:20px;  ">
-                           <button style="padding:10px 20px;">{{trans('display.reset_password')}}</button>
+                           <button style="padding:10px 20px; ">{{trans('display.reset_password')}}</button>
                         </div >
                     </div>
                 </div>

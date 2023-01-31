@@ -62,8 +62,30 @@
                         <button>{{trans('display.change_image')}}</button>
                     </div>
                 </div>
-                <div class="user-personal-info">
-                    
+                
+                <div class="user-profile-info">  <!-- user-personal-information -->
+                    <div style="font-size:25px; font-weight:700">{{trans('display.personal_info')}}</div>
+                    <div style="display:flex;  gap:30px;  margin-top:10px;">
+                        <div>
+                            <label  for="surname">{{trans('display.surname')}}</label>
+                            <input value="hereglegchiin owog " type="text" name="surname">
+                        </div>
+                        <div>
+                            <label for="lastname">{{trans('display.lastname')}}</label>
+                            <input type="lastname" value="hereglegchiin ner" name="lastname">
+                        </div>
+                    </div>
+                    <div style="display:flex; gap:30px; margin-top:20px;">
+                        <div>
+                            <label for="province">{{trans('display.province')}}</label>
+                            <input type="text" value="aimgiin ner">
+                        </div>
+                        <div>
+                            <label for="register">{{trans('display.register')}}</label>
+                            <input type="text" value="registeriin dugaar">
+                        </div>
+                    </div>
+                    <button style="padding:10px 20px; margin-top:20px; text-align:center;">{{trans('display.save')}}</button>
                 </div>
             </div>
         </div>

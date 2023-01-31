@@ -372,7 +372,7 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/exam/' + typeId,
+                url: '/admin/exam/' + examId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();

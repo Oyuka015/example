@@ -9,6 +9,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <head>
   <meta name="csrf-token" content="{{ csrf_token() }}"> 
+  <style>
+    .dropbtn {
+      background-color: inherit;
+      font-size: 16px;
+      border: none;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      white-space:nowrap;
+    }
+
+.dropdown:hover .dropdown-content {display: block;}
+  </style>
 </head>
 <header>
     <div class="h-container">
@@ -19,19 +48,28 @@
             <a href="/admin/information"  class="link">
                 <i class="fa-solid fa-bell"></i>
                 <div>{{trans("display.information_register")}}</div>
-            </a>
-            <a href="/admin/online"  class="link">
+              </a>
+              <a href="/admin/online"  class="link">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <div>{{trans('display.online_course_register')}}</div>
-            </a>
-            <a href="/admin/exam"  class="link">
-                <i class="fa-solid fa-square-check"></i>
-                <div>{{trans('display.exam')}}</div>
-            </a>
-            <a href="/admin/examtakers"  class="link">
-                <i class="fa-solid fa-square-check"></i>
-                <div>{{trans('display.exam_takers')}}</div>
-            </a>
+              </a>
+              <div class="dropdown">
+                <button class="dropbtn">
+                  <a id="sub" href="/admin/exam"  class="link">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>{{trans('display.exam')}}</div>
+                  </a>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">{{trans('display.exam')}}</a>
+                  <a href="#">{{trans('display.question')}}</a>
+                  <a href="#">{{trans('display.exam_questions')}}</a>
+                </div>
+              </div>
+            <!-- <a id="sub" href="/admin/exam"  class="link">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div>{{trans('display.exam')}}</div>
+            </a> -->
             <a href="/admin/certificate"  class="link">
                 <i class="fa-solid fa-certificate"></i>
                 <div>{{trans('display.certificate_register')}}</div>
@@ -45,10 +83,11 @@
                 <div>{{trans('display.feedback_list')}}</div>
             </a>
             <a href="/admin/systemuser"  class="link">
-                <i class="fa-solid fa-envelope"></i>
-                <div>{{trans('display.system_user')}}</div>
+              <i class="fa-solid fa-envelope"></i>
+              <div>{{trans('display.system_user')}}</div>
             </a>
         </div>
+        
         <div class="bars">
             <i class="fa-solid fa-bars"></i>
         </div>
