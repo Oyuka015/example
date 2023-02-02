@@ -49,15 +49,12 @@ Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackContr
 Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
 Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
 
-<<<<<<< Updated upstream
-=======
 Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
 Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
 Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
 Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
 
->>>>>>> Stashed changes
 Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
 Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
 

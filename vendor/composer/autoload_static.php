@@ -547,10 +547,6 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Models\\Information' => __DIR__ . '/../..' . '/app/Models/Information.php',
         'App\\Models\\Online' => __DIR__ . '/../..' . '/app/Models/Online.php',
         'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
-<<<<<<< Updated upstream
-=======
-        'App\\Models\\Result' => __DIR__ . '/../..' . '/app/Models/Result.php',
->>>>>>> Stashed changes
         'App\\Models\\Systemuser' => __DIR__ . '/../..' . '/app/Models/Systemuser.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
