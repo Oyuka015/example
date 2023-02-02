@@ -38,7 +38,7 @@
     uploadVideo();
     function uploadVideo() {
       var button = $('.video .upload')
-      var uploader = $('<input type="file" accept="video/*" id="video" name="video"/>')
+      var uploader = $('<input type="file" accept="video/mp4" id="video" name="video"/>')
       var video = $('.video')
       
       button.on('click', function () {
