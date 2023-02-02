@@ -1,5 +1,25 @@
 <form method="POST" id="online-add-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   {{ csrf_field() }}
+  <div class="form-group" id="radio_buttons">
+    <label class="form-control">
+      <input type="radio" name="radio" id="old_group" checked/>
+      {{trans('display.select_lesson_group')}}
+    </label>
+    <label class="form-control">
+      <input type="radio" name="radio" id="new_group"/>
+      {{trans('display.add_lesson_group')}}
+    </label>
+  </div>
+  <div class="form-group">
+    <select name="selected_lesson_group" class="base-input" id="selected_lesson_group">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+    <input type="text" id="add_lesson_group" class="base-input" name="add_lesson_group" placeholder="{{trans('display.add_lesson_group')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+  </div>
+  <div class="form-group">
+  </div>
   <div class="form-group">
     <div class="buttons">
         <div class="video">
@@ -36,6 +56,7 @@
 <script>
    $(document).ready(function () {
     uploadVideo();
+    checkRadio();
     function uploadVideo() {
       var button = $('.video .upload')
       var uploader = $('<input type="file" accept="video/mp4" id="video" name="video"/>')
@@ -57,7 +78,20 @@
       video.on('click', '.vid', function () {
         $(this).remove()
       })
-    
+    }
+
+    $("#radio_buttons").on('change', function(){
+      checkRadio();
+    })
+    function checkRadio(){
+      if($("#old_group").is(':checked')){
+        $("#selected_lesson_group").show()
+        $("#add_lesson_group").hide()
+      }
+      else{
+        $("#selected_lesson_group").hide()
+        $("#add_lesson_group").show()
+      }
     }
   });
 </script>

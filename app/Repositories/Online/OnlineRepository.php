@@ -5,6 +5,7 @@ namespace App\Repositories\Online;
 
 use App\Repositories\Online\OnlineInterface as OnlineInterface;
 use App\Models\Online;
+use App\Models\Codelists;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 
@@ -21,6 +22,19 @@ class OnlineRepository implements OnlineInterface
 
     public function create($input, $file)
     {
+        if($input['selected_lesson_group']){
+
+        }
+        else{
+            $codelists = new Codelists;
+
+            $codelists->name = @$input['lesson_name'];
+            $codelists->name_en = @$input['lesson_name_en'];
+            $codelists->description = @$input['lesson_description'];
+        }
+     
+        $codelists->save();
+
         $online = new Online;
 
         $online->lesson_name = @$input['lesson_name'];
@@ -28,13 +42,15 @@ class OnlineRepository implements OnlineInterface
         $online->lesson_posted = @$input['lesson_posted'];
         $online->posted_date = @$input['posted_date'];
         $online->lesson_type = @$input['lesson_type'];
+        $online->lesson_group_id = @$codelists['id'];
 
         if ($file['file0'])
         {
             $path = $file['file0']->store('videos', ['disk' => 'my_files']);
             $online->video = $path;
         }
-        return $online->save();
+        $online->save();
+        return $online;
     }
 
     public function update($id, $input)

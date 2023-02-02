@@ -1210,7 +1210,6 @@ button::-moz-focus-inner {
 .feed textarea {
     border: 1px solid #999;
 }
-<<<<<<< Updated upstream
 .text-right {
     float: right;
 }
@@ -1243,7 +1242,6 @@ textarea {
 .chosen-container {
     width: 100% !important;
 }
-=======
 
 /* medeelel-detailed information section */
 .detail-info{
@@ -1314,4 +1312,3 @@ textarea {
     margin-bottom: 5px;
     text-transform: uppercase;
 }
->>>>>>> Stashed changes
