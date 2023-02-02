@@ -1,11 +1,13 @@
 <form method="POST" id="online-edit-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   <div class="form-group">
-    <label for="image">{{trans('display.image')}}</label>
-    <input type="file" id="image" class="base-input" name="image" placeholder="{{trans('display.image')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
+    <input type="text" value="{{$online->video}}">
+    <video width="320" height="240" controls>
+        <source src="{{$online->video}}" type="video/*">
+    </video>
+ </div>
   <div class="form-group">
     <label for="lesson_name">{{trans('display.lesson_name')}}</label>
-    <input type="text" id="lesson_name" class="base-input" name="lesson_name" placeholder="{{trans('display.lesson_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    <input type="text" id="lesson_name" class="base-input" name="lesson_name" placeholder="{{trans('display.lesson_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}" value="{{$online->lesson_name}}">
   </div>
   <div class="form-group">
     <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>

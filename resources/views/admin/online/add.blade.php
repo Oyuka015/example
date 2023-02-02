@@ -1,7 +1,13 @@
 <form method="POST" id="online-add-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
+  {{ csrf_field() }}
   <div class="form-group">
-    <label for="image">{{trans('display.image')}}</label>
-    <input type="file" id="image" class="base-input" name="image" placeholder="{{trans('display.image')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    <div class="buttons">
+        <div class="video">
+            <div class="upload">
+                {{trans('display.upload_video')}}
+            </div>
+        </div>
+    </div>
   </div>
   <div class="form-group">
     <label for="lesson_name">{{trans('display.lesson_name')}}</label>
@@ -26,3 +32,32 @@
   <input type="submit" class="base-submit" value="Хадгалах">
   @csrf
 </form>
+
+<script>
+   $(document).ready(function () {
+    uploadVideo();
+    function uploadVideo() {
+      var button = $('.video .upload')
+      var uploader = $('<input type="file" accept="video/*" id="video" name="video"/>')
+      var video = $('.video')
+      
+      button.on('click', function () {
+        uploader.click()
+      })
+      
+      uploader.on('change', function () {
+          var reader = new FileReader()
+          reader.onload = function(event) {
+            video.prepend('<div class="vid" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+          }
+          reader.readAsDataURL(uploader[0].files[0]);
+          uploadedVideo.push(uploader[0].files[0]);
+       })
+      
+      video.on('click', '.vid', function () {
+        $(this).remove()
+      })
+    
+    }
+  });
+</script>

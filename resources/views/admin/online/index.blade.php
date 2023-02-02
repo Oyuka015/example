@@ -181,6 +181,7 @@
 </style>
 <!-- collapse style end -->
 <script>
+  var uploadedVideo = [];
   var onlineTable = $('#online-table').DataTable( {
       // searching: false,
       paging: true,
@@ -212,7 +213,7 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'image', "defaultContent": ''},
+        { data: 'video', "defaultContent": ''},
         { data: 'lesson_name', "defaultContent": ''},
         { data: 'lesson_summary', "defaultContent": ''},
         { data: 'lesson_posted', "defaultContent": ''},
@@ -280,29 +281,38 @@
         },
         submitHandler: function(form) {
           var formData = new FormData(form);
+          var i;
+          console.log(uploadedVideo.length);
+          for (i = 0; i < uploadedVideo.length; i++) {
+            console.log(uploadedVideo[i]);
+            formData.append("file"+i, uploadedVideo[i]);
+          }
           $.ajax({
             url: '{!! route('online.store') !!}',
             type: form.method,
-            data: $(form).serialize(),
+            data: formData,
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#online-add-modal').modal('hide');
-                // $("#role-add-modal").trigger('click');
-                // $('#role-add-modal').modal('hide');
-                $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                onlineTable.draw();
+              $('#online-add-modal').modal('hide');
+              // $("#role-add-modal").trigger('click');
+              // $('#role-add-modal').modal('hide');
+              $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
+              onlineTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
                 console.log(textStatus);
                 console.log(error);
             },
-            async: false          
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false         
           }).done(function(data) {
-              //submitButton.prop('disabled', false);
           });
+          
         },
         errorPlacement: function(error, element) {
             error.insertAfter(element);

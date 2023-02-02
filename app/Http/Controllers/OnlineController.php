@@ -12,7 +12,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Exceptions\InvalidOrderException;
-
+use App\Models\Online as OnlineCourse;
 use \DB;
 use Storage;
 use \Validator as Validator;
@@ -50,7 +50,9 @@ class OnlineController extends BaseController
 
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'file0' => 'required|file|mimetypes:video/mp4',
+        ]);
         $validator = Validator::make($request->input(), Online::$rules);
         // process the save
         if ($validator->fails()) 
@@ -67,7 +69,7 @@ class OnlineController extends BaseController
         } 
         else 
         {
-            $app = $this->online->create($request->input());
+            $app = $this->online->create($request->input(), $request->file());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -126,5 +128,25 @@ class OnlineController extends BaseController
         $data['response'] = $response;
 
         return View::make('core.alert.messages', $data);
+    }
+
+
+    public function uploadVideo(Request $request)
+    {
+        $this->validate($request, [
+            'lesson_name' => 'required|string|max:255',
+            'file0' => 'required|file|mimetypes:video/mp4',
+        ]);
+        $video = new OnlineCourse;
+        $video->lesson_name = $request->lesson_name;
+        if ($request->file('file0'))
+        {
+            $path = $request->file('file0')->store('videos', ['disk' => 'my_files']);
+            $video->video = $path;
+            // dd($video, 'sda');
+        }
+        dd($video);
+        $video->save();
+    
     }
 }

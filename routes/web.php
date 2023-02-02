@@ -41,6 +41,7 @@ Route::resource('/admin/information', "App\Http\Controllers\InformationControlle
 Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
 
 Route::resource('/admin/online', "App\Http\Controllers\OnlineController");
+Route::post('/admin/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
 Route::any('/admin/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
 
 Route::resource('/admin/feedback', "App\Http\Controllers\FeedbackController");

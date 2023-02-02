@@ -19,16 +19,21 @@ class OnlineRepository implements OnlineInterface
         return Online::find($id);
     }
 
-    public function create($input)
+    public function create($input, $file)
     {
         $online = new Online;
-        $online->image = @$input['image'];
+
         $online->lesson_name = @$input['lesson_name'];
         $online->lesson_summary = @$input['lesson_summary'];
         $online->lesson_posted = @$input['lesson_posted'];
         $online->posted_date = @$input['posted_date'];
         $online->lesson_type = @$input['lesson_type'];
 
+        if ($file['file0'])
+        {
+            $path = $file['file0']->store('videos', ['disk' => 'my_files']);
+            $online->video = $path;
+        }
         return $online->save();
     }
 
@@ -36,7 +41,6 @@ class OnlineRepository implements OnlineInterface
     {
         $online = Online::find($id);
 
-        $online->image = @$input['image'];
         $online->lesson_name = @$input['lesson_name'];
         $online->lesson_summary = @$input['lesson_summary'];
         $online->lesson_posted = @$input['lesson_posted'];
