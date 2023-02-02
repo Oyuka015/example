@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
-use App\Models\Feedback;
+use App\Models\Result;
 
-use App\Repositories\Feedback\FeedbackInterface;
+use App\Repositories\Result\ResultInterface;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -18,15 +18,15 @@ use Storage;
 use \Validator as Validator;
 use \View as View;
 
-class FeedbackController extends BaseController
+class ResultController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $view_path;
 
-    public function __construct(FeedbackInterface $feedback) {
-        $this->feedback = $feedback;
-        $this->view_path = 'admin.feedback';
+    public function __construct(ResultInterface $result) {
+        $this->result = $result;
+        $this->view_path = 'admin.result';
     }
 
     public function index(Request $request)
@@ -41,17 +41,17 @@ class FeedbackController extends BaseController
 
     public function edit($id)
     {
-        $feedback = $this->feedback->find($id);
+        $result = $this->result->find($id);
 
-        $data['feedback'] = $feedback;
+        $data['result'] = $result;
 
         return View::make($this->view_path.'.edit', $data);
     }
 
     public function store(Request $request)
     {
-        // dd($request->input());
-        $validator = Validator::make($request->input(), Feedback::$rules);
+        
+        $validator = Validator::make($request->input(), Result::$rules);
         // process the save
         if ($validator->fails()) 
         {
@@ -67,7 +67,7 @@ class FeedbackController extends BaseController
         } 
         else 
         {
-            $app = $this->feedback->create($request->input());
+            $app = $this->result->create($request->input());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -82,7 +82,7 @@ class FeedbackController extends BaseController
     public function update($id, Request $request)
     {
         
-        $validator = Validator::make($request->input(), Feedback::$rules);
+        $validator = Validator::make($request->input(), Result::$rules);
         // process the save
         if ($validator->fails()) 
         {
@@ -98,7 +98,7 @@ class FeedbackController extends BaseController
         } 
         else 
         {
-            $app = $this->feedback->update($id, $request->input());
+            $app = $this->result->update($id, $request->input());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -112,12 +112,12 @@ class FeedbackController extends BaseController
 
     public function dataTableList(Request $request)
     {
-        return $this->feedback->getDatatableList($request);
+        return $this->result->getDatatableList($request);
     }
 
     public function destroy($id)
     {
-        $app = $this->feedback->delete($id);
+        $app = $this->result->delete($id);
         $response = array(
             'status' => 'success',
             'msg' => trans('messages.success_delete'),
@@ -126,10 +126,5 @@ class FeedbackController extends BaseController
         $data['response'] = $response;
 
         return View::make('core.alert.messages', $data);
-    }
-
-    public function createFeedback(Request $request){
-        $input = $request->input();
-        dd($input);
     }
 }

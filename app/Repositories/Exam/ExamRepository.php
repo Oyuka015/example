@@ -21,7 +21,10 @@ class ExamRepository implements ExamInterface
         $exam = new Exam;
         $exam->name = @$input['name'];
         $exam->lower_percent = @$input['lower_percent'];
+<<<<<<< Updated upstream
         $exam->is_active = @$input['is_active'] ? true : false;
+=======
+>>>>>>> Stashed changes
 
         $exam->save();
 
@@ -34,8 +37,8 @@ class ExamRepository implements ExamInterface
     {
         $exam = Exam::find($id);
 
-        $exam->exam_name = @$input['exam_name'];
-        $exam->exam_file = @$input['exam_file'];
+        $exam->name = @$input['name'];
+        $exam->lower_percent = @$input['lower_percent'];
 
         return $exam->save();
     }
@@ -55,9 +58,9 @@ class ExamRepository implements ExamInterface
         $data = Datatables::make($qry) 
             ->filter(function ($qry) use ($searchData) {
 
-                if($searchData->has('exam_name') && $searchData->get('exam_name') !== null)
+                if($searchData->has('name') && $searchData->get('name') !== null)
                 {
-                    $qry->whereRaw('LOWER(exam_name) like ?', array('%'.mb_strtolower($searchData->get('exam_name')).'%'));
+                    $qry->whereRaw('LOWER(name) like ?', array('%'.mb_strtolower($searchData->get('name')).'%'));
                 }
             })
             ->editColumn('is_active', function ($exam) {

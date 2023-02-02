@@ -72,10 +72,10 @@
         
         <div class="dropdown">
             <button class="dropbtn">
-                <a href="user_profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+                <a href="user/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
             </button>
             <div class="dropdown-content">
-                <a href="#">{{trans('display.profile')}}</a>
+                <a href="user/profile">{{trans('display.profile')}}</a>
                 <a href="#">{{trans('display.log_out')}}</a>
             </div>
         </div>

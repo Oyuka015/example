@@ -18,8 +18,10 @@ class FeedbackRepository implements FeedbackInterface
     public function create($input)
     {
         $feedback = new Feedback;
-        $feedback->user_name = @$input['user_name'];
+        $feedback->user_name = @$input['name'];
         $feedback->feedback = @$input['feedback'];
+        $feedback->phone_number = @$input['phone'];
+        $feedback->email = @$input['mail'];
 
         return $feedback->save();
     }

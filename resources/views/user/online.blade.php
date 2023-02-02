@@ -45,16 +45,14 @@
         </div>
     </div>
     <div class="user-profile-main">
-        <div class="profile-information-section">
+        <div class="profile-information-section" style="min-height:80vh">
             <div class="information-select">
                 <ul>
-                    <li class="user_profile"><a href="profile" >Нэвтрэх мэдээлэл</a></li>
-                    <li  class="user_info"><a href="info">Хэрэглэгчийн мэдээлэл</a></li>
-                    <li class="user_certificate"><a href="certificate" >{{trans('display.certificate')}}</a></li>
+                    <li class="user_profile"><a href="profile" >{{trans('display.chosen_lessons')}}</a></li>
                 </ul>
             </div>
-            <div class="information-body">
-                
+            <div class="chosen_lesson_section" style="margin-top:25px;">
+
             </div>
         </div>
     </div>

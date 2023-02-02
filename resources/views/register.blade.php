@@ -156,179 +156,180 @@
         border-radius: 50%;
     }
 </style>
-<div class="register-form">
-    <div class="system-login-information">
-        <div class="register-information-title">Системд нэвтрэх мэдээлэл</div>
-        <label for="user_name">
-            {{trans('display.login_name')}}
-            <input type="text" name="user_name" >
-        </label>
-        <label for="password">
-            {{trans('display.password')}}
-            <input type="password" name="password">
-        </label>
-        <div style="display:flex; gap:5px; ">
-            <label for="">{{trans('display.active_status')}}</label>
-            <label style="margin-top:4px;" class="switch" name="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>  
-        </div>
-        <div style="display:flex; gap:5px; align-items:center;">
-            <label for="image">{{trans('display.image')}}</label>
-            <input type="file" name="image">
-        </div>
-        
-    </div>
-    <div class="general-information">
-        <div class="register-information-title">Ерөнхий мэдээлэл</div>
-        <label for="citizenship">
-            {{trans('display.citizenship')}}
-            <input type="text" name="citizenship">
-        </label>
-        <label for="family_name">
-            {{trans('display.family_name')}}
-            <input type="text" name="family_name">
-        </label>
-        
-        <label for="surname">
-            {{trans('display.surname')}}
-            <input type="text" name="surname">
-        </label>
-        
-        <label for="lastname">
-            {{trans('display.lastname')}}
-            <input type="text" name="lastname">
-        </label>
-        
-        <label for="register">
-            {{trans('display.register')}}
-            <input type="text" name="register">
-        </label>
-        <label for="age">
-            {{trans('display.age')}}
-            <input type="number" name="age">
-        </label>
 
-        <label for="work">
-            {{trans('display.gender')}}
-            <select name="gender" id="gender">
-                <option value="male">{{trans('display.male')}}</option>
-                <option value="female">{{trans('display.female')}}</option>
-            </select>
-        </label> 
-        
-        <label for="work">
-            Хөдөлмөр эрхлэлт
-            <select name="work" id="work">
-                <option value="yes">Тийм</option>
-                <option value="no">Үгүй</option>
-            </select>
-        </label>    
+<form class="register-form" id="register-form">
+  <div class="system-login-information">
+      <div class="register-information-title">Системд нэвтрэх мэдээлэл</div>
+      <label for="user_name">
+          {{trans('display.login_name')}}
+          <input type="text" name="user_name" >
+      </label>
+      <label for="password">
+          {{trans('display.password')}}
+          <input type="password" name="password">
+      </label>
+      <div style="display:flex; gap:5px; ">
+          <label for="">{{trans('display.active_status')}}</label>
+          <label style="margin-top:4px;" class="switch" name="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+          </label>  
+      </div>
+      <div style="display:flex; gap:5px; align-items:center;">
+          <label for="image">{{trans('display.image')}}</label>
+          <input type="file" name="image">
+      </div>
+      
+  </div>
+  <div class="general-information">
+      <div class="register-information-title">Ерөнхий мэдээлэл</div>
+      <label for="citizenship">
+          {{trans('display.citizenship')}}
+          <input type="text" name="citizenship">
+      </label>
+      <label for="family_name">
+          {{trans('display.family_name')}}
+          <input type="text" name="family_name">
+      </label>
+      
+      <label for="surname">
+          {{trans('display.surname')}}
+          <input type="text" name="surname">
+      </label>
+      
+      <label for="lastname">
+          {{trans('display.lastname')}}
+          <input type="text" name="lastname">
+      </label>
+      
+      <label for="register">
+          {{trans('display.register')}}
+          <input type="text" name="register">
+      </label>
+      <label for="age">
+          {{trans('display.age')}}
+          <input type="number" name="age">
+      </label>
 
-        <label for="email">
-            {{trans('display.email')}}
-            <input type="email" name="email">
-        </label>
-        <label for="phone">
-            {{trans('display.phone')}}
-            <input type="number" name="phone">
-        </label>
-        <label for="in-case-name">
-            Онцгой тохиолдолд холбоо барих хүний нэр
-            <input type="text" name="in-case-name">
-        </label>
-        <label for="in-case-number">
-            Онцгой тохиолдолд холбоо барих хүний утас
-            <input type="number" name="in-case-number">
-        </label>
-        
-        
-        <label for="province-capital">
-            Аймаг/нийслэл
-            <select name="province-capital" id="province-capital" >
-                <option value="">ha</option>
-                <option value="">hshdjahdk</option>
-                <option value="">hdjsa;jka</option>
-            </select>
-        </label>
-        
+      <label for="work">
+          {{trans('display.gender')}}
+          <select name="gender" id="gender">
+              <option value="male">{{trans('display.male')}}</option>
+              <option value="female">{{trans('display.female')}}</option>
+          </select>
+      </label> 
+      
+      <label for="work">
+          Хөдөлмөр эрхлэлт
+          <select name="work" id="work">
+              <option value="yes">Тийм</option>
+              <option value="no">Үгүй</option>
+          </select>
+      </label>    
 
-        <label for="district">
-            Сум/дүүрэг
-            <select name="district" id="district">
-                <option value="">hjkdhsl</option>
-                <option value="">hjkdhsl</option>
-                <option value="">hjkdhsl</option>
-                <option value="">hjkdhsl</option>
-            </select>
-        </label>
-        
-        <label for="education-degree">
-            Боловсролын зэрэг
-            <select name="education-degree" id="education-degree">
-                <option value="">bachelor</option>
-                <option value="">bachelor</option>
-                <option value="">bachelor</option>
-                <option value="">bachelor</option>
-            </select>
-        </label>
-        
-        <label for="home_address">
-            {{trans('display.home_address')}}
-            <textarea name="home_address" id="home_address" cols="10" rows="5"></textarea>
-        </label>
-    </div>
-    <div class="education-information">
-        <div class="register-information-title">Боловсролын мэдээлэл</div>
-        <div id="table" class="education-information-table">
-            <div class="education-table-add" id="education-table-add">+</div>
-            <table class="table">
-            <tr>
-                <th>Сургуулийн нэр</th>
-                <th>Төгссөн он</th>
-                <th>Төгссөн мэргэжил</th>
-                <th>Голч дүн</th>
-                <th>Дипломын дугаар</th>
-                <th>Дипломын бүртгэлийн дугаар</th>
-                <th>Дипломын нүүр</th>
-                <th>Дипломын хавсралт</th>
-                <th>{{trans('display.delete')}}</th>
-            </tr>
-            <tr>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td>
-                    <span class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-                </td>
-            </tr>
-            <!-- This is our clonable table line -->
-            <tr class="hide">
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td>
-                    <span class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-                </td>
-            </tr>
-            </table>
-        </div>
-    </div>
-    <div class="register-form-submit">
-        <button>Төлбөр төлөх</button>
-    </div>
-</div>
+      <label for="email">
+          {{trans('display.email')}}
+          <input type="email" name="email">
+      </label>
+      <label for="phone">
+          {{trans('display.phone')}}
+          <input type="number" name="phone">
+      </label>
+      <label for="in-case-name">
+          Онцгой тохиолдолд холбоо барих хүний нэр
+          <input type="text" name="in-case-name">
+      </label>
+      <label for="in-case-number">
+          Онцгой тохиолдолд холбоо барих хүний утас
+          <input type="number" name="in-case-number">
+      </label>
+      
+      
+      <label for="province-capital">
+          Аймаг/нийслэл
+          <select name="province-capital" id="province-capital" >
+              <option value="">ha</option>
+              <option value="">hshdjahdk</option>
+              <option value="">hdjsa;jka</option>
+          </select>
+      </label>
+      
+
+      <label for="district">
+          Сум/дүүрэг
+          <select name="district" id="district">
+              <option value="">hjkdhsl</option>
+              <option value="">hjkdhsl</option>
+              <option value="">hjkdhsl</option>
+              <option value="">hjkdhsl</option>
+          </select>
+      </label>
+      
+      <label for="education-degree">
+          Боловсролын зэрэг
+          <select name="education-degree" id="education-degree">
+              <option value="">bachelor</option>
+              <option value="">bachelor</option>
+              <option value="">bachelor</option>
+              <option value="">bachelor</option>
+          </select>
+      </label>
+      
+      <label for="home_address">
+          {{trans('display.home_address')}}
+          <textarea name="home_address" id="home_address" cols="10" rows="5"></textarea>
+      </label>
+  </div>
+  <div class="education-information">
+      <div class="register-information-title">Боловсролын мэдээлэл</div>
+      <div id="table" class="education-information-table">
+          <div class="education-table-add" id="education-table-add">+</div>
+          <table class="table">
+          <tr>
+              <th>Сургуулийн нэр</th>
+              <th>Төгссөн он</th>
+              <th>Төгссөн мэргэжил</th>
+              <th>Голч дүн</th>
+              <th>Дипломын дугаар</th>
+              <th>Дипломын бүртгэлийн дугаар</th>
+              <th>Дипломын нүүр</th>
+              <th>Дипломын хавсралт</th>
+              <th>{{trans('display.delete')}}</th>
+          </tr>
+          <tr>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td>
+                  <span class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
+              </td>
+          </tr>
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td>
+                  <span class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
+              </td>
+          </tr>
+          </table>
+      </div>
+  </div>
+  <div type="submit" id="register-form-submit" class="register-form-submit">
+      <button>Төлбөр төлөх</button>
+  </div>
+</form>
 
 <!-- education table script-->
 <script>
@@ -610,4 +611,43 @@
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+</script>
+
+<script>
+  $("#register-form-submit").on('click', function(){
+      $('#register-form').validate({
+        ignore: [],
+        highlight:function(element) {
+            $(element).parents('.form-group').addClass('has-error has-feedback');
+        },
+        unhighlight: function(element) {
+            $(element).parents('.form-group').removeClass('has-error');
+        },
+        submitHandler: function(form) {
+          var formData = new FormData(form);
+          $.ajax({
+            url: '{!! route('systemuser.store') !!}',
+            type: form.method,
+            data: $(form).serialize(),
+            beforeSend: function() {
+                //$('#preloader').show();
+            },
+            success: function(response) {
+                $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            },
+            async: false          
+        }).done(function(data) {
+            //submitButton.prop('disabled', false);
+        });
+        },
+        errorPlacement: function(error, element) {
+            error.insertAfter(element);
+        }
+      });
+    });
 </script>

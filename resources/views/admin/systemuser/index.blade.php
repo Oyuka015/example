@@ -56,11 +56,16 @@
       <tr>
         <th style="width:30px">№</th>
         <th style="width:50%">{{trans('display.user_name')}}</th>
-        <th style="width:50%">{{trans('display.province')}}</th>
+        <th style="width:50%">{{trans('display.citizenship')}}</th>
         <th style="width:50%">{{trans('display.surname')}}</th>
         <th style="width:50%">{{trans('display.lastname')}}</th>
+        <th style="width:50%">{{trans('display.age')}}</th>
+        <th style="width:50%">{{trans('display.gender')}}</th>
         <th style="width:50%">{{trans('display.email')}}</th>
         <th style="width:50%">{{trans('display.phone')}}</th>
+        <th style="width:50%">{{trans('display.special_person')}}</th>
+        <th style="width:50%">{{trans('display.special_phone')}}</th>
+        <th style="width:50%">{{trans('display.province')}}</th>
         <th style="width:50%">{{trans('display.active_status')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>

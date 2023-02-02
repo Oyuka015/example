@@ -22,10 +22,13 @@
             <p class="title">Гэрчилгээ баталгаажуулалт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
             <input type="search" placeholder="Гэрчилгээний дугаар оруулна уу?">
-            <button>Хайлт хийх</button>
+            <button id="certi-search-form">Хайлт хийх</button>
         </div>
     </div>
 </div>
+<div class="result-show">
+</div>
+
 @endsection
  
 @push('js')

@@ -10,7 +10,7 @@
     <div class="user-profile-sidebar">
         <div class="user-profile">
             <div class="user-profile-img">
-                <img src="images/default-avatar.png" alt="">
+                <img src="/images/default-avatar.png" alt="">
             </div>
             <div class="user-profile-name">
                 {{trans('display.user_name')}}
@@ -19,28 +19,28 @@
         <div class="user-profile-other">
             <ul>
                 <li>
-                    <a href="/">
-                        <i class="fa-solid fa-house"></i>
-                        <div>{{trans('display.home')}}</div>
+                    <a href="profile">
+                        <i class="fa-solid fa-user"></i>
+                        <div>{{trans('display.profile')}}</div>
                     </a>
                 </li>
                 <li>
                     <a href="online">
                         <i class="fa-solid fa-book-open"></i>
-                        <div>{{trans('display.lessons')}}</div>
+                        <div>{{trans('display.chosen_lessons')}}</div>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="result">
+                        <i class="fa-solid fa-house"></i>
+                        <div>{{trans('display.exam_result')}}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
                         <i class="fa-solid fa-house"></i>
                         <div>{{trans('display.home')}}</div>
                     </a>
-                </li>
-                <li>
-                   <a href="user_profile">
-                        <i class="fa-solid fa-gear"></i>
-                        <div>{{trans('display.settings')}}</div>
-                   </a>
                 </li>
             </ul>
         </div>
@@ -49,15 +49,15 @@
         <div class="profile-information-section">
             <div class="information-select">
                 <ul>
-                    <li class="user_profile"><a href="user_profile" >Нэвтрэх мэдээлэл</a></li>
-                    <li class="user_info"><a href="user_info" >Хэрэглэгчийн мэдээлэл</a></li>
-                    <li class="user_certificate"><a href="user_certificate" >{{trans('display.certificate')}}</a></li>
+                    <li class="user_profile"><a href="profile" >Нэвтрэх мэдээлэл</a></li>
+                    <li class="user_info"><a href="info" >Хэрэглэгчийн мэдээлэл</a></li>
+                    <li class="user_certificate"><a href="certificate" >{{trans('display.certificate')}}</a></li>
                 </ul>
             </div>
             <div class="information-body">
                 <div class="user-profile-image">
                     <div class="user-img-section">
-                        <img src="images/default-avatar.png" alt="profile-img">
+                        <img src="/images/default-avatar.png" alt="">
                     </div>
                     <div class="user-img-change">
                         <button>{{trans('display.change_image')}}</button>

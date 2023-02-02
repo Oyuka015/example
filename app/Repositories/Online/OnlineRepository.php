@@ -10,6 +10,10 @@ use Yajra\DataTables\Html\Builder;
 
 class OnlineRepository implements OnlineInterface
 {
+    public function all()
+    {
+        return Online::all();
+    }
     public function find($id)
     {
         return Online::find($id);

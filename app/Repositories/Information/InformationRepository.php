@@ -10,6 +10,10 @@ use Yajra\DataTables\Html\Builder;
 
 class InformationRepository implements InformationInterface
 {
+    public function all()
+    {
+        return Information::all();
+    }
     public function find($id)
     {
         return Information::find($id);

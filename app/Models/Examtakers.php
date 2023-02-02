@@ -11,19 +11,14 @@ use Eloquent;
 
 class Examtakers extends Eloquent
 {
-    protected $table = 'examtakers';
+    protected $table = 'exam_student';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     
     public static $rules = array(
-        'user_name' => 'required',
-        'family_name' => 'required',
-        'surname' => 'required',
-        'lastname' => 'required',
-        'register' => 'required',
-        'email' => 'required',
-        'phone' => 'required',
-        'citizenship' => 'required',
-        'active_status' => 'required',
+        'user_id' => 'required',
+        'exam_id' => 'required',
+        'score' => 'required',
+        'exam_date' => 'required',
     );
 }

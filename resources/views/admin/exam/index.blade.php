@@ -3,7 +3,7 @@
 @section('content')
 <section class="admin_register_section">
   
-  <h1 class="admin_register_title">{{trans('display.exam')}}1. shalgaltiin san,  2. sahlgaltuud</h1>
+  <h1 class="admin_register_title">{{trans('display.exam')}}</h1>
   
   <div class="form-sub-heading">
 
@@ -27,7 +27,7 @@
           <div class="row">
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="exam_name" name="exam_name" placeholder="{{trans('display.exam_name')}}">
+                <input type="text" id="name" name="name" placeholder="{{trans('display.name')}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -53,11 +53,16 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
+<<<<<<< Updated upstream
         <th style="width:50%">{{trans('display.exam_name')}}</th>
         <th style="width:20%">{{trans('display.exam_score')}}</th>
         <th style="width:8%">{{trans('display.question')}}</th>
         <th style="width:8%">{{trans('display.question_score')}}</th>
         <th style="width:8%">{{trans('display.is_active')}}</th>
+=======
+        <th style="width:50%">{{trans('display.name')}}</th>
+        <th style="width:50%">{{trans('display.lower_percent')}}</th>
+>>>>>>> Stashed changes
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -135,7 +140,7 @@
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
               d.date = dateArr;
-              d.exam_name = $('#exam-search-form input[id="exam_name"]').val();
+              d.name = $('#exam-search-form input[id="name"]').val();
           }
       },
       columns: [
@@ -147,9 +152,12 @@
         },
         { data: 'name', "defaultContent": ''},
         { data: 'lower_percent', "defaultContent": ''},
+<<<<<<< Updated upstream
         { data: 'question_count', "defaultContent": ''},
         { data: 'question_score', "defaultContent": ''},
         { data: 'is_active', "defaultContent": ''},
+=======
+>>>>>>> Stashed changes
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [

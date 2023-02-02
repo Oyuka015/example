@@ -71,7 +71,7 @@
         }
         .btn-part{
             display:flex;
-            gap:20px;
+            justify-content:center;
         }
         .login-btn{
             width:200px;
@@ -90,6 +90,12 @@
             align-items:center;
             font-size: 18px;
         }
+        .register-section{
+            margin-top: 30px;
+            display:flex;
+            justify-content:center;
+            gap:5px;
+        }
 
     </style>
 </head>
@@ -97,7 +103,7 @@
     <div class="login">
         <form method="POST" action="{{ route('login.custom') }}">
             <div class="login-con">
-                <div class="title">Нэвтрэх</div>
+                <div style="text-align:center;" class="title">Нэвтрэх</div>
                 <div class="login-username">
                     <div class="ico"><i class="fa-solid fa-user"></i></div>
                     <input type="text" name="username" placeholder="Хэрэглэгчийн нэр">
@@ -122,11 +128,11 @@
                     @endif
                     <div class="btn-part">
                         <div class="login-btn">
-                            <button type="submit" style="width: 100%;height: 100%;background-color: aqua;border: none;border-radius: 15px;">Нэвтрэх</button>
+                            <button  type="submit" style="width: 100%;height: 100%;background-color: aqua;border: none;border-radius: 15px;">Нэвтрэх</button>
                         </div>
-                        <div class="login-btn">
-                            <a href="register">Бүртгүүлэх</a>
-                        </div>
+                    </div>
+                    <div class="register-section">
+                        burtgelgui bol <a href="register"> burtguuleh</a>
                     </div>
                 </div>
             </div>

@@ -88,44 +88,27 @@
             <div class="t-circle"></div>
         </div>
         <div class="news-cart">
-            <div class="cart"> <!-- cart-->
-                <div class="news-cart-img">
-                    <img src="{{ URl('images/1.jpg') }}" alt="">
-                </div>
-                <div class="news-cart-content">
-                    <div class="news-cart-content-text">
-                        <h1>Газрын цахим биржийн танилцуулга</h1>
+            @foreach($informations as $information)
+                <div class="cart"> <!-- cart-->
+                    <div class="news-cart-img">
+                    <img src="{{$information->image ? $information->image->file_url : '/images/2.jpg'}}" alt="">
                     </div>
-                    <div class="news-cart-content-info">
-                        <div class="news-cart-content-info-icon">
-                            <i class="fa-solid fa-eye"></i>
-                            <p>0</p>
+                    <div class="news-cart-content">
+                        <div class="news-cart-content-text">
+                            <h1>{{$information->title}}</h1>
                         </div>
-                        <div class="news-cart-content-info-date ">
-                            <p>2022-12-12</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="cart"> <!-- cart-->
-                <div class="news-cart-img">
-                    <img src="{{ URl('images/1.jpg') }}" alt="">
-                </div>
-                <div class="news-cart-content">
-                    <div class="news-cart-content-text">
-                        <h1>Газрын цахим биржийн танилцуулга</h1>
-                    </div>
-                    <div class="news-cart-content-info flex justify-between">
-                        <div class="news-cart-content-info-icon">
-                            <i class="fa-solid fa-eye"></i>
-                            <p>0</p>
-                        </div>
-                        <div class="news-cart-content-info-date">
-                            <p>2022-12-12</p>
+                        <div class="news-cart-content-info">
+                            <div class="news-cart-content-info-icon">
+                                <i class="fa-solid fa-eye"></i>
+                                <p>0</p>
+                            </div>
+                            <div class="news-cart-content-info-date ">
+                                <p>2022-12-12</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
@@ -147,7 +130,7 @@
                     <p>Газрын кадастрын мэдээллийн сангийн танилцуулга</p>
                     <p>Лэнд менежер программ хангамж</p>
                     <p>2019-10-31</p>
-                    <button class="b-button">Үзэх</button>
+                    <button class="b-button"><a href="course">Үзэх</a></button>
             </div>
             <div class="b-img">
                 <img src="{{ URL('images/3.jpg') }}" alt="">
@@ -161,7 +144,7 @@
                 <p>Уул уурхайн газрын төлбөр бодох</p>
                 <p>Газрын кадастрын мэдээллийн сангийн "Ланд менежер" програм хангамжид Уул уурхайн газрын төлбөр бодох</p>
                 <p>2020-05-21</p>
-                <button class="b-button">Үзэх</button>
+                <button class="b-button"><a href="course">Үзэх</a></button>
             </div>
         </div>
         <div class="box">
@@ -169,7 +152,7 @@
                 <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
                 <p>Газрын кадастрын мэдээллийн санд нэвтрэх</p>
                 <p>2019-10-31</p>
-                <button class="b-button">Үзэх</button>
+                <button class="b-button"><a href="course">Үзэх</a></button>
             </div>
             <div class="b-img">
                 <img src="{{ URL('images/2.jpg') }}" alt="">

@@ -36,7 +36,7 @@
       white-space:nowrap;
     }
 
-.dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropdown-content {display: block;}
   </style>
 </head>
 <header>
@@ -61,9 +61,10 @@
                   </a>
                 </button>
                 <div class="dropdown-content">
-                  <a href="#">{{trans('display.exam')}}</a>
-                  <a href="#">{{trans('display.question')}}</a>
-                  <a href="#">{{trans('display.exam_questions')}}</a>
+                  <a href="/admin/exam">{{trans('display.exam')}}</a>
+                  <a href="/admin/question">{{trans('display.question')}}</a>
+                  <a href="/admin/examtakers">{{trans('display.exam_takers')}}</a>
+                  <a href="/admin/result">{{trans('display.exam_result')}}</a>
                 </div>
               </div>
             <!-- <a id="sub" href="/admin/exam"  class="link">

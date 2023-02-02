@@ -525,6 +525,8 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Http\\Controllers\\InformationController' => __DIR__ . '/../..' . '/app/Http/Controllers/InformationController.php',
         'App\\Http\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginController.php',
         'App\\Http\\Controllers\\OnlineController' => __DIR__ . '/../..' . '/app/Http/Controllers/OnlineController.php',
+        'App\\Http\\Controllers\\QuestionController' => __DIR__ . '/../..' . '/app/Http/Controllers/QuestionController.php',
+        'App\\Http\\Controllers\\ResultController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResultController.php',
         'App\\Http\\Controllers\\SystemuserController' => __DIR__ . '/../..' . '/app/Http/Controllers/SystemuserController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -545,6 +547,10 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Models\\Information' => __DIR__ . '/../..' . '/app/Models/Information.php',
         'App\\Models\\Online' => __DIR__ . '/../..' . '/app/Models/Online.php',
         'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
+<<<<<<< Updated upstream
+=======
+        'App\\Models\\Result' => __DIR__ . '/../..' . '/app/Models/Result.php',
+>>>>>>> Stashed changes
         'App\\Models\\Systemuser' => __DIR__ . '/../..' . '/app/Models/Systemuser.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -566,6 +572,10 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Repositories\\Information\\InformationRepository' => __DIR__ . '/../..' . '/app/Repositories/Information/InformationRepository.php',
         'App\\Repositories\\Online\\OnlineInterface' => __DIR__ . '/../..' . '/app/Repositories/Online/OnlineInterface.php',
         'App\\Repositories\\Online\\OnlineRepository' => __DIR__ . '/../..' . '/app/Repositories/Online/OnlineRepository.php',
+        'App\\Repositories\\Question\\QuestionInterface' => __DIR__ . '/../..' . '/app/Repositories/Question/QuestionInterface.php',
+        'App\\Repositories\\Question\\QuestionRepository' => __DIR__ . '/../..' . '/app/Repositories/Question/QuestionRepository.php',
+        'App\\Repositories\\Result\\ResultInterface' => __DIR__ . '/../..' . '/app/Repositories/Result/ResultInterface.php',
+        'App\\Repositories\\Result\\ResultRepository' => __DIR__ . '/../..' . '/app/Repositories/Result/ResultRepository.php',
         'App\\Repositories\\Systemuser\\SystemuserInterface' => __DIR__ . '/../..' . '/app/Repositories/Systemuser/SystemuserInterface.php',
         'App\\Repositories\\Systemuser\\SystemuserRepository' => __DIR__ . '/../..' . '/app/Repositories/Systemuser/SystemuserRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

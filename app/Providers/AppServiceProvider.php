@@ -20,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Repositories\Feedback\FeedbackInterface', 'App\Repositories\Feedback\FeedbackRepository');
         $this->app->bind('App\Repositories\Faq\FaqInterface', 'App\Repositories\Faq\FaqRepository');
         $this->app->bind('App\Repositories\Exam\ExamInterface', 'App\Repositories\Exam\ExamRepository');
+        $this->app->bind('App\Repositories\Result\ResultInterface', 'App\Repositories\Result\ResultRepository');
+        $this->app->bind('App\Repositories\Question\QuestionInterface', 'App\Repositories\Question\QuestionRepository');
         $this->app->bind('App\Repositories\Certificate\CertificateInterface', 'App\Repositories\Certificate\CertificateRepository');
         $this->app->bind('App\Repositories\Examtakers\ExamtakersInterface', 'App\Repositories\Examtakers\ExamtakersRepository');
         $this->app->bind('App\Repositories\Systemuser\SystemuserInterface', 'App\Repositories\Systemuser\SystemuserRepository');

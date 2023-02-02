@@ -2,7 +2,7 @@
  
 @section('content')
 <section class="admin_register_section">
-  <h1 class="admin_register_title">{{trans('display.exam_takers')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.exam_result')}}</h1>
   <div class="form-sub-heading">
 
   </div>
@@ -21,7 +21,7 @@
     </label>
     <div class="collapse search-collapse" id="collapseExample">
       <div class="card card-body">
-        <form method="POST" id="examtakers-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
+        <form method="POST" id="result-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-4">
               <div style="padding:5px">
@@ -45,14 +45,15 @@
   <!-- collapse end -->
   
 
-  <table cellpadding="0" cellspacing="0" border="0" id="examtakers-table">
+  <table cellpadding="0" cellspacing="0" border="0" id="result-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:50%">{{trans('display.user_id')}}</th>
-        <th style="width:50%">{{trans('display.exam_id')}}</th>
-        <th style="width:50%">{{trans('display.score')}}</th>
-        <th style="width:50%">{{trans('display.exam_date')}}</th>
+        <th style="width:20%">{{trans('display.user_id')}}</th>
+        <th style="width:20%">{{trans('display.exam_id')}}</th>
+        <th style="width:20%">{{trans('display.question_id')}}</th>
+        <th style="width:20%">{{trans('display.answer')}}</th>
+        <th style="width:20%">{{trans('display.score')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -66,7 +67,7 @@
 
 <!-- collapse style end -->
 <script>
-  var examtakersTable = $('#examtakers-table').DataTable( {
+  var resultTable = $('#result-table').DataTable( {
       // searching: false,
       paging: true,
       lengthChange: false,
@@ -81,7 +82,7 @@
       dataType: 'json',
       paginationType: "full_numbers",
       ajax: {
-          url: '{!! route('examtakers.datalist') !!}',
+          url: '{!! route('result.datalist') !!}',
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
@@ -93,7 +94,7 @@
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
               d.date = dateArr;
               // d.question = $('#examtakers-search-form input[id="question"]').val();
-              d.user_id = $('#examtakers-search-form input[id="user_id"]').val();
+              d.user_id = $('#result-search-form input[id="user_id"]').val();
           }
       },
       columns: [
@@ -107,20 +108,21 @@
         // { data: 'answer', "defaultContent": ''},
         { data: 'user_id', "defaultContent": ''},
         { data: 'exam_id', "defaultContent": ''},
+        { data: 'question_id', "defaultContent": ''},
+        { data: 'answer', "defaultContent": ''},
         { data: 'score', "defaultContent": ''},
-        { data: 'exam_date', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,5]
+            targets: [0,6]
         },{
             class: "text-center",
-            targets: [0,5]
+            targets: [0,6]
         },{
-            targets: [0,4],
+            targets: [0,5],
             class: "border-right"
         }
       ],
@@ -158,8 +160,8 @@
         }
   }); 
   //delete role
-  $('#examtakers-table tbody').on( 'click', 'tr td a.examtakers-delete', function () {
-    var examtakersId = $(this).data('examtakersid');
+  $('#result-table tbody').on( 'click', 'tr td a.result-delete', function () {
+    var resultId = $(this).data('resultid');
 
     $.confirm({
       title: '{{trans('messages.warning_title')}}',
@@ -175,11 +177,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/examtakers/' + examtakersId,
+                url: '/admin/result/' + resultId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  examtakersTable.draw();
+                  resultTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -200,8 +202,8 @@
     });
   });
 
-  $('#examtakers-search-form').on('submit', function(e) {
-    examtakersTable.draw();
+  $('#result-search-form').on('submit', function(e) {
+    resultTable.draw();
     e.preventDefault();
   });
 

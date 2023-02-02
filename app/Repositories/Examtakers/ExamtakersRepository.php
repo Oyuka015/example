@@ -19,14 +19,10 @@ class ExamtakersRepository implements ExamtakersInterface
     {
         $examtakers = new Examtakers;
 
-        $examtakers->user_name = @$input['user_name'];
-        $examtakers->family_name = @$input['family_name'];
-        $examtakers->surname = @$input['surname'];
-        $examtakers->lastname = @$input['lastname'];
-        $examtakers->register = @$input['register'];
-        $examtakers->email = @$input['email'];
-        $examtakers->phone = @$input['phone'];
-        $examtakers->citizenship = @$input['citizenship'];
+        $examtakers->user_id = @$input['user_id'];
+        $examtakers->exam_id = @$input['exam_id'];
+        $examtakers->score = @$input['score'];
+        $examtakers->exam_date = @$input['exam_date'];
 
         return $examtakers->save();
     }
@@ -35,14 +31,10 @@ class ExamtakersRepository implements ExamtakersInterface
     {
         $examtakers = Examtakers::find($id);
 
-        $examtakers->user_name = @$input['user_name'];
-        $examtakers->family_name = @$input['family_name'];
-        $examtakers->surname = @$input['surname'];
-        $examtakers->lastname = @$input['lastname'];
-        $examtakers->register = @$input['register'];
-        $examtakers->email = @$input['email'];
-        $examtakers->phone = @$input['phone'];
-        $examtakers->citizenship = @$input['citizenship'];
+        $examtakers->user_id = @$input['user_id'];
+        $examtakers->exam_id = @$input['exam_id'];
+        $examtakers->score = @$input['score'];
+        $examtakers->exam_date = @$input['exam_date'];
 
         return $examtakers->save();
     }
@@ -62,25 +54,9 @@ class ExamtakersRepository implements ExamtakersInterface
         $data = Datatables::make($qry) 
             ->filter(function ($qry) use ($searchData) {
 
-                if($searchData->has('user_name') && $searchData->get('user_name') !== null)
+                if($searchData->has('user_id') && $searchData->get('user_id') !== null)
                 {
-                    $qry->whereRaw('LOWER(user_name) like ?', array('%'.mb_strtolower($searchData->get('user_name')).'%'));
-                }
-                if($searchData->has('surname') && $searchData->get('surname') !== null)
-                {
-                    $qry->whereRaw('LOWER(surname) like ?', array('%'.mb_strtolower($searchData->get('surname')).'%'));
-                }
-                if($searchData->has('lastname') && $searchData->get('lastname') !== null)
-                {
-                    $qry->whereRaw('LOWER(lastname) like ?', array('%'.mb_strtolower($searchData->get('lastname')).'%'));
-                }
-                if($searchData->has('register') && $searchData->get('register') !== null)
-                {
-                    $qry->where('register', $searchData->get('register'));
-                }
-                if($searchData->has('phone') && $searchData->get('phone') !== null)
-                {
-                    $qry->where('phone', $searchData->get('phone'));
+                    $qry->whereRaw('LOWER(user_id) like ?', array('%'.mb_strtolower($searchData->get('user_id')).'%'));
                 }
 
             })

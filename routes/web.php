@@ -21,6 +21,9 @@ Route::get('/certi', 'App\Http\Controllers\Controller@certi');
 Route::get('/faq', 'App\Http\Controllers\Controller@faq');
 Route::get('/online', 'App\Http\Controllers\Controller@online');
 Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
+Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
+Route::get('/course', 'App\Http\Controllers\Controller@course');
+Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
 
 Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
@@ -46,8 +49,20 @@ Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackContr
 Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
 Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
 
+<<<<<<< Updated upstream
+=======
+Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
+Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
+
+Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
+Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
+
+>>>>>>> Stashed changes
 Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
 Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
+
+Route::resource('/admin/result', "App\Http\Controllers\ResultController");
+Route::any('/admin/result/list/datatable', "App\Http\Controllers\ResultController@dataTableList")->name('result.datalist');
 
 Route::resource('/admin/certificate', "App\Http\Controllers\CertificateController");
 Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
@@ -58,13 +73,19 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/user_profile', function () {
+Route::get('/user/profile', function () {
     return view('user.profile');
 });
-Route::get('/user_info', function () {
+Route::get('/user/info', function () {
     return view('user.info');
 });
-Route::get('/user_certificate', function () {
+Route::get('/user/result', function () {
+    return view('user.result');
+});
+Route::get('/user/online', function () {
+    return view('user.online');
+});
+Route::get('/user/certificate', function () {
     return view('user.certificate');
 });
 

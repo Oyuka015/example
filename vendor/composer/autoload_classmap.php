@@ -17,6 +17,8 @@ return array(
     'App\\Http\\Controllers\\InformationController' => $baseDir . '/app/Http/Controllers/InformationController.php',
     'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
     'App\\Http\\Controllers\\OnlineController' => $baseDir . '/app/Http/Controllers/OnlineController.php',
+    'App\\Http\\Controllers\\QuestionController' => $baseDir . '/app/Http/Controllers/QuestionController.php',
+    'App\\Http\\Controllers\\ResultController' => $baseDir . '/app/Http/Controllers/ResultController.php',
     'App\\Http\\Controllers\\SystemuserController' => $baseDir . '/app/Http/Controllers/SystemuserController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
@@ -37,6 +39,10 @@ return array(
     'App\\Models\\Information' => $baseDir . '/app/Models/Information.php',
     'App\\Models\\Online' => $baseDir . '/app/Models/Online.php',
     'App\\Models\\Question' => $baseDir . '/app/Models/Question.php',
+<<<<<<< Updated upstream
+=======
+    'App\\Models\\Result' => $baseDir . '/app/Models/Result.php',
+>>>>>>> Stashed changes
     'App\\Models\\Systemuser' => $baseDir . '/app/Models/Systemuser.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -58,6 +64,10 @@ return array(
     'App\\Repositories\\Information\\InformationRepository' => $baseDir . '/app/Repositories/Information/InformationRepository.php',
     'App\\Repositories\\Online\\OnlineInterface' => $baseDir . '/app/Repositories/Online/OnlineInterface.php',
     'App\\Repositories\\Online\\OnlineRepository' => $baseDir . '/app/Repositories/Online/OnlineRepository.php',
+    'App\\Repositories\\Question\\QuestionInterface' => $baseDir . '/app/Repositories/Question/QuestionInterface.php',
+    'App\\Repositories\\Question\\QuestionRepository' => $baseDir . '/app/Repositories/Question/QuestionRepository.php',
+    'App\\Repositories\\Result\\ResultInterface' => $baseDir . '/app/Repositories/Result/ResultInterface.php',
+    'App\\Repositories\\Result\\ResultRepository' => $baseDir . '/app/Repositories/Result/ResultRepository.php',
     'App\\Repositories\\Systemuser\\SystemuserInterface' => $baseDir . '/app/Repositories/Systemuser/SystemuserInterface.php',
     'App\\Repositories\\Systemuser\\SystemuserRepository' => $baseDir . '/app/Repositories/Systemuser/SystemuserRepository.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

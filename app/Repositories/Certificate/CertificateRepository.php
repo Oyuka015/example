@@ -10,6 +10,11 @@ use Yajra\DataTables\Html\Builder;
 
 class CertificateRepository implements CertificateInterface
 {
+    public function all()
+    {
+        return Certificate::all();
+    }
+
     public function find($id)
     {
         return Certificate::find($id);
@@ -71,9 +76,13 @@ class CertificateRepository implements CertificateInterface
                 {
                     $qry->whereRaw('LOWER(surname) like ?', array('%'.mb_strtolower($searchData->get('surname')).'%'));
                 }
+                // if($searchData->has('certificate_id') && $searchData->get('certificate_id') !== null)
+                // {
+                //     $qry->where('certificate_id', $searchData->get('certificate_id'));
+                // }
                 if($searchData->has('certificate_id') && $searchData->get('certificate_id') !== null)
                 {
-                    $qry->whereRaw('certificate_id', $searchData->get('certificate_id'));
+                    $qry->where('certificate_id', $searchData->get('certificate_id'));
                 }
             })
             ->addColumn('action', function ($place) {

@@ -50,7 +50,7 @@ class SystemuserController extends BaseController
 
     public function store(Request $request)
     {
-        
+        dd($request->input());
         $validator = Validator::make($request->input(), Systemuser::$rules);
         // process the save
         if ($validator->fails()) 

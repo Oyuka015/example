@@ -9,16 +9,17 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Eloquent;
 
-class Feedback extends Eloquent
+class Result extends Eloquent
 {
-    protected $table = 'feedback';
+    protected $table = 'exam_results';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     
     public static $rules = array(
-        'name' => 'required',
-        'mail' => 'required',
-        'phone' => 'required',
-        'feedback' => 'required',
+        'user_id' => 'required',
+        'exam_id' => 'required',
+        'question_id' => 'required',
+        'answer' => 'required',
+        'score' => 'required',
     );
 }

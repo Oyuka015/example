@@ -45,16 +45,39 @@
         </div>
     </div>
     <div class="user-profile-main">
-        <div class="profile-information-section">
+        <div class="profile-information-section" style="min-height:80vh">
             <div class="information-select">
                 <ul>
-                    <li class="user_profile"><a href="profile" >Нэвтрэх мэдээлэл</a></li>
-                    <li  class="user_info"><a href="info">Хэрэглэгчийн мэдээлэл</a></li>
-                    <li class="user_certificate"><a href="certificate" >{{trans('display.certificate')}}</a></li>
+                    <li class="user_profile"><a href="profile" >{{trans('display.exam_result')}}</a></li>
                 </ul>
             </div>
-            <div class="information-body">
-                
+            <div class="exam_result_section" style="margin-top:25px;">
+                <table>
+                    <thead>
+                        <tr >
+                            <th style="text-align:center;">{{trans('display.exam_name')}}</th>
+                            <th style="text-align:center;">{{trans('display.score')}}</th>
+                            <th style="text-align:center;">{{trans('display.exam_date')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color:lightblue;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr style="background-color:lightblue;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr style="background-color:lightblue;">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
