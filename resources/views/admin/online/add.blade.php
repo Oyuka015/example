@@ -12,11 +12,12 @@
   </div>
   <div class="form-group">
     <select name="selected_lesson_group" class="base-input" id="selected_lesson_group">
-      <option value="">1</option>
-      <option value="">2</option>
-      <option value="">3</option>
+      <option value="" hidden>{{trans('display.select_lesson_group')}}</option>
+      @foreach(@$lesson_groups as $group)
+      <option value="{{$group->id}}">{{@$group->name}}</option>
+      @endforeach
     </select>
-    <input type="text" id="add_lesson_group" class="base-input" name="add_lesson_group" placeholder="{{trans('display.add_lesson_group')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    <input type="text" id="add_lesson_group" class="base-input" name="add_lesson_group" placeholder="{{trans('display.add_lesson_group')}}">
   </div>
   <div class="form-group">
   </div>
@@ -36,10 +37,6 @@
   <div class="form-group">
     <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>
     <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
-  <div class="form-group">
-    <label for="lesson_type">{{trans('display.lesson_type')}}</label>
-    <input type="text" id="lesson_type" class="base-input" name="lesson_type"  placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
   <input type="submit" class="base-submit" value="Хадгалах">
   @csrf
@@ -77,12 +74,12 @@
     })
     function checkRadio(){
       if($("#old_group").is(':checked')){
-        $("#selected_lesson_group").show()
-        $("#add_lesson_group").hide()
+        $("#selected_lesson_group").show();
+        $("#add_lesson_group").val('').hide();
       }
       else{
-        $("#selected_lesson_group").hide()
-        $("#add_lesson_group").show()
+        $("#selected_lesson_group").val('').hide();
+        $("#add_lesson_group").show();
       }
     }
   });

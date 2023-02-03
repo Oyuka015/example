@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Online;
+use App\Models\Codelists;
 
 use App\Repositories\Online\OnlineInterface;
 
@@ -17,6 +18,8 @@ use \DB;
 use Storage;
 use \Validator as Validator;
 use \View as View;
+use Config;
+use Auth;
 
 class OnlineController extends BaseController
 {
@@ -36,7 +39,11 @@ class OnlineController extends BaseController
 
     public function create()
     {
-        return view($this->view_path.'.add');
+        // dd(Config::get('codelists.codelist')['lesson_group_parent_id']);
+        $l_groups = Codelists::where('parent_id', Config::get('codelists.codelist')['lesson_group_parent_id'])->get();
+        
+        $data['lesson_groups'] = $l_groups;
+        return view($this->view_path.'.add', $data);
     }
 
     public function edit($id)
@@ -120,6 +127,7 @@ class OnlineController extends BaseController
     public function destroy($id)
     {
         $app = $this->online->delete($id);
+        unlinkVideo($id);
         $response = array(
             'status' => 'success',
             'msg' => trans('messages.success_delete'),
@@ -130,6 +138,10 @@ class OnlineController extends BaseController
         return View::make('core.alert.messages', $data);
     }
 
+    public function unlinkVideo($id){
+        $data = Online::find($id);
+        unlink('/'.$data->video);
+    }
 
     public function uploadVideo(Request $request)
     {

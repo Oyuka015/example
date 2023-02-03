@@ -10,6 +10,7 @@ use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use ConfigHelper;
 use DB;
+use Auth;
 
 use Config;
 
@@ -27,12 +28,10 @@ class OnlineRepository implements OnlineInterface
     public function create($input, $file)
     {
         $online = new Online;
-
         $online->lesson_name = @$input['lesson_name'];
         $online->lesson_summary = @$input['lesson_summary'];
-        $online->lesson_posted = @$input['lesson_posted'];
-        $online->lesson_type = @$input['lesson_type'];
-
+        $online->created_by = Auth::User()->id;
+        // dD($online);
         if($input['selected_lesson_group'] != null){
 
             $finded = Codelists::where('id', $input['selected_lesson_group'])->get();
@@ -41,10 +40,10 @@ class OnlineRepository implements OnlineInterface
         else{
             $codelists = new Codelists;
 
-            $codelists->name = @$input['lesson_name'];
+            $codelists->name = @$input['add_lesson_group'];
             $codelists->parent_id = Config::get('codelists.codelist')['lesson_group_parent_id'];
             $codelists->save();
-            dd($codelists['id'], 'yu bn');
+            
 
             $online->lesson_group_id = @$codelists['id'];
         }
@@ -54,6 +53,40 @@ class OnlineRepository implements OnlineInterface
             $path = $file['file0']->store('videos', ['disk' => 'my_files']);
             $online->video = $path;
         }
+        // if ($file['file0'])
+        // {
+        //     $receiver = new FileReceiver('file0', $request, HandlerFactory::classFromRequest($request));
+        //     dD($receiver);
+        //     if (!$receiver->isUploaded()) {
+        //         // file not uploaded
+        //     }
+        
+        //     $fileReceived = $receiver->receive(); // receive file
+        //     if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
+        //         $file = $fileReceived->getFile(); // get file
+        //         $extension = $file->getClientOriginalExtension();
+        //         $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
+        //         $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
+        
+        //         $disk = Storage::disk(config('filesystems.default'));
+        //         $path = $disk->putFileAs('videos', $file, $fileName);
+        
+        //         // delete chunked file
+        //         unlink($file->getPathname());
+        //         return [
+        //             'path' => asset('storage/' . $path),
+        //             'filename' => $fileName
+        //         ];
+        //     }
+        
+        //     // otherwise return percentage information
+        //     $handler = $fileReceived->handler();
+        //     return [
+        //         'done' => $handler->getPercentageDone(),
+        //         'status' => true
+        //     ];
+        // }
+
         $online->save();
         return $online;
     }
@@ -66,7 +99,6 @@ class OnlineRepository implements OnlineInterface
         $online->lesson_summary = @$input['lesson_summary'];
         $online->lesson_posted = @$input['lesson_posted'];
         $online->posted_date = @$input['posted_date'];
-        $online->lesson_type = @$input['lesson_type'];
         
         return $online->save();
     }
@@ -91,6 +123,14 @@ class OnlineRepository implements OnlineInterface
                     $qry->whereRaw('LOWER(lesson_name) like ?', array('%'.mb_strtolower($searchData->get('lesson_name')).'%'));
                 }
             })
+
+            ->editColumn('created_by', function ($online) {
+                return $online->user->firstname;
+            })
+            ->editColumn('created_at', function ($online) {
+                return date('Y-m-d H:i:s', strtotime($online->created_at));
+            })
+
             ->addColumn('action', function ($online) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary online-edit" style="margin:3px" data-onlineid="'.@$online->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
