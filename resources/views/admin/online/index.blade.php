@@ -4,9 +4,7 @@
 <section class="admin_register_section">
   <h1 class="admin_register_title">{{trans('display.online_course_register')}}</h1>
   <div class="form-sub-heading">
-
   </div>
-
   <!-- collapse -->
   <style>
     .search-collapse{
@@ -34,9 +32,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              
             </div>
-
           </div>
         </form>
       </div>
@@ -61,15 +57,14 @@
       </tr>
     </thead>
     <tbody>
-
     </tbody>
   </table>
   <div class="modal fade" id="online-add-modal" tabindex="-1" role="dialog" aria-labelledby="online-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="online-add-modalLabel">{{trans('display.add_new')}}</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-header" style="display: flex;">
+          <h4 class="modal-title" style="display: flex; id="online-add-modalLabel">{{trans('display.add_new')}}</h4>
+          <button type="button" style="display: flex; class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

@@ -16,11 +16,8 @@ class Online extends Eloquent
     // public $timestamps = false;
     
     public static $rules = array(
-        // 'image' => 'required',
         'lesson_name' => 'required',
         'lesson_summary' => 'required',
-        'lesson_posted' => 'required',
-        'posted_date' => 'required',
         'lesson_type' => 'required',
     );
 }

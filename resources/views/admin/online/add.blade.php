@@ -38,14 +38,6 @@
     <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
   <div class="form-group">
-    <label for="lesson_posted">{{trans('display.lesson_posted')}}</label>
-    <input type="text" id="lesson_posted" class="base-input" name="lesson_posted"  placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
-  <div class="form-group">
-    <label for="posted_date">{{trans('display.posted_date')}}</label>
-    <input type="number" id="posted_date" class="base-input" name="posted_date"  placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
-  <div class="form-group">
     <label for="lesson_type">{{trans('display.lesson_type')}}</label>
     <input type="text" id="lesson_type" class="base-input" name="lesson_type"  placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
@@ -95,3 +87,67 @@
     }
   });
 </script>
+
+<style>
+.video {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.video .vid,
+.video .upload {
+    flex-basis: 31%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+.video .vid {
+    width: 112px;
+    height: 93px;
+    background-size: cover;
+    margin-right: 10px;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.video .vid:nth-child(3n) {
+    margin-right: 0;
+}
+.video .vid span {
+    display: none;
+    text-transform: capitalize;
+    z-index: 2;
+}
+.video .vid::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.1s ease-in;
+    border-radius: 4px;
+    opacity: 0;
+    position: absolute;
+}
+.video .vid:hover::after {
+    display: block;
+    background-color: #000;
+    opacity: 0.5;
+}
+.video .vid:hover span {
+    display: block;
+    color: #fff;
+}
+.video .upload {
+    background-color: #f5f7fa;
+    align-self: center;
+    text-align: center;
+    padding: 40px 0;
+    text-transform: uppercase;
+    color: #848ea1;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+</style>

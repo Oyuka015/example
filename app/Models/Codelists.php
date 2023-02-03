@@ -11,7 +11,7 @@ use Eloquent;
 
 class Codelists extends Eloquent
 {
-    protected $table = 'cl_codelists';
+    protected $table = 'codelists.cl_codelists';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     

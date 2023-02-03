@@ -8,6 +8,10 @@ use App\Models\Online;
 use App\Models\Codelists;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use ConfigHelper;
+use DB;
+
+use Config;
 
 class OnlineRepository implements OnlineInterface
 {
@@ -22,27 +26,28 @@ class OnlineRepository implements OnlineInterface
 
     public function create($input, $file)
     {
-        if($input['selected_lesson_group']){
-
-        }
-        else{
-            $codelists = new Codelists;
-
-            $codelists->name = @$input['lesson_name'];
-            $codelists->name_en = @$input['lesson_name_en'];
-            $codelists->description = @$input['lesson_description'];
-        }
-     
-        $codelists->save();
-
         $online = new Online;
 
         $online->lesson_name = @$input['lesson_name'];
         $online->lesson_summary = @$input['lesson_summary'];
         $online->lesson_posted = @$input['lesson_posted'];
-        $online->posted_date = @$input['posted_date'];
         $online->lesson_type = @$input['lesson_type'];
-        $online->lesson_group_id = @$codelists['id'];
+
+        if($input['selected_lesson_group'] != null){
+
+            $finded = Codelists::where('id', $input['selected_lesson_group'])->get();
+            $online->lesson_group_id = @$finded['id'];
+        }
+        else{
+            $codelists = new Codelists;
+
+            $codelists->name = @$input['lesson_name'];
+            $codelists->parent_id = Config::get('codelists.codelist')['lesson_group_parent_id'];
+            $codelists->save();
+            dd($codelists['id'], 'yu bn');
+
+            $online->lesson_group_id = @$codelists['id'];
+        }
 
         if ($file['file0'])
         {
