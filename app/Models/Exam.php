@@ -31,6 +31,11 @@ class Exam extends Eloquent
         return $this->belongsToMany('App\Models\User', 'exam_student', 'exam_id', 'user_id');
     }
 
+    public function requiredExam()
+    {
+        return $this->belongsTo('App\Models\Exam', 'required_exam_id');
+    }
+
     public static function boot()
     {
         parent::boot();

@@ -37,8 +37,10 @@ class ExamController extends BaseController
 
     public function create()
     {
+        $exams = Exam::where('is_active', true)->get();
         $questions = Question::where('is_active', true)->get();
 
+        $data['exams'] = $exams;
         $data['questions'] = $questions;
         return view($this->view_path.'.add', $data);
     }
@@ -47,7 +49,9 @@ class ExamController extends BaseController
     {
         $exam = $this->exam->find($id);
         $questions = Question::where('is_active', true)->get();
+        $exams = Exam::where('id', '!=', $id)->get();
 
+        $data['exams'] = $exams;
         $data['questions'] = $questions;
         $data['exam'] = $exam;
 

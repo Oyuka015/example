@@ -21,11 +21,7 @@ class ExamRepository implements ExamInterface
         $exam = new Exam;
         $exam->name = @$input['name'];
         $exam->lower_percent = @$input['lower_percent'];
-<<<<<<< Updated upstream
         $exam->is_active = @$input['is_active'] ? true : false;
-=======
->>>>>>> Stashed changes
-
         $exam->save();
 
         $exam->questions()->attach(@$input['questions']);
@@ -40,7 +36,7 @@ class ExamRepository implements ExamInterface
         $exam->name = @$input['name'];
         $exam->lower_percent = @$input['lower_percent'];
 
-        return $exam->save();
+        return $exam;
     }
 
     public function delete($id)
@@ -65,6 +61,9 @@ class ExamRepository implements ExamInterface
             })
             ->editColumn('is_active', function ($exam) {
                 return Config::get('base.is_active')[$exam->is_active];
+            })
+            ->addColumn('required_exam', function ($exam) {
+                return @$exam->requiredExam ? $exam->requiredExam->name : '';
             })
             ->addColumn('question_count', function ($exam) {
                 return $exam->questions()->count();

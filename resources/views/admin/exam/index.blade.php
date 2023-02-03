@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <button type="submit" class="btn btn-primary" style="float:right">{{trans('display.search')}}</button>
+                <button type="submit" class="btn btn-primary" style="float:left">{{trans('display.search')}}</button>
               </div>
             </div>
             <div class="col-md-4">
@@ -53,16 +53,11 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-<<<<<<< Updated upstream
         <th style="width:50%">{{trans('display.exam_name')}}</th>
-        <th style="width:20%">{{trans('display.exam_score')}}</th>
+        <th style="width:8%">{{trans('display.exam_score')}}</th>
         <th style="width:8%">{{trans('display.question')}}</th>
         <th style="width:8%">{{trans('display.question_score')}}</th>
         <th style="width:8%">{{trans('display.is_active')}}</th>
-=======
-        <th style="width:50%">{{trans('display.name')}}</th>
-        <th style="width:50%">{{trans('display.lower_percent')}}</th>
->>>>>>> Stashed changes
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -152,24 +147,22 @@
         },
         { data: 'name', "defaultContent": ''},
         { data: 'lower_percent', "defaultContent": ''},
-<<<<<<< Updated upstream
         { data: 'question_count', "defaultContent": ''},
         { data: 'question_score', "defaultContent": ''},
+        { data: 'required_exam', "defaultContent": ''},
         { data: 'is_active', "defaultContent": ''},
-=======
->>>>>>> Stashed changes
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,6]
+            targets: [0,7]
         },{
             class: "text-center",
-            targets: [0,6]
+            targets: [0,7]
         },{
-            targets: [0,5],
+            targets: [0,6],
             class: "border-right"
         }
       ],

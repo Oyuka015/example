@@ -30,6 +30,17 @@
     <input type="text" id="lower_percent" class="base-input" name="lower_percent"  placeholder="{{trans('display.lower_percent')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
 >>>>>>> Stashed changes
   </div>
+  <div class="form-group">
+    <label for="exam_name">{{trans('display.required_exam')}}</label>
+    <div>
+      <select id="required_exam_id" name="required_exam_id" class="chosen-select base-input">
+        <option value="">{{trans('display.select')}}</option>
+        @foreach($exams as $exm)
+          <option value="{{$exm->id}}" {{$exm->id == @$exam->required_exam_id ? 'selected' : ''}}>{{$exm->name}}</option>
+        @endforeach
+      </select>
+    </div>
+  </div>
   <input type="submit" class="base-submit" value="Хадгалах">
   @csrf
 </form>

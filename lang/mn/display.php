@@ -15,6 +15,7 @@ return [
     'information_register' => 'Мэдээлэл бүртгэх',
     'online_course_register' => 'Цахим хичээл бүртгэх',
     'exam' => 'Шалгалт',
+    'exam_register' => 'Шалгалтын бүртгэл',
     'certificate' => 'Гэрчилгээ',
     'certificate_register' => 'Гэрчилгээ бүртгэх',
     'certificate_id' => 'Гэрчилгээний дугаар',
@@ -105,4 +106,5 @@ return [
     'question_score' => 'Асуултуудын оноо',
     'select_lesson_group' => 'Хичээлийн бүлэг сонгох',
     'add_lesson_group' => 'Хичээлийн бүлэг шинээр нэмэх',
+    'required_exam' => 'Өмнөх шалгалт'
 ];
