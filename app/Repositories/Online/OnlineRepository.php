@@ -53,39 +53,6 @@ class OnlineRepository implements OnlineInterface
             $path = $file['file0']->store('videos', ['disk' => 'my_files']);
             $online->video = $path;
         }
-        // if ($file['file0'])
-        // {
-        //     $receiver = new FileReceiver('file0', $request, HandlerFactory::classFromRequest($request));
-        //     dD($receiver);
-        //     if (!$receiver->isUploaded()) {
-        //         // file not uploaded
-        //     }
-        
-        //     $fileReceived = $receiver->receive(); // receive file
-        //     if ($fileReceived->isFinished()) { // file uploading is complete / all chunks are uploaded
-        //         $file = $fileReceived->getFile(); // get file
-        //         $extension = $file->getClientOriginalExtension();
-        //         $fileName = str_replace('.'.$extension, '', $file->getClientOriginalName()); //file name without extenstion
-        //         $fileName .= '_' . md5(time()) . '.' . $extension; // a unique file name
-        
-        //         $disk = Storage::disk(config('filesystems.default'));
-        //         $path = $disk->putFileAs('videos', $file, $fileName);
-        
-        //         // delete chunked file
-        //         unlink($file->getPathname());
-        //         return [
-        //             'path' => asset('storage/' . $path),
-        //             'filename' => $fileName
-        //         ];
-        //     }
-        
-        //     // otherwise return percentage information
-        //     $handler = $fileReceived->handler();
-        //     return [
-        //         'done' => $handler->getPercentageDone(),
-        //         'status' => true
-        //     ];
-        // }
 
         $online->save();
         return $online;
@@ -129,6 +96,9 @@ class OnlineRepository implements OnlineInterface
             })
             ->editColumn('created_at', function ($online) {
                 return date('Y-m-d H:i:s', strtotime($online->created_at));
+            })
+            ->editColumn('lesson_group_id', function ($online) {
+                return $online->group->name;
             })
 
             ->addColumn('action', function ($online) {

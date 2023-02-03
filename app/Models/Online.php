@@ -23,4 +23,8 @@ class Online extends Eloquent
     public function user(){
         return $this->belongsTo('App\Models\User', 'created_by', 'id');
     }
+
+    public function group(){
+        return $this->belongsTo('App\Models\Codelists', 'lesson_group_id', 'id');
+    }
 }

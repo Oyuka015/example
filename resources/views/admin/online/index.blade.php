@@ -47,6 +47,7 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
+        <th style="width:15px%">{{trans('display.lesson_group')}}</th>
         <th style="width:15px%">{{trans('display.lesson_name')}}</th>
         <th style="width:20px%">{{trans('display.lesson_summary')}}</th>
         <th style="width:15px%">{{trans('display.lesson_posted')}}</th>
@@ -206,6 +207,7 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
+        { data: 'lesson_group_id', "defaultContent": ''},
         { data: 'lesson_name', "defaultContent": ''},
         { data: 'lesson_summary', "defaultContent": ''},
         { data: 'created_by', "defaultContent": ''},
@@ -216,12 +218,12 @@
         {
             searchable: false,
             orderable: false,
-            targets: [0,5]
+            targets: [0,6]
         },{
             class: "text-center",
-            targets: [0,5]
+            targets: [0,6]
         },{
-            targets: [0,4],
+            targets: [0,5],
             class: "border-right"
         }
       ],
