@@ -39,34 +39,34 @@
         <div class="logo">
                 <img src="{{ URL('images/logo.png') }}" alt="">
         </div>
-        <div class="menu">
-            <a href="test"  class="link">
+        <div class="ulayout-menu">
+            <a href="test"  class="u-link">
                 <i class="fa-solid fa-house"></i>
-                <p>Нүүр</p>
+                <div>Нүүр</div>
             </a>
-            <a href="medeelel"  class="link">
+            <a href="medeelel"  class="u-link">
                 <i class="fa-solid fa-bell"></i>
-                <p>Мэдээлэл</p>
+                <div>Мэдээлэл</div>
             </a>
-            <a href="online"  class="link">
+            <a href="online"  class="u-link">
                 <i class="fa-solid fa-graduation-cap"></i>
-                <p>Цахим хичээл</p>
+                <div>Цахим хичээл</div>
             </a>
-            <a href="exam"  class="link">
+            <a href="exam"  class="u-link">
                 <i class="fa-solid fa-square-check"></i>
-                <p>Шалгалт</p>
+                <div>Шалгалт</div>
             </a>
-            <a href="certi"  class="link">
+            <a href="certi"  class="u-link">
                 <i class="fa-solid fa-certificate"></i>
-                <p>Гэрчилгээ хайлт</p>
+                <div>Гэрчилгээ хайлт</div>
             </a>
-            <a href="faq"  class="link">
+            <a href="faq"  class="u-link">
                 <i class="fa-solid fa-circle-info"></i>
-                <p>Асуулт хариулт</p>
+                <div>Асуулт хариулт</div>
             </a>
-            <a href="feedback"  class="link">
+            <a href="feedback"  class="u-link">
                 <i class="fa-solid fa-envelope"></i>
-                <p>Санал хүсэлт</p>
+                <div>Санал хүсэлт</div>
             </a> 
         </div>
         

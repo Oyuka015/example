@@ -67,6 +67,10 @@ Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\Certificat
 
 Route::resource('/admin/systemuser', "App\Http\Controllers\SystemuserController");
 Route::any('/admin/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
+
+Route::resource('/admin/users', "App\Http\Controllers\UsersController");
+Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+
 Route::get('/register', function () {
     return view('register');
 });

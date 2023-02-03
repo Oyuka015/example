@@ -53,7 +53,7 @@
         <th style="width:30px">№</th>
         <th style="width:50%">{{trans('display.user_name')}}</th>
         <th style="width:50%">{{trans('display.email')}}</th>
-        <th style="width:50%">{{trans('display.phone_number')}}</th>
+        <th style="width:50%">{{trans('display.phone')}}</th>
         <th style="width:50%">{{trans('display.feedback')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>

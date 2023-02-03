@@ -41,11 +41,11 @@ return [
     'upload_video' => 'Бичлэг оруулах',
 
     'name' => 'Нэр',
-    'user_name' => 'Хэрэглэгчийн нэр',
+    'username' => 'Хэрэглэгчийн нэр',
     'login_name' => 'Нэвтрэх нэр',
     'family_name' => 'Ургийн овог',
-    'lastname' => 'Нэр',
-    'surname' => 'Овог',
+    'lastname' => 'Овог',
+    'firstname' => 'Нэр',
     'lesson_name' => 'Хичээлийн нэр',
     
 
@@ -76,6 +76,8 @@ return [
     'register' => 'Регистер',
     'exam_id' => 'Шалгалтын id',
     'user_id' => 'Хэрэглэгчийн id',
+    'user_information' => 'Хэрэглэгчийн мэдээлэл',
+    'system_user' => 'Системийн хэрэглэгч',
     'question_id' => 'Асуултын id',
     'registered_user' => 'Бүртгэсэн хэрэглэгч',
     'valid_for' => 'Хүчинтэй хугацаа',
@@ -84,7 +86,6 @@ return [
     'email' => 'И-Мейл',
     'citizenship' => 'Иргэншил',
     'active_status' => 'Идэвхтэй эсэх',
-    'system_user' => 'Системийн хэрэглэгч',
     'province' => 'Аймаг',
     'address' => 'Хаяг',
     'home_address' => 'Гэрийн хаяг',
@@ -92,6 +93,12 @@ return [
     'gender' => 'Хүйс',
     'male' => 'Эрэгтэй',
     'female' => 'Эмэгтэй',
+    'special_person' => 'Холбоо барих хүн',
+    'special_phone' => 'Холбоо барих yтас',
+    'education_degree' => 'Боловсролын зэрэг',
+    'work_status' => 'Хөдөлмөр эрхлэлт',
+    'province_capital' => 'Аймаг/Нийслэл',
+    'district' => 'Сум/дүүрэг',
     'password' => 'Нууц үг',
     'password_rewrite' => 'Нууц үг давтах',
     'change_image' => 'Зураг солих',
@@ -106,5 +113,4 @@ return [
     'question_score' => 'Асуултуудын оноо',
     'select_lesson_group' => 'Хичээлийн бүлэг сонгох',
     'add_lesson_group' => 'Хичээлийн бүлэг шинээр нэмэх',
-    'required_exam' => 'Өмнөх шалгалт'
 ];

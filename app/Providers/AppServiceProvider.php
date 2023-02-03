@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('App\Repositories\Certificate\CertificateInterface', 'App\Repositories\Certificate\CertificateRepository');
         $this->app->bind('App\Repositories\Examtakers\ExamtakersInterface', 'App\Repositories\Examtakers\ExamtakersRepository');
         $this->app->bind('App\Repositories\Systemuser\SystemuserInterface', 'App\Repositories\Systemuser\SystemuserRepository');
+        $this->app->bind('App\Repositories\Users\UsersInterface', 'App\Repositories\Users\UsersRepository');
     }
 
     /**
