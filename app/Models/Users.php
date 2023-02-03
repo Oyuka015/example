@@ -9,17 +9,17 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Eloquent;
 
-class Systemuser extends Eloquent
+class Users extends Eloquent
 {
-    protected $table = 'systemuser';
+    protected $table = 'users';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     
     public static $rules = array(
-        'user_name' => 'required',
+        'username' => 'required',
         'citizenship' => 'required',
         'family_name' => 'required',
-        'surname' => 'required',
+        'firstname' => 'required',
         'lastname' => 'required',
         'register' => 'required',
         'age' => 'required',

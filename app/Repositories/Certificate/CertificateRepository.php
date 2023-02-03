@@ -85,7 +85,7 @@ class CertificateRepository implements CertificateInterface
                     $qry->where('certificate_id', $searchData->get('certificate_id'));
                 }
             })
-            ->addColumn('action', function ($place) {
+            ->addColumn('action', function ($certificate) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary certificate-edit" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger certificate-delete" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';

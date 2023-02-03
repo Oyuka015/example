@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
-use App\Models\Systemuser;
+use App\Models\Users;
 
-use App\Repositories\Systemuser\SystemuserInterface;
+use App\Repositories\Users\UsersInterface;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -18,15 +18,15 @@ use Storage;
 use \Validator as Validator;
 use \View as View;
 
-class SystemuserController extends BaseController
+class UsersController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $view_path;
 
-    public function __construct(SystemuserInterface $systemuser) {
-        $this->systemuser = $systemuser;
-        $this->view_path = 'admin.systemuser';
+    public function __construct(UsersInterface $users) {
+        $this->users = $users;
+        $this->view_path = 'admin.users';
     }
 
     public function index(Request $request)
@@ -41,17 +41,16 @@ class SystemuserController extends BaseController
 
     public function edit($id)
     {
-        $systemuser = $this->systemuser->find($id);
+        $users = $this->users->find($id);
 
-        $data['systemuser'] = $systemuser;
+        $data['users'] = $users;
 
         return View::make($this->view_path.'.edit', $data);
     }
 
     public function store(Request $request)
     {
-        // dd($request->input());
-        $validator = Validator::make($request->input(), Systemuser::$rules);
+        $validator = Validator::make($request->input(), Users::$rules);
         // process the save
         if ($validator->fails()) 
         {
@@ -67,7 +66,7 @@ class SystemuserController extends BaseController
         } 
         else 
         {
-            $app = $this->systemuser->create($request->input());
+            $app = $this->users->create($request->input());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -82,7 +81,7 @@ class SystemuserController extends BaseController
     public function update($id, Request $request)
     {
         
-        $validator = Validator::make($request->input(), Systemuser::$rules);
+        $validator = Validator::make($request->input(), Users::$rules);
         // process the save
         if ($validator->fails()) 
         {
@@ -98,7 +97,7 @@ class SystemuserController extends BaseController
         } 
         else 
         {
-            $app = $this->systemuser->update($id, $request->input());
+            $app = $this->users->update($id, $request->input());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -112,12 +111,12 @@ class SystemuserController extends BaseController
 
     public function dataTableList(Request $request)
     {
-        return $this->systemuser->getDatatableList($request);
+        return $this->users->getDatatableList($request);
     }
 
     public function destroy($id)
     {
-        $app = $this->systemuser->delete($id);
+        $app = $this->users->delete($id);
         $response = array(
             'status' => 'success',
             'msg' => trans('messages.success_delete'),

@@ -19,12 +19,22 @@ class SystemuserRepository implements SystemuserInterface
     {
         $systemuser = new Systemuser;
         $systemuser->user_name = @$input['user_name'];
-        $systemuser->province = @$input['province'];
+        $systemuser->citizenship = @$input['citizenship'];
+        $systemuser->family_name = @$input['family_name'];
         $systemuser->surname = @$input['surname'];
         $systemuser->lastname = @$input['lastname'];
+        $systemuser->register = @$input['register'];
+        $systemuser->age = @$input['age'];
+        $systemuser->gender = @$input['gender'];
+        $systemuser->work_status = @$input['work'];
         $systemuser->email = @$input['email'];
         $systemuser->phone = @$input['phone'];
-        $systemuser->active_status = @$input['active_status'];
+        $systemuser->special_person = @$input['in-case-name'];
+        $systemuser->special_phone = @$input['in-case-number'];
+        $systemuser->province_capital = @$input['province-capital'];
+        $systemuser->district = @$input['district'];
+        $systemuser->education_degree = @$input['education-degree'];
+        $systemuser->home_address = @$input['home_address'];
 
         return $systemuser->save();
     }

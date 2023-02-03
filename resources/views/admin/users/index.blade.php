@@ -2,11 +2,10 @@
  
 @section('content')
 <section >
-  <h1 class="admin_register_title">{{trans('display.system_user')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.user_information')}}</h1>
   <div class="form-sub-heading">
 
   </div>
-
   <!-- collapse -->
   <style>
     .search-collapse{
@@ -21,16 +20,16 @@
     </label>
     <div class="collapse search-collapse" id="collapseExample">
       <div class="card card-body">
-        <form method="POST" id="systemuser-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
+        <form method="POST" id="users-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
           <div class="row">
-            <div class="col-md-4">
+          <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="user_name" name="user_name" placeholder="{{trans('display.user_name')}}">
+                <input type="text" id="username" name="username" placeholder="{{trans('display.username')}}">
               </div>
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="surname" name="surname" placeholder="{{trans('display.surname')}}">
+                <input type="text" id="firstname" name="firstname" placeholder="{{trans('display.firstname')}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -48,17 +47,17 @@
   </div>
   <!-- collapse end -->
   <div style="margin-bottom: 10px">
-    <button type="button" class="link-1" id="systemuser-add" data-toggle="modal" data-target="#systemuser-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
+   <button type="button" class="link-1" id="users-add" data-toggle="modal" data-target="#users-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
   </div>
-
-  <table cellpadding="0" cellspacing="0" border="0" id="systemuser-table">
+ 
+  <table cellpadding="0" cellspacing="0" border="0" id="users-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:10%">{{trans('display.user_name')}}</th>
+        <th style="width:10%">{{trans('display.username')}}</th>
         <th style="width:10%">{{trans('display.citizenship')}}</th>
         <th style="width:10%">{{trans('display.family_name')}}</th>
-        <th style="width:10%">{{trans('display.surname')}}</th>
+        <th style="width:10%">{{trans('display.firstname')}}</th>
         <th style="width:10%">{{trans('display.lastname')}}</th>
         <th style="width:10%">{{trans('display.register')}}</th>
         <th style="width:10%">{{trans('display.age')}}</th>
@@ -72,18 +71,18 @@
         <th style="width:10%">{{trans('display.district')}}</th>
         <th style="width:10%">{{trans('display.education_degree')}}</th>
         <th style="width:10%">{{trans('display.home_address')}}</th>
-        <!-- <th style="width:120px">{{trans('display.manage')}}</th> -->
+        <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
     <tbody>
 
     </tbody>
   </table>
-  <div class="modal fade" id="systemuser-add-modal" tabindex="-1" role="dialog" aria-labelledby="systemuser-add-modalLabel" aria-hidden="true">
+  <div class="modal fade" id="users-add-modal" tabindex="-1" role="dialog" aria-labelledby="users-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="systemuser-add-modalLabel">{{trans('display.add_new')}}</h4>
+          <h4 class="modal-title" id="users-add-modalLabel">{{trans('display.add_new')}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -98,11 +97,11 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="systemuser-edit-modal" tabindex="-1" role="dialog" aria-labelledby="systemuser-edit-modalLabel" aria-hidden="true">
+  <div class="modal fade" id="users-edit-modal" tabindex="-1" role="dialog" aria-labelledby="users-edit-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="systemuser-edit-modalLabel">{{trans('display.edit')}}</h4>
+          <h4 class="modal-title" id="users-edit-modalLabel">{{trans('display.edit')}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -119,8 +118,10 @@
   </div>
   @csrf
 </section>
+
 <!-- collapse style -->
 <style>
+
   .text-right{
     float: right;
   }
@@ -195,8 +196,9 @@
   }
 </style>
 <!-- collapse style end -->
+
 <script>
-  var systemuserTable = $('#systemuser-table').DataTable( {
+  var usersTable = $('#users-table').DataTable( {
       // searching: false,
       paging: true,
       lengthChange: false,
@@ -211,19 +213,13 @@
       dataType: 'json',
       paginationType: "full_numbers",
       ajax: {
-          url: '{!! route('systemuser.datalist') !!}',
+          url: '{!! route('users.datalist') !!}',
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
-              var dateArr = {};
-              $('#app-search-form input[name^="search_date"]').map(function(){ 
-                  dateArr[this.id] = this.value;
-              }).get();
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.date = dateArr;
-              // d.question = $('#systemuser-search-form input[id="question"]').val();
-              d.user_name = $('#systemuser-search-form input[id="user_name"]').val();
+              d.username = $('#systemuser-search-form input[id="user_name"]').val();
               d.surname = $('#systemuser-search-form input[id="surname"]').val();
               d.lastname = $('#systemuser-search-form input[id="lastname"]').val();
           }
@@ -235,12 +231,10 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        // { data: 'question', "defaultContent": ''},
-        // { data: 'answer', "defaultContent": ''},
-        { data: 'user_name', "defaultContent": ''},
+        { data: 'username', "defaultContent": ''},
         { data: 'citizenship', "defaultContent": ''},
         { data: 'family_name', "defaultContent": ''},
-        { data: 'surname', "defaultContent": ''},
+        { data: 'firstname', "defaultContent": ''},
         { data: 'lastname', "defaultContent": ''},
         { data: 'register', "defaultContent": ''},
         { data: 'age', "defaultContent": ''},
@@ -303,10 +297,10 @@
         }
   }); 
   //add role
-  $("#systemuser-add").on('click', function(){
-    $.get( '/admin/systemuser/create', function( data ) {
-      $('#systemuser-add-modal .modal-body').html(data);
-      $('#systemuser-add-form').validate({
+  $("#users-add").on('click', function(){
+    $.get( '/admin/users/create', function( data ) {
+      $('#users-add-modal .modal-body').html(data);
+      $('#users-add-form').validate({
         ignore: [],
         highlight:function(element) {
             $(element).parents('.form-group').addClass('has-error has-feedback');
@@ -317,18 +311,18 @@
         submitHandler: function(form) {
           var formData = new FormData(form);
           $.ajax({
-            url: '{!! route('systemuser.store') !!}',
+            url: '{!! route('users.store') !!}',
             type: form.method,
             data: $(form).serialize(),
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#systemuser-add-modal').modal('hide');
+                $('#users-add-modal').modal('hide');
                 // $("#role-add-modal").trigger('click');
                 // $('#role-add-modal').modal('hide');
                 $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                systemuserTable.draw();
+                usersTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
@@ -347,13 +341,13 @@
     });
   });
   //edit role
-  $('#systemuser-table tbody').on( 'click', 'tr td a.systemuser-edit', function () {
-    var systemuserId = $(this).data('systemuserid');
+  $('#users-table tbody').on( 'click', 'tr td a.users-edit', function () {
+    var usersId = $(this).data('usersid');
 
-    $.get( '/admin/systemuser/'+systemuserId+'/edit', function( data ) {
-      $("#systemuser-edit-modal").modal('show');
-      $('#systemuser-edit-modal .modal-body').html(data);
-      $('#systemuser-edit-form').validate({
+    $.get( '/admin/users/'+usersId+'/edit', function( data ) {
+      $("#users-edit-modal").modal('show');
+      $('#users-edit-modal .modal-body').html(data);
+      $('#users-edit-form').validate({
         ignore: [],
         highlight:function(element) {
             $(element).parents('.form-group').addClass('has-error has-feedback');
@@ -364,16 +358,16 @@
         submitHandler: function(form) {
           var formData = new FormData(form);
           $.ajax({
-            url: '/admin/systemuser/'+systemuserId,
+            url: '/admin/users/'+usersId,
             type: 'PUT',
             data: $(form).serialize(),
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#systemuser-edit-modal').modal('hide');
+                $('#users-edit-modal').modal('hide');
                 $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                systemuserTable.draw();
+                usersTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
@@ -391,10 +385,10 @@
       });
     });
   });
-  //delete role
-  $('#systemuser-table tbody').on( 'click', 'tr td a.systemuser-delete', function () {
-    var systemuserId = $(this).data('systemuserid');
 
+  //delete role
+ $('#users-table tbody').on( 'click', 'tr td a.users-delete', function () {
+    var usersId = $(this).data('usersid');
     $.confirm({
       title: '{{trans('messages.warning_title')}}',
       content: '{{trans('messages.confirm_delete_content')}}',
@@ -409,11 +403,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/systemuser/' + systemuserId,
+                url: '/admin/users/' + usersId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  systemuserTable.draw();
+                  usersTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -434,10 +428,12 @@
     });
   });
 
-  $('#systemuser-search-form').on('submit', function(e) {
-    systemuserTable.draw();
+  // search
+  $('#users-search-form').on('submit', function(e) {
+    usersTable.draw();
     e.preventDefault();
   });
+
 
 </script>
 @endsection
