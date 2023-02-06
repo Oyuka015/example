@@ -20,8 +20,6 @@
     <input type="text" id="add_lesson_group" class="base-input" name="add_lesson_group" placeholder="{{trans('display.add_lesson_group')}}">
   </div>
   <div class="form-group">
-  </div>
-  <div class="form-group">
     <div class="buttons">
         <div class="video">
             <div class="upload">
@@ -38,6 +36,15 @@
     <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>
     <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
+  <div class="form-group">
+    <div class="buttons">
+        <div class="file">
+            <div class="pdf">
+                {{trans('display.upload_homework')}}
+            </div>
+        </div>
+    </div>
+  </div>
   <input type="submit" class="base-submit" value="Хадгалах">
   @csrf
 </form>
@@ -45,6 +52,7 @@
 <script>
    $(document).ready(function () {
     uploadVideo();
+    uploadFile();
     checkRadio();
     function uploadVideo() {
       var button = $('.video .upload')
@@ -68,7 +76,28 @@
         $(this).remove()
       })
     }
-
+    function uploadFile() {
+      var button = $('.file .pdf')
+      var uploader = $('<input type="file" accept="application/pdf" id="file" name="file"/>')
+      var file = $('.file')
+      
+      button.on('click', function () {
+        uploader.click()
+      })
+      
+      uploader.on('change', function () {
+          var reader = new FileReader()
+          reader.onload = function(event) {
+            file.prepend('<div class="files" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+          }
+          reader.readAsDataURL(uploader[0].files[0]);
+          uploadedFile.push(uploader[0].files[0]);
+       })
+      
+       file.on('click', '.files', function () {
+        $(this).remove()
+      })
+    }
     $("#radio_buttons").on('change', function(){
       checkRadio();
     })

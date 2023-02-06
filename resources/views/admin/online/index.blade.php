@@ -176,6 +176,7 @@
 <!-- collapse style end -->
 <script>
   var uploadedVideo = [];
+  var uploadedFile = [];
   var onlineTable = $('#online-table').DataTable( {
       // searching: false,
       paging: true,
@@ -279,6 +280,11 @@
           for (i = 0; i < uploadedVideo.length; i++) {
             console.log(uploadedVideo[i]);
             formData.append("file"+i, uploadedVideo[i]);
+          }
+          console.log(uploadedFile.length);
+          for (i = 0; i < uploadedFile.length; i++) {
+            console.log(uploadedFile[i]);
+            formData.append("pdf"+i, uploadedFile[i]);
           }
           $.ajax({
             url: '{!! route('online.store') !!}',

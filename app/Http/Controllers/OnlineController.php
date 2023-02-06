@@ -49,7 +49,9 @@ class OnlineController extends BaseController
     public function edit($id)
     {
         $online = $this->online->find($id);
-
+        $l_groups = Codelists::where('parent_id', Config::get('codelists.codelist')['lesson_group_parent_id'])->get();
+        
+        $data['lesson_groups'] = $l_groups;
         $data['online'] = $online;
 
         return View::make($this->view_path.'.edit', $data);
@@ -59,6 +61,7 @@ class OnlineController extends BaseController
     {
         $this->validate($request, [
             'file0' => 'required|file|mimetypes:video/mp4',
+            'pdf0' => 'required|file|mimetypes:application/pdf',
         ]);
         $validator = Validator::make($request->input(), Online::$rules);
         // process the save

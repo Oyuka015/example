@@ -53,6 +53,11 @@ class OnlineRepository implements OnlineInterface
             $path = $file['file0']->store('videos', ['disk' => 'my_files']);
             $online->video = $path;
         }
+        if ($file['pdf0'])
+        {
+            $path = $file['pdf0']->store('pdf_files', ['disk' => 'my_files']);
+            $online->pdf_file = $path;
+        }
 
         $online->save();
         return $online;
