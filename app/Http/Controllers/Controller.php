@@ -103,7 +103,6 @@ class Controller extends BaseController
     public function login(){
         return view('login');;
     }
-
     
     public function getDataForInformation($id){
         $getData = Information::where('id', $id)->get();

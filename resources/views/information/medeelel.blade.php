@@ -24,7 +24,6 @@
                 <div class="news-cart-img">
                     <img src="{{$information->image ? $information->image->file_url : '/images/2.jpg'}}" alt="">
                 </div>
-                <a href="detailinfo">
                     <div class="news-cart-content">
                         <div class="news-cart-content-text">
                             <h1>{{$information->title}}</h1>
@@ -39,14 +38,13 @@
                             </div>
                         </div>
                     </div>
-                </a>
             </div>
         @endforeach
     </div>
 </div>
 <script>
     function getData(id){
-        location.replace('/get/data/'+ id);
+        window.location.assign('/get/data/'+ id);
     }
 </script>
 @endsection
