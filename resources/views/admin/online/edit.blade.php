@@ -1,6 +1,6 @@
 <form method="POST" id="online-edit-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   <div class="form-group">
-    <video width="320" height="240" autoplay playsinline style="pointer-events: none;">
+    <video width="320" height="240" controls>
         <source src="/{{$online->video}}" type="video/mp4">
     </video>
  </div>

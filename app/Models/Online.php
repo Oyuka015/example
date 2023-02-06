@@ -18,6 +18,13 @@ class Online extends Eloquent
     public static $rules = array(
         'lesson_name' => 'required',
         'lesson_summary' => 'required',
-        'lesson_type' => 'required',
     );
+    
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'created_by', 'id');
+    }
+
+    public function group(){
+        return $this->belongsTo('App\Models\Codelists', 'lesson_group_id', 'id');
+    }
 }

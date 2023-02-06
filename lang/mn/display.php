@@ -113,4 +113,5 @@ return [
     'question_score' => 'Асуултуудын оноо',
     'select_lesson_group' => 'Хичээлийн бүлэг сонгох',
     'add_lesson_group' => 'Хичээлийн бүлэг шинээр нэмэх',
+    'lesson_group' => 'Хичээлийн бүлэг',
 ];

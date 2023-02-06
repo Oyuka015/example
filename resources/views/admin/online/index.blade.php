@@ -47,12 +47,11 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:20%">{{trans('display.image')}}</th>
+        <th style="width:15px%">{{trans('display.lesson_group')}}</th>
         <th style="width:15px%">{{trans('display.lesson_name')}}</th>
         <th style="width:20px%">{{trans('display.lesson_summary')}}</th>
         <th style="width:15px%">{{trans('display.lesson_posted')}}</th>
         <th style="width:15px%">{{trans('display.posted_date')}}</th>
-        <th style="width:15px%">{{trans('display.lesson_type')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -62,9 +61,9 @@
   <div class="modal fade" id="online-add-modal" tabindex="-1" role="dialog" aria-labelledby="online-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header" style="display: flex;">
-          <h4 class="modal-title" style="display: flex; id="online-add-modalLabel">{{trans('display.add_new')}}</h4>
-          <button type="button" style="display: flex; class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-header" style="position: relative; display: flex; justify-content: space-between;">
+          <h4 class="modal-title" id="online-add-modalLabel">{{trans('display.add_new')}}</h4>
+          <button type="button" style="right:0; position:absolute;" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -208,24 +207,23 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'video', "defaultContent": ''},
+        { data: 'lesson_group_id', "defaultContent": ''},
         { data: 'lesson_name', "defaultContent": ''},
         { data: 'lesson_summary', "defaultContent": ''},
-        { data: 'lesson_posted', "defaultContent": ''},
-        { data: 'posted_date', "defaultContent": ''},
-        { data: 'lesson_type', "defaultContent": ''},
+        { data: 'created_by', "defaultContent": ''},
+        { data: 'created_at', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,7]
+            targets: [0,6]
         },{
             class: "text-center",
-            targets: [0,7]
+            targets: [0,6]
         },{
-            targets: [0,6],
+            targets: [0,5],
             class: "border-right"
         }
       ],
