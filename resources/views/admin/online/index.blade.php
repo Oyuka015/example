@@ -411,7 +411,6 @@
     onlineTable.draw();
     e.preventDefault();
   });
-
 </script>
 @endsection
  

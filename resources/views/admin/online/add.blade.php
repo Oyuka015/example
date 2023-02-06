@@ -57,9 +57,9 @@
 
 <script>
    $(document).ready(function () {
-    uploadVideo();
-    uploadFile();
-    checkRadio();
+     uploadFile();
+     checkRadio();
+     uploadVideo();
     function uploadVideo() {
       var button = $('.video .upload')
       var uploader = $('<input type="file" accept="video/mp4" id="video" name="video"/>')

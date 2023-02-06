@@ -29,5 +29,6 @@ return [
     'table_next' => 'Дараах',
     'table_previous' => 'Өмнөх',
     'no_result' => 'Үр дүн олдсонгүй!',
-    'image_not_found' => 'Зураг оруулаагүй байна!'
+    'image_not_found' => 'Зураг оруулаагүй байна!',
+    'current_video_delete' => 'Одоо байгаа бичлэг устгах болно!',
 ];
