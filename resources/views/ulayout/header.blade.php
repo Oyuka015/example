@@ -30,6 +30,7 @@
     }
     .dropdown-content a:hover{
         background-color: #00a98d65;
+        text-decoration: none;
     }
 
 .dropdown:hover .dropdown-content {display: block;}

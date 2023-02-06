@@ -18,7 +18,7 @@
             <div class="logo">
                     <img src="{{ URL('images/logo.png') }}" alt="">
             </div>
-            <div class="menu">
+            <div class="ulayout-menu">
                 <a href="test"  class="link">
                     <i class="fa-solid fa-house"></i>
                     <p>Нүүр</p>

@@ -27,11 +27,11 @@
     </div>
 </div>
 
-<table style="display:none;" cellpadding="0" cellspacing="0" border="0" id="certificate-table">
+<table style="display:none; max-width:1400px; margin:auto;" cellpadding="0" cellspacing="0" border="0" id="certificate-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:25%">{{trans('display.user_name')}}</th>
+        <th style="width:25%">{{trans('display.username')}}</th>
         <th style="width:25%">{{trans('display.certificate_id')}}</th>
         <!-- <th style="width:10%">{{trans('display.register')}}</th> -->
         <th style="width:25%">{{trans('display.registered_date')}}</th>
@@ -40,7 +40,7 @@
         <!-- <th style="width:10%">{{trans('display.surname')}}</th> -->
         <th style="width:25%">{{trans('display.valid_for')}}</th>
         <!-- <th style="width:10%">{{trans('display.signature')}}</th> -->
-        <th style="width:120px">{{trans('display.manage')}}</th>
+        <!-- <th style="width:120px">{{trans('display.manage')}}</th> -->
       </tr>
     </thead>
     <tbody>
@@ -99,18 +99,18 @@
         // { data: 'surname', "defaultContent": ''},
         { data: 'valid_for', "defaultContent": ''},
         // { data: 'signature', "defaultContent": ''},
-        { data: 'action', "defaultContent": ''},
+        // { data: 'action', "defaultContent": ''},
     ],
     columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,5]
+            targets: [0,4]
         },{
             class: "text-center",
-            targets: [0,5]
+            targets: [0,4]
         },{
-            targets: [0,4],
+            targets: [0,3],
             class: "border-right"
         }
     ],

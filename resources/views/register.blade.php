@@ -5,6 +5,7 @@
 <link rel="stylesheet" type="text/css" href="/js/plugins/ol/css/ol.css"/>
 <link rel="stylesheet" type="text/css" href="/js/plugins/ol/css/ol.smart.css"/>
 <link rel="stylesheet" type="text/css" href="/js/chosen/chosen.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     .register-form{
        display:block;
@@ -266,44 +267,43 @@
       <div id="table" class="education-information-table">
           <div class="education-table-add" id="education-table-add">+</div>
           <table class="table">
-          <tr>
-              <th>Сургуулийн нэр</th>
-              <th>Төгссөн он</th>
-              <th>Төгссөн мэргэжил</th>
-              <th>Голч дүн</th>
-              <th>Дипломын дугаар</th>
-              <th>Дипломын бүртгэлийн дугаар</th>
-              <th>Дипломын нүүр</th>
-              <th>Дипломын хавсралт</th>
-              <th>{{trans('display.delete')}}</th>
-          </tr>
-          <tr>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td>
-                  <span class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-              </td>
-          </tr>
-          <!-- This is our clonable table line -->
-          <tr class="hide">
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td contenteditable="true"></td>
-              <td>
-                  <span style="color:red;" class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-              </td>
-          </tr>
+            <tr>
+                <th>Сургуулийн нэр</th>
+                <th>Төгссөн он</th>
+                <th>Төгссөн мэргэжил</th>
+                <th>Голч дүн</th>
+                <th>Дипломын дугаар</th>
+                <th>Дипломын бүртгэлийн дугаар</th>
+                <th>Дипломын нүүр</th>
+                <th>Дипломын хавсралт</th>
+                <th>{{trans('display.delete')}}</th>
+            </tr>
+            <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td>
+                    <span id="education-table-remove" class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
+                </td>
+            </tr>
+            <tr class="hide">
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td>
+                    <span id="education-table-remove" style="color:red;" class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
+                </td>
+            </tr>
           </table>
       </div>
   </div>
@@ -313,20 +313,10 @@
 </form>
 
 <!-- education table script-->
-<script>
-  var $TABLE = $('#table');
 
-  $('#education-table-add').click(function () {
-      var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
-      $TABLE.find('table').append($clone);
-  });
 
-  $('.education-table-remove').click(function () {
-      $(this).parents('tr').detach();
-  });
-
-</script>
-
+<!-- <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/dataTables.buttons.min.js"></script> -->
 <script type="text/javascript" charset="utf8" src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"/>
 <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
@@ -375,4 +365,17 @@
         }
       });
     });
+</script>
+<script>
+  var $TABLE = $('#table');
+
+  $('#education-table-add').click(function () {
+      var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+      $TABLE.find('table').append($clone);
+  });
+
+  $('.education-table-remove').click(function () {
+      $(this).parents('tr').detach();
+  });
+
 </script>

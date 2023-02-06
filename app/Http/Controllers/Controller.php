@@ -5,6 +5,7 @@ use App\Repositories\Faq\FaqInterface;
 use App\Repositories\Information\InformationInterface;
 use App\Repositories\Online\OnlineInterface;
 use App\Repositories\Certificate\CertificateInterface;
+use App\Models\Information;
 
 
 
@@ -27,7 +28,7 @@ class Controller extends BaseController
 
     public function aa()
     {
-        $informations = $this->information->all();
+        $informations = Information::select('*')->limit(3)->get();
 
         $data['informations'] = $informations;
         

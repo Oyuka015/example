@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="surname" name="surname" placeholder="{{trans('display.surname')}}">
+                <input type="text" id="firstname" name="firstname" placeholder="{{trans('display.firstname')}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -58,13 +58,13 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:10%">{{trans('display.user_name')}}</th>
+        <th style="width:10%">{{trans('display.username')}}</th>
         <th style="width:10%">{{trans('display.certificate_id')}}</th>
         <th style="width:10%">{{trans('display.register')}}</th>
         <th style="width:10%">{{trans('display.registered_date')}}</th>
         <th style="width:10%">{{trans('display.registered_user')}}</th>
         <th style="width:10%">{{trans('display.lastname')}}</th>
-        <th style="width:10%">{{trans('display.surname')}}</th>
+        <th style="width:10%">{{trans('display.firstname')}}</th>
         <th style="width:10%">{{trans('display.valid_for')}}</th>
         <th style="width:10%">{{trans('display.signature')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
