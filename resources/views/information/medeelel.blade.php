@@ -24,20 +24,14 @@
                 <div class="news-cart-img">
                     <img src="{{$information->image ? $information->image->file_url : '/images/2.jpg'}}" alt="">
                 </div>
-                    <div class="news-cart-content">
-                        <div class="news-cart-content-text">
-                            <h1>{{$information->title}}</h1>
-                        </div>
-                        <div class="news-cart-content-info">
-                            <div class="news-cart-content-info-icon">
-                                <i class="fa-solid fa-eye"></i>
-                                <p>0</p>
-                            </div>
-                            <div class="news-cart-content-info-date ">
-                                <p>2022-12-12</p>
-                            </div>
-                        </div>
+                <div class="news-cart-content">
+                    <div class="news-cart-content-text">
+                        <h1>{{$information->title}}</h1>
                     </div>
+                    <div class="news-cart-content-info-date ">
+                        <p>2022-12-12</p>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>

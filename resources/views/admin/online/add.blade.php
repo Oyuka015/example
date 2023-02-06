@@ -28,14 +28,20 @@
         </div>
     </div>
   </div>
-  <div class="form-group">
-    <label for="lesson_name">{{trans('display.lesson_name')}}</label>
-    <input type="text" id="lesson_name" class="base-input" name="lesson_name" placeholder="{{trans('display.lesson_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+  <div class="form-group" style="display:flex; gap:5px">
+    <div style="width:50%">
+      <label for="lesson_name">{{trans('display.lesson_name')}}</label>
+      <input type="text" id="lesson_name" class="base-input" name="lesson_name" placeholder="{{trans('display.lesson_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    </div>
+    <div style="width:50%">
+      <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>
+      <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    </div>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>
     <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
+  </div> -->
   <div class="form-group">
     <div class="buttons">
         <div class="file">

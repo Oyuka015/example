@@ -12,7 +12,7 @@
                 <img src="/images/default-avatar.png" alt="">
             </div>
             <div class="user-profile-name">
-                {{trans('display.user_name')}}
+                {{trans('display.username')}}
             </div>
         </div>
         <div class="user-profile-other">
