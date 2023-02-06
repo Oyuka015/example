@@ -20,7 +20,7 @@
 <div class="news">
     <div class="news-cart">
         @foreach($informations as $information)
-            <div class="cart"> <!-- cart-->
+            <div class="cart" onclick="getData({{$information->id}})"> <!-- cart-->
                 <div class="news-cart-img">
                     <img src="{{$information->image ? $information->image->file_url : '/images/2.jpg'}}" alt="">
                 </div>
@@ -44,6 +44,11 @@
         @endforeach
     </div>
 </div>
+<script>
+    function getData(id){
+        location.replace('/get/data/'+ id);
+    }
+</script>
 @endsection
  
 @push('js')
