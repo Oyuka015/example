@@ -105,8 +105,6 @@ class Controller extends BaseController
 
     
     public function getDataForInformation($id){
-        
-        // dD( $id);
         $getData = Information::where('id', $id)->get();
         // dd($getData[0]->title);
         $data['info'] = $getData;
