@@ -718,9 +718,9 @@ button::-moz-focus-inner {
     width: 100%;
     display: grid;
     grid-template-columns: 22% 78%;
+    grid-gap: 20px;
 }
 .user-profile-sidebar {
-    background-color: white;
     overflow: auto;
     padding: 40px 10px;
 }
@@ -762,9 +762,11 @@ button::-moz-focus-inner {
 }
 .user-profile-other ul li a {
     display: flex;
+    align-items: center;
     padding: 10px 20px;
-    font-size: 17px;
-    gap: 20px;
+    /* font-size: 17px; */
+    white-space: nowrap;
+    gap: 5px;
     color: #252525;
     background-color: rgba(182, 180, 180, 0.301);
 }
@@ -776,7 +778,37 @@ button::-moz-focus-inner {
 }
 
 .user-profile-main {
+    margin-top: 30px;
     background-color: rgba(182, 180, 180, 0.301);
+}
+#tabs li{
+    background-color: lightseagreen;
+    border-radius: 30px;    
+    padding: 5px 10px;
+}
+#tabs li a{
+    color:white;
+}
+.first{
+    background-color: white;
+    border-radius:10px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    gap:40px
+}
+.second{
+    display: flex;
+    border-radius:10px;
+    background-color: white;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    gap:40px    
+}
+.third{
+    background-color: white;
+    border-radius:10px;
+    min-height: 70vh;
 }
 .profile-information-section {
     background-color: #fff;

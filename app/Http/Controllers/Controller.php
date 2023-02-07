@@ -15,6 +15,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use \View as View;
 use Illuminate\Http\Request;
+use Session;
 
 class Controller extends BaseController
 {
@@ -32,6 +33,8 @@ class Controller extends BaseController
         $informations = Information::select('*')->limit(3)->get();
 
         $data['informations'] = $informations;
+        $user_Data = Session::get('login_user');
+        $data['userData'] = $user_Data;
         
         return View::make('test', $data);
     }

@@ -89,8 +89,8 @@
       <tr>
         <th style="width:30px">№</th>
         <th style="width:50%">{{trans('display.username')}}</th>
-        <th style="width:50%">{{trans('display.school')}}</th>
-        <th style="width:50%">{{trans('display.grad')}}</th>
+        <th style="width:50%">{{trans('display.school_name')}}</th>
+        <th style="width:50%">{{trans('display.graduated')}}</th>
         <th style="width:50%">{{trans('display.occupation')}}</th>
         <th style="width:50%">{{trans('display.gpa')}}</th>
         <th style="width:50%">{{trans('display.diploma_number')}}</th>
@@ -245,9 +245,9 @@
           data: function ( d ) {
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.username = $('#systemuser-search-form input[id="username"]').val();
-              d.surname = $('#systemuser-search-form input[id="surname"]').val();
-              d.lastname = $('#systemuser-search-form input[id="lastname"]').val();
+              d.username = $('#users-search-form input[id="username"]').val();
+              d.surname = $('#users-search-form input[id="surname"]').val();
+              d.lastname = $('#users-search-form input[id="lastname"]').val();
           }
       },
       columns: [
@@ -344,6 +344,9 @@
           data: function ( d ) {
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
+              d.username = $('#users-search-form input[id="username"]').val();
+              d.surname = $('#users-search-form input[id="surname"]').val();
+              d.lastname = $('#users-search-form input[id="lastname"]').val();
           }
       },
       columns: [
