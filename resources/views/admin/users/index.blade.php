@@ -1,7 +1,7 @@
 @extends('layout.layout')
  
 @section('content')
-<section >
+<section style="min-height:100vh; ">
   <h1 class="admin_register_title">{{trans('display.user_information')}}</h1>
   <div class="form-sub-heading">
 
@@ -50,7 +50,8 @@
    <button type="button" class="link-1" id="users-add" data-toggle="modal" data-target="#users-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
   </div>
  
-  <table cellpadding="0" cellspacing="0" border="0" id="users-table">
+  
+  <table  cellpadding="0" cellspacing="0" border="0" id="users-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
@@ -78,6 +79,31 @@
 
     </tbody>
   </table>
+
+  <div style=" width:100%; height:10px; margin:50px 0;">
+
+  </div>
+
+  <table cellpadding="0" cellspacing="0" border="0" id="users-school-table">
+    <thead class="tbl-header">
+      <tr>
+        <th style="width:30px">№</th>
+        <th style="width:50%">{{trans('display.username')}}</th>
+        <th style="width:50%">{{trans('display.school')}}</th>
+        <th style="width:50%">{{trans('display.grad')}}</th>
+        <th style="width:50%">{{trans('display.occupation')}}</th>
+        <th style="width:50%">{{trans('display.gpa')}}</th>
+        <th style="width:50%">{{trans('display.diploma_number')}}</th>
+        <th style="width:50%">{{trans('display.diploma_register')}}</th>
+        <th style="width:50%">{{trans('display.diploma_doc')}}</th>
+        <th style="width:120px">{{trans('display.manage')}}</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
   <div class="modal fade" id="users-add-modal" tabindex="-1" role="dialog" aria-labelledby="users-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -219,7 +245,7 @@
           data: function ( d ) {
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.username = $('#systemuser-search-form input[id="user_name"]').val();
+              d.username = $('#systemuser-search-form input[id="username"]').val();
               d.surname = $('#systemuser-search-form input[id="surname"]').val();
               d.lastname = $('#systemuser-search-form input[id="lastname"]').val();
           }
@@ -251,7 +277,7 @@
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
-        {
+          {
             searchable: false,
             orderable: false,
             targets: [0,18]
@@ -296,6 +322,94 @@
           }
         }
   }); 
+
+  var usersTable = $('#users-school-table').DataTable( {
+      // searching: false,
+      paging: true,
+      lengthChange: false,
+      processing:     true,
+      serverSide:     true,
+      deferRender:    true,
+      autoWidth:      false,
+      // filter:         false,
+      // deferRender:    true,
+      // autoWidth:      true,
+      // dom: 'Bfrtip',
+      dataType: 'json',
+      paginationType: "full_numbers",
+      ajax: {
+          url: '{!! route('users.datalist') !!}',
+          dataType: "JSON",
+          type: 'post',
+          data: function ( d ) {
+
+              d.register_number = $('#app-search-form input[id="search_register_number"]').val();
+          }
+      },
+      columns: [
+        { 
+          data: null,
+          render: function (data, type, row, meta) {
+              return meta.row + meta.settings._iDisplayStart + 1;
+          }
+        },
+        { data: 'username', "defaultContent": ''},
+        { data: 'school', "defaultContent": ''},
+        { data: 'grad', "defaultContent": ''},
+        { data: 'occupation', "defaultContent": ''},
+        { data: 'gpa', "defaultContent": ''},
+        { data: 'diploma_number', "defaultContent": ''},
+        { data: 'diploma_register', "defaultContent": ''},
+        { data: 'diploma_doc', "defaultContent": ''},
+        { data: 'action', "defaultContent": ''},
+      ],
+      columnDefs: [
+          {
+            searchable: false,
+            orderable: false,
+            targets: [0,9]
+        },{
+            class: "text-center",
+            targets: [0,9]
+        },{
+            targets: [0,8],
+            class: "border-right"
+        }
+      ],
+      order: [[ 1, "asc" ]],
+      dom: '<"pull-left"B><"pull-right"l><"clear">tip',
+      buttons: [
+          // {
+          //     text: '{{trans("display.add_new")}}',
+          //     className: 'link-1',
+          //     action: function ( e, dt, node, config ) {
+          //         alert( 'Button activated' );
+          //     }
+          // }
+      ],
+      "language": 
+        {
+          "decimal":        "",
+          "emptyTable":     "{{trans('messages.table_empty')}}",
+          "info":           "{{trans('messages.table_showing')}}",
+          "infoEmpty":      "{{trans('messages.table_showing_empty')}}",
+          "infoFiltered":   "{{trans('messages.table_filtered')}}",
+          "infoPostFix":    "",
+          "thousands":      ",",
+          // "lengthMenu":     "Show _MENU_ entries",
+          // "loadingRecords": "Loading...",
+          "processing":     "{{trans('messages.table_processing')}}",
+          // "search":         "Search:",
+          "zeroRecords":    "{{trans('messages.table_no_match')}}",
+          "paginate": {
+            "first":      "{{trans('messages.table_first')}}",
+            "last":       "{{trans('messages.table_last')}}",
+            "next":       "{{trans('messages.table_next')}}",
+            "previous":   "{{trans('messages.table_previous')}}"
+          }
+        }
+  }); 
+
   //add role
   $("#users-add").on('click', function(){
     $.get( '/admin/users/create', function( data ) {
@@ -387,7 +501,47 @@
   });
 
   //delete role
- $('#users-table tbody').on( 'click', 'tr td a.users-delete', function () {
+  $('#users-table tbody').on( 'click', 'tr td a.users-delete', function () {
+    var usersId = $(this).data('usersid');
+    $.confirm({
+      title: '{{trans('messages.warning_title')}}',
+      content: '{{trans('messages.confirm_delete_content')}}',
+      confirmButton: 'Тийм',
+      cancelButton: 'Үгүй',
+      type: 'red',
+      typeAnimated: true,
+      buttons: {
+        tryAgain: {
+            text: 'Устгах',
+            btnClass: 'btn-red',
+            action: function(){
+              $.ajax({
+                type: 'POST',
+                url: '/admin/users/' + usersId,
+                data: {_method: 'DELETE'},
+                success: function (response) {
+                  $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
+                  usersTable.draw();
+                },
+                error: function (xhr, textStatus, error) {
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                },
+                async: false
+            });
+            }
+        },
+        close: {
+          text: 'Цуцлах',
+          action: function(){
+
+          }
+        }
+      }
+    });
+  });
+  $('#users-school-table tbody').on( 'click', 'tr td a.users-delete', function () {
     var usersId = $(this).data('usersid');
     $.confirm({
       title: '{{trans('messages.warning_title')}}',

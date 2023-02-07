@@ -33,5 +33,12 @@ class Users extends Eloquent
         'district' => 'required',
         'education-degree' => 'required',
         'home_address' => 'required',
+        'school' => 'required',
+        'grad' => 'required',
+        'occupation' => 'required',
+        'gpa' => 'required',
+        'diploma_number' => 'required',
+        'diploma_register' => 'required',
+        'diploma_doc' => 'required',
     );
 }

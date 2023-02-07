@@ -35,7 +35,7 @@
         position:relative;
         margin-top: 20px;
     }
-    .general-information label, .system-login-information label{
+    .general-information label, .system-login-information label, .education-information label{
         display:flex;
         flex-direction:column;
     }
@@ -48,36 +48,12 @@
     }
     .education-information{
         border:1px solid cyan;
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap:10px;  
         margin-top: 20px;
         position:relative;
         padding:20px;       
-    }
-    .education-information-table {
-        position: relative;
-        padding:10px 30px;
-    }
-    .education-table-remove {
-        width: 100%;
-        color: red;
-        font-weight: 900;
-        font-size: 19px;
-        cursor: pointer;
-        display:flex;
-        justify-content:center;
-    }
-    #education-table-add {
-        color: #1f1f1f;
-        cursor:pointer;
-        position: absolute;
-        background-color: #89e7e7b8;
-        border-radius:8px;
-        bottom: -5px;
-        left: 30px;
-        font-size: 20px;
-        padding:0px 10px;
-    }
-    tr{
-      border-bottom:1px solid #9999;
     }
     .register-form-submit{
         margin-top: 10px;
@@ -162,7 +138,7 @@
 <form method="POST" class="register-form" id="register-form">
   <div class="system-login-information">
     <div class="register-information-title">Системд нэвтрэх мэдээлэл</div>
-    <label for="user_name">
+    <label for="username">
         {{trans('display.login_name')}}
         <input type="text" name="username" >
     </label>
@@ -264,48 +240,34 @@
   </div>
   <div class="education-information">
       <div class="register-information-title">Боловсролын мэдээлэл</div>
-      <div id="table" class="education-information-table">
-          <div class="education-table-add" id="education-table-add">+</div>
-          <table class="table">
-            <tr>
-                <th>Сургуулийн нэр</th>
-                <th>Төгссөн он</th>
-                <th>Төгссөн мэргэжил</th>
-                <th>Голч дүн</th>
-                <th>Дипломын дугаар</th>
-                <th>Дипломын бүртгэлийн дугаар</th>
-                <th>Дипломын нүүр</th>
-                <th>Дипломын хавсралт</th>
-                <th>{{trans('display.delete')}}</th>
-            </tr>
-            <tr>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td>
-                    <span id="education-table-remove" class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-                </td>
-            </tr>
-            <tr class="hide">
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td contenteditable="true"></td>
-                <td>
-                    <span id="education-table-remove" style="color:red;" class="education-table-remove "><i class="fa-solid fa-xmark"></i></span>
-                </td>
-            </tr>
-          </table>
-      </div>
+      <label for="school">
+          {{trans('display.school_name')}}
+          <input type="text" name="school">
+      </label>
+      <label for="grad">
+          {{trans('display.graduated')}}
+          <input type="text" name="grad">
+      </label>
+      <label for="occupation">
+          {{trans('display.occupation')}}
+          <input type="text" name="occupation">
+      </label>
+      <label for="gpa">
+          {{trans('display.gpa')}}
+          <input type="text" name="gpa">
+      </label>
+      <label for="diploma_number">
+          {{trans('display.diploma_num')}}
+          <input type="text" name="diploma_number">
+      </label>
+      <label for="diploma_register">
+          {{trans('display.diploma_register')}}
+          <input type="text" name="diploma_register">
+      </label>
+      <label for="diploma_doc">
+          {{trans('display.diploma_doc')}}
+          <input type="text" name="diploma_doc">
+      </label>
   </div>
   <div type="submit" id="register-form-submit" class="register-form-submit">
       <button>Төлбөр төлөх</button>
@@ -365,17 +327,4 @@
         }
       });
     });
-</script>
-<script>
-  var $TABLE = $('#table');
-
-  $('#education-table-add').click(function () {
-      var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
-      $TABLE.find('table').append($clone);
-  });
-
-  $('.education-table-remove').click(function () {
-      $(this).parents('tr').detach();
-  });
-
 </script>

@@ -23,23 +23,31 @@ class UsersRepository implements UsersInterface
     public function create($input)
     {
         $users = new Users;
-        $systemuser->username = @$input['username'];
-        $systemuser->citizenship = @$input['citizenship'];
-        $systemuser->family_name = @$input['family_name'];
-        $systemuser->firstname = @$input['firstname'];
-        $systemuser->lastname = @$input['lastname'];
-        $systemuser->register = @$input['register'];
-        $systemuser->age = @$input['age'];
-        $systemuser->gender = @$input['gender'];
-        $systemuser->work_status = @$input['work'];
-        $systemuser->email = @$input['email'];
-        $systemuser->phone = @$input['phone'];
-        $systemuser->special_person = @$input['in-case-name'];
-        $systemuser->special_phone = @$input['in-case-number'];
-        $systemuser->province_capital = @$input['province-capital'];
-        $systemuser->district = @$input['district'];
-        $systemuser->education_degree = @$input['education-degree'];
-        $systemuser->home_address = @$input['home_address'];
+        // dd($input);
+        $users->username = @$input['username'];
+        $users->citizenship = @$input['citizenship'];
+        $users->family_name = @$input['family_name'];
+        $users->firstname = @$input['firstname'];
+        $users->lastname = @$input['lastname'];
+        $users->register = @$input['register'];
+        $users->age = @$input['age'];
+        $users->gender = @$input['gender'];
+        $users->work_status = @$input['work'];
+        $users->email = @$input['email'];
+        $users->phone = @$input['phone'];
+        $users->special_person = @$input['in-case-name'];
+        $users->special_phone = @$input['in-case-number'];
+        $users->province_capital = @$input['province-capital'];
+        $users->district = @$input['district'];
+        $users->education_degree = @$input['education-degree'];
+        $users->home_address = @$input['home_address'];
+        $users->school = @$input['school'];
+        $users->grad = @$input['grad'];
+        $users->occupation = @$input['occupation'];
+        $users->gpa = @$input['gpa'];
+        $users->diploma_number = @$input['diploma_number'];
+        $users->diploma_register = @$input['diploma_register'];
+        $users->diploma_doc = @$input['diploma_doc'];
 
         return $users->save();
     }
@@ -48,23 +56,23 @@ class UsersRepository implements UsersInterface
     {
         $users = Users::find($id);
 
-        $systemuser->username = @$input['username'];
-        $systemuser->citizenship = @$input['citizenship'];
-        $systemuser->family_name = @$input['family_name'];
-        $systemuser->firstname = @$input['firstname'];
-        $systemuser->lastname = @$input['lastname'];
-        $systemuser->register = @$input['register'];
-        $systemuser->age = @$input['age'];
-        $systemuser->gender = @$input['gender'];
-        $systemuser->work_status = @$input['work'];
-        $systemuser->email = @$input['email'];
-        $systemuser->phone = @$input['phone'];
-        $systemuser->special_person = @$input['in-case-name'];
-        $systemuser->special_phone = @$input['in-case-number'];
-        $systemuser->province_capital = @$input['province-capital'];
-        $systemuser->district = @$input['district'];
-        $systemuser->education_degree = @$input['education-degree'];
-        $systemuser->home_address = @$input['home_address'];
+        $users->username = @$input['username'];
+        $users->citizenship = @$input['citizenship'];
+        $users->family_name = @$input['family_name'];
+        $users->firstname = @$input['firstname'];
+        $users->lastname = @$input['lastname'];
+        $users->register = @$input['register'];
+        $users->age = @$input['age'];
+        $users->gender = @$input['gender'];
+        $users->work_status = @$input['work'];
+        $users->email = @$input['email'];
+        $users->phone = @$input['phone'];
+        $users->special_person = @$input['in-case-name'];
+        $users->special_phone = @$input['in-case-number'];
+        $users->province_capital = @$input['province-capital'];
+        $users->district = @$input['district'];
+        $users->education_degree = @$input['education-degree'];
+        $users->home_address = @$input['home_address'];
 
         return $users->save();
     }

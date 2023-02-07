@@ -49,6 +49,7 @@ return [
     'lastname' => 'Овог',
     'firstname' => 'Нэр',
     'lesson_name' => 'Хичээлийн нэр',
+    'school_name' => 'Сургуулийн нэр',
     
 
     'lesson' => 'Хичээл',
@@ -118,4 +119,10 @@ return [
     'lesson_group' => 'Хичээлийн бүлэг',
     'upload_homework' => 'Хичээлийн даалгавар оруулах',
     'new_video_upload' => 'Шинэ бичлэг оруулах',
+    'graduated' => 'Төгссөн он',
+    'occupation' => 'Төгссөн мэргэжил',
+    'gpa' => 'Голч дүн',
+    'diploma_number' => 'Дипломын дугаар',
+    'diploma_register' => 'Дипломын бүртгэлийн дугаар',
+    'diploma_doc' => 'Дипломын хавсралт',
 ];
