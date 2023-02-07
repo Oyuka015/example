@@ -48,6 +48,7 @@ class UsersRepository implements UsersInterface
         $users->diploma_number = @$input['diploma_number'];
         $users->diploma_register = @$input['diploma_register'];
         $users->diploma_doc = @$input['diploma_doc'];
+        $users->password = md5(@$input['password']);
 
         return $users->save();
     }
@@ -96,9 +97,9 @@ class UsersRepository implements UsersInterface
                 // {
                 //     $qry->whereRaw('LOWER(question) like ?', array('%'.mb_strtolower($searchData->get('question')).'%'));
                 // }
-                if($searchData->has('firstname') && $searchData->get('firstname') !== null)
+                if($searchData->has('username') && $searchData->get('username') !== null)
                 {
-                    $qry->where('firstname', $searchData->get('firstname'));
+                    $qry->where('username', $searchData->get('username'));
                 }
             })
             ->addColumn('action', function ($users) {

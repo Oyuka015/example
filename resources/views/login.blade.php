@@ -132,7 +132,7 @@
                         </div>
                     </div>
                     <div class="register-section">
-                        burtgelgui bol <a href="register"> burtguuleh</a>
+                        Бүртгэлгүй бол <a style="text-decoration:none;" href="register"> Энд дарна уу</a>
                     </div>
                 </div>
             </div>

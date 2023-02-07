@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="lesson-card-info">
-                        <div class="online-course-lesson-name">{{$online->lesson_name}}</div>
+                        <div class="online-course-lesson-name">{{$online->group->name}}</div>
                         <div class="online-course-lesson_summary">{{$online->lesson_summary}}</div>
                         <a style="width:100%" href="course"><button class="lesson-card-btn">Үзэх</button></a>
                     </div>

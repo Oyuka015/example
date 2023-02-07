@@ -9,6 +9,7 @@ use App\Models\PlaceServes;
 use App\Models\PlaceTime;
 use App\Models\PlaceTypes;
 use App\Models\User;
+use Session;
 // use App\Models\UserRole;
 
 use App\Repositories\User\UserInterface;
@@ -38,7 +39,10 @@ class UserController extends BaseController
 
     public function index(Request $request)
     {
-        return view($this->view_path.'.index');
+        $user_Data = Session::get('login_user');
+        $data['userData'] = $user_Data;
+        
+        return View::make('user.profile', $data);
     }
 
     public function create()

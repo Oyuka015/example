@@ -37,66 +37,60 @@ Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])-
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
     Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
+
+    Route::resource('/admin/information', "App\Http\Controllers\InformationController");
+    Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
+
+    Route::resource('/admin/online', "App\Http\Controllers\OnlineController");
+    Route::post('/admin/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
+    Route::any('/admin/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
+
+    Route::resource('/admin/feedback', "App\Http\Controllers\FeedbackController");
+    Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackController@dataTableList")->name('feedback.datalist');
+
+    Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
+    Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
+
+    Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
+    Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
+
+    Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
+    Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
+
+    Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
+    Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
+
+    Route::resource('/admin/result', "App\Http\Controllers\ResultController");
+    Route::any('/admin/result/list/datatable', "App\Http\Controllers\ResultController@dataTableList")->name('result.datalist');
+
+    Route::resource('/admin/certificate', "App\Http\Controllers\CertificateController");
+    Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
+
+    Route::resource('/admin/systemuser', "App\Http\Controllers\SystemuserController");
+    Route::any('/admin/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
+
+    Route::resource('/admin/users', "App\Http\Controllers\UsersController");
+    Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+
 });
 
-Route::resource('/admin/information', "App\Http\Controllers\InformationController");
-Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
 
-Route::resource('/admin/online', "App\Http\Controllers\OnlineController");
-Route::post('/admin/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
-Route::any('/admin/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
-
-Route::resource('/admin/feedback', "App\Http\Controllers\FeedbackController");
-Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackController@dataTableList")->name('feedback.datalist');
-
-Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
-Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
-
-Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
-Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
-
-Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
-Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
-
-Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
-Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
-
-Route::resource('/admin/result', "App\Http\Controllers\ResultController");
-Route::any('/admin/result/list/datatable', "App\Http\Controllers\ResultController@dataTableList")->name('result.datalist');
-
-Route::resource('/admin/certificate', "App\Http\Controllers\CertificateController");
-Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
-
-Route::resource('/admin/systemuser', "App\Http\Controllers\SystemuserController");
-Route::any('/admin/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
-
-Route::resource('/admin/users', "App\Http\Controllers\UsersController");
-Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+Route::resource('/profile', "App\Http\Controllers\UserController");
 
 Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/user/profile', function () {
-    return view('user.profile');
-});
-Route::get('/user/info', function () {
-    return view('user.info');
-});
-Route::get('/user/result', function () {
+// Route::get('/user/profile', function () {
+//     return view('user.profile');
+// });
+Route::get('/result', function () {
     return view('user.result');
 });
-Route::get('/user/online', function () {
+Route::get('/online', function () {
     return view('user.online');
-});
-Route::get('/user/certificate', function () {
-    return view('user.certificate');
 });
 
 Route::get('/hihi', function () {
-    return view('editable_input');
-});
-
-Route::get('/haha', function () {
-    return view('ulayout.header');
+    return view('hihi');
 });

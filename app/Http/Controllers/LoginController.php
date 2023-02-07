@@ -19,20 +19,23 @@ class LoginController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-   
         $credentials = $request->only('username', 'password');
         $user = User::where('username', $credentials['username'])->where('password', md5($credentials['password']))->first();
-        
+
         if($user)
         {
             Auth::login($user);
             if(Auth::check()){
                 $user = Auth::user();
+
                 if($user->role_id == 1)
                 {
+                    Session::put('login_user', $user);
                     return redirect('/admin/dashboard');
                 }
                 else{
+                    Session::put('login_user', $user);
+
                     return redirect('/');
                 }
                

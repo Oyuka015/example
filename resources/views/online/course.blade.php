@@ -4,11 +4,9 @@
 <div class="course-detail">
     <div class="bulguud">
         <ul>
-            <li><a href="">Bulgiin ner</a></li>
-            <li><a href="">Bulgiin ner</a></li>
-            <li><a href="#jj">Bulgiin ner</a></li>
-            <li><a href="">Bulgiin ner</a></li>
-            <li><a href="">Bulgiin ner</a></li>
+            @foreach($onlines as $online)
+            <li><a href="">{{$online->lesson_name}}</a></li>
+            @endforeach
         </ul>
     </div>
     <div class="hicheeluud">
