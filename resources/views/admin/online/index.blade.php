@@ -320,9 +320,11 @@
     });
   });
   //edit role
+  var uploadedVideoEdit = [];
+  var uploadedFileEdit = [];
   $('#online-table tbody').on( 'click', 'tr td a.online-edit', function () {
     var onlineId = $(this).data('onlineid');
-
+  
     $.get( '/admin/online/'+onlineId+'/edit', function( data ) {
       $("#online-edit-modal").modal('show');
       $('#online-edit-modal .modal-body').html(data);
@@ -336,10 +338,23 @@
         },
         submitHandler: function(form) {
           var formData = new FormData(form);
+          var i;
+          console.log(uploadedVideoEdit.length);
+          for (i = 0; i < uploadedVideoEdit.length; i++) {
+            console.log(uploadedVideoEdit[i]);
+            formData.append("file"+i, uploadedVideoEdit[i]);
+            console.log(formData);
+
+          }
+          console.log(uploadedFileEdit.length);
+          for (i = 0; i < uploadedFileEdit.length; i++) {
+            console.log(uploadedFileEdit[i]);
+            formData.append("pdf"+i, uploadedFileEdit[i]);
+          }
           $.ajax({
             url: '/admin/online/'+onlineId,
             type: 'PUT',
-            data: $(form).serialize(),
+            data: formData,
             beforeSend: function() {
                 //$('#preloader').show();
             },

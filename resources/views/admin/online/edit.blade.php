@@ -51,17 +51,23 @@
   <div class="form-group">
     <iframe src="/{{$online->pdf_file}}#toolbar=4" type="application/pdf" height="450" style="width: 100%;"></iframe>
   </div>
+  <div class="form-group">
+    <button type="button" style="right:0; position:absolute; margin-bottom: 10px;" class="close file_edit">
+      <span aria-hidden="true" class="pdf_edit">{{trans('display.new_file_upload')}}</span>
+    </button>
+  </div>
   <input type="submit" class="base-submit" value="Хадгалах">
   @csrf
 </form>
 <script>
   $(document).ready(function () {
     checkRadioEdit();
-    uploadVideo();
-    function uploadVideo() {
+    uploadVideoEdit();
+    uploadFileEdit();
+    function uploadVideoEdit() {
       var button = $('.new_video .new_vid')
-      var uploader = $('<input type="file" accept="video/mp4" id="video" name="video"/>')
-      var video = $('.new_video')
+      var uploaders = $('<input type="file" accept="video/mp4" id="video" name="video"/>')
+      var videos = $('.new_video')
       
       button.on('click', function () {
         $.confirm({
@@ -89,16 +95,61 @@
         });
       })
       
+      uploaders.on('change', function () {
+          var reader = new FileReader()
+          reader.onload = function(event) {
+            videos.prepend('<div class="vid" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+          }
+          reader.readAsDataURL(uploaders[0].files[0]);
+          uploadedVideoEdit.push(uploaders[0].files[0]);
+       })
+      
+      videos.on('click', '.new_vid', function () {
+        $(this).remove()
+      })
+    }
+
+    function uploadFileEdit() {
+      var button = $('.file_edit .pdf_edit')
+      var uploader = $('<input type="file" accept="application/pdf" id="file" name="file"/>')
+      var file = $('.file_edit')
+      
+      button.on('click', function () {
+        $.confirm({
+          title: '{{trans('messages.warning_title')}}',
+          content: '{{trans('messages.current_file_delete')}}',
+          confirmButton: 'Тийм',
+          cancelButton: 'Үгүй',
+          type: 'red',
+          typeAnimated: true,
+          buttons: {
+            tryAgain: {
+                text: 'Устгах',
+                btnClass: 'btn-red',
+                action: function(){
+                  uploader.click()
+                }
+            },
+            close: {
+              text: 'Цуцлах',
+              action: function(){
+
+              }
+            }
+          }
+        });      
+      })
+      
       uploader.on('change', function () {
           var reader = new FileReader()
           reader.onload = function(event) {
-            video.prepend('<div class="vid" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+            file.prepend('<div class="files_edit" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
           }
           reader.readAsDataURL(uploader[0].files[0]);
-          uploadedVideo.push(uploader[0].files[0]);
+          uploadedFileEdit.push(uploader[0].files[0]);
        })
       
-      video.on('click', '.new_vid', function () {
+       file.on('click', '.files_edit', function () {
         $(this).remove()
       })
     }

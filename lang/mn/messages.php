@@ -30,5 +30,6 @@ return [
     'table_previous' => 'Өмнөх',
     'no_result' => 'Үр дүн олдсонгүй!',
     'image_not_found' => 'Зураг оруулаагүй байна!',
-    'current_video_delete' => 'Одоо байгаа бичлэг устгах болно!',
+    'current_video_delete' => 'Одоо байгаа бичлэгийг устгах болно!',
+    'current_file_delete' => 'Одоо байгаа файлыг устгах болно!',
 ];

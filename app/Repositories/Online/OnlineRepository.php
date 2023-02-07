@@ -63,14 +63,44 @@ class OnlineRepository implements OnlineInterface
         return $online;
     }
 
-    public function update($id, $input)
+    public function update($id, $input, $file)
     {
         $online = Online::find($id);
+        dd($input, $file);
+        if($input){
 
+        }
+        unlink('/'.$online->video);
         $online->lesson_name = @$input['lesson_name'];
         $online->lesson_summary = @$input['lesson_summary'];
-        $online->lesson_posted = @$input['lesson_posted'];
-        $online->posted_date = @$input['posted_date'];
+        $online->created_by = Auth::User()->id;
+        // dD($online);
+        if($input['selected_lesson_group'] != null){
+
+            $finded = Codelists::where('id', $input['selected_lesson_group'])->get();
+            $online->lesson_group_id = @$finded['id'];
+        }
+        else{
+            $codelists = new Codelists;
+
+            $codelists->name = @$input['add_lesson_group'];
+            $codelists->parent_id = Config::get('codelists.codelist')['lesson_group_parent_id'];
+            $codelists->save();
+            
+
+            $online->lesson_group_id = @$codelists['id'];
+        }
+
+        if ($file['file0'])
+        {
+            $path = $file['file0']->store('videos', ['disk' => 'my_files']);
+            $online->video = $path;
+        }
+        if ($file['pdf0'])
+        {
+            $path = $file['pdf0']->store('pdf_files', ['disk' => 'my_files']);
+            $online->pdf_file = $path;
+        }
         
         return $online->save();
     }
@@ -97,13 +127,14 @@ class OnlineRepository implements OnlineInterface
             })
 
             ->editColumn('created_by', function ($online) {
-                return $online->user->firstname;
+                return @$online->user->firstname;
             })
             ->editColumn('created_at', function ($online) {
                 return date('Y-m-d H:i:s', strtotime($online->created_at));
             })
             ->editColumn('lesson_group_id', function ($online) {
-                return $online->group->name;
+                // dd($online->group->name);
+                return @$online->group->name;
             })
 
             ->addColumn('action', function ($online) {

@@ -93,7 +93,10 @@ class OnlineController extends BaseController
 
     public function update($id, Request $request)
     {
-        
+        $this->validate($request, [
+            'file0' => 'required|file|mimetypes:video/mp4',
+            'pdf0' => 'required|file|mimetypes:application/pdf',
+        ]);
         $validator = Validator::make($request->input(), Online::$rules);
         // process the save
         if ($validator->fails()) 
@@ -110,7 +113,7 @@ class OnlineController extends BaseController
         } 
         else 
         {
-            $app = $this->online->update($id, $request->input());
+            $app = $this->online->update($id, $request->input(), $request->file());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
