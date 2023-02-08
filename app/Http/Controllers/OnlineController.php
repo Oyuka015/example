@@ -59,6 +59,7 @@ class OnlineController extends BaseController
 
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'file0' => 'required|file|mimetypes:video/mp4',
             'pdf0' => 'required|file|mimetypes:application/pdf',
@@ -77,7 +78,7 @@ class OnlineController extends BaseController
 
             return View::make('core.alert.messages', $data);
         } 
-        else 
+        else
         {
             $app = $this->online->create($request->input(), $request->file());
             $response = array(
@@ -91,39 +92,40 @@ class OnlineController extends BaseController
         }
     }
 
-    public function update($id, Request $request)
-    {
-        $this->validate($request, [
-            'file0' => 'required|file|mimetypes:video/mp4',
-            'pdf0' => 'required|file|mimetypes:application/pdf',
-        ]);
-        $validator = Validator::make($request->input(), Online::$rules);
-        // process the save
-        if ($validator->fails()) 
-        {
-            $response = array(
-                'status' => 'error',
-                'msg' => trans('messages.error_save'),
-                'errors' => $validator->errors()
-            );
+    // public function update($id, Request $request)
+    // {
+    //     dD($id , $request, 'sss');
+    //     $this->validate($request, [
+    //         'file0' => 'required|file|mimetypes:video/mp4',
+    //         'pdf0' => 'required|file|mimetypes:application/pdf',
+    //     ]);
+    //     $validator = Validator::make($request->input(), Online::$rules);
+    //     // process the save
+    //     if ($validator->fails()) 
+    //     {
+    //         $response = array(
+    //             'status' => 'error',
+    //             'msg' => trans('messages.error_save'),
+    //             'errors' => $validator->errors()
+    //         );
 
-            $data['response'] = $response;
+    //         $data['response'] = $response;
 
-            return View::make('core.alert.messages', $data);
-        } 
-        else 
-        {
-            $app = $this->online->update($id, $request->input(), $request->file());
-            $response = array(
-                'status' => 'success',
-                'msg' => trans('messages.success_save'),
-            );
+    //         return View::make('core.alert.messages', $data);
+    //     } 
+    //     else 
+    //     {
+    //         $app = $this->online->update($id, $request->input(), $request->file());
+    //         $response = array(
+    //             'status' => 'success',
+    //             'msg' => trans('messages.success_save'),
+    //         );
 
-            $data['response'] = $response;
+    //         $data['response'] = $response;
 
-            return View::make('core.alert.messages', $data);
-        }
-    }
+    //         return View::make('core.alert.messages', $data);
+    //     }
+    // }
 
     public function dataTableList(Request $request)
     {
@@ -133,7 +135,6 @@ class OnlineController extends BaseController
     public function destroy($id)
     {
         $app = $this->online->delete($id);
-        unlinkVideo($id);
         $response = array(
             'status' => 'success',
             'msg' => trans('messages.success_delete'),
@@ -167,4 +168,91 @@ class OnlineController extends BaseController
         $video->save();
     
     }
+    public function updateData($id, Request $request)
+    {
+        // dD($id , $request->file(), 'sss');
+        $validator = Validator::make($request->input(), Online::$rules);
+        // process the save
+        if ($validator->fails()) 
+        {
+            $response = array(
+                'status' => 'error',
+                'msg' => trans('messages.error_save'),
+                'errors' => $validator->errors()
+            );
+            $data['response'] = $response;
+
+            return View::make('core.alert.messages', $data);
+        } 
+        else {
+            $app = $this->online->update($id, $request->input(), $request->file());
+            $response = array(
+                'status' => 'success',
+                'msg' => trans('messages.success_save'),
+            );
+            $data['response'] = $response;
+
+            return View::make('core.alert.messages', $data);
+        }
+    }
+
+    // hicheeliin bvlgiin heseg
+    public function getGroup(){
+        return view($this->view_path.'.online_group.index');
+    }
+    public function getGroupEdit($id){
+        $getData = Codelists::find($id);
+
+        $data['getData'] = $getData;
+        return view($this->view_path.'.online_group.edit', $data);
+    }
+    public function updateGroup($id, Request $request)
+    {
+        $rules = array(
+            'group_name' => 'required',
+        );
+        $input = $request->input();
+        // dd($input);
+        $validator = Validator::make($request->input(), $rules);
+        // process the save
+        if ($validator->fails()) 
+        {
+            $response = array(
+                'status' => 'error',
+                'msg' => trans('messages.error_save'),
+                'errors' => $validator->errors()
+            );
+            $data['response'] = $response;
+
+            return View::make('core.alert.messages', $data);
+        } 
+        else {
+            $online = Codelists::find($id);
+            $online->name = $input['group_name'];
+            $online->save();
+            $response = array(
+                'status' => 'success',
+                'msg' => trans('messages.success_save'),
+            );
+            $data['response'] = $response;
+            return View::make('core.alert.messages', $data);
+        }
+    }
+    public function groupDataTableList(Request $request)
+    {
+        return $this->online->getGroupDatatableList($request);
+    }
+    public function destroyGroup($id)
+    {
+        $app = $this->online->deleteGroup($id);
+        $response = array(
+            'status' => 'success',
+            'msg' => trans('messages.success_delete'),
+        );
+
+        $data['response'] = $response;
+
+        return View::make('core.alert.messages', $data);
+    }
+    
 }

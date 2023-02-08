@@ -177,6 +177,8 @@
 <script>
   var uploadedVideo = [];
   var uploadedFile = [];
+  var uploadedVideoEdit = [];
+  var uploadedFileEdit = [];
   var onlineTable = $('#online-table').DataTable( {
       // searching: false,
       paging: true,
@@ -320,8 +322,7 @@
     });
   });
   //edit role
-  var uploadedVideoEdit = [];
-  var uploadedFileEdit = [];
+  
   $('#online-table tbody').on( 'click', 'tr td a.online-edit', function () {
     var onlineId = $(this).data('onlineid');
   
@@ -337,41 +338,43 @@
             $(element).parents('.form-group').removeClass('has-error');
         },
         submitHandler: function(form) {
-          var formData = new FormData(form);
+          var formDataEdit = new FormData(form);
           var i;
           console.log(uploadedVideoEdit.length);
+
           for (i = 0; i < uploadedVideoEdit.length; i++) {
             console.log(uploadedVideoEdit[i]);
-            formData.append("file"+i, uploadedVideoEdit[i]);
-            console.log(formData);
-
+            formDataEdit.append("file"+i, uploadedVideoEdit[i]);
           }
           console.log(uploadedFileEdit.length);
           for (i = 0; i < uploadedFileEdit.length; i++) {
             console.log(uploadedFileEdit[i]);
-            formData.append("pdf"+i, uploadedFileEdit[i]);
+            formDataEdit.append("pdf"+i, uploadedFileEdit[i]);
           }
+          
           $.ajax({
-            url: '/admin/online/'+onlineId,
-            type: 'PUT',
-            data: formData,
+            url: '/admin/online/update/data/' + onlineId,
+            type: 'POST',
+            data: formDataEdit,
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#online-edit-modal').modal('hide');
-                $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                onlineTable.draw();
+              $('#online-edit-modal').modal('hide');
+              $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
+              onlineTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
                 console.log(textStatus);
                 console.log(error);
             },
-            async: false          
-        }).done(function(data) {
-            //submitButton.prop('disabled', false);
-        });
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false         
+          }).done(function(data) {
+          });
         },
         errorPlacement: function(error, element) {
             error.insertAfter(element);

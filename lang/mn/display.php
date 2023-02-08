@@ -126,4 +126,5 @@ return [
     'diploma_register' => 'Дипломын бүртгэлийн дугаар',
     'diploma_doc' => 'Дипломын хавсралт',
     'new_file_upload' => 'Шинэ файл нэмэх',
+    'group_post' => 'Бүлэг нэмсэн',
 ];

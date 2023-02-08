@@ -41,7 +41,14 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::resource('/admin/information', "App\Http\Controllers\InformationController");
     Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
 
+    Route::any('/admin/online/group', "App\Http\Controllers\OnlineController@getGroup");
+    Route::any('/admin/online/group/update/data/{id}', 'App\Http\Controllers\OnlineController@updateGroup');
+    Route::any('/admin/online/group/{id}/edit', "App\Http\Controllers\OnlineController@getGroupEdit");
+    Route::any('/admin/online/group/{id}/delete', "App\Http\Controllers\OnlineController@destroyGroup");
+    Route::any('/admin/online/group/list/datatable', "App\Http\Controllers\OnlineController@groupDataTableList")->name('online.group.datalist');
+    
     Route::resource('/admin/online', "App\Http\Controllers\OnlineController");
+    Route::any('/admin/online/update/data/{id}', 'App\Http\Controllers\OnlineController@updateData')->name('update.data');
     Route::post('/admin/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
     Route::any('/admin/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
 
