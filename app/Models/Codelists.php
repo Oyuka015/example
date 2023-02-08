@@ -18,4 +18,9 @@ class Codelists extends Eloquent
     public static $rules = array(
         
     );
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'created_by', 'id');
+    }
+
 }

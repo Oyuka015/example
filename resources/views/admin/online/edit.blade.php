@@ -1,4 +1,4 @@
-<form method="POST" id="online-edit-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
+<form method="PUT" id="online-edit-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   <div class="form-group" id="radio_buttons_edit">
     <label class="form-control">
       <input type="radio" name="radio" id="old_group" checked/>
@@ -82,7 +82,7 @@
                 text: 'Устгах',
                 btnClass: 'btn-red',
                 action: function(){
-                  uploader.click()
+                  uploaders.click()
                 }
             },
             close: {
@@ -111,8 +111,8 @@
 
     function uploadFileEdit() {
       var button = $('.file_edit .pdf_edit')
-      var uploader = $('<input type="file" accept="application/pdf" id="file" name="file"/>')
-      var file = $('.file_edit')
+      var uploader_file = $('<input type="file" accept="application/pdf" id="file" name="file"/>')
+      var file_edit = $('.file_edit')
       
       button.on('click', function () {
         $.confirm({
@@ -127,7 +127,7 @@
                 text: 'Устгах',
                 btnClass: 'btn-red',
                 action: function(){
-                  uploader.click()
+                  uploader_file.click()
                 }
             },
             close: {
@@ -140,16 +140,17 @@
         });      
       })
       
-      uploader.on('change', function () {
-          var reader = new FileReader()
-          reader.onload = function(event) {
-            file.prepend('<div class="files_edit" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+      uploader_file.on('change', function () {
+          var reader_edit = new FileReader()
+          reader_edit.onload = function(event) {
+            file_edit.prepend('<div class="files_edit" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
           }
-          reader.readAsDataURL(uploader[0].files[0]);
-          uploadedFileEdit.push(uploader[0].files[0]);
+          reader_edit.readAsDataURL(uploader_file[0].files[0]);
+          uploadedFileEdit.push(uploader_file[0].files[0]);
+          console.log(uploadedFileEdit)
        })
       
-       file.on('click', '.files_edit', function () {
+       file_edit.on('click', '.files_edit', function () {
         $(this).remove()
       })
     }
