@@ -18,18 +18,18 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $table = 'base.users';
+    protected $table = 'users';
     protected $primaryKey = 'id';
 
     public static $rules = array(
         'username' => 'required',
-        'register' => 'required',
-        'lastname' => 'required',
-        'firstname' => 'required',
-        'email' => 'required',
-        'phone' => 'required',
-        'password' => 'required',
-        'role_id' => 'required',
+        // 'email' => 'required',  
+        // 'register' => 'required',
+        // 'lastname' => 'required',
+        // 'firstname' => 'required',
+        // 'phone' => 'required',
+        // 'password' => 'required',
+        // 'role_id' => 'required',
     );
     protected $fillable = [
         'name',

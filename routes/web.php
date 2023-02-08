@@ -87,10 +87,10 @@ Route::get('/register', function () {
 Route::get('/result', function () {
     return view('user.result');
 });
-Route::get('/online', function () {
+Route::get('/online_course', function () {
     return view('user.online');
 });
 
 Route::get('/hihi', function () {
-    return view('hihi');
+    return view('user.hihi');
 });

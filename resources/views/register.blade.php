@@ -132,9 +132,7 @@
     }
 </style>
 
-<div class="form-sub-heading">
 
-</div>
 <form method="POST" class="register-form" id="register-form">
   <div class="system-login-information">
     <div class="register-information-title">Системд нэвтрэх мэдээлэл</div>
@@ -273,6 +271,10 @@
       <button>Төлбөр төлөх</button>
   </div>
 </form>
+
+<div class="form-sub-heading">
+
+</div>
 
 <!-- education table script-->
 

@@ -98,19 +98,22 @@ class UserController extends BaseController
 
     public function update($id, Request $request)
     {
+        dD($request->input());
         $rules = array(
-            'username' => 'required',
-            'register' => 'required',
-            'lastname' => 'required',
-            'firstname' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'role_id' => 'required',
+            // 'username' => 'required',
+            // 'register' => 'required',
+            // 'lastname' => 'required',
+            // 'firstname' => 'required',
+            // 'email' => 'required',
+            // 'phone' => 'required',
+            // 'password' => 'required',
+            // 'role_id' => 'required',
         );
         $validator = Validator::make($request->input(), $rules);
         // process the save
         if ($validator->fails()) 
         {
+            dD('ssss');
             $response = array(
                 'status' => 'error',
                 'msg' => trans('messages.error_save'),
@@ -123,6 +126,7 @@ class UserController extends BaseController
         } 
         else 
         {
+            dd('dddd');
             $app = $this->user->update($id, $request->input());
             $response = array(
                 'status' => 'success',
