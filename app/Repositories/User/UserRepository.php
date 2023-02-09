@@ -7,6 +7,7 @@ use App\Repositories\User\UserInterface as UserInterface;
 use App\Models\User;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use File;
 
 class UserRepository implements UserInterface
 {
@@ -20,22 +21,36 @@ class UserRepository implements UserInterface
         return User::find($id);
     }
 
-    public function create($input)
+    public function create($input,)
     {
         $user = new User;
         $user->username = @$input['username'];
-
-        return $user->save();
-    }
-
-    public function update($id, $input)
-    {
-        $user = User::find($id);
-        dd($input);  
         $user->username = @$input['username'];
         $user->email = @$input['email'];
         $user->lastname = @$input['lastname'];
         $user->firstname = @$input['firstname'];
+        $user->password = md5(@$input['password']);
+
+        return $user->save();
+    }
+
+    public function update($id, $input, $file)
+    {
+        $user = User::find($id);
+        dd($input, $file);  
+        $user->username = @$input['username'];
+        $user->email = @$input['email'];
+        $user->lastname = @$input['lastname'];
+        $user->firstname = @$input['firstname'];
+        $user->password = md5(@$input['password']);
+
+        if($file){
+            if(@$file['file0']){
+                File::delete(public_path($user->image_url));
+                $path = $file['file0']->store('images', ['disk' => 'my_files']);
+                $user->image_url = $path;
+            }
+        }
 
         return $user->save();
     }

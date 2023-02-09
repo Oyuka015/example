@@ -39,7 +39,10 @@ class UserController extends BaseController
 
     public function index(Request $request)
     {
-        $user_Data = Session::get('login_user');
+        $user = Session::get('login_user');
+        $user_Data = User::find($user->id);
+
+        // dd($user_Data);
         $data['userData'] = $user_Data;
         
         return View::make('user.profile', $data);
@@ -84,7 +87,7 @@ class UserController extends BaseController
         } 
         else 
         {
-            $app = $this->user->create($request->input());
+            $app = $this->user->create($request->input(), $request->file());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -95,10 +98,27 @@ class UserController extends BaseController
             return View::make('core.alert.messages', $data);
         }
     }
+    // public function uploadImage(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'file0' => 'required|file|mimetypes:image/*',
+    //     ]);
+    //     $image = new User;
+    //     if ($request->file('file0'))
+    //     {
+    //         $path = $request->file('file0')->store('images', ['disk' => 'my_files']);
+    //         $image->image_url = $path;
+    //         // dd($image, 'sda');
+    //     }
+    //     dd($image);
+    //     $image->save();
+    
+    // }
 
     public function update($id, Request $request)
     {
-        dD($request->input());
+        
+        // dd('sdf');
         $rules = array(
             // 'username' => 'required',
             // 'register' => 'required',
@@ -113,7 +133,7 @@ class UserController extends BaseController
         // process the save
         if ($validator->fails()) 
         {
-            dD('ssss');
+            // dD('ssss');
             $response = array(
                 'status' => 'error',
                 'msg' => trans('messages.error_save'),
@@ -126,8 +146,8 @@ class UserController extends BaseController
         } 
         else 
         {
-            dd('dddd');
-            $app = $this->user->update($id, $request->input());
+            // dd('dcfd');
+            $app = $this->user->update($id, $request->input(), $request->file(),);
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -156,4 +176,6 @@ class UserController extends BaseController
 
         return View::make('core.alert.messages', $data);
     }
+
+    
 }
