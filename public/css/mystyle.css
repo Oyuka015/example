@@ -439,7 +439,7 @@ footer {
     padding-left: 40px;
 }
 .online-courses-lesson-card {
-    width:250px;
+    width:260px;
     height: 300px;
     display: grid;
     grid-template-rows: 55% 45%;
@@ -489,6 +489,7 @@ footer {
     margin-top: 20px;
     border: 1px outset;
     padding: 5px 10px;
+    border-radius: 15px;
 }
 .lesson-card-btn:hover {
     border: 1px inset;
