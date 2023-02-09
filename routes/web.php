@@ -21,7 +21,6 @@ Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformat
 Route::get('/exam', 'App\Http\Controllers\Controller@exam');
 Route::get('/certi', 'App\Http\Controllers\Controller@certi');
 Route::get('/faq', 'App\Http\Controllers\Controller@faq');
-Route::get('/online', 'App\Http\Controllers\Controller@online');
 Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
 Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
 Route::get('/course', 'App\Http\Controllers\Controller@course');
@@ -35,6 +34,8 @@ Route::post('custom-registration', [App\Http\Controllers\LoginController::class,
 Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])->name('signout');
 
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
+    Route::get('/online', 'App\Http\Controllers\Controller@online');
+
     Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
     Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
@@ -78,8 +79,8 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 
     Route::resource('/admin/users', "App\Http\Controllers\UsersController");
     Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
-
 });
+Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
 
 Route::resource('/profile', "App\Http\Controllers\UserController");

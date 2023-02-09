@@ -12,7 +12,6 @@ class LoginController extends Controller
     {
         return view('login');
     }  
-      
     public function customLogin(Request $request)
     {
         $request->validate([
@@ -91,4 +90,11 @@ class LoginController extends Controller
   
         return Redirect('login');
     }
+
+    public function doLogOut(){
+		Session::flush();
+        Auth::logout();
+        return redirect('/');
+    }
+    
 }

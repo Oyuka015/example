@@ -83,7 +83,7 @@
                 <i class="fa-solid fa-envelope"></i>
                 <div>{{trans('display.feedback_list')}}</div>
             </a>
-            <a href="/admin/users"  class="link">
+            <a href="/admin/users"  class="link">ө
               <i class="fa-solid fa-envelope"></i>
               <div>{{trans('display.user_information')}}</div>
             </a>

@@ -79,7 +79,7 @@
             </button>
             <div class="dropdown-content">
                 <a href="/profile">{{trans('display.profile')}}</a>
-                <a href="#">{{trans('display.log_out')}}</a>
+                <a href="/">{{trans('display.log_out')}}</a>
             </div>
         </div>
         <div class="bars">

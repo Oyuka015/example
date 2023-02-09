@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/js/jquery-3.6.2/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css" rel="stylesheet" />
@@ -60,49 +61,99 @@
                     <i class="fa-solid fa-house"></i>
                     <p>Нүүр</p>
                 </a>
-                <a href="medeelel"  class="link">
+                <a href="medeelel" class="link">
                     <i class="fa-solid fa-bell"></i>
                     <p>Мэдээлэл</p>
                 </a>
-                <a href="online"  class="link">
+                <a href="#" class="link" onclick="checkUser('online')">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <p>Цахим хичээл</p>
                 </a>
-                <a href="exam"  class="link">
+                <a href="#" class="link" onclick="checkUser('exam')">
                     <i class="fa-solid fa-square-check"></i>
                     <p>Шалгалт</p>
                 </a>
-                <a href="certi"  class="link">
+                <a href="#" class="link" onclick="checkUser('certi')">
                     <i class="fa-solid fa-certificate"></i>
                     <p>Гэрчилгээ хайлт</p>
                 </a>
-                <a href="faq"  class="link">
+                <a href="#" class="link" onclick="checkUser('faq')">
                     <i class="fa-solid fa-circle-info"></i>
                     <p>Асуулт хариулт</p>
                 </a>
-                <a href="feedback"  class="link">
+                <a href="#" class="link" onclick="checkUser('feedback')">
                     <i class="fa-solid fa-envelope"></i>
                     <p>Санал хүсэлт</p>
                 </a> 
             </div>
+            <div id="user-menu">
             @if(Auth::user())
                 <div class="dropdown">
                     <div class="dropbtn">
-                        <a href="profile" class=""><i class="fa-solid fa-user"></i></a>
-                        <a href="profile" class="info-btn" id="info-btn">{{Auth::user()->firstname}}</a>
+                        <a href="#" class=""><i class="fa-solid fa-user"></i></a>
+                        <a href="#" class="info-btn" id="info-btn">{{Auth::user()->firstname}}</a>
                     </div>
                     <div class="dropdown-content">
                         <a href="/profile">{{trans('display.profile')}}</a>
-                        <a href="#">{{trans('display.log_out')}}</a>
+                        <a href="/do/logout">{{trans('display.log_out')}}</a>
                     </div>
                 </div>
             @else
-                <a style="border:2px outset grey ; padding:10px 20px; border-radius:10pc;" href="login" class="info-btn new_btn" id="info-btn">Нэвтрэх</a>
+                <a style="border:2px outset grey ; padding:10px 20px; border-radius:10pc;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
             @endif
+            </div>
             <div class="bars">
                 <i class="fa-solid fa-bars"></i>
             </div>
         </div>
+
+        <script>
+            function checkUser(name){
+                console.log('sss')
+                var element = document.getElementById('user-menu');
+                var text = element.innerText || element.textContent;
+                element.innerHTML = text;
+                if(text != 'Нэвтрэх'){
+                    $.ajax({
+                        url: name,
+                        type: 'GET',
+                        beforeSend: function() {
+                            //$('#preloader').show();
+                        },
+                        success: function(response) {
+                
+                        },
+                        error: function (xhr, textStatus, error) {
+                            console.log(xhr.statusText);
+                            console.log(textStatus);
+                            console.log(error);
+                        },
+                        async: false,
+                        cache: false,
+                        contentType: false,
+                        processData: false         
+                    }).done(function(data) {
+                    });
+                }
+                else{
+                    Swal.fire({
+                        title: 'Нэвтрэх шаардлагатай!',
+                        icon: 'info',
+                        iconHtml: '!',
+                        cancelButtonText: 'Цуцлах',
+                        confirmButtonText: 'Нэвтрэх',
+                        showCancelButton: true,
+                        showCloseButton: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                        window.location.href = '/login';
+
+                        }
+                    })
+                }
+                
+            }
+        </script>
     </header>
     <div class="header-section">
         <div class="content">
@@ -256,3 +307,10 @@
         <div class="copyright"><p>Copyright 2019 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн BitSoft</p></div>
     </div>
 </footer>
+<script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/confirm/jquery-confirm.min.js"></script>
+<script src="/js/sweetalert2.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
