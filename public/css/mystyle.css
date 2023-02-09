@@ -433,19 +433,20 @@ footer {
     background-color: black;
 }
 .online-courses-lessons {
+    height:100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap ;
     gap: 20px;
-    width: 100%;
-    margin: auto;
+    padding-left: 40px;
 }
 .online-courses-lesson-card {
-    width: 260px;
-    height: 350px;
+    width:250px;
+    height: 300px;
     display: grid;
     grid-template-rows: 55% 45%;
     background-color: #00a98d65;
     border-radius: 15px;
+    overflow: auto;
 }
 .lesson-card-img,
 .lesson-card-info {
@@ -717,7 +718,7 @@ button::-moz-focus-inner {
     height: 100vh;
     width: 100%;
     display: grid;
-    grid-template-columns: 22% 78%;
+    grid-template-columns: 22% 75%;
     grid-gap: 20px;
 }
 .user-profile-sidebar {
@@ -1298,7 +1299,7 @@ textarea {
 .bulguud{
     width: 25%;
     height:100%;
-    background: rgba(255, 166, 0, 0.139);
+    background-color:hotpink;
     padding: 20px 10px;
 }
 .bulguud ul{
@@ -1307,16 +1308,14 @@ textarea {
 .bulguud ul li a{
     
     font-size: 23px;
-    color: #666;
+    color: #1f1f1f;
 }
 .bulguud ul li a:hover{
     color: black;
     text-decoration: none;
 }
 .hicheeluud{
-    width: 75%;
-    height:100%;
-    background: rgba(255, 0, 0, 0.169);
+
 }
 .hicheel{
     border:1px solid #9999;

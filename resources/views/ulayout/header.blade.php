@@ -35,7 +35,7 @@
         color: black;
     }
 
-.dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropdown-content {display: block;}
 </style>
 <header>
     <div class="h-container">
@@ -75,10 +75,10 @@
         
         <div class="dropdown">
             <button class="dropbtn">
-                <a href="user/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+                <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
             </button>
             <div class="dropdown-content">
-                <a href="user/profile">{{trans('display.profile')}}</a>
+                <a href="/profile">{{trans('display.profile')}}</a>
                 <a href="#">{{trans('display.log_out')}}</a>
             </div>
         </div>

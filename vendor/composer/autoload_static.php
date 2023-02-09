@@ -583,6 +583,8 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Repositories\\Result\\ResultRepository' => __DIR__ . '/../..' . '/app/Repositories/Result/ResultRepository.php',
         'App\\Repositories\\Systemuser\\SystemuserInterface' => __DIR__ . '/../..' . '/app/Repositories/Systemuser/SystemuserInterface.php',
         'App\\Repositories\\Systemuser\\SystemuserRepository' => __DIR__ . '/../..' . '/app/Repositories/Systemuser/SystemuserRepository.php',
+        'App\\Repositories\\User\\UserInterface' => __DIR__ . '/../..' . '/app/Repositories/User/UserInterface.php',
+        'App\\Repositories\\User\\UserRepository' => __DIR__ . '/../..' . '/app/Repositories/User/UserRepository.php',
         'App\\Repositories\\Users\\UsersInterface' => __DIR__ . '/../..' . '/app/Repositories/Users/UsersInterface.php',
         'App\\Repositories\\Users\\UsersRepository' => __DIR__ . '/../..' . '/app/Repositories/Users/UsersRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

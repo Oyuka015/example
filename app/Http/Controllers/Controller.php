@@ -74,7 +74,7 @@ class Controller extends BaseController
 
         $data['onlines'] = $onlines;
         
-        return View::make('online/course', $data);
+        return View::make('online.course', $data);
     }
     public function lesson(){
         $onlines = $this->online->all();

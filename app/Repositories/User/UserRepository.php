@@ -23,32 +23,7 @@ class UserRepository implements UserInterface
     public function create($input)
     {
         $user = new User;
-        // dd($input);
         $user->username = @$input['username'];
-        $user->citizenship = @$input['citizenship'];
-        $user->family_name = @$input['family_name'];
-        $user->firstname = @$input['firstname'];
-        $user->lastname = @$input['lastname'];
-        $user->register = @$input['register'];
-        $user->age = @$input['age'];
-        $user->gender = @$input['gender'];
-        $user->work_status = @$input['work'];
-        $user->email = @$input['email'];
-        $user->phone = @$input['phone'];
-        $user->special_person = @$input['in-case-name'];
-        $user->special_phone = @$input['in-case-number'];
-        $user->province_capital = @$input['province-capital'];
-        $user->district = @$input['district'];
-        $user->education_degree = @$input['education-degree'];
-        $user->home_address = @$input['home_address'];
-        $user->school = @$input['school'];
-        $user->grad = @$input['grad'];
-        $user->occupation = @$input['occupation'];
-        $user->gpa = @$input['gpa'];
-        $user->diploma_number = @$input['diploma_number'];
-        $user->diploma_register = @$input['diploma_register'];
-        $user->diploma_doc = @$input['diploma_doc'];
-        $user->password = md5(@$input['password']);
 
         return $user->save();
     }
@@ -56,24 +31,11 @@ class UserRepository implements UserInterface
     public function update($id, $input)
     {
         $user = User::find($id);
-
+        dd($input);  
         $user->username = @$input['username'];
-        $user->citizenship = @$input['citizenship'];
-        $user->family_name = @$input['family_name'];
-        $user->firstname = @$input['firstname'];
-        $user->lastname = @$input['lastname'];
-        $user->register = @$input['register'];
-        $user->age = @$input['age'];
-        $user->gender = @$input['gender'];
-        $user->work_status = @$input['work'];
         $user->email = @$input['email'];
-        $user->phone = @$input['phone'];
-        $user->special_person = @$input['in-case-name'];
-        $user->special_phone = @$input['in-case-number'];
-        $user->province_capital = @$input['province-capital'];
-        $user->district = @$input['district'];
-        $user->education_degree = @$input['education-degree'];
-        $user->home_address = @$input['home_address'];
+        $user->lastname = @$input['lastname'];
+        $user->firstname = @$input['firstname'];
 
         return $user->save();
     }

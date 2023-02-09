@@ -70,6 +70,8 @@ return array(
     'App\\Repositories\\Result\\ResultRepository' => $baseDir . '/app/Repositories/Result/ResultRepository.php',
     'App\\Repositories\\Systemuser\\SystemuserInterface' => $baseDir . '/app/Repositories/Systemuser/SystemuserInterface.php',
     'App\\Repositories\\Systemuser\\SystemuserRepository' => $baseDir . '/app/Repositories/Systemuser/SystemuserRepository.php',
+    'App\\Repositories\\User\\UserInterface' => $baseDir . '/app/Repositories/User/UserInterface.php',
+    'App\\Repositories\\User\\UserRepository' => $baseDir . '/app/Repositories/User/UserRepository.php',
     'App\\Repositories\\Users\\UsersInterface' => $baseDir . '/app/Repositories/Users/UsersInterface.php',
     'App\\Repositories\\Users\\UsersRepository' => $baseDir . '/app/Repositories/Users/UsersRepository.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

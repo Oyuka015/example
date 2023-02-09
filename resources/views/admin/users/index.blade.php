@@ -56,22 +56,23 @@
       <tr>
         <th style="width:30px">№</th>
         <th style="width:10%">{{trans('display.username')}}</th>
-        <th style="width:10%">{{trans('display.citizenship')}}</th>
-        <th style="width:10%">{{trans('display.family_name')}}</th>
+        <!-- <th style="width:10%">{{trans('display.citizenship')}}</th> -->
+        <!-- <th style="width:10%">{{trans('display.family_name')}}</th> -->
         <th style="width:10%">{{trans('display.firstname')}}</th>
         <th style="width:10%">{{trans('display.lastname')}}</th>
         <th style="width:10%">{{trans('display.register')}}</th>
-        <th style="width:10%">{{trans('display.age')}}</th>
-        <th style="width:10%">{{trans('display.gender')}}</th>
-        <th style="width:10%">{{trans('display.work_status')}}</th>
+        <!-- <th style="width:10%">{{trans('display.age')}}</th> -->
+        <!-- <th style="width:10%">{{trans('display.gender')}}</th> -->
+        <!-- <th style="width:10%">{{trans('display.work_status')}}</th> -->
         <th style="width:10%">{{trans('display.email')}}</th>
         <th style="width:10%">{{trans('display.phone')}}</th>
-        <th style="width:10%">{{trans('display.special_person')}}</th>
+        <!-- <th style="width:10%">{{trans('display.special_person')}}</th>
         <th style="width:10%">{{trans('display.special_phone')}}</th>
         <th style="width:10%">{{trans('display.province_capital')}}</th>
-        <th style="width:10%">{{trans('display.district')}}</th>
+        <th style="width:10%">{{trans('display.district')}}</th> -->
         <th style="width:10%">{{trans('display.education_degree')}}</th>
-        <th style="width:10%">{{trans('display.home_address')}}</th>
+        <th style="width:10%">{{trans('display.school_name')}}</th>
+        <!-- <th style="width:10%">{{trans('display.home_address')}}</th> -->
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -83,26 +84,6 @@
   <div style=" width:100%; height:10px; margin:50px 0;">
 
   </div>
-
-  <table cellpadding="0" cellspacing="0" border="0" id="users-school-table">
-    <thead class="tbl-header">
-      <tr>
-        <th style="width:30px">№</th>
-        <th style="width:50%">{{trans('display.username')}}</th>
-        <th style="width:50%">{{trans('display.school_name')}}</th>
-        <th style="width:50%">{{trans('display.graduated')}}</th>
-        <th style="width:50%">{{trans('display.occupation')}}</th>
-        <th style="width:50%">{{trans('display.gpa')}}</th>
-        <th style="width:50%">{{trans('display.diploma_number')}}</th>
-        <th style="width:50%">{{trans('display.diploma_register')}}</th>
-        <th style="width:50%">{{trans('display.diploma_doc')}}</th>
-        <th style="width:120px">{{trans('display.manage')}}</th>
-      </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-  </table>
 
   <div class="modal fade" id="users-add-modal" tabindex="-1" role="dialog" aria-labelledby="users-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -258,112 +239,23 @@
           }
         },
         { data: 'username', "defaultContent": ''},
-        { data: 'citizenship', "defaultContent": ''},
-        { data: 'family_name', "defaultContent": ''},
+        // { data: 'citizenship', "defaultContent": ''},
+        // { data: 'family_name', "defaultContent": ''},
         { data: 'firstname', "defaultContent": ''},
         { data: 'lastname', "defaultContent": ''},
         { data: 'register', "defaultContent": ''},
-        { data: 'age', "defaultContent": ''},
-        { data: 'gender', "defaultContent": ''},
-        { data: 'work_status', "defaultContent": ''},
+        // { data: 'age', "defaultContent": ''},
+        // { data: 'gender', "defaultContent": ''},
+        // { data: 'work_status', "defaultContent": ''},
         { data: 'email', "defaultContent": ''},
         { data: 'phone', "defaultContent": ''},
-        { data: 'special_person', "defaultContent": ''},
-        { data: 'special_phone', "defaultContent": ''},
-        { data: 'province_capital', "defaultContent": ''},
-        { data: 'district', "defaultContent": ''},
+        // { data: 'special_person', "defaultContent": ''},
+        // { data: 'special_phone', "defaultContent": ''},
+        // { data: 'province_capital', "defaultContent": ''},
+        // { data: 'district', "defaultContent": ''},
+        { data: 'school_name', "defaultContent": ''},
         { data: 'education_degree', "defaultContent": ''},
-        { data: 'home_address', "defaultContent": ''},
-        { data: 'action', "defaultContent": ''},
-      ],
-      columnDefs: [
-          {
-            searchable: false,
-            orderable: false,
-            targets: [0,18]
-        },{
-            class: "text-center",
-            targets: [0,18]
-        },{
-            targets: [0,17],
-            class: "border-right"
-        }
-      ],
-      order: [[ 1, "asc" ]],
-      dom: '<"pull-left"B><"pull-right"l><"clear">tip',
-      buttons: [
-          // {
-          //     text: '{{trans("display.add_new")}}',
-          //     className: 'link-1',
-          //     action: function ( e, dt, node, config ) {
-          //         alert( 'Button activated' );
-          //     }
-          // }
-      ],
-      "language": 
-        {
-          "decimal":        "",
-          "emptyTable":     "{{trans('messages.table_empty')}}",
-          "info":           "{{trans('messages.table_showing')}}",
-          "infoEmpty":      "{{trans('messages.table_showing_empty')}}",
-          "infoFiltered":   "{{trans('messages.table_filtered')}}",
-          "infoPostFix":    "",
-          "thousands":      ",",
-          // "lengthMenu":     "Show _MENU_ entries",
-          // "loadingRecords": "Loading...",
-          "processing":     "{{trans('messages.table_processing')}}",
-          // "search":         "Search:",
-          "zeroRecords":    "{{trans('messages.table_no_match')}}",
-          "paginate": {
-            "first":      "{{trans('messages.table_first')}}",
-            "last":       "{{trans('messages.table_last')}}",
-            "next":       "{{trans('messages.table_next')}}",
-            "previous":   "{{trans('messages.table_previous')}}"
-          }
-        }
-  }); 
-
-  var usersTable = $('#users-school-table').DataTable( {
-      // searching: false,
-      paging: true,
-      lengthChange: false,
-      processing:     true,
-      serverSide:     true,
-      deferRender:    true,
-      autoWidth:      false,
-      // filter:         false,
-      // deferRender:    true,
-      // autoWidth:      true,
-      // dom: 'Bfrtip',
-      dataType: 'json',
-      paginationType: "full_numbers",
-      ajax: {
-          url: '{!! route('users.datalist') !!}',
-          dataType: "JSON",
-          type: 'post',
-          data: function ( d ) {
-
-              d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.username = $('#users-search-form input[id="username"]').val();
-              d.surname = $('#users-search-form input[id="surname"]').val();
-              d.lastname = $('#users-search-form input[id="lastname"]').val();
-          }
-      },
-      columns: [
-        { 
-          data: null,
-          render: function (data, type, row, meta) {
-              return meta.row + meta.settings._iDisplayStart + 1;
-          }
-        },
-        { data: 'username', "defaultContent": ''},
-        { data: 'school', "defaultContent": ''},
-        { data: 'grad', "defaultContent": ''},
-        { data: 'occupation', "defaultContent": ''},
-        { data: 'gpa', "defaultContent": ''},
-        { data: 'diploma_number', "defaultContent": ''},
-        { data: 'diploma_register', "defaultContent": ''},
-        { data: 'diploma_doc', "defaultContent": ''},
+        // { data: 'home_address', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
