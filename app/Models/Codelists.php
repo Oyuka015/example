@@ -22,5 +22,7 @@ class Codelists extends Eloquent
     public function user(){
         return $this->belongsTo('App\Models\User', 'created_by', 'id');
     }
-
+    public function lessonGroup(){
+        return $this->hasMany('App\Models\Online', 'lesson_group_id');
+    }
 }

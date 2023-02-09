@@ -4,19 +4,20 @@
 <div class="course-detail">
     <div class="bulguud">
         <ul>
-            @foreach($onlines as $online)
-            <li><a href="">{{$online->lesson_group_id}}</a></li>
+            @foreach($groups as $group)
+            <li><a href="#group-{{$group->id}}" style="scroll-behavior: smooth-scroll;" id="menu-group-{{$group->id}}">{{$group->name}}</a></li>
             @endforeach
         </ul>
     </div>
     <div class="hicheeluud" style="width:75%; overflow:auto">
-        <div id="" style="margin-left:40px; margin-top:10px; font-size:20px; font-weight:700; text-transform:uppercase;">buleg sedwiin garchig</div>
+    @foreach($groups as $group)
+        <div id="group-{{$group->id}}" style="margin-left:40px; margin-top:10px; font-size:20px; font-weight:700; text-transform:uppercase;">{{$group->name}}</div>
         <div class="online-courses-lessons">
-            @foreach($onlines as $online)
+            @foreach($group->lessonGroup as $online)
                 <div class="online-courses-lesson-card">
                     <div class="lesson-card-img">
                         <div class="lesson-img">
-                            <img src="{{ URL('images/2.jpg') }}" alt="">
+                            <img src="{{ URL('images/video_poster.png') }}" alt="">
                         </div>
                     </div>
                     <div class="lesson-card-info">
@@ -27,6 +28,7 @@
                 </div>
             @endforeach
         </div>
+    @endforeach
     </div>  
 </div>
 @endsection

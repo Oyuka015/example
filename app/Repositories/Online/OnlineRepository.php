@@ -19,7 +19,7 @@ class OnlineRepository implements OnlineInterface
 {
     public function all()
     {
-        return Online::all();
+        return Online::all()->where('');
     }
     public function find($id)
     {

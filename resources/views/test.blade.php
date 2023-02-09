@@ -109,31 +109,12 @@
 
         <script>
             function checkUser(name){
-                console.log('sss')
                 var element = document.getElementById('user-menu');
                 var text = element.innerText || element.textContent;
                 element.innerHTML = text;
                 if(text != 'Нэвтрэх'){
-                    $.ajax({
-                        url: name,
-                        type: 'GET',
-                        beforeSend: function() {
-                            //$('#preloader').show();
-                        },
-                        success: function(response) {
-                
-                        },
-                        error: function (xhr, textStatus, error) {
-                            console.log(xhr.statusText);
-                            console.log(textStatus);
-                            console.log(error);
-                        },
-                        async: false,
-                        cache: false,
-                        contentType: false,
-                        processData: false         
-                    }).done(function(data) {
-                    });
+                    console.log(name)
+                    window.location.href = '/'+ name;
                 }
                 else{
                     Swal.fire({
@@ -151,7 +132,6 @@
                         }
                     })
                 }
-                
             }
         </script>
     </header>

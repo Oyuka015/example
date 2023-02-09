@@ -6,6 +6,8 @@ use App\Repositories\Information\InformationInterface;
 use App\Repositories\Online\OnlineInterface;
 use App\Repositories\Certificate\CertificateInterface;
 use App\Models\Information;
+use App\Models\Codelists;
+use App\Models\Online;
 
 
 
@@ -16,6 +18,7 @@ use Illuminate\Routing\Controller as BaseController;
 use \View as View;
 use Illuminate\Http\Request;
 use Session;
+use \Config;
 
 class Controller extends BaseController
 {
@@ -36,7 +39,8 @@ class Controller extends BaseController
         $user_Data = Session::get('login_user');
         $data['userData'] = $user_Data;
         
-        return View::make('test', $data);
+        return View::make('
+        ', $data);
     }
 
     public function medeelel()
@@ -65,7 +69,10 @@ class Controller extends BaseController
     public function online(){
         $onlines = $this->online->all();
 
+        $groups = Codelists::where('parent_id', Config::get('codelists.codelist')['lesson_group_parent_id'])->get();
+        // dd($groups->first()->lessonGroup);
         $data['onlines'] = $onlines;
+        $data['groups'] = $groups;
         
         return View::make('online.online', $data);
     }
