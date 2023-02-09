@@ -84,6 +84,7 @@ Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
 
 Route::resource('/profile', "App\Http\Controllers\UserController");
+Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 
 Route::get('/register', function () {
     return view('register');

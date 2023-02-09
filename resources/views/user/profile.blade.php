@@ -19,10 +19,10 @@
     <div class="user-profile-sidebar">
         <div class="user-profile">
             <div class="user-profile-img">
-                <img src="/images/default-avatar.png" alt="">
+                <img src="/{{$userData->image_url}}" alt="profile_pic">
             </div>
             <div class="user-profile-name">
-                {{$userData->firstname}}
+                {{$userData->firstname}}    
             </div>
         </div>
         <div class="user-profile-other">
@@ -66,7 +66,8 @@
                 <div class="first">
                     <div class="user-profile-image">
                         <div class="user-img-section">
-                            <img src="/images/default-avatar.png" alt="">
+                            <img src="/{{$userData->image_url}}" alt="profile_pic">
+                            <!-- <img src="/images/default-avatar.png" alt=""> -->
                         </div>
                     </div>
                     <div class="user-profile-info">
@@ -84,10 +85,6 @@
                                 <label for="phone">{{trans('display.phone')}}</label>
                                 <input type="tel" value="{{$userData->phone}}" name="phone">
                           </div>
-                            <div>
-                                <label for="phone">{{trans('display.phone')}}</label>
-                                <input type="tel" value="{{$userData->phone}}" name="phone">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,7 +118,7 @@
                             </div>
                             <div>
                                 <label for="register">{{trans('display.register')}}</label>
-                                <input type="text" value="{{$userData->register}}">
+                                <input type="text" value="{{$userData->register}}" name="register">
                             </div>                                                                                      
                         </div>
                     </div>
@@ -171,17 +168,17 @@
                             <div class="form-group" style="display:flex; gap:10px; margin-top:20px;">
                                 <div style="width:50%">
                                     <label for="old_password">{{trans('display.old_password')}}</label>
-                                    <input type="password" id="old_password" class="base-input" name="old_password" value="" placeholder="{{trans('display.old_password')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+                                    <input type="password" id="old_password" class="base-input" name="old_password" value="" placeholder="{{trans('display.old_password')}}"  data-rule-required="false" data-msg-required="{{ trans('messages.validation_field_required') }}">
                                 </div>
                                 <div style="width:50%">
-                                    <label for="new_password">{{trans('display.new_password')}}</label>
-                                    <input type="password" id="new_password" class="base-input" name="new_password" value="" placeholder="{{trans('display.new_password')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+                                    <label for="password">{{trans('display.password')}}</label>
+                                    <input type="password" id="password" class="base-input" name="password" value="" placeholder="{{trans('display.new_password')}}"  data-rule-required="false" data-msg-required="{{ trans('messages.validation_field_required') }}">
                                 </div>
                             </div>
                             <div class="form-group" style="display:flex; gap:10px;">
                                 <div style="width:50%">
                                     <label for="password_rewrite">{{trans('display.password_rewrite')}}</label>
-                                    <input type="password" id="password_rewrite" class="base-input" name="password_rewrite" value="" placeholder="{{trans('display.password_rewrite')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+                                    <input type="password" id="password_rewrite" class="base-input" name="password_rewrite" value="" placeholder="{{trans('display.password_rewrite')}}"  data-rule-required="false" data-msg-required="{{ trans('messages.validation_field_required') }}">
                                 </div>
                                 <div style="width:50%">
                             
@@ -212,9 +209,14 @@
                         </div>
                         <div>
                             <div style="font-size:20px; font-weight:700">{{trans('display.image')}}</div>
-                            <div style="margin-top:20px">
-                                <label for="image">{{trans('display.image')}}</label>
-                                <input type="file" id="image" class="base-input" name="image" value="" placeholder="{{trans('display.image')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+                            <div class="form-group" style="display:flex; margin-top:20px; justify-content:center;">
+                                <div class="buttons">
+                                    <div class="file">
+                                        <div class="upload" >
+                                            {{trans('display.change_image')}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <input id="profile-submit" type="submit" class="base-submit" value="Хадгалах">
@@ -242,7 +244,7 @@
 <script type="text/javascript" charset="utf8" src="/js/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
-
+<!-- tab scripst -->
 <script>
     let tabsContainer = document.querySelector("#tabs");
 
@@ -271,52 +273,160 @@
         });
     });
 </script>
-
+<!-- inputmask -->
 <script>
-  $("#profile-add").on('click', function(){
+  $('#profile-form input[name=register]').inputmask('Regex', {regex: "^[А-ЯӨҮа-яөү]{2}[0-9]{8}$"});
+  $('#profile-form input[name=phone]').inputmask('Regex', {regex: "^[0-9]{8}$"});
+</script>
+<script>
+    var uploadedImage = [];
+    $("#profile-add").on('click', function(){
         var form = document.getElementById('profile-form');
         var userId = $('#user_id').val();
         console.log(userId);
         $('#profile-form').validate({
-        ignore: [],
-        highlight:function(element) {
-            $(element).parents('.form-group').addClass('has-error has-feedback');
-        },
-        unhighlight: function(element) {
-            $(element).parents('.form-group').removeClass('has-error');
-        },
-        submitHandler: function(form) {
-            
-            var formData = new FormData(form);
-            $.ajax({
-            url: '/profile/'+userId,
-            type: 'PUT',
-            data: formData,
-            beforeSend: function() {
-                //$('#preloader').show();
+            ignore: [],
+            highlight:function(element) {
+                $(element).parents('.form-group').addClass('has-error has-feedback');
             },
-            success: function(response) {
-
+            unhighlight: function(element) {
+                $(element).parents('.form-group').removeClass('has-error');
             },
-            error: function (xhr, textStatus, error) {
-                console.log(xhr.statusText);
-                console.log(textStatus);
-                console.log(error);
+            submitHandler: function(form) {
+                
+                var formData = new FormData(form);
+                for (i = 0; i < uploadedImage.length; i++) {
+                    console.log(uploadedImage[i]);
+                    formData.append("file"+i, uploadedImage[i]);
+                }
+                var pass = document.getElementById("password").value;
+                var pass_con = document.getElementById("password_rewrite").value;
+                if (pass != pass_con) {
+                    alert("Нууц үг тохирохгүй байна!");
+                }
+                $.ajax({
+                url: '/profile/edit/'+userId,
+                type: 'POST',
+                data: formData,
+                beforeSend: function() {
+                    //$('#preloader').show();
+                },
+                success: function(response) {
+                    
+                },
+                error: function (xhr, textStatus, error) {
+                    console.log(xhr.statusText);
+                    console.log(textStatus);
+                    console.log(error);
+                },
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false    
+                    }).done(function(data) {
+                //submitButton.prop('disabled', false);
+                });
             },
-            async: false,
-            cache: false,
-            contentType: false,
-            processData: false    
-                }).done(function(data) {
-            //submitButton.prop('disabled', false);
-        });
-        },
-        errorPlacement: function(error, element) {
-            error.insertAfter(element);
-        }
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+            }
         });
     });
 </script>
 
+<!-- upload image -->
+<script>
+    $(document).ready(function (){
+        uploadImage();
+        function uploadImage() {
+            var button = $('.file .upload')
+            var uploader = $('<input type="file" accept="img/*" id="image" name="image"/>')
+            var file = $('.file')
+            
+            button.on('click', function () {
+                uploader.click()
+            })
+      
+            uploader.on('change', function () {
+                var reader = new FileReader()
+                reader.onload = function(event) {
+                    file.prepend('<div class="files" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+                }
+                reader.readAsDataURL(uploader[0].files[0]);
+                uploadedImage.push(uploader[0].files[0]);
+            })
+        
+            file.on('click', '.files', function () {
+                $(this).remove()
+            })
+        }
+    })
+</script>
 
 
+
+<style>
+    .file {
+        /* display: flex; */
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .file .files,
+    .file .upload {
+        flex-basis: 31%;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color:3px solid orange;
+    }
+    .file .files {
+        
+        width: 250px;
+        height: 300px;
+        background-size: cover;
+        margin-right: 10px;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .file .files:nth-child(3n) {
+        margin-right: 0;
+    }
+    .file .files span {
+        display: none;
+        text-transform: capitalize;
+        z-index: 2;
+    }
+    .file .files::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.1s ease-in;
+        border-radius: 4px;
+        opacity: 0;
+        position: absolute;
+    }
+    .file .files:hover::after {
+        display: block;
+        background-color: #000;
+        opacity: 0.5;
+    }
+    .file .files:hover span {
+        display: block;
+        color: #fff;
+    }
+    .file .upload {
+        background-color: #f5f7fa;
+        align-self: center;
+        text-align: center;
+        padding: 40px 0;
+        text-transform: uppercase;
+        color: #848ea1;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+</style>
