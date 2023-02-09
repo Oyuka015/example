@@ -2,7 +2,7 @@
  
 @section('content')
 <section class="admin_register_section">
-  <h1 class="admin_register_title">{{trans('display.online_course_register')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.online_course_group_register')}}</h1>
   <div class="form-sub-heading">
   </div>
   <!-- collapse -->
@@ -13,11 +13,6 @@
       padding:5px 10px;
     }
   </style>
-  <!-- collapse end -->
-  <div style="margin-bottom: 10px">
-    <button type="button" class="link-1" id="online-add" data-toggle="modal" data-target="#online-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
-  </div>
-
   <table cellpadding="0" cellspacing="0" border="0" id="online-group-table">
     <thead class="tbl-header">
       <tr>

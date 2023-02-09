@@ -21,7 +21,7 @@
         <form action="" method="POST"  class="certi-search" id="certificate-search-form">
             <p class="title">Гэрчилгээ баталгаажуулалт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
-            <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" required>
+            <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" required/>
             <button id="cert-search-button" type="submit">Хайлт хийх</button>
         </form>
     </div>
@@ -56,7 +56,7 @@
     document.getElementById('cert-search-button').click();
     var certificateTable = $('#certificate-table').DataTable( {
     // searching: false,
-    paging: true,
+    paging: false,
     lengthChange: false,
     processing:     true,
     serverSide:     true,
@@ -129,13 +129,13 @@
         {
         "decimal":        "",
         "emptyTable":     "{{trans('messages.table_empty')}}",
-        "info":           "{{trans('messages.table_showing')}}",
+        "info":           "",
         "infoEmpty":      "{{trans('messages.table_showing_empty')}}",
-        "infoFiltered":   "{{trans('messages.table_filtered')}}",
+        "infoFiltered":   "",
         "infoPostFix":    "",
         "thousands":      ",",
-        // "lengthMenu":     "Show _MENU_ entries",
-        // "loadingRecords": "Loading...",
+        "lengthMenu":     "Show _MENU_ entries",
+        "loadingRecords": "Loading...",
         "processing":     "{{trans('messages.table_processing')}}",
         // "search":         "Search:",
         "zeroRecords":    "{{trans('messages.table_no_match')}}",

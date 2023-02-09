@@ -117,7 +117,7 @@ class OnlineRepository implements OnlineInterface
     public function getDatatableList($searchData)
     {
 
-        $online = Codelists::where('id', $input['selected_lesson_group'])->get();
+        $online = Online::select('*');
         $qry = $online;
         
         $data = Datatables::make($qry) 

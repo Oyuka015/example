@@ -127,4 +127,5 @@ return [
     'diploma_doc' => 'Дипломын хавсралт',
     'new_file_upload' => 'Шинэ файл нэмэх',
     'group_post' => 'Бүлэг нэмсэн',
+    'online_course_group_register' => 'Цахим хичээлийн бүлгийн бүртгэл',
 ];
