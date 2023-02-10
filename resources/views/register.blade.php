@@ -133,28 +133,39 @@
 </style>
 
 
-<form method="POST" class="register-form" id="register-form">
-  <div class="system-login-information">
+<form method="POST" class="register-form" id="register-form" action="javascript:;"  >
+  <div class="system-login-information" style="display:grid; grid-template-columns:1fr 1fr;">
     <div class="register-information-title">Системд нэвтрэх мэдээлэл</div>
-    <label for="username">
-        {{trans('display.login_name')}}
-        <input type="text" name="username" >
-    </label>
-    <label for="password">
-        {{trans('display.password')}}
-        <input type="password" name="password">
-    </label>
-    <div style="display:flex; gap:5px; ">
-        <label for="">{{trans('display.active_status')}}</label>
-        <label style="margin-top:4px;" class="switch" name="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>  
+    <div>
+        <label for="username">
+            {{trans('display.login_name')}}
+            <input type="text" name="username" >
+        </label>
+        <label for="password">
+            {{trans('display.password')}}
+            <input type="password" name="password">
+        </label>
+        <div style="display:flex; gap:5px; ">
+            <label for="">{{trans('display.active_status')}}</label>
+            <label style="margin-top:4px;" class="switch" name="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>  
+        </div>
     </div>
-    <div style="display:flex; gap:5px; align-items:center;">
-        <label for="image">{{trans('display.image')}}</label>
-        <input type="file" name="image">
+    <!--  -->
+    <div style="display:flex; margin-top:20px; justify-content:center; ">
+        <div class="buttons">
+            <div class="file">
+                <div class="upload" >
+                    {{trans('display.change_image')}}
+                </div>
+            </div>
+        </div>
     </div>
+    <!--  -->
+    
+    
   </div>
   <div class="general-information">
       <div class="register-information-title">Ерөнхий мэдээлэл</div>
@@ -276,7 +287,6 @@
 
 </div>
 
-<!-- education table script-->
 
 
 <!-- <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>
@@ -292,8 +302,9 @@
 
 
 <script>
-  var form = document.getElementById('register-form');
-  $("#register-form-submit").on('click', function(){
+    var uploadedImage = [];
+    var form = document.getElementById('register-form');
+    $("#register-form-submit").on('click', function(){
       $('#register-form').validate({
         ignore: [],
         highlight:function(element) {
@@ -303,11 +314,18 @@
             $(element).parents('.form-group').removeClass('has-error');
         },
         submitHandler: function(form) {
-          var formData = new FormData(form);
-          $.ajax({
-            url: '{!! route('users.store') !!}',
+            var formData = new FormData(form);
+            var i;
+            console.log(uploadedImage.length);
+            for (i = 0; i < uploadedImage.length; i++) {
+                console.log(uploadedImage[i]);
+                formData.append("file"+i, uploadedImage[i]);
+            }
+            console.log('bnu')
+            $.ajax({
+            url: '/register/save',
             type: form.method,
-            data: $(form).serialize(),
+            data: formData,
             beforeSend: function() {
                 //$('#preloader').show();
             },
@@ -319,10 +337,13 @@
                 console.log(textStatus);
                 console.log(error);
             },
-            async: false          
-        }).done(function(data) {
-            //submitButton.prop('disabled', false);
-        });
+            async: false,     
+            cache: false,
+            contentType: false,
+            processData: false  
+            }).done(function(data) {
+                //submitButton.prop('disabled', false);
+            });
         },
         errorPlacement: function(error, element) {
             error.insertAfter(element);
@@ -330,3 +351,98 @@
       });
     });
 </script>
+
+<script>
+    $(document).ready(function (){
+        uploadImage();
+        function uploadImage() {
+            var button = $('.file .upload')
+            var uploader = $('<input type="file" accept="img/*" id="image" name="image"/>')
+            var file = $('.file')
+            
+            button.on('click', function () {
+                uploader.click()
+            })
+      
+            uploader.on('change', function () {
+                var reader = new FileReader()
+                reader.onload = function(event) {
+                    file.prepend('<div class="files" style="background-image: url(\'' + event.target.result + '\');" rel="'+ event.target.result  +'"><span>{{trans("display.remove")}}</span></div>')
+                }
+                reader.readAsDataURL(uploader[0].files[0]);
+                uploadedImage.push(uploader[0].files[0]);
+            })
+        
+            file.on('click', '.files', function () {
+                $(this).remove()
+            })
+        }
+    })
+</script>
+
+<style>
+    .file {
+        /* display: flex; */
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .file .files,
+    .file .upload {
+        flex-basis: 31%;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color:3px solid orange;
+    }
+    .file .files {
+        
+        width: 300px;
+        height: 200px;
+        background-size: cover;
+        margin-right: 10px;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .file .files:nth-child(3n) {
+        margin-right: 0;
+    }
+    .file .files span {
+        display: none;
+        text-transform: capitalize;
+        z-index: 2;
+    }
+    .file .files::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.1s ease-in;
+        border-radius: 4px;
+        opacity: 0;
+        position: absolute;
+    }
+    .file .files:hover::after {
+        display: block;
+        background-color: #000;
+        opacity: 0.5;
+    }
+    .file .files:hover span {
+        display: block;
+        color: #fff;
+    }
+    .file .upload {
+        background-color: #f5f7fa;
+        align-self: center;
+        text-align: center;
+        padding: 40px 0;
+        text-transform: uppercase;
+        color: #848ea1;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+</style>
+

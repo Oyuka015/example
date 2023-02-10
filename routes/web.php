@@ -25,6 +25,7 @@ Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
 Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
 Route::get('/course', 'App\Http\Controllers\Controller@course');
 Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
+Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
 
 Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
@@ -89,15 +90,10 @@ Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 Route::get('/register', function () {
     return view('register');
 });
+Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister")->name('register.store');
 
-// Route::get('/user/profile', function () {
-//     return view('user.profile');
-// });
 Route::get('/result', function () {
     return view('user.result');
-});
-Route::get('/online_course', function () {
-    return view('user.online');
 });
 
 Route::get('/hihi', function () {

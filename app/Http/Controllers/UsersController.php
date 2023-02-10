@@ -49,7 +49,7 @@ class UsersController extends BaseController
     }
 
     public function store(Request $request)
-    {
+    {   
         $validator = Validator::make($request->input(), Users::$rules);
         // process the save
         if ($validator->fails()) 
@@ -66,7 +66,8 @@ class UsersController extends BaseController
         } 
         else 
         {
-            $app = $this->users->create($request->input());
+            // dd($request->input(), $request->file());
+            $app = $this->users->create($request->input(), $request->file());
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -77,6 +78,7 @@ class UsersController extends BaseController
             return View::make('core.alert.messages', $data);
         }
     }
+   
 
     public function update($id, Request $request)
     {
@@ -126,4 +128,40 @@ class UsersController extends BaseController
 
         return View::make('core.alert.messages', $data);
     }
+
+    
+    public function storeRegister(Request $request)
+    {   
+        
+        // dd($request);
+        $validator = Validator::make($request->input(), Users::$rules);
+        // process the save
+        if ($validator->fails()) 
+        {
+            $response = array(
+                'status' => 'error',
+                'msg' => trans('messages.error_save'),
+                'errors' => $validator->errors()
+            );
+
+            $data['response'] = $response;
+
+            return View::make('core.alert.messages', $data);
+        } 
+        else 
+        {
+            // dd($request->input(), $request->file());
+            $app = $this->users->create($request->input(), $request->file());
+            $response = array(
+                'status' => 'success',
+                'msg' => trans('messages.success_save'),
+            );
+
+            $data['response'] = $response;
+
+            return View::make('core.alert.messages', $data);
+        }
+
+    }
+   
 }

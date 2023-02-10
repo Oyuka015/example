@@ -26,29 +26,37 @@
             </div>
         </div>
         <div class="user-profile-other">
-            <ul>
+            <ul id="tab_s">
                 <li>
-                    <a href="profile">
+                    <a href="#first">
                         <i class="fa-solid fa-user"></i>
                         <div>{{trans('display.profile')}}</div>
                     </a>
                 </li>
                 <li>
-                    <a href="online_course">
+                    <a href="#third">
                         <i class="fa-solid fa-book-open"></i>
-                        <div>{{trans('display.chosen_lessons')}}</div>
+                        <div>{{trans('display.certificate')}}</div>
                     </a>
                 </li>
                 <li>
-                    <a href="result">
+                    <a href="#second">
                         <i class="fa-solid fa-house"></i>
                         <div>{{trans('display.exam_result')}}</div>
                     </a>
                 </li>
+            </ul>
+            <ul>
                 <li>
                     <a href="/">
                         <i class="fa-solid fa-house"></i>
                         <div>{{trans('display.home')}}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <div>{{trans('display.log_out')}}</div>
                     </a>
                 </li>
             </ul>
@@ -56,79 +64,67 @@
     </div>
     
     <div class="user-profile-main">
-        <ul id="tabs" class="inline-flex py-1.5 px-4 w-full items-center justify-center gap-4 h-11">
-            <li ><a  href="#first">Нэвтрэх мэдээлэл</a></li>
-            <li ><a style="padding:5px 10px;" href="#second">Хэрэглэгчийн мэдээлэл</a></li>
-            <li ><a href="#third">{{trans('display.certificate')}}</a></li>
-        </ul>
         <div id="tab-contents">
             <div id="first"class="p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">
                 <div class="first">
                     <div class="user-profile-image">
                         <div class="user-img-section">
-                            <img src="/{{$userData->image_url}}" alt="profile_pic">
-                            <!-- <img src="/images/default-avatar.png" alt=""> -->
+                            <img src="/{{$userData->image_url}}" alt="">
                         </div>
                     </div>
                     <div class="user-profile-info">
-                        <div style="font-size:20px; font-weight:700">{{trans('display.login_information')}}</div>
+                        <div style="font-size:25px; font-weight:700;">{{trans('display.login_information')}}</div>
                         <div  style="display:flex; flex-wrap:wrap; gap:20px;">
                             <div>
                                 <label  for="username">{{trans('display.login_name')}}</label>
-                                <input value="{{$userData->username}}" type="text" name="username">
+                                <input value="{{$userData->username}}" type="text" name="username" readonly>
                             </div>
-                           <div>
+                            <div>
                                 <label for="email">{{trans('display.email')}}</label>
-                                <input type="email" value="{{$userData->email}}" name="email">
-                           </div>
-                          <div>
+                                <input type="email" value="{{$userData->email}}" name="email" readonly>
+                            </div>
+                            <div>
                                 <label for="phone">{{trans('display.phone')}}</label>
-                                <input type="tel" value="{{$userData->phone}}" name="phone">
-                          </div>
+                                <input type="tel" value="{{$userData->phone}}" name="phone" readonly>
+                            </div>
+                        </div>
+                        <div style="font-size:25px; font-weight:700; margin-top:30px;">{{trans('display.personal_info')}}</div>
+                        <div style="display:flex; flex-wrap:wrap; gap:20px;">
+                            <div>
+                                <label  for="lastname">{{trans('display.lastname')}}</label>
+                                <input value="{{$userData->lastname}}" type="text" name="lastname" readonly>
+                            </div>
+                            <div>
+                                <label for="firstname">{{trans('display.firstname')}}</label>
+                                <input type="firstname" value="{{$userData->firstname}}" name="firstname" readonly>
+                            </div>
+                            <div>
+                                <label for="education_degree">{{trans('display.education_degree')}}</label>
+                                <input type="text" value="{{$userData->education_degree}}" readonly>
+                            </div>
+                            <div>
+                                <label for="register">{{trans('display.register')}}</label>
+                                <input type="text" value="{{$userData->register}}" name="register" readonly>
+                            </div>                                                                                      
+                        </div>
+                        <div style="margin-top:30px; display:flex; justify-content:end; margin-right:55px;">
+                            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white">{{trans('display.edit')}}</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="third" class="hidden p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">   
                 <div class="third">
-                    
+                    gerchilgee harah
                 </div>
             </div>
             <div id="second" class="hidden p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">
-                <div class="second">
-                    <div class="user-profile-image">
-                        <div class="user-img-section">
-                            <img src="/images/default-avatar.png" alt="profile-img">
-                        </div>
-                    </div>
-                    <div class="user-profile-info">
-                        <div style="font-size:25px; font-weight:700">{{trans('display.personal_info')}}</div>
-                        <div style="display:flex; flex-wrap:wrap; gap:20px;">
-                            <div>
-                                <label  for="lastname">{{trans('display.lastname')}}</label>
-                                <input value="{{$userData->lastname}}" type="text" name="lastname">
-                            </div>
-                            <div>
-                                <label for="firstname">{{trans('display.firstname')}}</label>
-                                <input type="firstname" value="{{$userData->firstname}}" name="firstname">
-                            </div>
-                            <div>
-                                <label for="province">{{trans('display.province')}}</label>
-                                <input type="text" value="{{$userData->province}}">
-                            </div>
-                            <div>
-                                <label for="register">{{trans('display.register')}}</label>
-                                <input type="text" value="{{$userData->register}}" name="register">
-                            </div>                                                                                      
-                        </div>
-                    </div>
+                <div class="second" style="min-height:70vh;">
+                shalgaltiin hariu harah 
                 </div>
             </div>
         </div>
         <!--  -->
-        <div style="margin-bottom: 10px">
-            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
-        </div>
         <div class="modal fade" id="profile-add-modal" tabindex="-1" role="dialog" aria-labelledby="profile-add-modalLabel" aria-hidden="true">
             <div style="width:1100px;" class="modal-dialog" role="document">
             <div class="modal-content">
@@ -244,40 +240,7 @@
 <script type="text/javascript" charset="utf8" src="/js/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
 
-<!-- tab scripst -->
-<script>
-    let tabsContainer = document.querySelector("#tabs");
 
-    let tabTogglers = tabsContainer.querySelectorAll("#tabs a");
-
-        console.log(tabTogglers);
-
-        tabTogglers.forEach(function(toggler) {
-        toggler.addEventListener("click", function(e) {
-            e.preventDefault();
-
-            let tabName = this.getAttribute("href");
-
-            let tabContents = document.querySelector("#tab-contents");
-
-            for (let i = 0; i < tabContents.children.length; i++) {
-            
-            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200","-mb-4",);  tabContents.children[i].classList.remove("hidden");
-            if ("#" + tabContents.children[i].id === tabName) {
-                continue;
-            }
-            tabContents.children[i].classList.add("hidden");
-            
-            }
-            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200", "-mb-4",);
-        });
-    });
-</script>
-<!-- inputmask -->
-<script>
-  $('#profile-form input[name=register]').inputmask('Regex', {regex: "^[А-ЯӨҮа-яөү]{2}[0-9]{8}$"});
-  $('#profile-form input[name=phone]').inputmask('Regex', {regex: "^[0-9]{8}$"});
-</script>
 <script>
     var uploadedImage = [];
     $("#profile-add").on('click', function(){
@@ -312,7 +275,7 @@
                     //$('#preloader').show();
                 },
                 success: function(response) {
-                    
+                    $('#profile-add-modal').modal('hide');
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -333,6 +296,42 @@
         });
     });
 </script>
+<!-- tab scripst -->
+<script>
+    let tabsContainer = document.querySelector("#tab_s");
+
+    let tabTogglers = tabsContainer.querySelectorAll("#tab_s a");
+
+        console.log(tabTogglers);
+
+        tabTogglers.forEach(function(toggler) {
+        toggler.addEventListener("click", function(e) {
+            e.preventDefault();
+
+            let tabName = this.getAttribute("href");
+
+            let tabContents = document.querySelector("#tab-contents");
+
+            for (let i = 0; i < tabContents.children.length; i++) {
+            
+            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200","-mb-4",);  tabContents.children[i].classList.remove("hidden");
+            if ("#" + tabContents.children[i].id === tabName) {
+                continue;
+            }
+            tabContents.children[i].classList.add("hidden");
+            
+            }
+            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200", "-mb-4",);
+        });
+    });
+</script>
+<!-- inputmask -->
+<script>
+  $('#profile-form input[name=register]').inputmask('Regex', {regex: "^[А-ЯӨҮа-яөү]{2}[0-9]{8}$"});
+  $('#profile-form input[name=phone]').inputmask('Regex', {regex: "^[0-9]{8}$"});
+</script>
+
+
 
 <!-- upload image -->
 <script>
@@ -362,8 +361,6 @@
         }
     })
 </script>
-
-
 
 <style>
     .file {

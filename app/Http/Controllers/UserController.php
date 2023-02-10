@@ -70,7 +70,9 @@ class UserController extends BaseController
 
     public function store(Request $request)
     {
-        
+        $this->validate($request, [
+            'file0' => 'required|file|mimetypes:image/*',
+        ]);
         $validator = Validator::make($request->input(), User::$rules);
         // process the save
         if ($validator->fails()) 
@@ -130,10 +132,11 @@ class UserController extends BaseController
             // 'role_id' => 'required',
         );
         $validator = Validator::make($request->input(), $rules);
+
+        
         // process the save
         if ($validator->fails()) 
         {
-            // dD('ssss');
             $response = array(
                 'status' => 'error',
                 'msg' => trans('messages.error_save'),

@@ -9,7 +9,7 @@
     <div class="user-profile-sidebar">
         <div class="user-profile">
             <div class="user-profile-img">
-                <img src="/images/default-avatar.png" alt="">
+                <img src="/{{$userData->image_url}}" alt="profile_pic">
             </div>
             <div class="user-profile-name">
                 {{trans('display.username')}}
@@ -26,7 +26,7 @@
                 <li>
                     <a href="online">
                         <i class="fa-solid fa-book-open"></i>
-                        <div>{{trans('display.chosen_lessons')}}</div>
+                        <div>{{trans('display.certificate')}}</div>
                     </a>
                 </li>
                 <li>
@@ -44,16 +44,9 @@
             </ul>
         </div>
     </div>
-    <div class="user-profile-main">
-        <div class="profile-information-section" style="min-height:80vh">
-            <div class="information-select">
-                <ul>
-                    <li class="user_profile"><a href="profile" >{{trans('display.chosen_lessons')}}</a></li>
-                </ul>
-            </div>
-            <div class="chosen_lesson_section" style="margin-top:25px;">
-
-            </div>
+    <div class="user-profile-main" style="background-color:#e3e2e2; margin-top:0; padding:20px;">
+        <div style="background-color:white; width:100%; height:100%">
+            gerchilgee haragdana.
         </div>
     </div>
 </div>

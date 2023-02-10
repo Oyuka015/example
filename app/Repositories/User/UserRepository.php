@@ -21,15 +21,19 @@ class UserRepository implements UserInterface
         return User::find($id);
     }
 
-    public function create($input,)
+    public function create($input, $file)
     {
         $user = new User;
         $user->username = @$input['username'];
         $user->username = @$input['username'];
         $user->email = @$input['email'];
+        $user->phone = @$input['phone'];
         $user->lastname = @$input['lastname'];
         $user->firstname = @$input['firstname'];
+        $user->register = @$input['register'];
         $user->password = md5(@$input['password']);
+
+        
 
         return $user->save();
     }
@@ -37,11 +41,15 @@ class UserRepository implements UserInterface
     public function update($id, $input, $file)
     {
         $user = User::find($id);
-        dd($input, $file);  
+
+        dd(md5( @$input['old_password']));  
         $user->username = @$input['username'];
         $user->email = @$input['email'];
+        $user->phone = @$input['phone'];
         $user->lastname = @$input['lastname'];
         $user->firstname = @$input['firstname'];
+        $user->register = @$input['register'];
+        $user->old_password =md5( @$input['old_password']);
         $user->password = md5(@$input['password']);
 
         if($file){

@@ -7,6 +7,7 @@ use App\Repositories\Users\UsersInterface as UsersInterface;
 use App\Models\Users;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use File;
 
 class UsersRepository implements UsersInterface
 {
@@ -20,10 +21,10 @@ class UsersRepository implements UsersInterface
         return Users::find($id);
     }
 
-    public function create($input)
+    public function create($input, $file)
     {
         $users = new Users;
-        // dd($input);
+        // dd($input, $file);
         $users->username = @$input['username'];
         $users->citizenship = @$input['citizenship'];
         $users->family_name = @$input['family_name'];
@@ -50,13 +51,17 @@ class UsersRepository implements UsersInterface
         $users->diploma_doc = @$input['diploma_doc'];
         $users->password = md5(@$input['password']);
 
+        if ($file['file0'])
+        {
+            $path = $file['file0']->store('images', ['disk' => 'my_files']);
+            $users->image_url = $path;
+        }
         return $users->save();
     }
 
-    public function update($id, $input)
+    public function update($id, $input, $file)
     {
         $users = Users::find($id);
-
         $users->username = @$input['username'];
         $users->citizenship = @$input['citizenship'];
         $users->family_name = @$input['family_name'];
@@ -75,6 +80,11 @@ class UsersRepository implements UsersInterface
         $users->education_degree = @$input['education-degree'];
         $users->home_address = @$input['home_address'];
 
+        if ($file['file0'])
+        {
+            $path = $file['file0']->store('images', ['disk' => 'my_files']);
+            $users->image_url = $path;
+        }
         return $users->save();
     }
 
