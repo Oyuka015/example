@@ -54,7 +54,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="/do/logout">
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <div>{{trans('display.log_out')}}</div>
                     </a>
@@ -225,6 +225,7 @@
         <!--  -->
     </div>
 </div>
+<input type="text" class="hidden" id="current-pass" value="{{Auth::user()->password}}"/>
 <div class="haha">
 
 </div>
@@ -239,6 +240,7 @@
 <script src="/js/plugins/ol/build/ol.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+<script src="/js/md5.min.js"></script>
 
 
 <script>
@@ -262,10 +264,18 @@
                     console.log(uploadedImage[i]);
                     formData.append("file"+i, uploadedImage[i]);
                 }
-                var pass = document.getElementById("password").value;
-                var pass_con = document.getElementById("password_rewrite").value;
-                if (pass != pass_con) {
-                    alert("Нууц үг тохирохгүй байна!");
+                
+                var strHash = md5($('#old_password').val());
+                if(strHash == $('#current-pass').val()){
+                    console.log();
+                    var pass = document.getElementById("password").value;
+                    var pass_con = document.getElementById("password_rewrite").value;
+                    if (pass != pass_con) {
+                        alert("Шинэ нууц үг хоорондоо тохирохгүй байна!");
+                    }
+                }
+                else{
+                    alert("Одоо байгаа нууц үг тохирохгүй байна!");
                 }
                 $.ajax({
                 url: '/profile/edit/'+userId,

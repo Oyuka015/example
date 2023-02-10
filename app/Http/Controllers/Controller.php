@@ -39,8 +39,8 @@ class Controller extends BaseController
         $user_Data = Session::get('login_user');
         $data['userData'] = $user_Data;
         
-        return View::make('
-        ', $data);
+        return View::make('test', $data);
+
     }
 
     public function medeelel()
