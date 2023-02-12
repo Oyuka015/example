@@ -1046,7 +1046,21 @@ button::-moz-focus-inner {
 .cart a:hover{
     text-decoration: none;
 }
-
+.exam-detail{
+    width:80%;
+    margin:auto;
+    
+    background-color:#e3e2e2; 
+    margin-top:10px; 
+    border-radius: 20px;
+}
+.exam-question{
+    font-size: 30px;
+    margin-top: 10px;
+}
+.exam-question-input{
+    margin-left: 30px;;
+}
 /* user-exam-style */
 /* exam card */ 
 .exam-card {
@@ -1069,6 +1083,9 @@ button::-moz-focus-inner {
     border:1px solid orange;
     padding: 20px;
     font-size: 18px;
+}
+.e-card:hover{
+    text-decoration:none;
 }
 .e-title {
     font-weight: 700;
@@ -1093,6 +1110,7 @@ button::-moz-focus-inner {
     display: flex;
     gap: 5px;
 }
+
 /* user-certificate-style */
 
 /* certificate */

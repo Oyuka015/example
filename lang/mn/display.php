@@ -130,4 +130,10 @@ return [
     'new_file_upload' => 'Шинэ файл нэмэх',
     'group_post' => 'Бүлэг нэмсэн',
     'online_course_group_register' => 'Цахим хичээлийн бүлгийн бүртгэл',
+    'previous' => 'Өмнөх',
+    'next' => 'Дараагийнх',
+    'back' => 'Буцах',
+    'submit' => 'Илгээх',
 ];
+
+

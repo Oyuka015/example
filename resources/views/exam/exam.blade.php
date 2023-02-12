@@ -19,7 +19,7 @@
 <!-- exam cards -->
 <div class="exam-card">
     <div class="cards">
-        <div class="e-card">
+        <a href="exam/detail" class="e-card">
             <div class="e-title">Ленд менежер 2019/10</div>
             <div class="e-descri">Ленд менежер программ хангамжийн гэрчилгээ олгох 2019 оны 02 дүгээр шалгалт</div>
             <div class="e-eye">
@@ -31,20 +31,7 @@
                     <p>60 мин</p>
                 </div>
             </div>
-        </div>
-        <div class="e-card">
-            <div class="e-title">Ленд менежер 2019/10</div>
-            <div class="e-descri">Ленд менежер программ хангамжийн гэрчилгээ олгох 2019 оны 02 дүгээр шалгалт</div>
-            <div class="e-eye">
-                <div class="eye">
-                    <i class="fa-solid fa-eye"></i>
-                    <p>0</p>
-                </div>
-                <div class="time">
-                    <p>60 мин</p>
-                </div>
-            </div>
-        </div>
+        </a>
     </div>
 </div>
 @endsection

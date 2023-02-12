@@ -90,6 +90,9 @@ Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 Route::get('/register', function () {
     return view('register');
 });
+Route::get('exam/detail', function(){
+    return view('exam.detail');
+});
 Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister")->name('register.store');
 
 Route::get('/result', function () {

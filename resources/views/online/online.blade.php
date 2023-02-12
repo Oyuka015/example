@@ -1,11 +1,11 @@
 @extends('ulayout.ulayout')
  
 @section('content')
-<div class="course-detail">
+<div class="course-detail" style="  scroll-behavior: smooth; ">
     <div class="bulguud">
         <ul>
             @foreach($groups as $group)
-            <li><a href="#group-{{$group->id}}" style="scroll-behavior: smooth-scroll;" id="menu-group-{{$group->id}}">{{$group->name}}</a></li>
+            <li><a href="#group-{{$group->id}}" style="scroll-behavior: smooth;" id="menu-group-{{$group->id}}">{{$group->name}}</a></li>
             @endforeach
         </ul>
     </div>
