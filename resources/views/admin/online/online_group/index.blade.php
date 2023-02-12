@@ -27,7 +27,7 @@
     </tbody>
   </table>
   <div class="modal fade" id="online-edit-modal" tabindex="-1" role="dialog" aria-labelledby="online-edit-modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div style=" width:400px" class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="online-edit-modalLabel">{{trans('display.edit')}}</h4>
