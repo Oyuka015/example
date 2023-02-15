@@ -122,5 +122,13 @@ class Controller extends BaseController
         return View::make('information.detailinfo', $data);
     }
 
+    public function getDatasForLesson($id){
+        // dd($id);
+        $getData = Online::where('id', $id)->get();
+        // dd($getData[0]->title);
+        $data['lesson'] = $getData;
+        return View::make('online.course', $data);
+    }
+
 }
 

@@ -119,6 +119,7 @@ return [
     'select_lesson_group' => 'Хичээлийн бүлэг сонгох',
     'add_lesson_group' => 'Хичээлийн бүлэг шинээр нэмэх',
     'lesson_group' => 'Хичээлийн бүлэг',
+    'lesson_groups' => 'Хичээлийн бүлгүүд',
     'upload_homework' => 'Хичээлийн даалгавар оруулах',
     'new_video_upload' => 'Шинэ бичлэг оруулах',
     'graduated' => 'Төгссөн он',
