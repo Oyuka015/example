@@ -102,3 +102,11 @@ Route::get('/result', function () {
 Route::get('/hihi', function () {
     return view('user.hihi');
 });
+// Route::any('/test', function () {
+//     return view('client.test');
+// });
+
+
+Route::get('test',[\App\Http\Controllers\TestController::class, 'index'])->name('client.test');
+// Route::post('test',[\App\Http\Controllers\TestController::class, 'store'])->name('client.test.store');
+// Route::get('results/{result_id}',[\App\Http\Controllers\ResultController::class, 'show'])->name('client.results.show');
