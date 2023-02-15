@@ -32,7 +32,7 @@
     </div>
 
     <div class="flex" style="margin-top:20px; display:flex; justify-content:center; gap:20px; ">
-        <button style="padding:10px; border-radius:10px; outline:none; cursor:pointer; font-size:25px;" class="back">{{trans('display.back')}}</button>
-        <button style="padding:10px; border-radius:10px; outline:none; cursor:pointer; font-size:25px;" class="submit">{{trans('display.submit')}}</button>
+        <button class="back">{{trans('display.back')}}</button>
+        <button class="submit">{{trans('display.submit')}}</button>
     </div>
 </div>

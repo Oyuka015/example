@@ -1072,6 +1072,17 @@ button::-moz-focus-inner {
     background-color: #e3e2e2;
     padding: 5px;
 }
+.back, .submit{
+    padding:10px; 
+    border: 2px outset; 
+    border-radius:10px;
+    outline:none;
+    cursor:pointer; 
+    font-size:18px;
+}
+.back:hover, .submit:hover{
+    border:2px inset;
+}
 /* user-exam-style */
 /* exam card */ 
 .exam-card {
