@@ -123,7 +123,7 @@
 <style>
     body{
         display:flex;
-        background-color:#1D1F1F;    
+        /* background-color:#1D1F1F;     */
     }
     ::placeholder{
         color:rgba(255, 251, 251, 0.952)

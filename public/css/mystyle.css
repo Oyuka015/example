@@ -1507,9 +1507,11 @@ textarea {
     height: 95vh;
     margin-top: 20px;
     margin-left: 20px;
+    display: grid;
+    grid-template-rows: 0.5fr 3fr 2.5fr 4.5fr;
 }
 .main-sec-search{
-    height: 4%;
+    /* height: 4%; */
     display: flex;
     justify-content: space-between;
 }
@@ -1557,13 +1559,13 @@ textarea {
     font-size: 13px;
 }
 .main-sec-banner{
-    height: 30%;
+    /* height: 30%; */
     margin-top: 10px;
     background-color: #00AAB2;
     border-radius: 15px;
 }
 .main-sec-3part{
-    height: 21%;
+    /* height: 21%; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
@@ -1575,7 +1577,7 @@ textarea {
 }
 .main-sec-2-big{
     margin-top: 10px;
-    height: 40%;
+    /* height: 40%; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
