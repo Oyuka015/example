@@ -1098,8 +1098,11 @@ button::-moz-focus-inner {
     flex-wrap: wrap;
     padding-left: 50px;
     gap: 20px;
+    /* position: absolute; */
+
 }
 .e-card {
+    display: inline-block;
     width: 300px;
     height: 200px;
     border:1px solid orange;

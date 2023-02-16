@@ -19,7 +19,8 @@ Route::get('/medeelel', 'App\Http\Controllers\Controller@medeelel');
 Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformation')->name('get.data');
 Route::any('/get/datas/{id}', 'App\Http\Controllers\Controller@getDatasForLesson')->name('get.datas');
 
-Route::get('/exam', 'App\Http\Controllers\Controller@exam');
+Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
+Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
 Route::get('/certi', 'App\Http\Controllers\Controller@certi');
 Route::get('/faq', 'App\Http\Controllers\Controller@faq');
 Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
@@ -60,9 +61,6 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 
     Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
     Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
-
-    Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
-    Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
     Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
     Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');

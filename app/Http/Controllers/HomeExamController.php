@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Exam;
 use App\Models\Question;
+use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Html\Builder;
 
 use App\Repositories\Exam\ExamInterface;
 
@@ -19,7 +21,7 @@ use Storage;
 use \Validator as Validator;
 use \View as View;
 
-class ExamController extends BaseController
+class HomeExamController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -27,22 +29,26 @@ class ExamController extends BaseController
 
     public function __construct(ExamInterface $exam) {
         $this->exam = $exam;
-        $this->view_path = 'admin.exam';
+        $this->view_path = 'exam';
     }
 
     public function index(Request $request)
     {
-        return view($this->view_path.'.index');
+        $exam = Exam::select('*')->orderBy('id')->get();
+        // dD($exam);
+        $data['exam'] = $exam;
+
+        return view($this->view_path.'.index', $data);
     }
 
-    public function create()
+    public function examDetail($id)
     {
-        $exams = Exam::where('is_active', true)->get();
+        $exams = Exam::find($id);
         $questions = Question::where('is_active', true)->get();
-
+dd($exams->examToMap()->mapToQuestion());
         $data['exams'] = $exams;
         $data['questions'] = $questions;
-        return view($this->view_path.'.add', $data);
+        return view($this->view_path.'.detail', $data);
     }
 
     public function edit($id)
@@ -60,7 +66,7 @@ class ExamController extends BaseController
 
     public function store(Request $request)
     {
-        dd($request->input());
+        
         $validator = Validator::make($request->input(), Exam::$rules);
         // process the save
         if ($validator->fails()) 

@@ -1,8 +1,15 @@
 <form method="POST" id="exam-add-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   <div class="form-group">
-<<<<<<< Updated upstream
     <label for="exam_name">{{trans('display.exam_name')}}</label>
     <input type="text" id="name" class="base-input" name="name" placeholder="{{trans('display.exam_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+  </div>
+  <div class="form-group">
+    <label for="exam_name">{{trans('display.description')}}</label>
+    <input type="text" id="exam_description" class="base-input" name="exam_description" placeholder="{{trans('display.description')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+  </div>
+  <div class="form-group">
+    <label for="exam_name">{{trans('display.time')}} Жишээ нь: 20 минут бол 00:20</label>
+    <input type="time" id="exam_time" class="base-input" name="exam_time" placeholder="{{trans('display.time')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
   <div class="form-group">
     <label for="exam_name">{{trans('display.lower_score')}}</label>
@@ -21,14 +28,6 @@
   <div class="form-group">
     <input type="checkbox" id="is_active" name="is_active" value="1" checked>
     <label for="is_active">{{trans('display.is_active')}}</label>
-=======
-    <label for="name">{{trans('display.name')}}</label>
-    <input type="text" id="name" class="base-input" name="name" placeholder="{{trans('display.name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
-  <div class="form-group">
-    <label for="lower_percent">{{trans('display.lower_percent')}}</label>
-    <input type="text" id="lower_percent" class="base-input" name="lower_percent" placeholder="{{trans('display.lower_percent')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
->>>>>>> Stashed changes
   </div>
   <div class="form-group">
     <label for="exam_name">{{trans('display.required_exam')}}</label>

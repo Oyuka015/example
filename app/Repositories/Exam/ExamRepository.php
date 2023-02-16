@@ -19,7 +19,9 @@ class ExamRepository implements ExamInterface
     public function create($input)
     {
         $exam = new Exam;
-        $exam->name = @$input['name'];
+        $exam->name = @$input['exam_name'];
+        $exam->description = @$input['description'];
+        $exam->exam_time = @$input['exam_time'];
         $exam->lower_percent = @$input['lower_percent'];
         $exam->is_active = @$input['is_active'] ? true : false;
         $exam->save();
@@ -35,6 +37,8 @@ class ExamRepository implements ExamInterface
 
         $exam->name = @$input['name'];
         $exam->lower_percent = @$input['lower_percent'];
+        $exam->exam_time = @$input['exam_time'];
+        $exam->description = @$input['description'];
 
         return $exam;
     }
