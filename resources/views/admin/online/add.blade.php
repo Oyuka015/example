@@ -1,3 +1,68 @@
+<style>
+    .file {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    .file .files,
+    .file .pdf {
+        flex-basis: 31%;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        background-color:3px solid orange;
+    }
+    .file .files {
+        
+        width: 100px;
+        height: 100px;
+        background-size: cover;
+        margin-right: 10px;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .file .files:nth-child(3n) {
+        margin-right: 0;
+    }
+    .file .files span {
+        display: none;
+        text-transform: capitalize;
+        z-index: 2;
+    }
+    .file .files::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        transition: opacity 0.1s ease-in;
+        border-radius: 4px;
+        opacity: 0;
+        position: absolute;
+    }
+    .file .files:hover::after {
+        display: block;
+        background-color: #000;
+        opacity: 0.5;
+    }
+    .file .files:hover span {
+        display: block;
+        color: #fff;
+    }
+    .file .pdf {
+        background-color: #f5f7fa;
+        align-self: center;
+        text-align: center;
+        padding: 40px 0;
+        text-transform: uppercase;
+        color: #848ea1;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+</style>
 <form method="POST" id="online-add-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   {{ csrf_field() }}
   <div class="form-group" id="radio_buttons">
@@ -121,65 +186,65 @@
 </script>
 
 <style>
-.video {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-.video .vid,
-.video .upload {
-    flex-basis: 31%;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-.video .vid {
-    width: 112px;
-    height: 93px;
-    background-size: cover;
-    margin-right: 10px;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-.video .vid:nth-child(3n) {
-    margin-right: 0;
-}
-.video .vid span {
-    display: none;
-    text-transform: capitalize;
-    z-index: 2;
-}
-.video .vid::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.1s ease-in;
-    border-radius: 4px;
-    opacity: 0;
-    position: absolute;
-}
-.video .vid:hover::after {
-    display: block;
-    background-color: #000;
-    opacity: 0.5;
-}
-.video .vid:hover span {
-    display: block;
-    color: #fff;
-}
-.video .upload {
-    background-color: #f5f7fa;
-    align-self: center;
-    text-align: center;
-    padding: 40px 0;
-    text-transform: uppercase;
-    color: #848ea1;
-    font-size: 12px;
-    cursor: pointer;
-}
-
+  /* upload video */
+  .video {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 20px;
+  }
+  .video .vid,
+  .video .upload {
+      flex-basis: 31%;
+      margin-bottom: 10px;
+      border-radius: 4px;
+  }
+  .video .vid {
+      width: 112px;
+      height: 93px;
+      background-size: cover;
+      margin-right: 10px;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+  }
+  .video .vid:nth-child(3n) {
+      margin-right: 0;
+  }
+  .video .vid span {
+      display: none;
+      text-transform: capitalize;
+      z-index: 2;
+  }
+  .video .vid::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.1s ease-in;
+      border-radius: 4px;
+      opacity: 0;
+      position: absolute;
+  }
+  .video .vid:hover::after {
+      display: block;
+      background-color: #000;
+      opacity: 0.5;
+  }
+  .video .vid:hover span {
+      display: block;
+      color: #fff;
+  }
+  .video .upload {
+      background-color: #f5f7fa;
+      align-self: center;
+      text-align: center;
+      padding: 40px 0;
+      text-transform: uppercase;
+      color: #848ea1;
+      font-size: 12px;
+      cursor: pointer;
+  }
 </style>
