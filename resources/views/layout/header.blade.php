@@ -73,7 +73,7 @@
             </a> -->
             <a href="/admin/certificate"  class="link">
                 <i class="fa-solid fa-certificate"></i>
-                <div>{{trans('display.certificate_register')}}</div>
+                <div>{{trans('display.certificate_confirm')}}</div>
             </a>
             <a href="/admin/faq"  class="link">
                 <i class="fa-solid fa-circle-info"></i>
@@ -83,7 +83,7 @@
                 <i class="fa-solid fa-envelope"></i>
                 <div>{{trans('display.feedback_list')}}</div>
             </a>
-            <a href="/admin/users"  class="link">ө
+            <a href="/admin/users"  class="link">
               <i class="fa-solid fa-envelope"></i>
               <div>{{trans('display.user_information')}}</div>
             </a>

@@ -2,7 +2,7 @@
  
 @section('content')
 <section >
-  <h1 class="admin_register_title">{{trans('display.certificate_register')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.certificate_confirm')}}</h1>
   <div class="form-sub-heading">
 
   </div>
@@ -51,23 +51,23 @@
   </div>
   <!-- collapse end -->
   <div style="margin-bottom: 10px">
-    <button type="button" class="link-1" id="certificate-add" data-toggle="modal" data-target="#certificate-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
+    <button type="button" class="link-1" id="certificate-add" data-toggle="modal" data-target="#certificate-add-modal" style="border-color:white">{{trans('display.new_confirm')}}</button>
   </div>
 
-  <table cellpadding="0" cellspacing="0" border="0" id="certificate-table">
+  <table cellpadding="0" cellspacing="0" border="0" id="certificate-table" class="table">
     <thead class="tbl-header">
       <tr>
-        <th style="width:30px">№</th>
-        <th style="width:10%">{{trans('display.username')}}</th>
+        <th style="width:5%">№</th>
+        <!-- <th style="width:10%">{{trans('display.username')}}</th> -->
         <th style="width:10%">{{trans('display.certificate_id')}}</th>
-        <th style="width:10%">{{trans('display.register')}}</th>
-        <th style="width:10%">{{trans('display.registered_date')}}</th>
-        <th style="width:10%">{{trans('display.registered_user')}}</th>
+        <!-- <th style="width:10%">{{trans('display.register')}}</th> -->
+        <!-- <th style="width:10%">{{trans('display.registered_date')}}</th>
+        <th style="width:10%">{{trans('display.registered_user')}}</th> -->
         <th style="width:10%">{{trans('display.lastname')}}</th>
         <th style="width:10%">{{trans('display.firstname')}}</th>
-        <th style="width:10%">{{trans('display.valid_for')}}</th>
-        <th style="width:10%">{{trans('display.signature')}}</th>
-        <th style="width:120px">{{trans('display.manage')}}</th>
+        <!-- <th style="width:10%">{{trans('display.valid_for')}}</th>
+        <th style="width:10%">{{trans('display.signature')}}</th> -->
+        <th style="width:10%">{{trans('display.manage')}}</th>
       </tr>
     </thead>
     <tbody>
@@ -229,27 +229,21 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'user_name', "defaultContent": ''},
         { data: 'certificate_id', "defaultContent": ''},
-        { data: 'register', "defaultContent": ''},
-        { data: 'registered_date', "defaultContent": ''},
-        { data: 'registered_user', "defaultContent": ''},
         { data: 'lastname', "defaultContent": ''},
-        { data: 'surname', "defaultContent": ''},
-        { data: 'valid_for', "defaultContent": ''},
-        { data: 'signature', "defaultContent": ''},
+        { data: 'firstname', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,10]
+            targets: [0,4]
         },{
             class: "text-center",
-            targets: [0,10]
+            targets: [0,4]
         },{
-            targets: [0,9],
+            targets: [0,3],
             class: "border-right"
         }
       ],
