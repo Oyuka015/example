@@ -17,7 +17,7 @@ return [
     'exam' => 'Шалгалт',
     'exam_register' => 'Шалгалтын бүртгэл',
     'certificate' => 'Гэрчилгээ',
-    'certificate_register' => 'Гэрчилгээ бүртгэх',
+    'certificate_confirm' => 'Гэрчилгээ баталгаажуулах',
     'certificate_id' => 'Гэрчилгээний дугаар',
     'faq_register' => 'Асуулт хариулт бүртгэх',
     'feedback' => 'Санал хүсэлт',
@@ -136,6 +136,7 @@ return [
     'back' => 'Буцах',
     'submit' => 'Илгээх',
     'required_exam' => 'Шаардлагатай шалгалт',
+    'new_confirm' => 'Шинэ баталгаажуулалт',
 ];
 
 

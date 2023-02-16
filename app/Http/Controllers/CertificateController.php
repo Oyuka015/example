@@ -12,7 +12,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Exceptions\InvalidOrderException;
-
+use App\Models\Users as User;
 use \DB;
 use Storage;
 use \Validator as Validator;
@@ -36,7 +36,10 @@ class CertificateController extends BaseController
 
     public function create()
     {
-        return view($this->view_path.'.add');
+        $customers = User::where('license_active', false)->get();
+        // dd($customers);
+        $data['customers'] = $customers;
+        return view($this->view_path.'.add', $data);
     }
 
     public function edit($id)
@@ -50,24 +53,20 @@ class CertificateController extends BaseController
 
     public function store(Request $request)
     {
-        
-        $validator = Validator::make($request->input(), Certificate::$rules);
-        // process the save
-        if ($validator->fails()) 
-        {
+        if($request->input() == []){
             $response = array(
                 'status' => 'error',
                 'msg' => trans('messages.error_save'),
-                'errors' => $validator->errors()
             );
 
             $data['response'] = $response;
 
             return View::make('core.alert.messages', $data);
-        } 
-        else 
-        {
-            $app = $this->certificate->create($request->input());
+        }
+        else{
+            foreach($request->input() as $id){
+                $store = $this->certificate->create($id);
+            }
             $response = array(
                 'status' => 'success',
                 'msg' => trans('messages.success_save'),
@@ -117,6 +116,7 @@ class CertificateController extends BaseController
 
     public function destroy($id)
     {
+        // dd($id);
         $app = $this->certificate->delete($id);
         $response = array(
             'status' => 'success',

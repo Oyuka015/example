@@ -16,14 +16,18 @@ class Certificate extends Eloquent
     // public $timestamps = false;
     
     public static $rules = array(
-        'user_name' => 'required',
-        'certificate_id' => 'required',
-        'register' => 'required',
-        'registered_date' => 'required',
-        'registered_user' => 'required',
-        'lastname' => 'required',
-        'surname' => 'required',
-        'valid_for' => 'required',
-        'signature' => 'required',
+        // 'user_name' => 'required',
+        // 'certificate_id' => 'required',
+        // 'register' => 'required',
+        // 'registered_date' => 'required',
+        // 'registered_user' => 'required',
+        // 'lastname' => 'required',
+        // 'surname' => 'required',
+        // 'valid_for' => 'required',
+        // 'signature' => 'required',
     );
+
+    public function twoId(){
+        return $this->belongsTo('App\Models\Certif_User_id', 'id', 'certificate_id');
+    }
 }

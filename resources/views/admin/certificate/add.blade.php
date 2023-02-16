@@ -1,9 +1,12 @@
 <form method="POST" id="certificate-add-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="user_name">{{trans('display.user_name')}}</label>
-    <input type="text" id="user_name" class="base-input" name="user_name" placeholder="{{trans('display.user_name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+  
+  @foreach($customers as $conf)
+  <div>
+    <input type="checkbox" id="conf-certif-{{@$conf->id}}" value="{{@$conf->id}}" class="" name="conf-certif-{{@$conf->id}}" >
+    Суралцагч: {{@$conf->lastname}} {{@$conf->firstname}}
   </div>
-  <div class="form-group">
+  @endforeach
+    <!-- <div class="form-group">
     <label for="certificate_id">{{trans('display.certificate_id')}}</label>
     <input type="text" id="certificate_id" class="base-input" name="certificate_id" value="{{@$placeType->certificate_id}}" placeholder="{{trans('display.certificate_id')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
@@ -34,7 +37,6 @@
   <div class="form-group">
     <label for="signature">{{trans('display.signature')}}</label>
     <input type="text" id="signature" class="base-input" name="signature" value="{{@$placeType->signature}}" placeholder="{{trans('display.signature')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
+  </div> -->
   <input type="submit" class="base-submit" value="Хадгалах">
-  @csrf
 </form>
