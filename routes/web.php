@@ -97,6 +97,9 @@ Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister
 Route::get('/result', function () {
     return view('user.result');
 });
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
 
 Route::get('/hihi', function () {
     return view('user.hihi');
