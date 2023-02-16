@@ -10,10 +10,10 @@ use Laravel\Sanctum\HasApiTokens;
 use Eloquent;
 use Illuminate\Support\Facades\Auth;
 
-class Exam extends Eloquent
+class ExamQuestion extends Eloquent
 {
-    protected $table = 'exam';
-    protected $primaryKey = 'id';
+    protected $table = 'exam_question';
+    // protected $primaryKey = 'id';
     // public $timestamps = false;
     
     public static $rules = array(
@@ -36,8 +36,8 @@ class Exam extends Eloquent
         return $this->belongsTo('App\Models\Exam', 'required_exam_id');
     }
 
-    public function examToMap(){
-        return $this->belongsTo('App\Models\ExamQuestion', 'exam_id', 'id');
+    public function mapToQuestions(){
+        return $this->belongsTo('App\Models\Question', 'id', 'question_id');
     }
 
     public static function boot()

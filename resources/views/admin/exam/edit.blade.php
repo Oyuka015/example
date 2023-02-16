@@ -1,6 +1,5 @@
 <form method="POST" id="exam-edit-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
   <div class="form-group">
-<<<<<<< Updated upstream
     <label for="exam_name">{{trans('display.exam_name')}}</label>
     <input type="text" id="name" class="base-input" name="name" placeholder="{{trans('display.exam_name')}}" value="{{@$exam->name}}" data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
@@ -21,14 +20,6 @@
   <div class="form-group">
     <input type="checkbox" id="is_active" name="is_active" value="1" {{@$exam->is_active ? 'checked' : ''}}>
     <label for="is_active">{{trans('display.is_active')}}</label>
-=======
-    <label for="name">{{trans('display.name')}}</label>
-    <input type="text" id="name" class="base-input" name="name" placeholder="{{trans('display.name')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
-  </div>
-  <div class="form-group">
-    <label for="lower_percent">{{trans('display.lower_percent')}}</label>
-    <input type="text" id="lower_percent" class="base-input" name="lower_percent"  placeholder="{{trans('display.lower_percent')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
->>>>>>> Stashed changes
   </div>
   <div class="form-group">
     <label for="exam_name">{{trans('display.required_exam')}}</label>
