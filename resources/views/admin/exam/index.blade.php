@@ -53,11 +53,12 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:50%">{{trans('display.exam_name')}}</th>
-        <th style="width:8%">{{trans('display.exam_score')}}</th>
-        <th style="width:8%">{{trans('display.question')}}</th>
-        <th style="width:8%">{{trans('display.question_score')}}</th>
-        <th style="width:8%">{{trans('display.is_active')}}</th>
+        <th style="width:10%">{{trans('display.exam_name')}}</th>
+        <th style="width:10%">{{trans('display.exam_score')}}</th>
+        <th style="width:10%">{{trans('display.question')}}</th>
+        <th style="width:10%">{{trans('display.question_score')}}</th>
+        <th style="width:10%">{{trans('display.required_exam')}}</th>
+        <th style="width:10%">{{trans('display.is_active')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
