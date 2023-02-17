@@ -10,7 +10,6 @@
 <div class="exam-detail">
     <div class="exam-detail-title">{{@$exams->name}}</div>
         <input type="text" value="{{@$exams->exam_time}}" style="display: none" id="exam-time">
-
     <div style="padding: 5px 30px">
     @foreach(@$questions as $exam)
         <div class="exam-question">
@@ -27,9 +26,7 @@
             </div>
         </div>
     @endforeach
-    
-</div>
-    
+    </div>
     <div class="flex" style="margin: 3%; display:flex; justify-content:end; gap:20px; ">
         <button style="color:white; background:#d26363;" class="back" id="cancel-button">{{trans('display.back')}}</button>
         <button class="submit" id="confirm-button" style="margind-left: 2%; background-color:#00aab2; color:white;">{{trans('display.submit')}}</button>
@@ -37,7 +34,7 @@
 </div>
 <div class="clock">
     <i class="fa-solid fa-clock"></i>
-    <div id="timer" class="flex"  style=" display:flex; justify-content:end; gap:20px; ">
+    <div id="timer" class="flex" style=" display:flex; justify-content:end; gap:20px;">
     </div>
 </div>
 <script src="/js/jquery-3.6.2/jquery.min.js"></script>
@@ -47,14 +44,11 @@
 // Set the date we're counting down to
 var countDownDate = new Date();
 let text = document.getElementById("exam-time").value;
-console.log(text);
 var myArray = text.split(":");
 var minute = myArray[1];
 var hour = myArray[0];
-console.log(parseInt(minute))
                     // ene minute gdg ymiig ynzlana
 var dates = countDownDate.setHours(countDownDate.getHours() + parseInt(hour), countDownDate.getMinutes() + parseInt(minute));
-// var dates2 = dates.setMinutes(dates.getMinutes() + 01);
 var newDate = dates;
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -62,7 +56,6 @@ var x = setInterval(function() {
   var now = new Date().getTime();
   // Find the distance between now and the count down date
   var distance = newDate - now;
-// console.log(distance, '2')
   // Time calculations for days, hours, minutes and seconds
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -153,24 +146,6 @@ var x = setInterval(function() {
                 if (result.isConfirmed == true) {
                     location.replace('/exam');
                 }
-                // if(result.isDismissed == true){
-                //     Swal.fire({
-                //         title: 'Шалгалт илгээх.',
-                //         icon: 'success',
-                //         iconHtml: '',
-                //         cancelButtonText: 'Үгүй',
-                //         confirmButtonText: 'Тийм',
-                //         showCancelButton: true
-                //         // showCloseButton: true
-                //     }).then((result) => {
-                //         if (result.isConfirmed == true) {
-                //             window.location.href = '/detail/submit';
-                //         }
-                //         if(result.isDismissed == true){
-                //             location.replace('/exam');
-                //         }
-                //     })
-                // }
             })
         })
 </script>

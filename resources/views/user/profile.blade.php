@@ -324,14 +324,14 @@
 
             for (let i = 0; i < tabContents.children.length; i++) {
             
-            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200","-mb-4",);  tabContents.children[i].classList.remove("hidden");
+            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200","-mb-2",);  tabContents.children[i].classList.remove("hidden");
             if ("#" + tabContents.children[i].id === tabName) {
                 continue;
             }
             tabContents.children[i].classList.add("hidden");
             
             }
-            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200", "-mb-4",);
+            e.target.parentElement.classList.add("hover:bg-gray-500", "active:bg-gray-200", "-mb-2",);
         });
     });
 </script>
