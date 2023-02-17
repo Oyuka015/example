@@ -13,29 +13,35 @@
             </div>
         </div>
         <div class="bar-menu">
-            <i class="fa-solid fa-book"></i>
-            <div class="bar-sub">
-                <a href="">Lessons</a>
-            </div>
+            <a href="/admin/online">
+                <i class="fa-solid fa-book"></i>
+                <div class="bar-sub">
+                    <a href="/admin/online">Lessons</a>
+                </div>
+            </a>
         </div>
         <div class="bar-menu">
+           <a href="/admin/exam">
             <i class="fa-solid fa-square-check"></i>
-            <div class="bar-sub">
-                <a href="">Exam</a>
-            </div>
+                <div class="bar-sub">
+                    <a href="/admin/exam">Exam</a>
+                </div>
+           </a>
         </div>
         <div class="bar-menu">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <div class="bar-sub">
-                <a href="">Certificate</a>
-            </div>
+            <a href="/admin/certificate">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div class="bar-sub">
+                    <a href="/admin/certificate">Certificate</a>
+                </div>
+            </a>
         </div>
     </div>
     <div class="bar-logout">
         <div class="bar-menu">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <div class="bar-sub">
-                <a href="">Log out</a>
+                <a href="logout">Log out</a>
             </div>
         </div>
     </div>
@@ -71,12 +77,14 @@
     </div>
     <div class="main-sec-2-big">
         <div class="big-part">
-            <div>
+            <div style="width:100%; height:100%;">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
         <div class="big-part">
-
+            <div style="width:100%; height:100%;">
+                <canvas id="hisChart"></canvas>
+            </div>
         </div>
     </div>
 </div>
@@ -131,7 +139,7 @@
         color:rgba(255, 251, 251, 0.952)
     }
 </style>
-
+<!-- chart scripts -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
@@ -144,6 +152,26 @@
       datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const crx = document.getElementById('hisChart');
+  new Chart(crx, {
+    type: 'bar',
+    data: {
+      labels: ['bum ah', 'wee', 'bumaa ah', 'woo', 'sumya ah', 'wii'],
+      datasets: [{
+        label: '# of Votes',
+        data: [30, 19, 3, 8, 12, 3],
         borderWidth: 1
       }]
     },
