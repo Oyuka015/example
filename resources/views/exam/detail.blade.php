@@ -1,7 +1,15 @@
 <link rel="stylesheet" href="/css/mystyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    body{
+        background-color: #a2a2a2;
+        /* position:relative; */
+        /* background-color: #00a98d65; */
+    }
+</style>
 <div class="exam-detail">
     <div class="exam-detail-title">{{@$exams->name}}</div>
-        <input type="text" value="{{@$exams->exam_time}}" style="display: hidden" id="exam-time">
+        <input type="text" value="{{@$exams->exam_time}}" style="display: none" id="exam-time">
 
     <div style="padding: 5px 30px">
     @foreach(@$questions as $exam)
@@ -21,11 +29,15 @@
     @endforeach
     
 </div>
-    <div id="timer" class="flex"  style="margin: 3%; display:flex; justify-content:end; gap:20px; ">
-    </div>
+    
     <div class="flex" style="margin: 3%; display:flex; justify-content:end; gap:20px; ">
-        <button class="back" id="cancel-button">{{trans('display.back')}}</button>
-        <button class="submit" id="confirm-button" style="margind-left: 2%;">{{trans('display.submit')}}</button>
+        <button style="color:white; background:#d26363;" class="back" id="cancel-button">{{trans('display.back')}}</button>
+        <button class="submit" id="confirm-button" style="margind-left: 2%; background-color:#00aab2; color:white;">{{trans('display.submit')}}</button>
+    </div>
+</div>
+<div class="clock">
+    <i class="fa-solid fa-clock"></i>
+    <div id="timer" class="flex"  style=" display:flex; justify-content:end; gap:20px; ">
     </div>
 </div>
 <script src="/js/jquery-3.6.2/jquery.min.js"></script>
@@ -57,7 +69,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds ;
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
@@ -68,7 +80,7 @@ var x = setInterval(function() {
         iconHtml: '!',
         cancelButtonText: 'Цуцлах',
         confirmButtonText: 'Илгээх',
-        showCancelButton: true
+        showCancelButton: truer
         // showCloseButton: true
     }).then((result) => {
         if (result.isConfirmed == true) {

@@ -1057,19 +1057,22 @@ button::-moz-focus-inner {
 .exam-detail-title{
     font-size:24px; 
     /* font-weight:700; */
-    background-color: #e3e2e2;
+    /* background-color: #e3e2e2; */
+    background-color: #00aab2;
     padding: 10px;
+    color: white;
 }
 .exam-question{
     font-size: 20px;
     margin-top: 10px;
-    border:1px solid #e3e2e2;
+    background-color: #3b3b4d;
+    color: white;
 }
 .exam-question-input{
     margin-left: 30px;
 }
 .exam-question-title{
-    background-color: #e3e2e2;
+    background-color: #00aab2;
     padding: 5px;
 }
 .back, .submit{
@@ -1082,6 +1085,18 @@ button::-moz-focus-inner {
 }
 .back:hover, .submit:hover{
     border:2px inset;
+}
+.clock{
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    padding: 10px;
+    color: white;
+    background-color: #d26363;
+    border-bottom-left-radius: 10px;
+    gap: 10px;
 }
 /* user-exam-style */
 /* exam card */ 
@@ -1618,6 +1633,7 @@ textarea {
     height: 25px;
     border-radius: 5px;
     cursor:pointer;
+    align-self:center;
 }
 .pro-edit-button i{
     font-size: 12px;
