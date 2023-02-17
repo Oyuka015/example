@@ -65,7 +65,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
     Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
 
-    Route::resource('/admin/examtakers', "App\Http\Controllers\ExamtakersController");
+    Route::resource('/takeradmin/exams', "App\Http\Controllers\ExamtakersController");
     Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
 
     Route::resource('/admin/result', "App\Http\Controllers\ResultController");
@@ -97,9 +97,11 @@ Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister
 Route::get('/result', function () {
     return view('user.result');
 });
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
+// Route::get('/admin/dashboard', function () {
+//     return view('admin.dashboard');
+// });
+Route::resource('/admin/dashboard', "App\Http\Controllers\DashboardController");
+Route::any('/admin/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
 
 Route::get('/hihi', function () {
     return view('user.hihi');
@@ -109,6 +111,9 @@ Route::get('/hihi', function () {
 // });
 
 
-Route::get('test',[\App\Http\Controllers\TestController::class, 'index'])->name('client.test');
-// Route::post('test',[\App\Http\Controllers\TestController::class, 'store'])->name('client.test.store');
-// Route::get('results/{result_id}',[\App\Http\Controllers\ResultController::class, 'show'])->name('client.results.show');
+
+
+
+Route::get('/chartjs', function () {
+    return view('chartjs');
+});

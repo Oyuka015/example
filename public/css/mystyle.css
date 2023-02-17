@@ -1557,6 +1557,7 @@ textarea {
     align-items: center;
     color: rgba(255, 251, 251, 0.952);
     font-size: 13px;
+    cursor:pointer;
 }
 .main-sec-banner{
     /* height: 30%; */
@@ -1616,6 +1617,7 @@ textarea {
     width: 25px;
     height: 25px;
     border-radius: 5px;
+    cursor:pointer;
 }
 .pro-edit-button i{
     font-size: 12px;

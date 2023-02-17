@@ -71,7 +71,9 @@
     </div>
     <div class="main-sec-2-big">
         <div class="big-part">
-
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
         <div class="big-part">
 
@@ -123,9 +125,34 @@
 <style>
     body{
         display:flex;
-        /* background-color:#1D1F1F;     */
+        background-color:#1D1F1F;    
     }
     ::placeholder{
         color:rgba(255, 251, 251, 0.952)
     }
 </style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
