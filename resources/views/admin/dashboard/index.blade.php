@@ -41,7 +41,7 @@
         <div class="bar-menu">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <div class="bar-sub">
-                <a href="logout">Log out</a>
+                <a href="#">Log out</a>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
     <div class="main-sec-banner">
-        <div style="text-align:center;">banner ch ymu neg ym bnaa</div>
+        <div style="text-align:center;  color: rgba(255, 251, 251, 0.952);">banner ch ymu neg ym bnaa</div>
     </div>
     <div class="main-sec-3part">
         <div class="part-3">
@@ -126,14 +126,16 @@
             <button class="pro-edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
         </div>
         <div>
-            <div style="text-align:center; color:white;">calendariiin orond neg ym hiih bhda</div>
+            <div style="text-align:center; color:white;">calendar hiher bol ariin button - month select baina. </div>
         </div>
     </div>
 </div>
 <style>
     body{
         display:flex;
-        background-color:#1D1F1F;    
+        background-color:#10152b;    
+        /* background-color: #002024;  */
+        /* background-color: #001e22;     */
     }
     ::placeholder{
         color:rgba(255, 251, 251, 0.952)
@@ -153,12 +155,13 @@
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
         borderWidth: 1
+        
       }]
     },
     options: {
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
         }
       }
     }
@@ -172,7 +175,8 @@
       datasets: [{
         label: '# of Votes',
         data: [30, 19, 3, 8, 12, 3],
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#00AAB2'
       }]
     },
     options: {

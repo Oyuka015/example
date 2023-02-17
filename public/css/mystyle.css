@@ -1478,7 +1478,7 @@ textarea {
     color: #00AAB2;
 }
 .bar-sub{
-    /* display: none; */
+    /* display: none;    */
     opacity: 0;
     background-color: #00AAB2;
     position: absolute;
@@ -1493,7 +1493,7 @@ textarea {
     color: rgba(255, 251, 251, 0.952);
 }
 .bar-menu:hover .bar-sub{
-    /* display: flex; */
+    /* display: block; */
     opacity: 1;
 }
 .bar-logout{
