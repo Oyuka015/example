@@ -41,7 +41,7 @@ var minute = myArray[1];
 var hour = myArray[0];
 console.log(parseInt(minute))
                     // ene minute gdg ymiig ynzlana
-var dates = countDownDate.setMinutes(countDownDate.getMinutes() + parseInt(hour), countDownDate.getMinutes() + parseInt(minute));
+var dates = countDownDate.setHours(countDownDate.getHours() + parseInt(hour), countDownDate.getMinutes() + parseInt(minute));
 // var dates2 = dates.setMinutes(dates.getMinutes() + 01);
 var newDate = dates;
 // Update the count down every 1 second
