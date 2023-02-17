@@ -37,7 +37,7 @@ class ExamQuestion extends Eloquent
     }
 
     public function mapToQuestions(){
-        return $this->belongsTo('App\Models\Question', 'id', 'question_id');
+        return $this->belongsTo('App\Models\Question', 'question_id', 'id');
     }
 
     public static function boot()

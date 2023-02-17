@@ -44,10 +44,14 @@ class HomeExamController extends BaseController
     public function examDetail($id)
     {
         $exams = Exam::find($id);
-        $questions = Question::where('is_active', true)->get();
-dd($exams->examToMap()->mapToQuestion());
+        // $questions = Question::where('is_active', true)->get();
+        // foreach($exams->examToMap as $exam){
+        //     dd($exam->mapToQuestions);
+        // }
+        // dd($exams->examToMap->mapToQuestions);
+        $data['questions'] = $exams->examToMap;
         $data['exams'] = $exams;
-        $data['questions'] = $questions;
+        // $data['questions'] = $questions;
         return view($this->view_path.'.detail', $data);
     }
 

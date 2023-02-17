@@ -21,7 +21,7 @@ class Exam extends Eloquent
         'lower_percent' => 'required',
     );
 
-    public function question()
+    public function questions()
     {
         return $this->belongsToMany('App\Models\Question', 'exam_question', 'exam_id', 'question_id');
     }
@@ -37,7 +37,7 @@ class Exam extends Eloquent
     }
 
     public function examToMap(){
-        return $this->belongsTo('App\Models\ExamQuestion', 'exam_id', 'id');
+        return $this->hasMany('App\Models\ExamQuestion', 'exam_id', 'id');
     }
 
     public static function boot()
