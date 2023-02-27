@@ -98,6 +98,7 @@ class ExamRepository implements ExamInterface
     {
         $user = Auth::user();
         $scores = 0;
+        
 
         foreach($input['question'] as $key => $answer)
         {
@@ -107,7 +108,10 @@ class ExamRepository implements ExamInterface
             @$array['question_id'] = $key;
             @$array['answer'] = $answer;
             @$array['score'] = $point;
+            $user->examQuestions()->wherePivot('exam_id', $input['exam_id'])->wherePivot('question_id', $key)->detach();
+
             $user->examQuestions()->attach([@$array]);
+            
             $scores = $scores + $point;
         }
 
@@ -117,7 +121,8 @@ class ExamRepository implements ExamInterface
         @$arrayExam['is_passed'] = $is_passed;
         @$arrayExam['exam_date'] = Carbon::now()->toDateTimeString();
         @$arrayExam['score'] = $scores;
-        $user->exams()->attach([@$arrayExam]);
+        $user->exams()->wherePivot('exam_id', $input['exam_id'])->detach();
+        $user->exams()->sync([@$arrayExam], false);
 
         return $exam;
     }
