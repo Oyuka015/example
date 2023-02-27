@@ -42,7 +42,7 @@ class QuestionController extends BaseController
     public function edit($id)
     {
         $question = $this->question->find($id);
-
+    // dd($question);
         $data['question'] = $question;
 
         return View::make($this->view_path.'.edit', $data);
@@ -50,6 +50,7 @@ class QuestionController extends BaseController
 
     public function store(Request $request)
     {
+        // dd($request->input());
         $validator = Validator::make($request->input(), Question::$rules);
         // process the save
         if ($validator->fails()) 
