@@ -7,9 +7,9 @@
     </div>
     <div class="bar-menus">
         <div class="bar-menu">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-earth-asia"></i>
             <div class="bar-sub">
-                <a href="">Home</a>
+                <a href="/admin/information">Information</a>
             </div>
         </div>
         <div class="bar-menu">
@@ -33,6 +33,30 @@
                 <i class="fa-solid fa-graduation-cap"></i>
                 <div class="bar-sub">
                     <a href="/admin/certificate">Certificate</a>
+                </div>
+            </a>
+        </div>
+        <div class="bar-menu">
+            <a href="/admin/faq">
+                <i class="fa-solid fa-question"></i>
+                <div class="bar-sub">
+                    <a href="/admin/faq">FAQ</a>
+                </div>
+            </a>
+        </div>
+        <div class="bar-menu">
+            <a href="/admin/feedback">
+                <i class="fa-solid fa-comments"></i>
+                <div class="bar-sub">
+                    <a href="/admin/feedback">Feedback</a>
+                </div>
+            </a>
+        </div>
+        <div class="bar-menu">
+            <a href="/admin/users">
+                <i class="fa-solid fa-user"></i>
+                <div class="bar-sub">
+                    <a href="/admin/users">User</a>
                 </div>
             </a>
         </div>
