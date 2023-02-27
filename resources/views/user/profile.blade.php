@@ -25,13 +25,16 @@
             </div>
         </div>
         <div class="user-profile-other">
-            <ul id="tab_s">
+            <ul>
                 <li>
                     <a href="/">
                         <i class="fa-solid fa-house"></i>
                         <div>{{trans('display.home')}}</div>
                     </a>
                 </li>
+            </ul>
+            <ul id="tab_s">
+               
                 <li>
                     <a href="#first">
                         <i class="fa-solid fa-user"></i>
