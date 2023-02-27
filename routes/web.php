@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\Controller@aa');
-Route::get('/test', 'App\Http\Controllers\Controller@aa');
 Route::get('/medeelel', 'App\Http\Controllers\Controller@medeelel');
 Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformation')->name('get.data');
 Route::any('/get/datas/{id}', 'App\Http\Controllers\Controller@getDatasForLesson')->name('get.datas');

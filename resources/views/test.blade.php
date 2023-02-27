@@ -54,10 +54,10 @@
     <header>
         <div class="h-container">
             <div class="logo">
-                    <img src="{{ URL('images/logo.png') }}" alt="">
+                <img src="{{ URL('images/logo.png') }}" alt="">
             </div>
             <div class="ulayout-menu">
-                <a href="test"  class="link">
+                <a href="/"  class="link">
                     <i class="fa-solid fa-house"></i>
                     <p>Нүүр</p>
                 </a>
@@ -65,23 +65,23 @@
                     <i class="fa-solid fa-bell"></i>
                     <p>Мэдээлэл</p>
                 </a>
-                <a href="#" class="link" onclick="checkUser('online')">
+                <a href="online" class="link" >
                     <i class="fa-solid fa-graduation-cap"></i>
                     <p>Цахим хичээл</p>
                 </a>
-                <a href="#" class="link" onclick="checkUser('exam')">
+                <a href="exam" class="link">
                     <i class="fa-solid fa-square-check"></i>
                     <p>Шалгалт</p>
                 </a>
-                <a href="#" class="link" onclick="checkUser('certi')">
+                <a href="certi" class="link">
                     <i class="fa-solid fa-certificate"></i>
                     <p>Гэрчилгээ хайлт</p>
                 </a>
-                <a href="#" class="link" onclick="checkUser('faq')">
+                <a href="faq" class="link">
                     <i class="fa-solid fa-circle-info"></i>
                     <p>Асуулт хариулт</p>
                 </a>
-                <a href="#" class="link" onclick="checkUser('feedback')">
+                <a href="feedback" class="link">
                     <i class="fa-solid fa-envelope"></i>
                     <p>Санал хүсэлт</p>
                 </a> 
@@ -107,33 +107,6 @@
             </div>
         </div>
 
-        <script>
-            function checkUser(name){
-                var element = document.getElementById('user-menu');
-                var text = element.innerText || element.textContent;
-                element.innerHTML = text;
-                if(text != 'Нэвтрэх'){
-                    console.log(name)
-                    window.location.href = '/'+ name;
-                }
-                else{
-                    Swal.fire({
-                        title: 'Нэвтрэх шаардлагатай!',
-                        icon: 'info',
-                        iconHtml: '!',
-                        cancelButtonText: 'Цуцлах',
-                        confirmButtonText: 'Нэвтрэх',
-                        showCancelButton: true,
-                        showCloseButton: true
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                        window.location.href = '/login';
-
-                        }
-                    })
-                }
-            }
-        </script>
     </header>
     <div class="header-section">
         <div class="content">
