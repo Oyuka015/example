@@ -27,6 +27,12 @@
         <div class="user-profile-other">
             <ul id="tab_s">
                 <li>
+                    <a href="/">
+                        <i class="fa-solid fa-house"></i>
+                        <div>{{trans('display.home')}}</div>
+                    </a>
+                </li>
+                <li>
                     <a href="#first">
                         <i class="fa-solid fa-user"></i>
                         <div>{{trans('display.profile')}}</div>
@@ -40,12 +46,6 @@
                 </li>
             </ul>
             <ul>
-                <li>
-                    <a href="/">
-                        <i class="fa-solid fa-house"></i>
-                        <div>{{trans('display.home')}}</div>
-                    </a>
-                </li>
                 <li>
                     <a href="/do/logout">
                         <i class="fa-solid fa-right-from-bracket"></i>
