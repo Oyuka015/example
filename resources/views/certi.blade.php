@@ -9,11 +9,6 @@
 <div class="lil-header-section">
     <div class="lil-content">
         <h1>Гэрчилгээ хайлт</h1>
-        <div class="lil-h-link">
-            <a href="lil-test">Нүүр</a>
-            <p>/</p>
-            <a href="#">Гэрчилгээ хайлт</a>
-        </div>
     </div>
 </div>
 <div class="certi">

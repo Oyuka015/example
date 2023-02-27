@@ -9,11 +9,6 @@
 <div class="lil-header-section">
     <div class="lil-content">
         <h1>Шалгалтууд</h1>
-        <div class="lil-h-link">
-            <a href="lil-test">Нүүр</a>
-            <p>/</p>
-            <a href="#">Шалгалтууд</a>
-        </div>
     </div>
 </div>
 <!-- exam cards -->

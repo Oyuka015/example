@@ -51,7 +51,7 @@ header {
     white-space: nowrap;
     color: rgba(0, 0, 0, 0.715);
     /* font-size: 0.9rem; */
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
     text-decoration: none;
     padding: 5px 5px;
@@ -802,9 +802,20 @@ button::-moz-focus-inner {
     gap:40px    
 }
 .third{
-    background-color: white;
+    /* background-color: white; */
+    display: grid;
+    grid-template-rows: 40vh 100vh;
     border-radius:10px;
     min-height: 70vh;
+    grid-gap: 10px;
+}
+.exam-result-show{
+    background-color: #fff;
+    border-radius: 10px;
+}
+.certificate-show{
+    border-radius: 10px;
+    background-color: #fff;
 }
 .profile-information-section {
     background-color: #fff;
@@ -923,16 +934,6 @@ button::-moz-focus-inner {
     font-weight: 900;
     text-align: center;
     text-decoration: none;
-}
-.lil-h-link {
-    display: flex;
-    gap: 20px;
-    font-weight: 450;
-}
-.lil-h-link a,
-.lil-h-link p {
-    color: #252525;
-    opacity: 0.8;
 }
 /* faq start */
 .q-container {

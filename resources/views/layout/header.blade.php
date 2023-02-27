@@ -47,16 +47,16 @@
         <div class="menu">
             <a href="/admin/information"  class="link">
                 <i class="fa-solid fa-bell"></i>
-                <div>{{trans("display.information_register")}}</div>
+                <div>{{trans("display.information")}}</div>
               </a>
               <a href="/admin/online"  class="link">
                 <i class="fa-solid fa-graduation-cap"></i>
-                <div>{{trans('display.online_course_register')}}</div>
+                <div>{{trans('display.online_course')}}</div>
               </a>
               <div class="dropdown">
                 <button class="dropbtn">
                   <a id="sub" href="/admin/exam"  class="link">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <i class="fa-solid fa-square-check"></i>
                     <div>{{trans('display.exam')}}</div>
                   </a>
                 </button>
@@ -73,22 +73,24 @@
             </a> -->
             <a href="/admin/certificate"  class="link">
                 <i class="fa-solid fa-certificate"></i>
-                <div>{{trans('display.certificate_confirm')}}</div>
+                <div>{{trans('display.certificate')}}</div>
             </a>
             <a href="/admin/faq"  class="link">
                 <i class="fa-solid fa-circle-info"></i>
-                <div>{{trans('display.faq_register')}}</div>            
+                <div>{{trans('display.faq')}}</div>            
             </a>
             <a href="/admin/feedback"  class="link">
                 <i class="fa-solid fa-envelope"></i>
-                <div>{{trans('display.feedback_list')}}</div>
+                <div>{{trans('display.feedback')}}</div>
             </a>
             <a href="/admin/users"  class="link">
               <i class="fa-solid fa-envelope"></i>
-              <div>{{trans('display.user_information')}}</div>
+              <div>{{trans('display.user')}}</div>
             </a>
         </div>
-        
+        <a href="/admin/dashboard" style="font-size:18px; cursor:pointer; color:black;">
+          <i class="fa-solid fa-user"></i>
+        </a>
         <div class="bars">
             <i class="fa-solid fa-bars"></i>
         </div>

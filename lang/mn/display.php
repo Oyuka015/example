@@ -13,13 +13,16 @@ return [
     |
     */
     'information_register' => 'Мэдээлэл бүртгэх',
+    'online_course' => 'Цахим хичээл',
     'online_course_register' => 'Цахим хичээл бүртгэх',
     'exam' => 'Шалгалт',
     'exam_register' => 'Шалгалтын бүртгэл',
     'certificate' => 'Гэрчилгээ',
-    'certificate_confirm' => 'Гэрчилгээ баталгаажуулах',
+    'certificate_confirm' => 'Гэрчилгээ бүртгэх',
     'certificate_id' => 'Гэрчилгээний дугаар',
     'faq_register' => 'Асуулт хариулт бүртгэх',
+    'faq' => 'Асуулт хариулт',  
+    'user' => 'Хэрэглэгч',  
     'feedback' => 'Санал хүсэлт',
     'feedback_list' => 'Санал хүсэлтийн жагсаалт',
     'filter_search' => 'Шүүж харах',
@@ -61,6 +64,7 @@ return [
     'lesson_posted' => 'Хичээл оруулсан',
     'lesson_type' => 'Хичээлийн төрөл',
 
+    'date' => 'Огноо',
     'posted_date' => 'Хадгалсан огноо',
     'registered_date' => 'Бүртгэсэн огноо',
     'question' => 'Асуулт',

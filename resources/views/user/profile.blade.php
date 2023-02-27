@@ -36,13 +36,7 @@
                 <li>
                     <a href="#third">
                         <i class="fa-solid fa-book-open"></i>
-                        <div>{{trans('display.certificate')}}</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#second">
-                        <i class="fa-solid fa-house"></i>
-                        <div>{{trans('display.exam_result')}}</div>
+                        <div>{{trans('display.exam')}} ба {{trans('display.certificate')}}</div>
                     </a>
                 </li>
             </ul>
@@ -115,12 +109,20 @@
             </div>
             <div id="third" class="hidden p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">   
                 <div class="third">
-                    gerchilgee harah
-                </div>
-            </div>
-            <div id="second" class="hidden p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">
-                <div class="second" style="min-height:70vh;">
-                shalgaltiin hariu harah 
+                    <div class="exam-result-show">
+                        <div>Шалгалтын хариу</div>
+                        <table style="border:1px solid red;">
+                            <thead>
+                                <tr>{{trans('display.exam_name')}}</tr>
+                                <tr>{{trans('display.score')}}</tr>
+                                <tr>{{trans('display.exam_score')}}</tr>
+                                <tr>{{trans('display.date')}}</tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="certificate-show">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -324,14 +326,14 @@
 
             for (let i = 0; i < tabContents.children.length; i++) {
             
-            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200","-mb-2",);  tabContents.children[i].classList.remove("hidden");
+            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200");  tabContents.children[i].classList.remove("hidden");
             if ("#" + tabContents.children[i].id === tabName) {
                 continue;
             }
             tabContents.children[i].classList.add("hidden");
             
             }
-            e.target.parentElement.classList.add("hover:bg-gray-500", "active:bg-gray-200", "-mb-2",);
+            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200",);
         });
     });
 </script>

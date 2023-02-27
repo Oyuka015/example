@@ -100,7 +100,7 @@
                     <img src="/images/default-avatar.png" alt="pro-img">
                 </div>
                 <div class="ad-fo">
-                    <div>Dr. Alisha Nicholls</div>
+                    <div>{{$userData->firstname}}</div>
                     <div>DENTIST</div>
                 </div>
             </div>

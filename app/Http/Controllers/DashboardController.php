@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Dashboard;
 
+
 use App\Repositories\Dashboard\DashboardInterface;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -12,6 +13,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Exceptions\InvalidOrderException;
+use App\Models\User;
+use Session;
 
 use \DB;
 use Storage;
@@ -31,7 +34,13 @@ class DashboardController extends BaseController
 
     public function index(Request $request)
     {
-        return view($this->view_path.'.index');
+        $user = Session::get('login_user');
+        $user_Data = User::find($user->id);
+
+        // dd($user_Data);
+        $data['userData'] = $user_Data;
+        
+        return View::make('admin.dashboard.index', $data);
     }
 
     public function create()
