@@ -12,7 +12,6 @@
     .user_profile{  
         border-bottom: 1px solid rgb(6, 143, 255);
     }
-
 </style>
 
 <div class="user-profile-section">
@@ -110,18 +109,33 @@
             <div id="third" class="hidden p-4 space-y-4 h-[calc(100%-2rem)] overflow-y-auto">   
                 <div class="third">
                     <div class="exam-result-show">
-                        <div>Шалгалтын хариу</div>
-                        <table style="border:1px solid red;">
-                            <thead>
-                                <tr>{{trans('display.exam_name')}}</tr>
-                                <tr>{{trans('display.score')}}</tr>
-                                <tr>{{trans('display.exam_score')}}</tr>
-                                <tr>{{trans('display.date')}}</tr>
-                            </thead>
+                        <div style="text-align:center; font-size:17px; font-weight:700; margin-top:10px">Шалгалтын хариу</div>
+                        <table style="margin-top:20px;">
+                            <tr>
+                                <th style="text-align:center; padding:10px 0px;">{{trans('display.exam_name')}}</th>
+                                <th style="text-align:center;">{{trans('display.score')}}</th>
+                                <th style="text-align:center;">{{trans('display.exam_score')}}</th>
+                                <th style="text-align:center;">Тэнцсэн эсэх</th>
+                                <th style="text-align:center;">{{trans('display.date')}}</th>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 0;">ywtsiin shalgalt 1</td>
+                                <td>80</td>
+                                <td>80</td>
+                                <td>Тэнцсэн</td>
+                                <td>01.01.22</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:10px 0;">2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                            </tr>
                         </table>
                     </div>
                     <div class="certificate-show">
-
+                        <div style="text-align:center;">gerchilgee haragdah heseg</div>
                     </div>
                 </div>
             </div>
@@ -233,7 +247,25 @@
 </div>
 
 
-
+<style>
+    table{
+        width:90%;
+        margin:auto;
+    }
+    table, th, td {
+        border: 1px solid black;
+        text-align:center;
+    }
+    th{
+        background-color:#0691b4;
+    }
+    .user-profile-other ul li a{
+        text-decoration:none;
+    }
+    #tab_s li a:hover{
+        text-decoration:none;
+    }
+</style>
 <script type="text/javascript" charset="utf8" src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"/>
 <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
