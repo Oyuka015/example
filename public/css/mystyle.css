@@ -804,7 +804,8 @@ button::-moz-focus-inner {
 .third{
     /* background-color: white; */
     display: grid;
-    grid-template-rows: 40vh 100vh;
+    /* grid-template-rows: 40vh 100vh; */
+    grid-template-rows: 40vh minmax(30vh, auto);
     border-radius:10px;
     min-height: 70vh;
     grid-gap: 10px;
@@ -816,6 +817,7 @@ button::-moz-focus-inner {
 .certificate-show{
     border-radius: 10px;
     background-color: #fff;
+    padding:20px;
 }
 .profile-information-section {
     background-color: #fff;
