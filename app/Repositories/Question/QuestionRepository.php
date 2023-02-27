@@ -28,9 +28,19 @@ class QuestionRepository implements QuestionInterface
         $question->answer2 = @$input['answer2'];
         $question->answer3 = @$input['answer3'];
         $question->answer4 = @$input['answer4'];
-        $question->correct_answer = @$input['correct_answer'];
+        if(@$input['correct_answer'] == 'answer1'){
+            $question->correct_answer = @$input['answer1'];
+        }
+        else if(@$input['correct_answer'] == 'answer2'){
+            $question->correct_answer = @$input['answer2'];
+        }
+        else if(@$input['correct_answer'] == 'answer3'){
+            $question->correct_answer = @$input['answer3'];
+        }
+        else{
+            $question->correct_answer = @$input['answer4'];
+        }
         $question->score = @$input['score'];
-
         return $question->save();
     }
 
@@ -43,8 +53,18 @@ class QuestionRepository implements QuestionInterface
         $question->answer2 = @$input['answer2'];
         $question->answer3 = @$input['answer3'];
         $question->answer4 = @$input['answer4'];
-        $question->correct_answer = @$input['correct_answer'];
-        $question->score = @$input['score'];
+        if(@$input['correct_answer'] == 'answer1'){
+            $question->correct_answer = @$input['answer1'];
+        }
+        else if(@$input['correct_answer'] == 'answer2'){
+            $question->correct_answer = @$input['answer2'];
+        }
+        else if(@$input['correct_answer'] == 'answer3'){
+            $question->correct_answer = @$input['answer3'];
+        }
+        else{
+            $question->correct_answer = @$input['answer4'];
+        }        $question->score = @$input['score'];
 
         return $question->save();
     }
