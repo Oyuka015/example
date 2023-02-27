@@ -7,10 +7,12 @@
     </div>
     <div class="bar-menus">
         <div class="bar-menu">
-            <i class="fa-solid fa-house"></i>
-            <div class="bar-sub">
-                <a href="">Home</a>
-            </div>
+            <a href="/admin/information">
+                <i class="fa-solid fa-earth-asia"></i>
+                <div class="bar-sub">
+                    <a href="/admin/information">Information</a>
+                </div>
+            </a>
         </div>
         <div class="bar-menu">
             <a href="/admin/online">
@@ -36,13 +38,39 @@
                 </div>
             </a>
         </div>
+        <div class="bar-menu">
+            <a href="/admin/faq">
+                <i class="fa-solid fa-question"></i>
+                <div class="bar-sub">
+                    <a href="/admin/faq">FAQ</a>
+                </div>
+            </a>
+        </div>
+        <div class="bar-menu">
+            <a href="/admin/feedback">
+                <i class="fa-solid fa-comments"></i>
+                <div class="bar-sub">
+                    <a href="/admin/feedback">Feedback</a>
+                </div>
+            </a>
+        </div>
+        <div class="bar-menu">
+            <a href="/admin/users">
+                <i class="fa-solid fa-user"></i>
+                <div class="bar-sub">
+                    <a href="/admin/users">User</a>
+                </div>
+            </a>
+        </div>
     </div>
     <div class="bar-logout">
         <div class="bar-menu">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <div class="bar-sub">
-                <a href="#">Log out</a>
-            </div>
+            <a href="/do/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <div class="bar-sub">
+                    <a href="/do/logout">Log out</a>
+                </div>
+            </a>
         </div>
     </div>
 </div>
