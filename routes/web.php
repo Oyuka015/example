@@ -110,10 +110,9 @@ Route::get('/hihi', function () {
 //     return view('client.test');
 // });
 
-
-
-
-
 Route::get('/chartjs', function () {
     return view('chartjs');
+});
+Route::get('/360', function () {
+    return view('pano');
 });

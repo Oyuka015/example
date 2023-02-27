@@ -9,8 +9,6 @@ use App\Models\Information;
 use App\Models\Codelists;
 use App\Models\Online;
 
-
-
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -129,6 +127,5 @@ class Controller extends BaseController
         $data['lesson'] = $getData;
         return View::make('online.course', $data);
     }
-
 }
 
