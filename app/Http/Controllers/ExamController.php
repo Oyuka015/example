@@ -60,7 +60,6 @@ class ExamController extends BaseController
 
     public function store(Request $request)
     {
-        dd($request->input());
         $validator = Validator::make($request->input(), Exam::$rules);
         // process the save
         if ($validator->fails()) 

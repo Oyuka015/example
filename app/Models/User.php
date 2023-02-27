@@ -61,6 +61,16 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\UserRole', 'role_id');
     }
 
+    public function examQuestions()
+    {
+        return $this->belongsToMany('App\Models\Question', 'exam_results', 'user_id', 'question_id');
+    }
+
+    public function exams()
+    {
+        return $this->belongsToMany('App\Models\Exam', 'exam_student', 'user_id', 'exam_id')->withPivot(['score', 'is_passed', 'exam_date']);
+    }
+
     public static function boot()
     {
         parent::boot();

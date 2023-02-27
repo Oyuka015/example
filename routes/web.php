@@ -19,15 +19,7 @@ Route::get('/medeelel', 'App\Http\Controllers\Controller@medeelel');
 Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformation')->name('get.data');
 Route::any('/get/datas/{id}', 'App\Http\Controllers\Controller@getDatasForLesson')->name('get.datas');
 
-Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
-Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
-Route::get('/certi', 'App\Http\Controllers\Controller@certi');
-Route::get('/faq', 'App\Http\Controllers\Controller@faq');
-Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
-Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
-Route::get('/course', 'App\Http\Controllers\Controller@course');
-Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
-Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
+
 
 Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
@@ -79,12 +71,24 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 
     Route::resource('/admin/users', "App\Http\Controllers\UsersController");
     Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+
+    //Customer
+    Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
+    Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
+    Route::get('/certi', 'App\Http\Controllers\Controller@certi');
+    Route::get('/faq', 'App\Http\Controllers\Controller@faq');
+    Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
+    Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
+    Route::get('/course', 'App\Http\Controllers\Controller@course');
+    Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
+    Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
+    Route::resource('/profile', "App\Http\Controllers\UserController");
+    Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 });
 Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
 
-Route::resource('/profile', "App\Http\Controllers\UserController");
-Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
+
 
 Route::get('/register', function () {
     return view('register');

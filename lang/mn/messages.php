@@ -32,4 +32,5 @@ return [
     'image_not_found' => 'Зураг оруулаагүй байна!',
     'current_video_delete' => 'Одоо байгаа бичлэгийг устгах болно!',
     'current_file_delete' => 'Одоо байгаа файлыг устгах болно!',
+    'select_all_question' => 'Бүх асуултад хуриулна уу!!'
 ];

@@ -20,6 +20,7 @@ use \DB;
 use Storage;
 use \Validator as Validator;
 use \View as View;
+use \Response;
 
 class HomeExamController extends BaseController
 {
@@ -49,7 +50,8 @@ class HomeExamController extends BaseController
         //     dd($exam->mapToQuestions);
         // }
         // dd($exams->examToMap->mapToQuestions);
-        $data['questions'] = $exams->examToMap;
+        $data['questions'] = $exams->questions;
+
         $data['exams'] = $exams;
         // $data['questions'] = $questions;
         return view($this->view_path.'.detail', $data);
@@ -70,33 +72,26 @@ class HomeExamController extends BaseController
 
     public function store(Request $request)
     {
-        
-        $validator = Validator::make($request->input(), Exam::$rules);
-        // process the save
-        if ($validator->fails()) 
+        $input = @$request->input();
+        $exam = $this->exam->find($input['exam_id']);
+
+        if (!@$input['question'] || (@$input['question'] && $exam->questions->count() != sizeof(@$input['question']))) 
         {
-            $response = array(
-                'status' => 'error',
-                'msg' => trans('messages.error_save'),
-                'errors' => $validator->errors()
-            );
+            $data['message'] = trans('messages.select_all_question');
+            $data['status'] = false;
 
-            $data['response'] = $response;
-
-            return View::make('core.alert.messages', $data);
+            return Response::json($data);
         } 
         else 
         {
-            $app = $this->exam->create($request->input());
-            $response = array(
-                'status' => 'success',
-                'msg' => trans('messages.success_save'),
-            );
+            $app = $this->exam->examResult($request->input());
 
-            $data['response'] = $response;
+            $data['message'] = trans('messages.success_save');
+            $data['status'] = true;
 
-            return View::make('core.alert.messages', $data);
+            return Response::json($data);
         }
+        
     }
 
     public function update($id, Request $request)

@@ -118,20 +118,15 @@
                                 <th style="text-align:center;">Тэнцсэн эсэх</th>
                                 <th style="text-align:center;">{{trans('display.date')}}</th>
                             </tr>
-                            <tr>
-                                <td style="padding:10px 0;">ywtsiin shalgalt 1</td>
-                                <td>80</td>
-                                <td>80</td>
-                                <td>Тэнцсэн</td>
-                                <td>01.01.22</td>
-                            </tr>
-                            <tr>
-                                <td style="padding:10px 0;">2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                            </tr>
+                            @foreach(Auth::user()->exams as $exam)
+                                <tr style="{{$exam->pivot->is_passed ? 'background: #a0e3bc;' : 'background: #e5aba3'}}">
+                                    <td style="padding:10px 0;">{{$exam->name}}</td>
+                                    <td>{{$exam->pivot->score}}</td>
+                                    <td>{{$exam->lower_percent}}</td>
+                                    <td>{{$exam->pivot->is_passed ? 'Тийм' : 'Үгүй'}}</td>
+                                    <td>{{$exam->pivot->exam_date}}</td>
+                                </tr>
+                           @endforeach
                         </table>
                     </div>
                     <div class="certificate-show">

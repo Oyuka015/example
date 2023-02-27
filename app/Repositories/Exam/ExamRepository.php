@@ -5,10 +5,14 @@ namespace App\Repositories\Exam;
 
 use App\Repositories\Exam\ExamInterface as ExamInterface;
 use App\Models\Exam;
+use App\Models\Question;
+use App\Models\ExamResult;
+
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use Config;
-
+use Auth;
+use \Carbon\Carbon;
 class ExamRepository implements ExamInterface
 {
     public function find($id)
@@ -88,5 +92,33 @@ class ExamRepository implements ExamInterface
             ->make(true);
 
         return $data;
+    }
+
+    public function examResult($input)
+    {
+        $user = Auth::user();
+        $scores = 0;
+
+        foreach($input['question'] as $key => $answer)
+        {
+            $question = Question::find($key);
+            $point = $question->correct_answer == $answer ? $question->score : 0;
+            @$array['exam_id'] = $input['exam_id'];
+            @$array['question_id'] = $key;
+            @$array['answer'] = $answer;
+            @$array['score'] = $point;
+            $user->examQuestions()->attach([@$array]);
+            $scores = $scores + $point;
+        }
+
+        $exam = Exam::find($input['exam_id']);
+        $is_passed = $exam->lower_percent <= (100*$scores)/$exam->questions->sum('score') ? true : false;
+        @$arrayExam['exam_id'] = $input['exam_id'];
+        @$arrayExam['is_passed'] = $is_passed;
+        @$arrayExam['exam_date'] = Carbon::now()->toDateTimeString();
+        @$arrayExam['score'] = $scores;
+        $user->exams()->attach([@$arrayExam]);
+
+        return $exam;
     }
 }
