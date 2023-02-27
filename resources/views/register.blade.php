@@ -139,11 +139,11 @@
     <div>
         <label for="username">
             {{trans('display.login_name')}}
-            <input type="text" name="username" >
+            <input type="text" name="username" autocomplete="off">
         </label>
         <label for="password">
             {{trans('display.password')}}
-            <input type="password" name="password">
+            <input type="password" name="password" autocomplete="off">
         </label>
         <div style="display:flex; gap:5px; ">
             <label for="">{{trans('display.active_status')}}</label>
@@ -171,30 +171,30 @@
       <div class="register-information-title">Ерөнхий мэдээлэл</div>
       <label for="citizenship">
           {{trans('display.citizenship')}}
-          <input type="text" name="citizenship">
+          <input type="text" name="citizenship" autocomplete="off">
       </label>
       <label for="family_name">
           {{trans('display.family_name')}}
-          <input type="text" name="family_name">
+          <input type="text" name="family_name" autocomplete="off">
       </label>
       
       <label for="firstname">
           {{trans('display.firstname')}}
-          <input type="text" name="firstname">
+          <input type="text" name="firstname" autocomplete="off">
       </label>
       
       <label for="lastname">
           {{trans('display.lastname')}}
-          <input type="text" name="lastname">
+          <input type="text" name="lastname" autocomplete="off">
       </label>
       
       <label for="register">
           {{trans('display.register')}}
-          <input type="text" name="register">
+          <input type="text" name="register" autocomplete="off">
       </label>
       <label for="age">
           {{trans('display.age')}}
-          <input type="number" name="age">
+          <input type="number" name="age" autocomplete="off">
       </label>
 
       <label for="work">
@@ -215,31 +215,31 @@
 
       <label for="email">
           {{trans('display.email')}}
-          <input type="email" name="email">
+          <input type="email" name="email" autocomplete="off">
       </label>
       <label for="phone">
           {{trans('display.phone')}}
-          <input type="number" name="phone">
+          <input type="number" name="phone" autocomplete="off">
       </label>
       <label for="in-case-name">
           Онцгой тохиолдолд холбоо барих хүний нэр
-          <input type="text" name="in-case-name">
+          <input type="text" name="in-case-name" autocomplete="off">
       </label>
       <label for="in-case-number">
           Онцгой тохиолдолд холбоо барих хүний утас
-          <input type="number" name="in-case-number">
+          <input type="number" name="in-case-number" autocomplete="off">
       </label>
       <label for="province-capital">
           Аймаг/нийслэл
-          <input type="text" name="province-capital">
+          <input type="text" name="province-capital" autocomplete="off">
       </label>
       <label for="district">
           Сум/дүүрэг
-          <input type="text" name="district">
+          <input type="text" name="district" autocomplete="off">
       </label>
       <label for="education-degree">
           Боловсролын зэрэг
-          <input type="text" name="education-degree" id="education-degree">
+          <input type="text" name="education-degree" id="education-degree" autocomplete="off">
       </label>
       
       <label for="home_address">
