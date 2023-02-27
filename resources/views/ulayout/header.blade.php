@@ -47,27 +47,27 @@
                 <i class="fa-solid fa-house"></i>
                 <div>Нүүр</div>
             </a>
-            <a href="medeelel"  class="u-link">
+            <a href="/medeelel"  class="u-link">
                 <i class="fa-solid fa-bell"></i>
                 <div>Мэдээлэл</div>
             </a>
-            <a href="online"  class="u-link">
+            <a href="/online"  class="u-link">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <div>Цахим хичээл</div>
             </a>
-            <a href="exam"  class="u-link">
+            <a href="/exam"  class="u-link">
                 <i class="fa-solid fa-square-check"></i>
                 <div>Шалгалт</div>
             </a>
-            <a href="certi"  class="u-link">
+            <a href="/certi"  class="u-link">
                 <i class="fa-solid fa-certificate"></i>
                 <div>Гэрчилгээ хайлт</div>
             </a>
-            <a href="faq"  class="u-link">
+            <a href="/faq"  class="u-link">
                 <i class="fa-solid fa-circle-info"></i>
                 <div>Асуулт хариулт</div>
             </a>
-            <a href="feedback"  class="u-link">
+            <a href="/feedback"  class="u-link">
                 <i class="fa-solid fa-envelope"></i>
                 <div>Санал хүсэлт</div>
             </a> 

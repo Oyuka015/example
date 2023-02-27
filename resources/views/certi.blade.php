@@ -5,6 +5,9 @@
     .lil-content::before{
         background-image: url('https://img.freepik.com/free-photo/closeup-view-handshake-two-businessmen-suits-shaking-hands_1163-4891.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
     }
+    body{
+        display:block;
+    }
 </style>
 <div class="lil-header-section">
     <div class="lil-content">
@@ -16,13 +19,16 @@
         <form action="" method="POST"  class="certi-search" id="certificate-search-form">
             <p class="title">Гэрчилгээ баталгаажуулалт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
-            <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" required/>
-            <button id="cert-search-button" type="submit">Хайлт хийх</button>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" required/>
+                <button id="cert-search-button" type="submit">Хайлт хийх</button>
+            </div>
         </form>
     </div>
 </div>
 
-<table style="display:none; max-width:1400px; margin:auto;" cellpadding="0" cellspacing="0" border="0" id="certificate-table">
+
+<table style="display:none; max-width:1400px; margin:auto; margin-top:30px;" cellpadding="0" cellspacing="0" border="0" id="certificate-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
