@@ -565,6 +565,7 @@ class ComposerStaticInit1c3fd6397550bebfdefc589ede9d4270
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Aulevels' => __DIR__ . '/../..' . '/app/Models/Aulevels.php',
         'App\\Models\\Certif_User_id' => __DIR__ . '/../..' . '/app/Models/Certif_User_id.php',
         'App\\Models\\Certificate' => __DIR__ . '/../..' . '/app/Models/Certificate.php',
         'App\\Models\\Codelists' => __DIR__ . '/../..' . '/app/Models/Codelists.php',

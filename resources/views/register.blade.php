@@ -231,12 +231,19 @@
       </label>
       <label for="province-capital">
           Аймаг/нийслэл
-          <input type="text" name="province-capital" autocomplete="off">
+          <select name="province-capital" id="aulevel1">
+            <option value="">{{trans('display.select')}}</option>
+            @foreach(@$au_levels as $levels)
+                <option value="{{@$levels->id}}">{{@$levels->name}}</option>
+            @endforeach
+          </select>
       </label>
       <label for="district">
           Сум/дүүрэг
-          <input type="text" name="district" autocomplete="off">
-      </label>
+          <select name="district" id="aulevel2">
+            <option value="">{{trans('display.select')}}</option>
+          </select>      
+        </label>
       <label for="education-degree">
           Боловсролын зэрэг
           <input type="text" name="education-degree" id="education-degree" autocomplete="off">
@@ -244,38 +251,43 @@
       
       <label for="home_address">
           {{trans('display.home_address')}}
-          <textarea name="home_address" id="home_address" cols="10" rows="5"></textarea>
+          <textarea name="home_address" id="home_address" cols="10" rows="5" autocomplete="off"></textarea>
       </label>
   </div>
   <div class="education-information">
       <div class="register-information-title">Боловсролын мэдээлэл</div>
       <label for="school">
           {{trans('display.school_name')}}
-          <input type="text" name="school">
+          <input type="text" name="school" autocomplete="off">
       </label>
       <label for="grad">
           {{trans('display.graduated')}}
-          <input type="text" name="grad">
+          <!-- <input type="text" name="grad" autocomplete="off"> -->
+          <select name="grad" id="grad">
+          @foreach(range(date('Y')-40, date('Y')) as $y)
+                <option value="{{$y}}">{{$y}}</option>
+            @endforeach
+          </select>
       </label>
       <label for="occupation">
           {{trans('display.occupation')}}
-          <input type="text" name="occupation">
+          <input type="text" name="occupation" autocomplete="off">
       </label>
       <label for="gpa">
           {{trans('display.gpa')}}
-          <input type="text" name="gpa">
+          <input type="number" name="gpa" autocomplete="off">
       </label>
       <label for="diploma_number">
           {{trans('display.diploma_num')}}
-          <input type="text" name="diploma_number">
+          <input type="text" name="diploma_number" autocomplete="off">
       </label>
       <label for="diploma_register">
           {{trans('display.diploma_register')}}
-          <input type="text" name="diploma_register">
+          <input type="text" name="diploma_register" autocomplete="off">
       </label>
       <label for="diploma_doc">
           {{trans('display.diploma_doc')}}
-          <input type="text" name="diploma_doc">
+          <input type="text" name="diploma_doc" autocomplete="off">
       </label>
   </div>
   <div type="submit" id="register-form-submit" class="register-form-submit">
@@ -321,7 +333,6 @@
                 console.log(uploadedImage[i]);
                 formData.append("file"+i, uploadedImage[i]);
             }
-            console.log('bnu')
             $.ajax({
             url: '/register/save',
             type: form.method,
@@ -377,9 +388,15 @@
                 $(this).remove()
             })
         }
+
+        $('#aulevel1').on('change', function(){
+            var id = $('#aulevel1').val();
+            $.get( '/getAuLevel2/' + id, function( data ) {
+                $('#aulevel2').empty().html(data);
+            });
+        });
     })
 </script>
-
 <style>
     .file {
         /* display: flex; */

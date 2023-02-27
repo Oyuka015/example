@@ -88,9 +88,13 @@
               <div>{{trans('display.user')}}</div>
             </a>
         </div>
-        <a href="/admin/dashboard" style="font-size:18px; cursor:pointer; color:black;">
-          <i class="fa-solid fa-user"></i>
-        </a>
+        <button class="dropbtn">
+            <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+        </button>
+        <div class="dropdown-content">
+            <a href="/profile">{{trans('display.profile')}}</a>
+            <a href="/do/logout">{{trans('display.log_out')}}</a>
+        </div>  
         <div class="bars">
             <i class="fa-solid fa-bars"></i>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Users;
+use App\Models\Aulevels;
 
 use App\Repositories\Users\UsersInterface;
 
@@ -164,4 +165,11 @@ class UsersController extends BaseController
 
     }
    
+    public function getRegisterIndex(){
+
+        $au_levels = Aulevels::where('parent_id', null)->get();
+        // dD($au_levels);
+        $data['au_levels'] = $au_levels;
+        return View::make('register', $data);
+    }
 }

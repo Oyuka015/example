@@ -24,7 +24,7 @@ class UsersRepository implements UsersInterface
     public function create($input, $file)
     {
         $users = new Users;
-        // dd($input, $file);
+        dd($input);
         $users->username = @$input['username'];
         $users->citizenship = @$input['citizenship'];
         $users->family_name = @$input['family_name'];

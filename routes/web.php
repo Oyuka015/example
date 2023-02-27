@@ -15,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\Controller@aa');
 Route::get('/medeelel', 'App\Http\Controllers\Controller@medeelel');
+Route::get('/getAuLevel2/{id}', 'App\Http\Controllers\Controller@getAuLevel2');
 Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformation')->name('get.data');
 Route::any('/get/datas/{id}', 'App\Http\Controllers\Controller@getDatasForLesson')->name('get.datas');
-
-
 
 Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
@@ -86,12 +85,8 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 });
 Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
+Route::get('/register', 'App\Http\Controllers\UsersController@getRegisterIndex');
 
-
-
-Route::get('/register', function () {
-    return view('register');
-});
 Route::get('exam/detail', function(){
     return view('exam.detail');
 });

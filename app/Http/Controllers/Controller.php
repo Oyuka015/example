@@ -8,6 +8,7 @@ use App\Repositories\Certificate\CertificateInterface;
 use App\Models\Information;
 use App\Models\Codelists;
 use App\Models\Online;
+use App\Models\Aulevels;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -126,6 +127,13 @@ class Controller extends BaseController
         // dd($getData[0]->title);
         $data['lesson'] = $getData;
         return View::make('online.course', $data);
+    }
+
+    public function getAuLevel2($id){
+        $au_level2 = Aulevels::where('parent_id', $id)->get();
+        $data['au_level2'] = $au_level2;
+
+        return View::make('sub_blades.level2', $data);
     }
 }
 
