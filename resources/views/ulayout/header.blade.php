@@ -43,7 +43,7 @@
                 <img src="{{ URL('images/logo.png') }}" alt="">
         </div>
         <div class="ulayout-menu">
-            <a href="test"  class="u-link">
+            <a href="/"  class="u-link">
                 <i class="fa-solid fa-house"></i>
                 <div>Нүүр</div>
             </a>
@@ -81,9 +81,6 @@
                 <a href="/profile">{{trans('display.profile')}}</a>
                 <a href="/do/logout">{{trans('display.log_out')}}</a>
             </div>
-        </div>
-        <div class="bars">
-            <i class="fa-solid fa-bars"></i>
         </div>
     </div>
 </header>

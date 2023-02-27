@@ -43,9 +43,7 @@
     </div>
   </div>
   <!-- collapse end -->
-  <div style="margin-bottom: 10px">
-    <button type="button" class="link-1" id="feedback-add" data-toggle="modal" data-target="#feedback-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
-  </div>
+
 
   <table cellpadding="0" cellspacing="0" border="0" id="feedback-table">
     <thead class="tbl-header">

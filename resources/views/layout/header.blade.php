@@ -88,15 +88,14 @@
               <div>{{trans('display.user')}}</div>
             </a>
         </div>
-        <button class="dropbtn">
-            <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
-        </button>
-        <div class="dropdown-content">
-            <a href="/profile">{{trans('display.profile')}}</a>
-            <a href="/do/logout">{{trans('display.log_out')}}</a>
-        </div>  
-        <div class="bars">
-            <i class="fa-solid fa-bars"></i>
+        <div class="dropdown">
+          <button class="dropbtn">
+              <a href="/admin/dashboard" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+          </button>
+          <div style="right:0;" class="dropdown-content">
+              <a href="/admin/dashboard">{{trans('display.profile')}}</a>
+              <a href="/do/logout">{{trans('display.log_out')}}</a>
+          </div>  
         </div>
     </div>
 </header>

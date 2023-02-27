@@ -19,13 +19,13 @@
 <div class="feed" id="feed">
   <form method="POST" action="" id="feedback-add-form">
     <label for="name">Овог нэр:</label>
-    <input id="name" type="text" name="name" placeholder="Жишээ нь: Б.Болд"><br>
+    <input id="name" type="text" name="name" placeholder="Жишээ нь: Б.Болд" autocomplete="off"><br>
     <label for="mail">Имэйл хаяг:</label>
-    <input  id="mail" type="text" name="mail" placeholder="Жишээ нь: bold@gmail.com"><br>
+    <input  id="mail" type="text" name="mail" placeholder="Жишээ нь: bold@gmail.com" autocomplete="off"><br>
     <label for="phone_number">Утасны дугаар:</label>
-    <input id="phone" type="number" name="phone" placeholder="Жишээ нь: 9999****" pattern="[0-9]{8}" required ><br>
+    <input id="phone" type="number" name="phone" autocomplete="off" placeholder="Жишээ нь: 9999****" pattern="[0-9]{8}" required ><br>
     <label for="feedback">Санал хүсэлт:</label>
-    <textarea id="textarea" name="feedback" id="" cols="30" rows="10"></textarea><br>
+    <textarea id="textarea" name="feedback" id="" cols="30" rows="10" autocomplete="off"></textarea><br>
     <button type="submit" id="feedback_button">
         <i class="fa-solid fa-paper-plane"></i>
         Илгээх

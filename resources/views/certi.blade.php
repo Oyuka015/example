@@ -20,7 +20,7 @@
             <p class="title">Гэрчилгээ баталгаажуулалт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
             <div style="display:flex; align-items:center; gap:10px;">
-                <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" required/>
+                <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off" required/>
                 <button id="cert-search-button" type="submit">Хайлт хийх</button>
             </div>
         </form>
@@ -28,7 +28,7 @@
 </div>
 
 
-<table style="display:none; max-width:1400px; margin:auto; margin-top:30px;" cellpadding="0" cellspacing="0" border="0" id="certificate-table">
+<table style="display:none; max-width:1400px; margin:auto; " cellpadding="0" cellspacing="0" border="0" id="certificate-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
