@@ -90,7 +90,7 @@
         </div>
     </div>
     <div class="main-sec-banner">
-        <div style="text-align:center;  color: rgba(255, 251, 251, 0.952);">banner ch ymu neg ym bnaa</div>
+        <div style="text-align:center;  color: rgba(255, 251, 251, 0.952);">banner</div>
     </div>
     <div class="main-sec-3part">
         <div class="part-3">
@@ -151,10 +151,24 @@
     <div class="admin-tool">
         <div class="my-profile">
             <div style="align-self:center;">CALENDAR</div>
-            <button class="pro-edit-button"><i class="fa-solid fa-pen-to-square"></i></button>
+            <!-- <button class="pro-edit-button"><i class="fa-solid fa-pen-to-square"></i></button> -->
+            <select name="months" id="months">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
         </div>
         <div>
-            <div style="text-align:center; color:white;">calendar hiher bol ariin button - month select baina. </div>
+            <div style="text-align:center; color:white;"></div>
         </div>
     </div>
 </div>
@@ -167,6 +181,15 @@
     }
     ::placeholder{
         color:rgba(255, 251, 251, 0.952)
+    }
+    select{
+        background-color: #95e0e4;
+        border:none;
+        width: auto;
+        height: 25px;
+        border-radius: 5px;
+        align-self:center;
+        outline: none;
     }
 </style>
 <!-- chart scripts -->
