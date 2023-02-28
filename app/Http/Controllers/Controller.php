@@ -21,6 +21,7 @@ use \View as View;
 use Illuminate\Http\Request;
 use Session;
 use \Config;
+use PDF;
 
 class Controller extends BaseController
 {
@@ -141,6 +142,22 @@ class Controller extends BaseController
         $data['au_level2'] = $au_level2;
 
         return View::make('sub_blades.level2', $data);
+    }
+
+    public function pdf()
+    {
+        $data = [
+            'certificate_no' => '2023-3(001)',
+            'lastname' => 'Оооооооооооооовоог',
+            'firstname' => 'Нээээр-нэээр',
+            'year' => 'Нээээр-нэээр',
+            'month' => 'Нээээр-нэээр',
+            'day' => 'Нээээр-нэээр',
+        ];
+          
+        $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
+        // return View::make('pdfview', $data);
+        return $pdf->stream();
     }
 }
 

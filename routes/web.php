@@ -31,7 +31,6 @@ Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])-
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::group(['prefix'=>'admin', 'middleware' => 'role:Admin'], function () {
         // Admin-only routes
-        Route::get('/payment', "App\Http\Controllers\Controller@payment");
         Route::resource('/exam', "App\Http\Controllers\ExamController");
         Route::any('/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
@@ -115,3 +114,5 @@ Route::get('/chartjs', function () {
 Route::get('/360', function () {
     return view('pano');
 });
+
+Route::get('/pdf', "App\Http\Controllers\Controller@pdf");

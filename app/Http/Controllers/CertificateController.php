@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Certificate;
+use App\Models\User;
+use App\Models\Exam;
 
 use App\Repositories\Certificate\CertificateInterface;
 
@@ -12,7 +14,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use App\Exceptions\InvalidOrderException;
-use App\Models\Users as User;
+
 use \DB;
 use Storage;
 use \Validator as Validator;
@@ -36,9 +38,11 @@ class CertificateController extends BaseController
 
     public function create()
     {
-        $customers = User::where('license_active', false)->get();
-        // dd($customers);
+        $exams = Exam::count();
+        $customers = User::where('license_active', '!=', true)->where('is_active', true)->withCount('passedExams')->get()->where('passed_exams_count', $exams);
+
         $data['customers'] = $customers;
+
         return view($this->view_path.'.add', $data);
     }
 

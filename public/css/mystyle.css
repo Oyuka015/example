@@ -73,21 +73,21 @@ header {
 }
 /* ulayout header */
 
-.ulayout-menu{
+.ulayout-menu {
     display: flex;
     justify-content: space-between;
     height: 100%;
     margin-left: 10px;
     gap: 20px;
 }
-.ulayout-menu a{
+.ulayout-menu a {
     display: flex;
     align-items: center;
     gap: 5px;
     color: #1f1f1f;
     font-size: 15px;
 }
-.ulayout-menu a:hover{
+.ulayout-menu a:hover {
     text-decoration: none;
     color: black;
 }
@@ -435,12 +435,12 @@ footer {
 }
 .online-courses-lessons {
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     gap: 20px;
     padding-left: 40px;
 }
 .online-courses-lesson-card {
-    width:260px;
+    width: 260px;
     height: 300px;
     display: grid;
     grid-template-rows: 55% 45%;
@@ -478,7 +478,6 @@ footer {
     text-align: center;
     font-weight: 700;
     margin-top: -8px;
-
 }
 .online-course-lesson_summary {
     font-size: 13px;
@@ -638,14 +637,13 @@ footer {
     cursor: pointer;
 }
 /* add edit modal style */
-.modal-header{
+.modal-header {
     position: relative;
     display: flex;
 }
-.modal-header button{
+.modal-header button {
     position: absolute;
     right: 0;
-
 }
 /* input error zaahad */
 form .form-group.has-error .error {
@@ -793,42 +791,42 @@ button::-moz-focus-inner {
     margin-top: 30px;
     background-color: rgba(182, 180, 180, 0.301);
 }
-#tabs li a:hover{
-    text-decoration:none;
+#tabs li a:hover {
+    text-decoration: none;
 }
-.first{
+.first {
     background-color: white;
-    border-radius:10px;
+    border-radius: 10px;
     padding-left: 30px;
     padding-bottom: 30px;
     display: flex;
-    gap:40px
+    gap: 40px;
 }
-.second{
+.second {
     display: flex;
-    border-radius:10px;
+    border-radius: 10px;
     background-color: white;
     padding-left: 30px;
     padding-bottom: 30px;
-    gap:40px    
+    gap: 40px;
 }
-.third{
+.third {
     /* background-color: white; */
     display: grid;
     /* grid-template-rows: 40vh 100vh; */
     grid-template-rows: 40vh minmax(30vh, auto);
-    border-radius:10px;
+    border-radius: 10px;
     min-height: 70vh;
     grid-gap: 10px;
 }
-.exam-result-show{
+.exam-result-show {
     background-color: #fff;
     border-radius: 10px;
 }
-.certificate-show{
+.certificate-show {
     border-radius: 10px;
     background-color: #fff;
-    padding:20px;
+    padding: 20px;
 }
 .profile-information-section {
     background-color: #fff;
@@ -1045,7 +1043,7 @@ button::-moz-focus-inner {
 .news-cart-content-text h1 {
     font-size: 20px;
     font-weight: 500;
-    margin:10px 10px;
+    margin: 10px 10px;
 }
 .news-cart-content-info-date {
     color: #888;
@@ -1057,50 +1055,52 @@ button::-moz-focus-inner {
 .cart:hover {
     box-shadow: 5px 10px 18px #888888;
 }
-.cart a:hover{
+.cart a:hover {
     text-decoration: none;
 }
-.exam-detail{
+.exam-detail {
     /* width:80%; */
     width: 50%;
-    margin:auto;
+    margin: auto;
     /* background-color:#e3e2e2;  */
-    border:1px solid #e3e2e2;
-    margin-top:10px; 
+    border: 1px solid #e3e2e2;
+    margin-top: 10px;
 }
-.exam-detail-title{
-    font-size:24px; 
+.exam-detail-title {
+    font-size: 24px;
     /* font-weight:700; */
     /* background-color: #e3e2e2; */
     background-color: #00aab2;
     padding: 10px;
     color: white;
 }
-.exam-question{
+.exam-question {
     font-size: 20px;
     margin-top: 10px;
     background-color: #3b3b4d;
     color: white;
 }
-.exam-question-input{
+.exam-question-input {
     margin-left: 30px;
 }
-.exam-question-title{
+.exam-question-title {
     background-color: #00aab2;
     padding: 5px;
 }
-.back, .submit{
-    padding:10px; 
-    border: 2px outset; 
-    border-radius:10px;
-    outline:none;
-    cursor:pointer; 
-    font-size:18px;
+.back,
+.submit {
+    padding: 10px;
+    border: 2px outset;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    font-size: 18px;
 }
-.back:hover, .submit:hover{
-    border:2px inset;
+.back:hover,
+.submit:hover {
+    border: 2px inset;
 }
-.clock{
+.clock {
     display: flex;
     position: fixed;
     top: 0;
@@ -1113,7 +1113,7 @@ button::-moz-focus-inner {
     gap: 10px;
 }
 /* user-exam-style */
-/* exam card */ 
+/* exam card */
 .exam-card {
     width: 100%;
     height: 100%;
@@ -1128,18 +1128,17 @@ button::-moz-focus-inner {
     padding-left: 50px;
     gap: 20px;
     /* position: absolute; */
-
 }
 .e-card {
     display: inline-block;
     width: 300px;
     height: 200px;
-    border:1px solid orange;
+    border: 1px solid orange;
     padding: 20px;
     font-size: 18px;
 }
-.e-card:hover{
-    text-decoration:none;
+.e-card:hover {
+    text-decoration: none;
 }
 .e-title {
     font-weight: 700;
@@ -1160,7 +1159,7 @@ button::-moz-focus-inner {
     margin-top: 20px;
     font-size: 16px;
 }
-.eye{
+.eye {
     display: flex;
     gap: 5px;
 }
@@ -1231,7 +1230,7 @@ button::-moz-focus-inner {
     flex-direction: column;
     font-size: 20px;
 }
-#feedback-add-form{
+#feedback-add-form {
     width: 90%;
     margin: auto;
     display: flex;
@@ -1289,29 +1288,29 @@ textarea {
 }
 
 /* medeelel-detailed information section */
-.detail-info{
-    width:1400px;
-    margin:auto;
+.detail-info {
+    width: 1400px;
+    margin: auto;
     min-height: 100vh;
     margin-top: 30px;
 }
-.detail-info-img{
-    width:100%;
+.detail-info-img {
+    width: 100%;
     height: 450px;
 }
-.detail-info-img img{
+.detail-info-img img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
-.detail-info-title{
-    text-align:center;
+.detail-info-title {
+    text-align: center;
     margin-top: 20px;
     font-size: 30px;
     font-weight: 700;
     text-transform: uppercase;
 }
-.detail-info-information{
+.detail-info-information {
     font-size: 18px;
     margin-top: 10px;
 }
@@ -1357,16 +1356,16 @@ textarea {
     text-transform: uppercase;
 } */
 
-.course-detail{
+.course-detail {
     width: 100%;
     /* height: 100vh; */
     height: auto;
-    box-sizing: border-box ;
+    box-sizing: border-box;
     display: flex;
     position: relative;
 }
 
-.bulguudiin-nav{
+.bulguudiin-nav {
     display: flex;
     /* position: absolute; */
     position: fixed;
@@ -1401,19 +1400,19 @@ textarea {
     border-left: 4px solid #00a98d65;
     color: black;
 }
-.hicheeluud{
+.hicheeluud {
     /* width: 100%; */
     width: 70%;
     margin: 4.375em auto;
     /* overflow:auto; */
 }
-.hicheel{
-    border:1px solid #9999;
+.hicheel {
+    border: 1px solid #9999;
     height: 100%;
     overflow: auto;
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
-.title-h3{
+.title-h3 {
     position: relative;
     margin-top: 3em;
     padding-top: 3em;
@@ -1428,7 +1427,7 @@ textarea {
     margin-inline-end: 0px;
     font-weight: bold;
 }
-.title-h3::before{
+.title-h3::before {
     content: "";
     position: absolute;
     left: 0;
@@ -1436,14 +1435,14 @@ textarea {
     height: 0.25em;
     margin-top: -2em;
     border-radius: 0.125em;
-    background-color:#00a98d65;
+    background-color: #00a98d65;
 }
-.class{
+.class {
     width: 100%;
     height: 100vh;
     background-color: orange;
 }
-.hhhk{
+.hhhk {
     width: 100%;
     height: 100vh;
     background-color: hotpink;
@@ -1451,7 +1450,7 @@ textarea {
 
 /* admin dashboard */
 
-.main-section{
+.main-section {
     width: 65%;
     height: 95vh;
     margin-top: 20px;
@@ -1459,19 +1458,19 @@ textarea {
     display: grid;
     grid-template-rows: 0.5fr 3fr 2.5fr 4.5fr;
 }
-.main-sec-search{
+.main-sec-search {
     /* height: 4%; */
     display: flex;
     justify-content: space-between;
 }
-.searchu{
+.searchu {
     width: 40%;
     display: flex;
 }
-.searchu input{
+.searchu input {
     width: 90%;
     background-color: rgba(59, 59, 77, 1);
-    border:none;
+    border: none;
     outline: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -1479,24 +1478,24 @@ textarea {
     /* padding: 3px 8px; */
     padding: 10px;
 }
-.searchu-i{
+.searchu-i {
     display: flex;
     justify-content: center;
     align-items: center;
     color: rgba(255, 251, 251, 0.952);
     background-color: rgba(59, 59, 77, 1);
     font-size: 13px;
-    padding:9px;
-    border:none;
+    padding: 9px;
+    border: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;
 }
-.searchu-button{
+.searchu-button {
     display: flex;
-    gap:10px;
+    gap: 10px;
 }
-.s-b-1{
+.s-b-1 {
     width: 33px;
     height: 100%;
     border-radius: 8px;
@@ -1506,38 +1505,38 @@ textarea {
     align-items: center;
     color: rgba(255, 251, 251, 0.952);
     font-size: 13px;
-    cursor:pointer;
+    cursor: pointer;
 }
-.main-sec-banner{
+.main-sec-banner {
     /* height: 30%; */
     margin-top: 10px;
     background-color: #51c5b3;
     border-radius: 15px;
 }
-.main-sec-3part{
+.main-sec-3part {
     /* height: 21%; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     margin-top: 10px;
 }
-.part-3{
+.part-3 {
     border-radius: 10px;
     background-color: rgba(59, 59, 77, 1);
 }
-.main-sec-2-big{
+.main-sec-2-big {
     margin-top: 10px;
     /* height: 40%; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
-.big-part{
+.big-part {
     border-radius: 10px;
     background-color: rgba(59, 59, 77, 1);
 }
-.admin-profile-section{
-    width:30%; 
+.admin-profile-section {
+    width: 30%;
     height: 95vh;
     margin-top: 20px;
     margin-left: 20px;
@@ -1545,13 +1544,13 @@ textarea {
     grid-template-rows: 1fr 3fr;
     grid-gap: 20px;
 }
-.admin-pro{
+.admin-pro {
     background-color: rgba(59, 59, 77, 1);
     border-radius: 10px;
     display: grid;
     grid-template-rows: 1fr 4fr;
 }
-.my-profile{
+.my-profile {
     display: flex;
     justify-content: space-between;
     background-color: #51c5b3;
@@ -1559,73 +1558,73 @@ textarea {
     padding: 10px;
     color: rgba(255, 251, 251, 0.952);
 }
-.pro-edit-button{
+.pro-edit-button {
     background-color: #95e0e4;
-    border:none;
+    border: none;
     outline: none;
     width: 25px;
     height: 25px;
     border-radius: 5px;
-    cursor:pointer;
-    align-self:center;
+    cursor: pointer;
+    align-self: center;
 }
-.pro-edit-button i{
+.pro-edit-button i {
     font-size: 12px;
-    color: #00AAB2;
+    color: #00aab2;
 }
 
-.admin-info{
+.admin-info {
     display: grid;
     grid-template-rows: 1.5fr 1fr;
 }
-.ad-pic{
+.ad-pic {
     display: flex;
     gap: 10px;
     padding-left: 20px;
 }
-.ad-img{
+.ad-img {
     width: 55px;
     height: 55px;
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 50%;
     overflow: hidden;
     align-self: center;
 }
-.ad-img img{
+.ad-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.ad-fo{
+.ad-fo {
     color: rgba(255, 251, 251, 0.952);
     align-self: center;
 }
-.ad-in{
+.ad-in {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 10px;
 }
-.adin-q{
-    color:#cfe9ebd7;
+.adin-q {
+    color: #cfe9ebd7;
     font-size: 13px;
     text-align: center;
 }
-.adin-a{
+.adin-a {
     text-align: center;
     margin-top: 5px;
     font-size: 15px;
     color: rgba(255, 251, 251, 0.952);
 }
-.adin{
-    padding:5px 0px;
+.adin {
+    padding: 5px 0px;
 }
-.adin:nth-child(2){
-    border-right:1px solid white;
-    border-left:1px solid white;
+.adin:nth-child(2) {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
 }
-.admin-tool{
+.admin-tool {
     display: grid;
     grid-template-rows: 1fr 5fr;
     background-color: rgba(59, 59, 77, 1);
-    border-radius:10px;
+    border-radius: 10px;
 }

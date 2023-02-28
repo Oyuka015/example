@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use App\Models\Certif_User_id as Ids;
 use App\Models\Users as User;
+use \Carbon\Carbon;
 
 use \Auth;
 
@@ -32,8 +33,8 @@ class CertificateRepository implements CertificateInterface
         $user->save();
 
         $certificate = new Certificate;
-        $certificate->user_name = @$user['username'];
-        // $certificate->certificate_id = @$input['certificate_id'];
+        $certificate->user_id = $user->id;
+
         $certificate->register = @$user['register'];
         $certificate->lastname = @$user['lastname'];
         $certificate->firstname = @$user['firstname'];
@@ -42,10 +43,6 @@ class CertificateRepository implements CertificateInterface
         $certificate->created_by = @Auth::user()->id;
         $certificate->save();
 
-        $license_id = new Ids;
-        $license_id->user_id = $user->id;
-        $license_id->certificate_id = $certificate->id;
-        $license_id->save();
         return $certificate;
     }
 
