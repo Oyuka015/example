@@ -10,6 +10,9 @@ use App\Models\Codelists;
 use App\Models\Online;
 use App\Models\Aulevels;
 
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -50,6 +53,7 @@ class Controller extends BaseController
         
         return View::make('information/medeelel', $data);
     }
+
     public function detailinfo()
     {
         $informations = $this->information->all();
@@ -64,7 +68,6 @@ class Controller extends BaseController
         return view('exam.exam');;
     }
 
-
     public function online(){
         $onlines = $this->online->all();
 
@@ -75,6 +78,7 @@ class Controller extends BaseController
         
         return View::make('online.online', $data);
     }
+
     public function course(){
         $onlines = $this->online->all();
 
@@ -82,6 +86,7 @@ class Controller extends BaseController
         
         return View::make('online.course', $data);
     }
+
     public function lesson(){
         $onlines = $this->online->all();
 
@@ -89,7 +94,6 @@ class Controller extends BaseController
         
         return View::make('online/lesson', $data);
     }
-
 
     public function certi(){
 
@@ -99,6 +103,7 @@ class Controller extends BaseController
         
         return View::make('certi', $data);
     }
+
     public function faq(){
         $faqs = $this->faq->all();
 
@@ -106,9 +111,11 @@ class Controller extends BaseController
         
         return View::make('faq', $data);
     }
+
     public function feedback(){
         return view('feedback');;
     }
+
     public function login(){
         return view('login');;
     }
