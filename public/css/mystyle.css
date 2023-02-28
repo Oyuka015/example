@@ -16,7 +16,8 @@
 header {
     width: 100%;
     height: 100px;
-    background-color: #00a98d65;
+    /* background-color: #00a98d65; */
+    background-color: #51c5b3;
 }
 .h-container {
     max-width: 1400px;
@@ -1510,7 +1511,7 @@ textarea {
 .main-sec-banner{
     /* height: 30%; */
     margin-top: 10px;
-    background-color: #00a98d;
+    background-color: #51c5b3;
     border-radius: 15px;
 }
 .main-sec-3part{
@@ -1553,7 +1554,7 @@ textarea {
 .my-profile{
     display: flex;
     justify-content: space-between;
-    background-color: #00a98d;
+    background-color: #51c5b3;
     border-radius: 10px;
     padding: 10px;
     color: rgba(255, 251, 251, 0.952);

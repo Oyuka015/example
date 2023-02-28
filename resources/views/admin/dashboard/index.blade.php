@@ -165,25 +165,30 @@
 </div>
 <style>
     body{
-        background-color:#10152b;    
-        /* background-color: #002024;  */
-        /* background-color: #001e22;     */
+      background-color:#10152b;    
+      /* background-color: #002024;  */
+      /* background-color: #001e22;     */
     }
     header{
-        background-color: #00a98d;
-        opacity: 1;
+      /* background-color: #00a98d; */
+      background-color: #51c5b3;
+      opacity: 1;
+    }
+    .menu a.link{
+      /* color:rgb(82 82 82); */
+      color:#000000b6;
     }
     ::placeholder{
-        color:rgba(255, 251, 251, 0.952)
+      color:rgba(255, 251, 251, 0.952)
     }
     select{
-        background-color: #95e0e4;
-        border:none;
-        width: auto;
-        height: 25px;
-        border-radius: 5px;
-        align-self:center;
-        outline: none;
+      background-color: #95e0e4;
+      border:none;
+      width: auto;
+      height: 25px;
+      border-radius: 5px;
+      align-self:center;
+      outline: none;
     }
     .dropbtn {
       background-color: inherit;
@@ -248,7 +253,7 @@
         label: '# of Votes',
         data: [30, 19, 3, 8, 12, 3],
         borderWidth: 1,
-        backgroundColor: '#00a98d'
+        backgroundColor: '#73ccbe'
       }]
     },
     options: {
