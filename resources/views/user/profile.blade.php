@@ -34,14 +34,13 @@
                 </li>
             </ul>
             <ul id="tab_s">
-               
                 <li>
-                    <a href="#first">
+                    <a href="#first" >
                         <i class="fa-solid fa-user"></i>
                         <div>{{trans('display.profile')}}</div>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="#third">
                         <i class="fa-solid fa-book-open"></i>
                         <div>{{trans('display.exam')}} ба {{trans('display.certificate')}}</div>
@@ -353,17 +352,18 @@
             let tabName = this.getAttribute("href");
 
             let tabContents = document.querySelector("#tab-contents");
-
             for (let i = 0; i < tabContents.children.length; i++) {
             
-            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200");  tabContents.children[i].classList.remove("hidden");
-            if ("#" + tabContents.children[i].id === tabName) {
-                continue;
+                tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200");  
+                tabContents.children[i].classList.remove("hidden");
+                if ("#" + tabContents.children[i].id === tabName) {
+                    continue;
+                }
+                tabContents.children[i].classList.add("hidden");
+                
+                
             }
-            tabContents.children[i].classList.add("hidden");
-            
-            }
-            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200",);
+            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200");
         });
     });
 </script>

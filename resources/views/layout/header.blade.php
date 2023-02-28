@@ -45,7 +45,11 @@
             <img src="{{ URL('images/logo.png') }}" alt="">
         </div>
         <div class="menu">
-            <a href="/admin/information"  class="link">
+          <a href="/admin/dashboard"  class="link">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>{{trans('display.dashboard')}}</div>
+          </a>
+          <a href="/admin/information"  class="link">
                 <i class="fa-solid fa-bell"></i>
                 <div>{{trans("display.information")}}</div>
               </a>
@@ -83,12 +87,8 @@
                 <div>{{trans('display.feedback')}}</div>
             </a>
             <a href="/admin/users"  class="link">
-              <i class="fa-solid fa-envelope"></i>
+              <i class="fa-solid fa-user"></i>
               <div>{{trans('display.user')}}</div>
-            </a>
-            <a href="/admin/dashboard"  class="link">
-              <i class="fa-solid fa-chart-line"></i>
-              <div>{{trans('display.dashboard')}}</div>
             </a>
         </div>
         <div class="dropdown">
