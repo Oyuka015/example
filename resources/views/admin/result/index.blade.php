@@ -2,7 +2,7 @@
  
 @section('content')
 <section class="admin_register_section">
-  <h1 class="admin_register_title">{{trans('display.exam_result')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.exam_takers')}}</h1>
   <div class="form-sub-heading">
 
   </div>
@@ -25,7 +25,7 @@
           <div class="row">
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="user_id" name="user_id" placeholder="{{trans('display.user_id')}}">
+                <input type="text" id="user_id" name="user_id" placeholder="{{trans('display.user_name')}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -49,11 +49,9 @@
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:20%">{{trans('display.user_id')}}</th>
-        <th style="width:20%">{{trans('display.exam_id')}}</th>
-        <th style="width:20%">{{trans('display.question_id')}}</th>
-        <th style="width:20%">{{trans('display.answer')}}</th>
-        <th style="width:20%">{{trans('display.score')}}</th>
+        <th style="width:30%">{{trans('display.user_name')}}</th>
+        <th style="width:30%">Явцын шалгалт 1</th>
+        <th style="width:30%">Явцын шалгалт 2</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -63,9 +61,8 @@
   </table>
   @csrf
 </section>
-<!-- collapse style -->
 
-<!-- collapse style end -->
+
 <script>
   var resultTable = $('#result-table').DataTable( {
       // searching: false,
@@ -106,23 +103,21 @@
         },
         // { data: 'question', "defaultContent": ''},
         // { data: 'answer', "defaultContent": ''},
-        { data: 'user_id', "defaultContent": ''},
-        { data: 'exam_id', "defaultContent": ''},
-        { data: 'question_id', "defaultContent": ''},
-        { data: 'answer', "defaultContent": ''},
-        { data: 'score', "defaultContent": ''},
+        { data: 'user_name', "defaultContent": ''},
+        { data: 'exam_1', "defaultContent": ''},
+        { data: 'exam_2', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,6]
+            targets: [0,4]
         },{
             class: "text-center",
-            targets: [0,6]
+            targets: [0,4]
         },{
-            targets: [0,5],
+            targets: [0,3],
             class: "border-right"
         }
       ],

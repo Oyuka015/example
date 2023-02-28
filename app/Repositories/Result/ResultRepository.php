@@ -19,11 +19,9 @@ class ResultRepository implements ResultInterface
     {
         $result = new Result;
 
-        $result->user_id = @$input['user_id'];
-        $result->exam_id = @$input['exam_id'];
-        $result->question_id = @$input['question_id'];
-        $result->answer = @$input['answer'];
-        $result->score = @$input['score'];
+        $result->user_name = @$input['user_name'];
+        $result->exam_1 = @$input['exam_1'];
+        $result->exam_2 = @$input['exam_2'];
 
         return $result->save();
     }
@@ -32,11 +30,9 @@ class ResultRepository implements ResultInterface
     {
         $result = Result::find($id);
 
-        $result->user_id = @$input['user_id'];
-        $result->exam_id = @$input['exam_id'];
-        $result->question_id = @$input['question_id'];
-        $result->answer = @$input['answer'];
-        $result->score = @$input['score'];
+        $result->user_name = @$input['user_name'];
+        $result->exam_1 = @$input['exam_1'];
+        $result->exam_2 = @$input['exam_2'];
 
         return $result->save();
     }
@@ -56,9 +52,9 @@ class ResultRepository implements ResultInterface
         $data = Datatables::make($qry) 
             ->filter(function ($qry) use ($searchData) {
 
-                if($searchData->has('user_id') && $searchData->get('user_id') !== null)
+                if($searchData->has('user_name') && $searchData->get('user_name') !== null)
                 {
-                    $qry->whereRaw('LOWER(user_id) like ?', array('%'.mb_strtolower($searchData->get('user_id')).'%'));
+                    $qry->whereRaw('LOWER(user_name) like ?', array('%'.mb_strtolower($searchData->get('user_name')).'%'));
                 }
 
             })

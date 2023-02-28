@@ -63,8 +63,7 @@
                 <div class="dropdown-content">
                   <a href="/admin/exam">{{trans('display.exam')}}</a>
                   <a href="/admin/question">{{trans('display.question')}}</a>
-                  <a href="/admin/examtakers">{{trans('display.exam_takers')}}</a>
-                  <a href="/admin/result">{{trans('display.exam_result')}}</a>
+                  <a href="/admin/result">{{trans('display.exam_takers')}}</a>
                 </div>
               </div>
             <!-- <a id="sub" href="/admin/exam"  class="link">
@@ -87,13 +86,17 @@
               <i class="fa-solid fa-envelope"></i>
               <div>{{trans('display.user')}}</div>
             </a>
+            <a href="/admin/dashboard"  class="link">
+              <i class="fa-solid fa-chart-line"></i>
+              <div>{{trans('display.dashboard')}}</div>
+            </a>
         </div>
         <div class="dropdown">
           <button class="dropbtn">
-              <a href="/admin/dashboard" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+              <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
           </button>
           <div style="right:0;" class="dropdown-content">
-              <a href="/admin/dashboard">{{trans('display.profile')}}</a>
+              <a href="/profile">{{trans('display.profile')}}</a>
               <a href="/do/logout">{{trans('display.log_out')}}</a>
           </div>  
         </div>

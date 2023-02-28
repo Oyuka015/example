@@ -540,6 +540,7 @@ footer {
 }
 
 .modal-content {
+    height: auto;
     padding: 2rem 2rem;
     border-radius: 0.8rem;
     box-shadow: var(--m-shadow, 0.4rem 0.4rem 10.2rem 0.2rem) var(--shadow-1);
@@ -619,7 +620,6 @@ footer {
 .base-input {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -635,6 +635,16 @@ footer {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+}
+/* add edit modal style */
+.modal-header{
+    position: relative;
+    display: flex;
+}
+.modal-header button{
+    position: absolute;
+    right: 0;
+
 }
 /* input error zaahad */
 form .form-group.has-error .error {
