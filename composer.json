@@ -18,6 +18,7 @@
         "laravelcollective/html": "^6.3",
         "orhanerday/open-ai": "^3.5",
         "pion/laravel-chunk-upload": "^1.5",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "twbs/bootstrap": "5.3.0-alpha1",
         "yajra/laravel-datatables-oracle": "^10.2"
     },

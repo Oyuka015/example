@@ -197,7 +197,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Alfa6661\AutoNumber\AutoNumberServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class
+        Barryvdh\DomPDF\ServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
     ],
 
     /*
@@ -270,6 +271,8 @@ return [
         'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D' => Milon\Barcode\Facades\DNS2DFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        
     ])->toArray(),
 
 

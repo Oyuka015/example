@@ -22,6 +22,7 @@ use Illuminate\Http\Request;
 use Session;
 use \Config;
 use PDF;
+use QrCode;
 
 class Controller extends BaseController
 {
@@ -153,10 +154,12 @@ class Controller extends BaseController
             'year' => 'Нээээр-нэээр',
             'month' => 'Нээээр-нэээр',
             'day' => 'Нээээр-нэээр',
+            'image_url' => asset('images/user_id.svg')
         ];
-          
+
+        QrCode::generate('Welcome to Makitweb', public_path('images/user_id.svg') );
         $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
-        // return View::make('pdfview', $data);
+        // return View::make('qrcode', $data);
         return $pdf->stream();
     }
 }

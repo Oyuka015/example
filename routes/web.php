@@ -116,3 +116,7 @@ Route::get('/360', function () {
 });
 
 Route::get('/pdf', "App\Http\Controllers\Controller@pdf");
+Route::get('/qrcode', function () {
+  
+    return QrCode::size(300)->generate('A basic example of QR code!');
+});
