@@ -108,6 +108,7 @@ class CertificateRepository implements CertificateInterface
             ->addColumn('action', function ($certificate) {
                 $actionHtml = "";
                 // $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary certificate-edit" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
+                $actionHtml .= '<a href="/admin/certificate/download/'.@$certificate->id.'" target="_blank" class="btn btn-circle btn-primary certificate-download" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.download\')}}"><i class="fa fa-download"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger certificate-delete" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
                 return $actionHtml;
             })

@@ -44,4 +44,8 @@ class Certificate extends Eloquent
     public function twoId(){
         return $this->belongsTo('App\Models\Certif_User_id', 'id', 'certificate_id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }

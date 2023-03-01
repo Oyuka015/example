@@ -68,6 +68,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 
         Route::resource('/certificate', "App\Http\Controllers\CertificateController");
         Route::any('/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
+        Route::get('/certificate/download/{id}', "App\Http\Controllers\CertificateController@donwloadCertificate");
 
         Route::resource('/systemuser', "App\Http\Controllers\SystemuserController");
         Route::any('/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
@@ -94,6 +95,8 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 });
 
+Route::get('/certificate/download/public/{id}', "App\Http\Controllers\Controller@steamCertificate");
+
 Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
 Route::get('/register', 'App\Http\Controllers\UsersController@getRegisterIndex');
@@ -117,7 +120,6 @@ Route::get('/360', function () {
     return view('pano');
 });
 
-Route::get('/pdf', "App\Http\Controllers\Controller@pdf");
 Route::get('/qrcode', function () {
   
     return QrCode::size(300)->generate('A basic example of QR code!');

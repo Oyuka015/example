@@ -145,19 +145,21 @@ class Controller extends BaseController
         return View::make('sub_blades.level2', $data);
     }
 
-    public function pdf()
+    public function steamCertificate($id)
     {
+        $cert = $this->certificate->find($id);
+
         $data = [
-            'certificate_no' => '2023-3(001)',
-            'lastname' => 'Оооооооооооооовоог',
-            'firstname' => 'Нээээр-нэээр',
-            'year' => 'Нээээр-нэээр',
-            'month' => 'Нээээр-нэээр',
-            'day' => 'Нээээр-нэээр',
-            'image_url' => asset('images/user_id.svg')
+            'certificate_no' => @$cert->certificate_id,
+            'lastname' => @$cert->user ? @$cert->user->lastname : '',
+            'firstname' => @$cert->user ? @$cert->user->firstname : '',
+            'year' => @$cert->created_at->year,
+            'month' => @$cert->created_at->month,
+            'day' => @$cert->created_at->day,
+            'image_url' => asset('images/qrcode_'.$id.'.png')
         ];
 
-        QrCode::generate('Welcome to Makitweb', public_path('images/user_id.svg') );
+        QrCode::generate('/certificate/download/public/'.$id, public_path('images/qrcode_'.$id.'.png'));
         $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
         // return View::make('qrcode', $data);
         return $pdf->stream();

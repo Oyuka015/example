@@ -53,12 +53,12 @@
     .lastname{
         position: absolute;
         top: 401px;
-        left:330px;
+        left:350px;
     }
     .firstname{
         position: absolute;
         top: 401px;
-        left:610px;
+        left:620px;
     }
 
     .qrcode{
@@ -77,6 +77,6 @@
     <label class="year">23</label>
     <label class="month">12</label>
     <label class="day">31</label>
-    <img src="{{ asset('images/qrcode.svg') }}" class="qrcode" alt="">
+    <img src="{{ $image_url }}" class="qrcode" alt="">
 </body>
 </html>

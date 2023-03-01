@@ -19,6 +19,8 @@ use \DB;
 use Storage;
 use \Validator as Validator;
 use \View as View;
+use PDF;
+use QrCode;
 
 class CertificateController extends BaseController
 {
@@ -130,5 +132,25 @@ class CertificateController extends BaseController
         $data['response'] = $response;
 
         return View::make('core.alert.messages', $data);
+    }
+
+    public function donwloadCertificate($id)
+    {
+        $cert = $this->certificate->find($id);
+
+        $data = [
+            'certificate_no' => @$cert->certificate_id,
+            'lastname' => @$cert->user ? @$cert->user->lastname : '',
+            'firstname' => @$cert->user ? @$cert->user->firstname : '',
+            'year' => @$cert->created_at->year,
+            'month' => @$cert->created_at->month,
+            'day' => @$cert->created_at->day,
+            'image_url' => asset('images/qrcode_'.$id.'.png')
+        ];
+
+        QrCode::generate('certificate/download/public/'.$id, public_path('images/qrcode_'.$id.'.png'));
+        $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
+        // return View::make('qrcode', $data);
+        return $pdf->download();
     }
 }
