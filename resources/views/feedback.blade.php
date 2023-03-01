@@ -19,14 +19,14 @@
 <div class="feed" id="feed">
   <form method="POST" action="" id="feedback-add-form">
     <label for="name">Овог нэр:</label>
-    <input id="name" type="text" name="name" placeholder="Жишээ нь: Б.Болд" autocomplete="off"><br>
+    <input id="name" type="text" name="name" placeholder="Б.Болд" autocomplete="off"><br>
     <label for="mail">Имэйл хаяг:</label>
-    <input  id="mail" type="text" name="mail" placeholder="Жишээ нь: bold@gmail.com" autocomplete="off"><br>
+    <input  id="mail" type="email" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="bold@gmail.com" autocomplete="off" title="И-мэйл хаяг оруулна уу!"><br>
     <label for="phone_number">Утасны дугаар:</label>
-    <input id="phone" type="number" name="phone" autocomplete="off" placeholder="Жишээ нь: 9999****" pattern="[0-9]{8}" required ><br>
+    <input id="phone" type="number" name="phone" autocomplete="off" placeholder="9999****" pattern="[0-9]{8}" required ><br>
     <label for="feedback">Санал хүсэлт:</label>
-    <textarea id="textarea" name="feedback" id="" cols="30" rows="10" autocomplete="off"></textarea><br>
-    <button type="submit" id="feedback_button">
+    <textarea id="textarea" style="padding: 10px;" name="feedback" id="" cols="30" rows="10" autocomplete="off" title="yu bnb"></textarea><br>
+    <button type="submit" id="feedback_button" style="color: white">
         <i class="fa-solid fa-paper-plane"></i>
         Илгээх
     </button>
@@ -46,15 +46,20 @@
             $(element).parents('.form-group').removeClass('has-error');
         },
         submitHandler: function(form) {
+            console.log('ssss')
           var formData = new FormData(form);
           $.ajax({
-            url: '{!! route('feedback.store') !!}',
+            url: '/feedback/store',
             type: form.method,
             data: $(form).serialize(),
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
+            $('#name').val('');
+            $('#phone').val('');
+            $('#mail').val('');
+            $('#textarea').val('');
               $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
             },
             error: function (xhr, textStatus, error) {

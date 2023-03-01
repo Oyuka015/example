@@ -15,7 +15,6 @@
 <div class="q-container">
     <div class="q-title">
         <h1><span>Түгээмэл асуулт</span> хариултууд</h1>
-        <div class="q-line"></div>
     </div>
     <div class="q-list">
         @foreach($faqs as $faq)

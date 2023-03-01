@@ -29,17 +29,18 @@ Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])-
 
 
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
+    
     Route::group(['prefix'=>'admin', 'middleware' => 'role:Admin'], function () {
         // Admin-only routes
         Route::resource('/dashboard', "App\Http\Controllers\DashboardController");
         Route::any('/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
-
+        
         Route::resource('/exam', "App\Http\Controllers\ExamController");
         Route::any('/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
-
+        
         Route::resource('/information', "App\Http\Controllers\InformationController");
         Route::any('/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
-
+        
         Route::any('/online/group', "App\Http\Controllers\OnlineController@getGroup");
         Route::any('/online/group/update/data/{id}', 'App\Http\Controllers\OnlineController@updateGroup');
         Route::any('/online/group/{id}/edit', "App\Http\Controllers\OnlineController@getGroupEdit");
@@ -50,7 +51,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
         Route::any('/online/update/data/{id}', 'App\Http\Controllers\OnlineController@updateData')->name('update.data');
         Route::post('/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
         Route::any('/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
-
+        
         Route::resource('/feedback', "App\Http\Controllers\FeedbackController");
         Route::any('/feedback/list/datatable', "App\Http\Controllers\FeedbackController@dataTableList")->name('feedback.datalist');
 
@@ -81,6 +82,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
         //Customer
         Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
         Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
+        Route::any('/feedback/store', 'App\Http\Controllers\FeedbackController@store');
         Route::get('/certi', 'App\Http\Controllers\Controller@certi');
         Route::get('/faq', 'App\Http\Controllers\Controller@faq');
         Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');

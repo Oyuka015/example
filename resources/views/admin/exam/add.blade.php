@@ -9,7 +9,7 @@
   </div>
   <div class="form-group">
     <label for="exam_name">{{trans('display.time')}} Жишээ нь: 20 минут бол 00:20</label>
-    <input type="time" id="exam_time" class="base-input" name="exam_time" placeholder="{{trans('display.time')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
+    <input type="number" id="exam_time" class="base-input get_time" name="exam_time" placeholder="{{trans('display.time')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div>
   <div class="form-group">
     <label for="exam_name">{{trans('display.lower_score')}}</label>
@@ -44,5 +44,28 @@
   @csrf
 </form>
 <script>
+  function updateTextView(_obj){
+    var num = getNumber(_obj.val());
+    if(num==0){
+      _obj.val('');
+    }else{
+      _obj.val(num.toLocaleString());
+    }
+  }
+  function getNumber(_str){
+    var arr = _str.split('');
+    var out = new Array();
+    for(var cnt=0;cnt<arr.length;cnt++){
+      if(isNaN(arr[cnt])==false){
+        out.push(arr[cnt]);
+      }
+    }
+    return Number(out.join(''));
+  }
+  $(document).ready(function(){
+    $('#exam_time').on('keyup',function(){
+      updateTextView($(this));
+    });
+  });
   $(".chosen-select").chosen({search_contains: true, no_results_text: "{{trans('messages.no_result')}}", placeholder_text_multiple: "{{trans('display.select')}}"}); 
 </script>
