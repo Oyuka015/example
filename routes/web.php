@@ -31,6 +31,9 @@ Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])-
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::group(['prefix'=>'admin', 'middleware' => 'role:Admin'], function () {
         // Admin-only routes
+        Route::resource('/dashboard', "App\Http\Controllers\DashboardController");
+        Route::any('/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
+
         Route::resource('/exam', "App\Http\Controllers\ExamController");
         Route::any('/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
@@ -103,8 +106,7 @@ Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister
 // Route::get('/admin/dashboard', function () {
 //     return view('admin.dashboard');
 // });
-Route::resource('/admin/dashboard', "App\Http\Controllers\DashboardController");
-Route::any('/admin/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
+
 
 // Route::get('/payment', "App\Http\Controllers\Controller@payment");
 

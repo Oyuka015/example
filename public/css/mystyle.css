@@ -1401,10 +1401,7 @@ textarea {
     color: black;
 }
 .hicheeluud{
-    /* width: 100%; */
-    width: 70%;
-    margin: 4.375em auto;
-    /* overflow:auto; */
+    width: 100%;
 }
 .hicheel {
     border: 1px solid #9999;
