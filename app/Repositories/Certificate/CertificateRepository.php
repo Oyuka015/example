@@ -110,4 +110,28 @@ class CertificateRepository implements CertificateInterface
 
         return $data;
     }
+
+    public function getDatatableListPublic($searchData)
+    {
+
+        $certificate = Certificate::select('*');
+        $qry = $certificate;
+        
+        $data = Datatables::make($qry) 
+            ->filter(function ($qry) use ($searchData) {
+                if($searchData->has('certificate_id') && $searchData->get('certificate_id') !== null)
+                {
+                    $qry->where('certificate_id',  'LIKE', '%' .  $searchData->get('certificate_id') . '%');
+                }
+            })
+            ->editColumn('lastname', function($certificate){
+                return @$certificate->lastname.' '.@$certificate->firstname;
+            })
+            ->editColumn('created_at', function ($online) {
+                return date('Y-m-d H:i:s', strtotime($online->created_at));
+            })
+            ->make(true);
+
+        return $data;
+    }
 }

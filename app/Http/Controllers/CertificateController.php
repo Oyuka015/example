@@ -120,6 +120,11 @@ class CertificateController extends BaseController
         return $this->certificate->getDatatableList($request);
     }
 
+    public function dataTableListPublic(Request $request)
+    {
+        return $this->certificate->getDatatableListPublic($request);
+    }
+
     public function destroy($id)
     {
         // dd($id);
