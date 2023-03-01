@@ -3,13 +3,14 @@
 @section('content')
 <style>
     .lil-content::before{
-        background-image: url('https://img.freepik.com/premium-photo/white-questions-mark-illustration-yellow-background-copy-space-faq-question-answer-time-by-3d-rendering_50039-2919.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
+        background-image: url('/images/faq.jpg');
+        background-repeat:no-repeat;
+        background-size:cover;
     }
 </style>
 
 <div class="lil-header-section">
     <div class="lil-content">
-        <h1>Асуулт хариулт</h1>
     </div>
 </div>
 <div class="q-container">

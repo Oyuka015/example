@@ -3,7 +3,8 @@
 @section('content')
 <style>
     .lil-content::before{
-        background-image: url('https://img.freepik.com/premium-photo/woman-s-hands-filling-standardized-test-form_9635-1603.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph')
+        /* background-image: url('https://img.freepik.com/premium-photo/woman-s-hands-filling-standardized-test-form_9635-1603.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph') */
+        background-image:url('/images/exam.jpg')
     }
 </style>
 <div class="lil-header-section">

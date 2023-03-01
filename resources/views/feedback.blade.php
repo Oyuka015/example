@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .lil-content::before{
-        background-image: url('https://t4.ftcdn.net/jpg/03/12/00/49/240_F_312004975_UNcAYLepbKX26M0n7tMEAq7XmzFAYFcs.jpg');
+        background-image: url('/images/feedback.jpg');
     }
 </style>
 
