@@ -745,6 +745,7 @@ button::-moz-focus-inner {
     margin: auto;
     border-radius: 50%;
     overflow: hidden;
+    border:1px solid #51c5b3;
 }
 .user-profile-img img {
     width: 100%;
@@ -764,7 +765,7 @@ button::-moz-focus-inner {
 }
 .user-profile-other ul li {
     list-style: none;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: 10px;
     overflow: hidden;
     cursor: pointer;
@@ -776,15 +777,18 @@ button::-moz-focus-inner {
     padding: 10px 20px;
     /* font-size: 17px; */
     white-space: nowrap;
-    gap: 5px;
+    gap: 10px;
     color: #252525;
-    background-color: rgba(182, 180, 180, 0.301);
+    /* background-color: rgba(182, 180, 180, 0.301); */
+    background-color: #51c5b3;
 }
 .user-profile-other ul li i {
-    color: rgb(6, 145, 180);
+    /* color: rgb(6, 145, 180); */
+    color: whitesmoke;
 }
 .user-profile-other ul li:hover {
     border: 1px inset;
+    background-color:red;
 }
 
 .user-profile-main {
@@ -873,6 +877,7 @@ button::-moz-focus-inner {
     margin: auto;
     margin-top: 80px;
     overflow: hidden;
+    border:1px solid #51c5b3;
 }
 .user-img-section img {
     width: 100%;
@@ -906,7 +911,7 @@ button::-moz-focus-inner {
     border: none;
     padding: 10px 20px;
     margin-top: 3px;
-    background-color: #e3e2e2;
+    background-color: #51c5b347;
 }
 
 /* user-faq-style */
@@ -1117,8 +1122,11 @@ button::-moz-focus-inner {
 .exam-card {
     width: 100%;
     height: 100%;
-    margin-top: 80px;
-    margin-bottom: 50px;
+    padding-top:80px;
+    padding-bottom: 50px;
+    /* margin-top: 80px; */
+    /* margin-bottom: 50px; */
+    
 }
 .cards {
     max-width: 1400px;
@@ -1133,9 +1141,10 @@ button::-moz-focus-inner {
     display: inline-block;
     width: 300px;
     height: 200px;
-    border: 1px solid orange;
+    border-radius: 10px;
     padding: 20px;
     font-size: 18px;
+    background-color: rgb(223, 220, 220);
 }
 .e-card:hover {
     text-decoration: none;

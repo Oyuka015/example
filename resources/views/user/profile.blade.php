@@ -102,8 +102,8 @@
                                 <input type="text" value="{{$userData->register}}" name="register" readonly>
                             </div>                                                                                      
                         </div>
-                        <div style="margin-top:30px; display:flex; justify-content:end; margin-right:55px;">
-                            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white">{{trans('display.edit')}}</button>
+                        <div style="margin-top:30px; display:flex; justify-content:end; margin-right:55px; ">
+                            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white; background-color:#51c5b3;">{{trans('display.edit')}}</button>
                         </div>
                     </div>
                 </div>
@@ -360,7 +360,7 @@
             let tabContents = document.querySelector("#tab-contents");
             for (let i = 0; i < tabContents.children.length; i++) {
             
-                tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200");  
+                tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-blue-200");  
                 tabContents.children[i].classList.remove("hidden");
                 if ("#" + tabContents.children[i].id === tabName) {
                     continue;
@@ -369,7 +369,7 @@
                 
                 
             }
-            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200");
+            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-blue-200");
         });
     });
 </script>
