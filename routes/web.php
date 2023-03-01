@@ -94,6 +94,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::resource('/profile', "App\Http\Controllers\UserController");
     Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 });
+Route::any('/certificate/list/datatable/public', "App\Http\Controllers\CertificateController@dataTableListPublic")->name('certificate.datalist.public');
 
 Route::get('/certificate/download/public/{id}', "App\Http\Controllers\Controller@steamCertificate");
 

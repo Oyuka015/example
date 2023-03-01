@@ -22,7 +22,7 @@
 <div class="certi">
     <div class="certi-con">
         <form action="" method="POST"  class="certi-search" id="certificate-search-form">
-            <p class="title">Гэрчилгээ баталгаажуулалт</p>
+            <p class="title">Гэрчилгээ хайлт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
             <div style="display:flex; align-items:center; gap:10px;">
                 <input id="certificate_id" name="certificate_id" type="number" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
@@ -75,7 +75,7 @@
     dataType: 'json',
     paginationType: "full_numbers",
     ajax: {
-        url: '{!! route('certificate.datalist') !!}',
+        url: '{!! route('certificate.datalist.public') !!}',
         dataType: "JSON",
         type: 'post',
         data: function ( d ) {
