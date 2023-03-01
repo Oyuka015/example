@@ -136,7 +136,7 @@
         </div>
         <div class="news-cart">
             @foreach($informations as $information)
-                <div class="cart"> <!-- cart-->
+                <a href="/get/data/{{$information->id}}" class="cart"> <!-- cart-->
                     <div class="news-cart-img">
                     <img src="{{$information->image ? $information->image->file_url : '/images/2.jpg'}}" alt="">
                     </div>
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             @endforeach
         </div>
     </section>
@@ -204,10 +204,7 @@
     </section>
 </main>
 <!-- information -->
-<div class="infor">
-    <span>Lorem</span>
-    <p>ipsum dolor sit amet consectetur adipisicing elit. Animi explicabo libero tempore!</p>
-</div>
+
 <footer>
     <div class="f-container">
         <div class="intro">
@@ -253,7 +250,7 @@
         </div>
     </div>
     <div class="c-con">
-        <div class="copyright"><p>Copyright 2019 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн BitSoft</p></div>
+        <div class="copyright"><p>Copyright 2023 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн Эрхэт инноваци ХХК</p></div>
     </div>
 </footer>
 <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>

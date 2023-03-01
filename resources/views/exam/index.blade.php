@@ -16,7 +16,7 @@
     <div class="cards">
         @foreach(@$exam as $exm)
             @if(in_array($exm->id, Auth::user()->exams()->wherePivot('is_passed', true)->pluck('exam_id')->toArray()))
-            <a href="#" class="e-card" style="background-color: #a0e3bc">
+            <a href="#" class="e-card" style="background-image: url('/images/ss.jpg'); background-size: cover;">
                     <div class="e-title">{{$exm->name}}</div>
                     <div class="e-descri">{{$exm->description}}</div>
                     <div class="e-eye">

@@ -17,6 +17,7 @@
     </nav>
     <div class="hicheeluud">
         @foreach($groups as $group)
+        <div style="border-bottom: 2px solid #00a98d65; padding-bottom: 20px;" >
             <div class="title-h3" id="group-{{$group->id}}">{{$group->name}}</div>
             <div class="online-courses-lessons">
                 @foreach($group->lessonGroup as $online)
@@ -34,6 +35,7 @@
                     </div>
                 @endforeach
             </div>
+        </div>
         @endforeach
     </div>  
     
