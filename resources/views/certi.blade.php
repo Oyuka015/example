@@ -3,7 +3,9 @@
 @section('content')
 <style>
     .lil-content::before{
-        background-image: url('https://img.freepik.com/free-photo/closeup-view-handshake-two-businessmen-suits-shaking-hands_1163-4891.jpg?size=626&ext=jpg&ga=GA1.2.821502220.1669877714&semt=sph');
+        background-image: url('/images/certi2.jpg');
+        background-repeat:no-repeat;
+        background-size:end;
     }
     body{
         display:block;
