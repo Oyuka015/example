@@ -71,7 +71,6 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
 
         Route::resource('/users', "App\Http\Controllers\UsersController");
         Route::any('/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
-    
     });
 
     Route::group(['prefix'=>'', 'middleware' => 'role:Customer'], function () {
@@ -85,10 +84,11 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
         Route::get('/course', 'App\Http\Controllers\Controller@course');
         Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
         Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
-        Route::resource('/profile', "App\Http\Controllers\UserController");
-        Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
+       
         Route::get('/online', 'App\Http\Controllers\Controller@online');
     });
+    Route::resource('/profile', "App\Http\Controllers\UserController");
+    Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 });
 
 Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");

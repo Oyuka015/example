@@ -49,7 +49,7 @@
             </a>
             <a href="/admin/users"  class="link">
               <i class="fa-solid fa-user"></i>
-              <div>{{trans('display.user')}}</div>
+              <div>{{trans('display.profile')}}</div>
             </a>
         </div>
         <div class="dropdown">
@@ -57,7 +57,7 @@
               <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
           </button>
           <div style="right:0;" class="dropdown-content">
-              <a href="/profile">{{trans('display.profile')}}</a>
+              <a href="/profile">{{trans('display.user')}}</a>
               <a href="/do/logout">{{trans('display.log_out')}}</a>
           </div>  
         </div>
@@ -115,7 +115,7 @@
             <div class="admin-info">
                 <div class="ad-pic">
                     <div class="ad-img">
-                        <img src="/images/default-avatar.png" alt="pro-img">
+                        <img src="/{{$userData->image_url}}" alt="profile_pic">
                     </div>
                     <div class="ad-fo">
                         <div>{{$userData->firstname}}</div>
@@ -172,7 +172,6 @@
     header{
       /* background-color: #00a98d; */
       background-color: #51c5b3;
-      opacity: 1;
     }
     .menu a.link{
       /* color:rgb(82 82 82); */

@@ -18,7 +18,7 @@
     <div class="user-profile-sidebar">
         <div class="user-profile">
             <div class="user-profile-img">
-                <img src="/{{$userData->image_url}}" alt="profile_pic">
+                <img src="{{$userData->image_url}}" alt="profile_pic">
             </div>
             <div class="user-profile-name">
                 {{$userData->firstname}}    

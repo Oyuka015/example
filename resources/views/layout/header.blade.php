@@ -59,7 +59,7 @@
               </a>
               <div class="dropdown">
                 <button class="dropbtn">
-                  <a id="sub" href="/admin/exam"  class="link">
+                  <a id="sub" href=""  class="link">
                     <i class="fa-solid fa-square-check"></i>
                     <div>{{trans('display.exam')}}</div>
                   </a>
@@ -88,15 +88,15 @@
             </a>
             <a href="/admin/users"  class="link">
               <i class="fa-solid fa-user"></i>
-              <div>{{trans('display.user')}}</div>
+              <div>{{trans('display.profile')}}</div>
             </a>
         </div>
         <div class="dropdown">
           <button class="dropbtn">
-              <a href="/profile" class="header-user-profile"><i class="fa-solid fa-user"></i></a>
+              <a class="header-user-profile"><i class="fa-solid fa-user"></i></a>
           </button>
           <div style="right:0;" class="dropdown-content">
-              <a href="/profile">{{trans('display.profile')}}</a>
+              <a href="/profile">{{trans('display.user')}}</a>
               <a href="/do/logout">{{trans('display.log_out')}}</a>
           </div>  
         </div>

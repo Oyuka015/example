@@ -1,7 +1,7 @@
 @extends('layout.layout')
  
 @section('content')
-<section style="min-height:100vh; ">
+<section style="min-height:100vh; "  class="admin_register_section">
   <h1 class="admin_register_title">{{trans('display.user_information')}}</h1>
   <div class="form-sub-heading">
 

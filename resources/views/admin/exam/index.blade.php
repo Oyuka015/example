@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <button type="submit" class="btn btn-primary" style="float:left">{{trans('display.search')}}</button>
+                <button type="submit" class="btn btn-primary" >{{trans('display.search')}}</button>
               </div>
             </div>
             <div class="col-md-4">
@@ -107,7 +107,79 @@
 
 </section>
 <!-- collapse style -->
+<style>
+  .text-right{
+    float: right;
+  }
+  * {
+    box-sizing: border-box;
+  }
 
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  .chosen-single{
+    width: 100%;
+    padding: 12px !important;
+    height: 45px !important;
+  }
+
+  .chosen-choices{
+    width: 100%;
+    padding: 12px !important;
+    height: 45px !important;
+    border-radius: 5px;
+  }
+
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    float: right; 
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+  .col-35 {
+    float: left;
+    width: 30%;
+    margin-top: 6px;
+  }
+
+  .col-65 {
+    float: left;
+    width: 65%;
+    margin-top: 6px;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  /* Responsive layout - when the screen is less than 350px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 350px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+</style>
 <!-- collapse style end -->
 <script>
   var examTable = $('#exam-table').DataTable( {
