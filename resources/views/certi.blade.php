@@ -8,6 +8,11 @@
     body{
         display:block;
     }
+
+    input:required::-webkit-validation-bubble,
+  input:required::-moz-validation-bubble {
+    display: none;
+  }
 </style>
 <div class="lil-header-section">
     <div class="lil-content">
@@ -20,7 +25,7 @@
             <p class="title">Гэрчилгээ баталгаажуулалт</p>
             <p class="des">Манайхаас өгсөн гэрчилгээний дугаараар хайлт хийнэ үү?</p>
             <div style="display:flex; align-items:center; gap:10px;">
-                <input id="certificate_id" name="certificate_id" type="search" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off" required/>
+                <input id="certificate_id" name="certificate_id" type="number" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
                 <button id="cert-search-button" type="submit">Хайлт хийх</button>
             </div>
         </form>
@@ -91,16 +96,10 @@
             return meta.row + meta.settings._iDisplayStart + 1;
         }
         },
-        { data: 'user_name', "defaultContent": ''},
+        { data: 'lastname', "defaultContent": ''},
         { data: 'certificate_id', "defaultContent": ''},
-        // { data: 'register', "defaultContent": ''},
-        { data: 'registered_date', "defaultContent": ''},
-        // { data: 'registered_user', "defaultContent": ''},
-        // { data: 'lastname', "defaultContent": ''},
-        // { data: 'surname', "defaultContent": ''},
+        { data: 'created_at', "defaultContent": ''},
         { data: 'valid_for', "defaultContent": ''},
-        // { data: 'signature', "defaultContent": ''},
-        // { data: 'action', "defaultContent": ''},
     ],
     columnDefs: [
         {
@@ -111,7 +110,7 @@
             class: "text-center",
             targets: [0,4]
         },{
-            targets: [0,3],
+            targets: [0,4],
             class: "border-right"
         }
     ],
@@ -131,7 +130,7 @@
         "decimal":        "",
         "emptyTable":     "{{trans('messages.table_empty')}}",
         "info":           "",
-        "infoEmpty":      "{{trans('messages.table_showing_empty')}}",
+        "infoEmpty":      "",
         "infoFiltered":   "",
         "infoPostFix":    "",
         "thousands":      ",",
@@ -153,6 +152,18 @@
         certificateTable.draw();
         e.preventDefault();
     });
+
+    function InvalidMsg(textbox) {
+        if (textbox.value === '') {
+            textbox.setCustomValidity
+                    ('Гэрчилгээний дугаар заавал оруулна уу!');
+        } 
+        else {
+            textbox.setCustomValidity('');
+        }
+
+        return true;
+    }
 </script>
 @endsection
  

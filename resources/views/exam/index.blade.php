@@ -32,8 +32,6 @@
                     <div class="e-descri">{{$exm->description}}</div>
                     <div class="e-eye">
                         <div class="eye">
-                            <i class="fa-solid fa-eye"></i>
-                            <p>0</p>
                         </div>
                         <div class="time">
                             <p>{{$exm->exam_time}}</p>
