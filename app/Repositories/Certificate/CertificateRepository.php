@@ -90,23 +90,16 @@ class CertificateRepository implements CertificateInterface
         
         $data = Datatables::make($qry) 
             ->filter(function ($qry) use ($searchData) {
-
-                // if($searchData->has('lastname') && $searchData->get('lastname') !== null)
-                // {
-                //     $qry->whereRaw('LOWER(lastname) like ?', array('%'.mb_strtolower($searchData->get('lastname')).'%'));
-                // }
-                // if($searchData->has('surname') && $searchData->get('surname') !== null)
-                // {
-                //     $qry->whereRaw('LOWER(surname) like ?', array('%'.mb_strtolower($searchData->get('surname')).'%'));
-                // }
-                // if($searchData->has('certificate_id') && $searchData->get('certificate_id') !== null)
-                // {
-                //     $qry->where('certificate_id', $searchData->get('certificate_id'));
-                // }
                 if($searchData->has('certificate_id') && $searchData->get('certificate_id') !== null)
                 {
-                    $qry->where('certificate_id', $searchData->get('certificate_id'));
+                    $qry->where('certificate_id',  'LIKE', '%' .  $searchData->get('certificate_id') . '%');
                 }
+            })
+            ->editColumn('lastname', function($certificate){
+                return @$certificate->lastname.' '.@$certificate->firstname;
+            })
+            ->editColumn('created_at', function ($online) {
+                return date('Y-m-d H:i:s', strtotime($online->created_at));
             })
             ->addColumn('action', function ($certificate) {
                 $actionHtml = "";
