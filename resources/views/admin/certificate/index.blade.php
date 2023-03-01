@@ -1,7 +1,7 @@
 @extends('layout.layout')
  
 @section('content')
-<section >
+<section class="admin_register_section">
   <h1 class="admin_register_title">{{trans('display.certificate_confirm')}}</h1>
   <div class="form-sub-heading">
 

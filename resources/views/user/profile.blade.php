@@ -18,7 +18,7 @@
     <div class="user-profile-sidebar">
         <div class="user-profile">
             <div class="user-profile-img">
-                <img src="/{{$userData->image_url}}" alt="profile_pic">
+                <img src="{{$userData->image_url}}" alt="profile_pic">
             </div>
             <div class="user-profile-name">
                 {{$userData->firstname}}    
@@ -34,14 +34,13 @@
                 </li>
             </ul>
             <ul id="tab_s">
-               
                 <li>
-                    <a href="#first">
+                    <a href="#first" >
                         <i class="fa-solid fa-user"></i>
                         <div>{{trans('display.profile')}}</div>
                     </a>
                 </li>
-                <li>
+                <li >
                     <a href="#third">
                         <i class="fa-solid fa-book-open"></i>
                         <div>{{trans('display.exam')}} ба {{trans('display.certificate')}}</div>
@@ -103,8 +102,8 @@
                                 <input type="text" value="{{$userData->register}}" name="register" readonly>
                             </div>                                                                                      
                         </div>
-                        <div style="margin-top:30px; display:flex; justify-content:end; margin-right:55px;">
-                            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white">{{trans('display.edit')}}</button>
+                        <div style="margin-top:30px; display:flex; justify-content:end; margin-right:55px; ">
+                            <button type="button" class="link-1" id="profile-add" data-toggle="modal" data-target="#profile-add-modal" style="border-color:white; background-color:#51c5b3;">{{trans('display.edit')}}</button>
                         </div>
                     </div>
                 </div>
@@ -133,7 +132,13 @@
                         </table>
                     </div>
                     <div class="certificate-show">
-                        <div style="text-align:center;">gerchilgee haragdah heseg</div>
+                        <div style="text-align:center;">
+                            @if(@Auth::user()->certificate && @Auth::user()->certificate->id)
+                                <iframe src="/certificate/download/public/{{@Auth::user()->certificate->id}}" frameborder="0" style="width: 100%;min-height: 800px;"></iframe>
+                            @else
+                                Гэрчилгээ байхгүй байна.
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -353,17 +358,18 @@
             let tabName = this.getAttribute("href");
 
             let tabContents = document.querySelector("#tab-contents");
-
             for (let i = 0; i < tabContents.children.length; i++) {
             
-            tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-gray-200");  tabContents.children[i].classList.remove("hidden");
-            if ("#" + tabContents.children[i].id === tabName) {
-                continue;
+                tabTogglers[i].parentElement.classList.remove("hover:bg-gray-200", "active:bg-blue-200");  
+                tabContents.children[i].classList.remove("hidden");
+                if ("#" + tabContents.children[i].id === tabName) {
+                    continue;
+                }
+                tabContents.children[i].classList.add("hidden");
+                
+                
             }
-            tabContents.children[i].classList.add("hidden");
-            
-            }
-            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-gray-200",);
+            e.target.parentElement.classList.add("hover:bg-gray-200", "active:bg-blue-200");
         });
     });
 </script>

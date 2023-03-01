@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use App\Models\Certif_User_id as Ids;
 use App\Models\Users as User;
+use \Carbon\Carbon;
 
 use \Auth;
 
@@ -32,8 +33,8 @@ class CertificateRepository implements CertificateInterface
         $user->save();
 
         $certificate = new Certificate;
-        $certificate->user_name = @$user['username'];
-        // $certificate->certificate_id = @$input['certificate_id'];
+        $certificate->user_id = $user->id;
+
         $certificate->register = @$user['register'];
         $certificate->lastname = @$user['lastname'];
         $certificate->firstname = @$user['firstname'];
@@ -42,10 +43,6 @@ class CertificateRepository implements CertificateInterface
         $certificate->created_by = @Auth::user()->id;
         $certificate->save();
 
-        $license_id = new Ids;
-        $license_id->user_id = $user->id;
-        $license_id->certificate_id = $certificate->id;
-        $license_id->save();
         return $certificate;
     }
 
@@ -104,6 +101,7 @@ class CertificateRepository implements CertificateInterface
             ->addColumn('action', function ($certificate) {
                 $actionHtml = "";
                 // $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary certificate-edit" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
+                $actionHtml .= '<a href="/admin/certificate/download/'.@$certificate->id.'" target="_blank" class="btn btn-circle btn-primary certificate-download" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.download\')}}"><i class="fa fa-download"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger certificate-delete" style="margin:3px" data-certificateid="'.@$certificate->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
                 return $actionHtml;
             })

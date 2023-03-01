@@ -26,63 +26,77 @@ Route::get('registration', [App\Http\Controllers\LoginController::class, 'regist
 Route::post('custom-registration', [App\Http\Controllers\LoginController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [App\Http\Controllers\LoginController::class, 'signOut'])->name('signout');
 
+
+
 Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
-    Route::get('/online', 'App\Http\Controllers\Controller@online');
+    Route::group(['prefix'=>'admin', 'middleware' => 'role:Admin'], function () {
+        // Admin-only routes
+        Route::resource('/dashboard', "App\Http\Controllers\DashboardController");
+        Route::any('/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
 
-    Route::resource('/admin/exam', "App\Http\Controllers\ExamController");
-    Route::any('/admin/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
+        Route::resource('/exam', "App\Http\Controllers\ExamController");
+        Route::any('/exam/list/datatable', "App\Http\Controllers\ExamController@dataTableList")->name('exam.datalist');
 
-    Route::resource('/admin/information', "App\Http\Controllers\InformationController");
-    Route::any('/admin/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
+        Route::resource('/information', "App\Http\Controllers\InformationController");
+        Route::any('/information/list/datatable', "App\Http\Controllers\InformationController@dataTableList")->name('information.datalist'); 
 
-    Route::any('/admin/online/group', "App\Http\Controllers\OnlineController@getGroup");
-    Route::any('/admin/online/group/update/data/{id}', 'App\Http\Controllers\OnlineController@updateGroup');
-    Route::any('/admin/online/group/{id}/edit', "App\Http\Controllers\OnlineController@getGroupEdit");
-    Route::any('/admin/online/group/{id}/delete', "App\Http\Controllers\OnlineController@destroyGroup");
-    Route::any('/admin/online/group/list/datatable', "App\Http\Controllers\OnlineController@groupDataTableList")->name('online.group.datalist');
-    
-    Route::resource('/admin/online', "App\Http\Controllers\OnlineController");
-    Route::any('/admin/online/update/data/{id}', 'App\Http\Controllers\OnlineController@updateData')->name('update.data');
-    Route::post('/admin/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
-    Route::any('/admin/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
+        Route::any('/online/group', "App\Http\Controllers\OnlineController@getGroup");
+        Route::any('/online/group/update/data/{id}', 'App\Http\Controllers\OnlineController@updateGroup');
+        Route::any('/online/group/{id}/edit', "App\Http\Controllers\OnlineController@getGroupEdit");
+        Route::any('/online/group/{id}/delete', "App\Http\Controllers\OnlineController@destroyGroup");
+        Route::any('/online/group/list/datatable', "App\Http\Controllers\OnlineController@groupDataTableList")->name('online.group.datalist');
+        
+        Route::resource('/online', "App\Http\Controllers\OnlineController");
+        Route::any('/online/update/data/{id}', 'App\Http\Controllers\OnlineController@updateData')->name('update.data');
+        Route::post('/online/upload/video', 'App\Http\Controllers\OnlineController@uploadVideo')->name('videos.uploadVideo');
+        Route::any('/online/list/datatable', "App\Http\Controllers\OnlineController@dataTableList")->name('online.datalist');
 
-    Route::resource('/admin/feedback', "App\Http\Controllers\FeedbackController");
-    Route::any('/admin/feedback/list/datatable', "App\Http\Controllers\FeedbackController@dataTableList")->name('feedback.datalist');
+        Route::resource('/feedback', "App\Http\Controllers\FeedbackController");
+        Route::any('/feedback/list/datatable', "App\Http\Controllers\FeedbackController@dataTableList")->name('feedback.datalist');
 
-    Route::resource('/admin/faq', "App\Http\Controllers\FaqController");
-    Route::any('/admin/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
+        Route::resource('/faq', "App\Http\Controllers\FaqController");
+        Route::any('/faq/list/datatable', "App\Http\Controllers\FaqController@dataTableList")->name('faq.datalist');
 
-    Route::resource('/admin/question', "App\Http\Controllers\QuestionController");
-    Route::any('/admin/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
+        Route::resource('/question', "App\Http\Controllers\QuestionController");
+        Route::any('/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
 
-    Route::resource('/takeradmin/exams', "App\Http\Controllers\ExamtakersController");
-    Route::any('/admin/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
+        Route::resource('/takeradmin/exams', "App\Http\Controllers\ExamtakersController");
+        Route::any('/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
 
-    Route::resource('/admin/result', "App\Http\Controllers\ResultController");
-    Route::any('/admin/result/list/datatable', "App\Http\Controllers\ResultController@dataTableList")->name('result.datalist');
+        Route::resource('/result', "App\Http\Controllers\ResultController");
+        Route::any('/result/list/datatable', "App\Http\Controllers\ResultController@dataTableList")->name('result.datalist');
 
-    Route::resource('/admin/certificate', "App\Http\Controllers\CertificateController");
-    Route::any('/admin/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
+        Route::resource('/certificate', "App\Http\Controllers\CertificateController");
+        Route::any('/certificate/list/datatable', "App\Http\Controllers\CertificateController@dataTableList")->name('certificate.datalist');
+        Route::get('/certificate/download/{id}', "App\Http\Controllers\CertificateController@donwloadCertificate");
 
-    Route::resource('/admin/systemuser', "App\Http\Controllers\SystemuserController");
-    Route::any('/admin/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
+        Route::resource('/systemuser', "App\Http\Controllers\SystemuserController");
+        Route::any('/systemuser/list/datatable', "App\Http\Controllers\SystemuserController@dataTableList")->name('systemuser.datalist');
 
-    Route::resource('/admin/users', "App\Http\Controllers\UsersController");
-    Route::any('/admin/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+        Route::resource('/users', "App\Http\Controllers\UsersController");
+        Route::any('/users/list/datatable', "App\Http\Controllers\UsersController@dataTableList")->name('users.datalist');
+    });
 
-    //Customer
-    Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
-    Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
-    Route::get('/certi', 'App\Http\Controllers\Controller@certi');
-    Route::get('/faq', 'App\Http\Controllers\Controller@faq');
-    Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
-    Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
-    Route::get('/course', 'App\Http\Controllers\Controller@course');
-    Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
-    Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
+    Route::group(['prefix'=>'', 'middleware' => 'role:Customer'], function () {
+        //Customer
+        Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
+        Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
+        Route::get('/certi', 'App\Http\Controllers\Controller@certi');
+        Route::get('/faq', 'App\Http\Controllers\Controller@faq');
+        Route::get('/feedback', 'App\Http\Controllers\Controller@feedback');
+        Route::get('/detailinfo', 'App\Http\Controllers\Controller@detailinfo');
+        Route::get('/course', 'App\Http\Controllers\Controller@course');
+        Route::get('/lesson', 'App\Http\Controllers\Controller@lesson');
+        Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
+       
+        Route::get('/online', 'App\Http\Controllers\Controller@online');
+    });
     Route::resource('/profile', "App\Http\Controllers\UserController");
     Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
 });
+
+Route::get('/certificate/download/public/{id}', "App\Http\Controllers\Controller@steamCertificate");
+
 Route::get('/do/logout', "App\Http\Controllers\LoginController@doLogOut");
 
 Route::get('/register', 'App\Http\Controllers\UsersController@getRegisterIndex');
@@ -95,12 +109,18 @@ Route::any('/register/save', "App\Http\Controllers\UsersController@storeRegister
 // Route::get('/admin/dashboard', function () {
 //     return view('admin.dashboard');
 // });
-Route::resource('/admin/dashboard', "App\Http\Controllers\DashboardController");
-Route::any('/admin/dashboard/list/datatable', "App\Http\Controllers\DashboardController@dataTableList")->name('dashboard.datalist');
+
+
+// Route::get('/payment', "App\Http\Controllers\Controller@payment");
 
 Route::get('/chartjs', function () {
     return view('chartjs');
 });
 Route::get('/360', function () {
     return view('pano');
+});
+
+Route::get('/qrcode', function () {
+  
+    return QrCode::size(300)->generate('A basic example of QR code!');
 });

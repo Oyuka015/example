@@ -1,6 +1,6 @@
 <style>
     .file {
-        display: flex;
+        /* display: flex; */
         flex-wrap: wrap;
         margin-top: 20px;
     }
@@ -84,15 +84,6 @@
     </select>
     <input type="text" id="add_lesson_group" class="base-input" name="add_lesson_group" placeholder="{{trans('display.add_lesson_group')}}">
   </div>
-  <div class="form-group">
-    <div class="buttons">
-        <div class="video">
-            <div class="upload">
-                {{trans('display.upload_video')}}
-            </div>
-        </div>
-    </div>
-  </div>
   <div class="form-group" style="display:flex; gap:5px">
     <div style="width:50%">
       <label for="lesson_name">{{trans('display.lesson_name')}}</label>
@@ -107,6 +98,15 @@
     <label for="lesson_summary">{{trans('display.lesson_summary')}}</label>
     <input type="text" id="lesson_summary" class="base-input" name="lesson_summary" placeholder="{{trans('display.lesson')}}"  data-rule-required="true" data-msg-required="{{ trans('messages.validation_field_required') }}">
   </div> -->
+  <div class="form-group">
+    <div class="buttons">
+        <div class="video">
+            <div class="upload">
+                {{trans('display.upload_video')}}
+            </div>
+        </div>
+    </div>
+  </div>
   <div class="form-group">
     <div class="buttons">
         <div class="file">
@@ -188,14 +188,14 @@
 <style>
   /* upload video */
   .video {
-      display: flex;
+      /* display: flex; */
       flex-wrap: wrap;
       margin-top: 20px;
   }
   .video .vid,
   .video .upload {
       flex-basis: 31%;
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
       border-radius: 4px;
   }
   .video .vid {

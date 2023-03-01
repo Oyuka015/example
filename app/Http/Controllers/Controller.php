@@ -10,6 +10,9 @@ use App\Models\Codelists;
 use App\Models\Online;
 use App\Models\Aulevels;
 
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -18,6 +21,8 @@ use \View as View;
 use Illuminate\Http\Request;
 use Session;
 use \Config;
+use PDF;
+use QrCode;
 
 class Controller extends BaseController
 {
@@ -50,6 +55,7 @@ class Controller extends BaseController
         
         return View::make('information/medeelel', $data);
     }
+
     public function detailinfo()
     {
         $informations = $this->information->all();
@@ -64,7 +70,6 @@ class Controller extends BaseController
         return view('exam.exam');;
     }
 
-
     public function online(){
         $onlines = $this->online->all();
 
@@ -75,6 +80,7 @@ class Controller extends BaseController
         
         return View::make('online.online', $data);
     }
+
     public function course(){
         $onlines = $this->online->all();
 
@@ -82,6 +88,7 @@ class Controller extends BaseController
         
         return View::make('online.course', $data);
     }
+
     public function lesson(){
         $onlines = $this->online->all();
 
@@ -89,7 +96,6 @@ class Controller extends BaseController
         
         return View::make('online/lesson', $data);
     }
-
 
     public function certi(){
 
@@ -99,6 +105,7 @@ class Controller extends BaseController
         
         return View::make('certi', $data);
     }
+
     public function faq(){
         $faqs = $this->faq->all();
 
@@ -106,9 +113,11 @@ class Controller extends BaseController
         
         return View::make('faq', $data);
     }
+
     public function feedback(){
         return view('feedback');;
     }
+
     public function login(){
         return view('login');;
     }
@@ -134,6 +143,26 @@ class Controller extends BaseController
         $data['au_level2'] = $au_level2;
 
         return View::make('sub_blades.level2', $data);
+    }
+
+    public function steamCertificate($id)
+    {
+        $cert = $this->certificate->find($id);
+
+        $data = [
+            'certificate_no' => @$cert->certificate_id,
+            'lastname' => @$cert->user ? @$cert->user->lastname : '',
+            'firstname' => @$cert->user ? @$cert->user->firstname : '',
+            'year' => @$cert->created_at->year,
+            'month' => @$cert->created_at->month,
+            'day' => @$cert->created_at->day,
+            'image_url' => asset('images/qrcode_'.$id.'.png')
+        ];
+
+        QrCode::generate('/certificate/download/public/'.$id, public_path('images/qrcode_'.$id.'.png'));
+        $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
+        // return View::make('qrcode', $data);
+        return $pdf->stream();
     }
 }
 

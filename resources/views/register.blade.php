@@ -158,7 +158,7 @@
         <div class="buttons">
             <div class="file">
                 <div class="upload" >
-                    {{trans('display.change_image')}}
+                    Зураг сонгох
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <button type="submit" class="btn btn-primary" style="float:right">{{trans('display.search')}}</button>
+                <button type="submit" class="btn btn-primary">{{trans('display.search')}}</button>
               </div>
             </div>
             <div class="col-md-4">

@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <button type="submit" class="btn btn-primary" style="float:right">{{trans('display.search')}}</button>
+                <button type="submit" class="btn btn-primary">{{trans('display.search')}}</button>
               </div>
             </div>
             <div class="col-md-4">
@@ -141,9 +141,8 @@
     color: white;
     padding: 12px 20px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    float: right;
+    float: right; 
   }
 
   input[type=submit]:hover {
