@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Exam', 'exam_student', 'user_id', 'exam_id')->withPivot(['score', 'is_passed', 'exam_date'])->wherePivot('is_passed', true);
     }
 
+    public function certificate()
+    {
+        return $this->belongsTo('App\Models\Certificate', 'id', 'user_id');
+    }
+
     public static function boot()
     {
         parent::boot();

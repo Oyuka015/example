@@ -132,7 +132,13 @@
                         </table>
                     </div>
                     <div class="certificate-show">
-                        <div style="text-align:center;">gerchilgee haragdah heseg</div>
+                        <div style="text-align:center;">
+                            @if(@Auth::user()->certificate && @Auth::user()->certificate->id)
+                                <iframe src="/certificate/download/public/{{@Auth::user()->certificate->id}}" frameborder="0" style="width: 100%;min-height: 800px;"></iframe>
+                            @else
+                                Гэрчилгээ байхгүй байна.
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
