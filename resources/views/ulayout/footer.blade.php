@@ -12,6 +12,9 @@
             <div class="i-img">
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
+            <div class="i-img">
+                <img src="{{URL('images/footer_logo.png') }}" alt="">
+            </div>
         </div>
         <div class="sys">
             <div class="f-title">
@@ -27,23 +30,23 @@
             <div class="holboo-info">
                 <div class="info-1">
                     <div class="info-1-1">
-                        <p>Монгол улс, Улаанбаатар, Чингэлтэй дүүрэг, Барилгачдын талбай-3, засгийн газрын XII байр</p>
+                        <p>Улаанбаатар хот, Сүхбаатар дүүрэг 1 хороо Юнион Бьюлдинг, А блок, 804-2</p>
                     </div>
                     <div class="info-icon">
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-youtube"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100071016612048&mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="info-1">
-                    <p>Имэйл: info@gazar.gov.mn</p>
-                    <p>Утас: +976-51-260638</p>
-                    <p>Факс: +976-11-322683</p>
+                    <p>Имэйл: cadastremongolia@gmail.com</p>
+                    <p>Утас: +976 99064943</p>
+                    <a href="https://sites.google.com/view/mcango"> <p>Веб сайт: sites.google.com/view/mcango</p></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="c-con">
-        <div class="copyright"><p>Copyright 2019 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн BitSoft</p></div>
+        <div class="copyright"><p>Copyright 2023 Монголын Кадастрын Холбоо, Хөгжүүлсэн Эрхэт Инноваци ХХК</p></div>
     </div>
 </footer>

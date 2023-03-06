@@ -41,35 +41,44 @@
 </head>
 <header>
     <div class="h-container">
-        <div class="logo">
-            <img src="{{ URL('images/logo.png') }}" alt="">
-        </div>
+        <!-- <div class="logo"> -->
+            <!-- <img src="{{ URL('images/logo.png') }}" alt=""> -->
+        <!-- </div> -->
         <div class="menu">
           <a href="/admin/dashboard"  class="link">
             <i class="fa-solid fa-chart-line"></i>
             <div>{{trans('display.dashboard')}}</div>
           </a>
           <a href="/admin/information"  class="link">
-                <i class="fa-solid fa-bell"></i>
-                <div>{{trans("display.information")}}</div>
-              </a>
-              <a href="/admin/online"  class="link">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <div>{{trans('display.online_course')}}</div>
-              </a>
-              <div class="dropdown">
-                <button class="dropbtn">
-                  <a id="sub" href=""  class="link">
-                    <i class="fa-solid fa-square-check"></i>
-                    <div>{{trans('display.exam')}}</div>
-                  </a>
-                </button>
-                <div class="dropdown-content">
-                  <a href="/admin/exam">{{trans('display.exam')}}</a>
-                  <a href="/admin/question">{{trans('display.question')}}</a>
-                  <a href="/admin/result">{{trans('display.exam_takers')}}</a>
-                </div>
-              </div>
+            <i class="fa-solid fa-bell"></i>
+            <div>{{trans("display.information")}}</div>
+          </a>
+          <a href="/admin/online"  class="link">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>{{trans('display.online_course')}}</div>
+          </a>
+          <div class="dropdown">
+            <a id="sub" href="" class="link dropbtn" >
+              <i class="fa-solid fa-square-check"></i>
+              <div>{{trans('display.exam')}}</div>
+            </a>
+            <div class="dropdown-content">
+              <a href="/admin/exam">{{trans('display.exam')}}</a>
+              <a href="/admin/question">{{trans('display.question')}}</a>
+              <a href="/admin/result">{{trans('display.exam_takers')}}</a>
+            </div>
+          </div>
+          <!-- <div class="dropdown">
+            <a id="sub" href=""  class="link dropbtn">
+              <i class="fa-solid fa-square-check"></i>
+              <div>{{trans('display.exam')}}</div>
+            </a>
+            <div class="dropdown-content">
+              <a href="/admin/exam">{{trans('display.exam')}}</a>
+              <a href="/admin/question">{{trans('display.question')}}</a>
+              <a href="/admin/result">{{trans('display.exam_takers')}}</a>
+            </div>
+          </div> -->
             <!-- <a id="sub" href="/admin/exam"  class="link">
               <i class="fa-solid fa-graduation-cap"></i>
               <div>{{trans('display.exam')}}</div>
@@ -90,16 +99,17 @@
               <i class="fa-solid fa-user"></i>
               <div>{{trans('display.profile')}}</div>
             </a>
+            <div class="dropdown">
+              <button class="dropbtn">
+                  <a class="header-user-profile"><i class="fa-solid fa-user" style="padding:10%;"></i><div style="magin-left: 1%;">{{@Auth::user()->firstname}}</div></a>
+              </button>
+              <div style="right:0;" class="dropdown-content">
+                  <a href="/profile">{{trans('display.user')}}</a>
+                  <a href="/do/logout">{{trans('display.log_out')}}</a>
+              </div>  
+            </div>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">
-              <a class="header-user-profile"><i class="fa-solid fa-user"></i></a>
-          </button>
-          <div style="right:0;" class="dropdown-content">
-              <a href="/profile">{{trans('display.user')}}</a>
-              <a href="/do/logout">{{trans('display.log_out')}}</a>
-          </div>  
-        </div>
+        
     </div>
 </header>
 <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>

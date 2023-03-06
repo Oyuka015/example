@@ -8,16 +8,16 @@
 </style>
 <div class="course-detail" style="  scroll-behavior: smooth; ">
     <nav class="bulguudiin-nav">
-        <div class="buleg-nav">
-            <div style="font-size:25px; font-weight:700; text-align:center; border-bottom: 2px solid #e2e5e8; color:#666; padding-bottom:10px;">{{trans('display.lesson_groups')}}</div>
+        <div class="buleg-nav" style="margin-left:1.5%">
+            <div style="font-size:130%; font-weight:700; text-align:center; border-bottom: 2px solid #e2e5e8; color:#666; padding-bottom:10px;">{{trans('display.lesson_groups')}}</div>
             @foreach($groups as $group)
-                <a href="#group-{{$group->id}}"  style="scroll-behavior:smooth;" id="menu-group-{{$group->id}}">{{$group->name}}</a>
+                <a href="#group-{{$group->id}}"  style="scroll-behavior:smooth; font-size:120%" id="menu-group-{{$group->id}}">{{$group->name}}</a>
             @endforeach
         </div>
     </nav>
     <div class="hicheeluud">
         @foreach($groups as $group)
-        <div style="border-bottom: 2px solid #00a98d65; padding-bottom: 20px;" >
+        <div style="border-bottom: 2px solid #00a98d65; padding-bottom: 20px; border-width: 80%" >
             <div class="title-h3" id="group-{{$group->id}}">{{$group->name}}</div>
             <div class="online-courses-lessons">
                 @foreach($group->lessonGroup as $online)

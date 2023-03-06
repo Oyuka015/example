@@ -53,9 +53,6 @@
 <body>
     <header>
         <div class="h-container">
-            <div class="logo">
-                <img src="{{ URL('images/logo.png') }}" alt="">
-            </div>
             <div class="ulayout-menu">
                 <a href="/"  class="link">
                     <i class="fa-solid fa-house"></i>
@@ -86,7 +83,7 @@
                     <p>Санал хүсэлт</p>
                 </a> 
             </div>
-            <div id="user-menu">
+            <!-- <div id="user-menu">
             @if(Auth::user())
                 <div class="dropdown">
                     <div class="dropbtn">
@@ -99,25 +96,43 @@
                     </div>
                 </div>
             @else
-                <a style="border:2px outset grey ; padding:10px 20px; border-radius:10pc;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
+                <a style="border:2px outset grey; padding:10% 17%; border-radius:10pc; font-size: 90%;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
             @endif
-            </div>
-            <div class="bars">
+            </div> -->
+            <!-- <div class="bars">
                 <i class="fa-solid fa-bars"></i>
-            </div>
+            </div> -->
         </div>
 
     </header>
     <div class="header-section">
         <div class="content">
             <div class="info">
-                <h2>Lorem <br><span>Be Creative!</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h2>Газрын удирдлагын мэдээллийн системийн Газрын кадастрын мэдээллийн системийн сургалтын цахим систем тавтай морилно уу</h2>
+                <p>Энэхүү цахим систем нь Газрын кадастрын мэдээллийн системийн хэрэглэгчийн сургалтад хамрагдаж, гэрчилгээ авах мэргэжилтэн, судлаач, оюутнуудад зориулагдсан болно.</p>
+                <p>Хэрэглэгч бүртгүүлж, сургалтын төлбөрөө төлснөөр цахим хичээл үзэх, дадлага ажил хийх, эрх зүйн шалгалт өгөх, гэрчилгээ авах шалгалт өгөх, тэнцсэн тохиолдолд сертификатаа хэвлэж авах боломжтой болно.</p>
                 <div class="training-login-btn">
                 @if(!Auth::user())
                     <a href="login" class="info-btn" id="info-btn">Нэвтрэх</a>
                     <a href="register" class="info-btn" id="info-btn">Бүртгүүлэх</a>
                 @endif
+                </div>
+            </div>
+            <div class="schema" style="display: grid; grid-template-rows: 10% 90%;">
+                <div style="padding-top:0; padding: 1%; width: 100%; display:flex; justify-content:space-between; border: 2px solid red;">
+                    <div>
+                        <div>
+                            <input id="certificate_id" style="width: 250%" name="certificate_id" type="text" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
+                            <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+
+                    </div>
+                    <div>
+                        <a style="border:2px outset grey; border-radius:10px; font-size: 50%;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-rows: 15% 85%; margin-top:10%;">
+                    <h2>Газрын кадастрын мэдээллийн системийн хэрэглэгчийн сургалтад хамрагдаж, гэрчилгээг дараахыг алхмын дагуу авна.</h2>
+                    <img src="/images/cadastre.png" alt="">            
                 </div>
             </div>
         </div>
@@ -218,6 +233,9 @@
             <div class="i-img">
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
+            <div class="i-img">
+                <img src="{{URL('images/footer_logo.png') }}" alt="">
+            </div>
         </div>
         <div class="sys">
             <div class="f-title">
@@ -233,24 +251,24 @@
             <div class="holboo-info">
                 <div class="info-1">
                     <div class="info-1-1">
-                        <p>Монгол улс, Улаанбаатар, Чингэлтэй дүүрэг, Барилгачдын талбай-3, засгийн газрын XII байр</p>
+                        <p>Улаанбаатар хот, Сүхбаатар дүүрэг 1 хороо Юнион Бьюлдинг, А блок, 804-2</p>
                     </div>
                     <div class="info-icon">
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                        <i class="fa-brands fa-youtube"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100071016612048&mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="info-1">
-                    <p>Имэйл: info@gazar.gov.mn</p>
-                    <p>Утас: +976-51-260638</p>
-                    <p>Факс: +976-11-322683</p>
+                    <p>Имэйл: cadastremongolia@gmail.com</p>
+                    <p>Утас: +976 99064943</p>
+                    <a href="https://sites.google.com/view/mcango"> <p>Веб сайт: sites.google.com/view/mcango</p></a>
                 </div>
             </div>
         </div>
     </div>
     <div class="c-con">
-        <div class="copyright"><p>Copyright 2023 © Газар зохион байгуулалт, геодези, зураг зүйн газар. Хөгжүүлсэн Эрхэт инноваци ХХК</p></div>
+        <div class="copyright"><p>Copyright 2023 Монголын Кадастрын Холбоо, Хөгжүүлсэн Эрхэт Инноваци ХХК</p></div>
     </div>
 </footer>
 <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>

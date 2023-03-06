@@ -164,7 +164,7 @@ class OnlineController extends BaseController
             $video->video = $path;
             // dd($video, 'sda');
         }
-        dd($video);
+        // dd($video);
         $video->save();
     
     }

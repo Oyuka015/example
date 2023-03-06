@@ -20,7 +20,7 @@
         .login{
             width:450px;
             height:450px;
-            background-color: lightblue;
+            background-color: #DFDEDE;
             border-radius:10px;
         }
         .login .login-con{
