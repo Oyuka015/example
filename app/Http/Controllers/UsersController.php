@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
-use App\Models\Users;
+use App\Models\User;
 use App\Models\Aulevels;
 
-use App\Repositories\Users\UsersInterface;
+use App\Repositories\User\UserInterface;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -25,7 +25,7 @@ class UsersController extends BaseController
 
     protected $view_path;
 
-    public function __construct(UsersInterface $users) {
+    public function __construct(UserInterface $users) {
         $this->users = $users;
         $this->view_path = 'admin.users';
     }

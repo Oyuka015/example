@@ -96,4 +96,9 @@ class User extends Authenticatable
             $user->updated_by = Auth::user()->id;
         });
     }
+
+    public function userToLesson()
+    {
+        return $this->belongsToMany('App\Models\Online', 'online_course_view', 'lesson_id', 'user_id');
+    }
 }

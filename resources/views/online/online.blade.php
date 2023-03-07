@@ -21,7 +21,7 @@
             <div class="title-h3" id="group-{{$group->id}}">{{$group->name}}</div>
             <div class="online-courses-lessons">
                 @foreach($group->lessonGroup as $online)
-                    <div class="online-courses-lesson-card" >
+                    <div class="online-courses-lesson-card" onclick="saveIdtoUser({{$online->id}})">
                         <div class="lesson-card-img">
                             <div class="lesson-img">
                                 <img src="{{ URL('images/video_poster.png') }}" alt="">
@@ -42,8 +42,29 @@
 </div>
 
 <script>
-    function getDatas(id){
-        window.location.assign('/get/datas/'+ id);
+    // function getDatas(id){
+    //     window.location.assign('/get/datas/'+ id);
+    // }
+
+    function saveIdtoUser(id){
+        $.ajax({
+            url: '/user/online/'+id,
+            type: 'post',
+            beforeSend: function() {
+                //$('#preloader').show();
+            },
+            success: function(response) {
+                
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            },
+            async: false          
+        }).done(function(data) {
+            //submitButton.prop('disabled', false);
+        });
     }
 </script>
 @endsection

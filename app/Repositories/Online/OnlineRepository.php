@@ -5,6 +5,7 @@ namespace App\Repositories\Online;
 
 use App\Repositories\Online\OnlineInterface as OnlineInterface;
 use App\Models\Online;
+use App\Models\User;
 use App\Models\Codelists;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
@@ -12,7 +13,6 @@ use ConfigHelper;
 use DB;
 use Auth;
 use File;
-
 use Config;
 
 class OnlineRepository implements OnlineInterface
@@ -64,6 +64,12 @@ class OnlineRepository implements OnlineInterface
         return $online;
     }
 
+    public function storeLessonId($id){
+        $users = new User;
+        $users->userToLesson->lesson_id = $id;
+        $users->userToLesson->user_id = @Auth::user()->id;
+        $users->save();
+    }
     public function update($id, $input, $file)
     {
         $online = Online::find($id);

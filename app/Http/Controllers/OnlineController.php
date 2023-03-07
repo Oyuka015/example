@@ -255,4 +255,7 @@ class OnlineController extends BaseController
         return View::make('core.alert.messages', $data);
     }
     
+    public function storeLessonId($id){
+        $app = $this->online->storeLessonId($id);
+    }
 }

@@ -8,7 +8,7 @@ use App\Models\Certificate;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use App\Models\Certif_User_id as Ids;
-use App\Models\Users as User;
+use App\Models\User as User;
 use \Carbon\Carbon;
 
 use \Auth;

@@ -92,6 +92,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
         Route::get('/online_course', 'App\Http\Controllers\Controller@online_course');
        
         Route::get('/online', 'App\Http\Controllers\Controller@online');
+        Route::any('/user/online/{id}', "App\Http\Controllers\OnlineController@storeLessonId")->name('online.lesson.store');
     });
     Route::resource('/profile', "App\Http\Controllers\UserController");
     Route::any('/profile/edit/{id}', "App\Http\Controllers\UserController@update");
