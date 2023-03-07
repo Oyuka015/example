@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/css/mystyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <header>
-    <div class="h-container" style="display:flex; justify-content:space-between;">
-        <div class="menu">
+    <div class="h-container" style="display:flex;">
+        <div class="menu" style="width:90%">
           <a href="/admin/dashboard"  class="link">
             <i class="fa-solid fa-chart-line"></i>
             <div>{{trans('display.dashboard')}}</div>
@@ -15,7 +15,7 @@
             <i class="fa-solid fa-graduation-cap"></i>
             <div>{{trans('display.online_course')}}</div>
           </a>
-          <div class="dropdown">
+          <div class="dropdown" style="width:10%">
             <button class="dropbtn">
               <a id="sub" href="/admin/exam"  class="link">
                 <i class="fa-solid fa-square-check"></i>
