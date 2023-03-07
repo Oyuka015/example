@@ -119,14 +119,15 @@
                 </div>
             </div>
             <div class="schema" style="display: grid; grid-template-rows: 10% 90%;">
-                <div style="padding-top:0; padding: 1%; width: 100%; display:flex; justify-content:space-between; border: 2px solid red;">
+                <div style="padding-top:0; width: 100%; display:flex; justify-content:space-between; ">
                     <div>
-                        <div>
-                            <input id="certificate_id" style="width: 250%" name="certificate_id" type="text" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
-                            <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button></div>
+                        <div style="display:flex; padding:1%;">
+                            <input id="certificate_id" style="width: 350px; border:1px solid grey; " name="certificate_id" type="text" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
+                            <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
 
                     </div>
-                    <div>
+                    <div style="padding:1%;">
                         <a style="border:2px outset grey; border-radius:10px; font-size: 50%;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
                     </div>
                 </div>

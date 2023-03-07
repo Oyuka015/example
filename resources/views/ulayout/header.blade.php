@@ -37,36 +37,38 @@
         .dropdown:hover .dropdown-content {display: block;}
     </style>
 <header>
-<div class="h-container">
-            <div class="ulayout-menu">
-                <a href="/"  class="link">
-                    <i class="fa-solid fa-house"></i>
-                    <p>Нүүр</p>
-                </a>
-                <a href="medeelel" class="link">
-                    <i class="fa-solid fa-bell"></i>
-                    <p>Мэдээлэл</p>
-                </a>
-                <a href="online" class="link" >
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <p>Цахим хичээл</p>
-                </a>
-                <a href="exam" class="link">
-                    <i class="fa-solid fa-square-check"></i>
-                    <p>Шалгалт</p>
-                </a>
-                <a href="certi" class="link">
-                    <i class="fa-solid fa-certificate"></i>
-                    <p>Гэрчилгээ хайлт</p>
-                </a>
-                <a href="faq" class="link">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <p>Асуулт хариулт</p>
-                </a>
-                <a href="feedback" class="link">
-                    <i class="fa-solid fa-envelope"></i>
-                    <p>Санал хүсэлт</p>
-                </a> 
+        <div class="h-container">
+            <div class="ulay-menu">
+                <div class="xy">
+                    <a href="/"  class="link" >
+                        <i class="fa-solid fa-house"></i>
+                        <div>Нүүр</div>
+                    </a>
+                    <a href="medeelel" class="link">
+                        <i class="fa-solid fa-bell"></i>
+                        <div>Мэдээлэл</div>
+                    </a>
+                    <a href="online" class="link" >
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>Цахим хичээл</div>
+                    </a>
+                    <a href="exam" class="link">
+                        <i class="fa-solid fa-square-check"></i>
+                        <div>Шалгалт</div>
+                    </a>
+                    <a href="certi" class="link">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div>Гэрчилгээ хайлт</div>
+                    </a>
+                    <a href="faq" class="link">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>Асуулт хариулт</div>
+                    </a>
+                    <a href="feedback" class="link">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>Санал хүсэлт</div>
+                    </a> 
+                </div>
                 <div id="user-menu">
                 @if(Auth::user())
                     <div class="dropdown">

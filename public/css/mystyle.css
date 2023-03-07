@@ -95,8 +95,40 @@ header {
     gap: 5px;
     color: #1f1f1f;
     font-size: 100%;
+    
 }
 .ulayout-menu a:hover {
+    text-decoration: none;
+    color: black;
+}
+.ulay-menu {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    display: grid;
+    grid-template-columns: 60% 10%;
+    height: 100%;
+    margin-left: 10px;
+    gap: 20px;
+    padding: 1%;
+    grid-gap: 30%;
+}
+.xy{
+    display: flex;
+    margin-left: 10px;
+    gap: 20px;
+    padding: 1%;
+}
+.ulay-menu .xy a {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+    color: #1f1f1f;
+    font-size: 100%;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.ulay-menu .xy a:hover {
     text-decoration: none;
     color: black;
 }
@@ -1094,6 +1126,10 @@ button::-moz-focus-inner {
     text-decoration: none;
 }
 .ulayout-menu .link{
+    padding-right: 2%;
+    border-right: 1px solid grey;
+}
+.ulay-menu .xy  a.link{
     padding-right: 2%;
     border-right: 1px solid grey;
 }
