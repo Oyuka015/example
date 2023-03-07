@@ -95,7 +95,6 @@ header {
     gap: 5px;
     color: #1f1f1f;
     font-size: 100%;
-    
 }
 .ulayout-menu a:hover {
     text-decoration: none;
@@ -131,6 +130,17 @@ header {
 .ulay-menu .xy a:hover {
     text-decoration: none;
     color: black;
+}
+.ulay-menu #user-menu{
+    display: flex;
+    align-items: center;
+    color: #1f1f1f;
+}
+.ulay-menu #user-menu a{
+    color: #1f1f1f;
+}
+.ulay-menu #user-menu a:hover{
+    text-decoration: none;
 }
 /* ulayout header end */
 .header-user-profile {
@@ -183,6 +193,7 @@ header {
 } */
 
 .content .info p {
+    color: white;
     font-size: 24px;
     font-weight: 500;
     margin-bottom: 2%;

@@ -1,36 +1,33 @@
 <link rel="stylesheet" href="/css/mystyle.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <header>
-    <div class="h-container">
-        <div class="logo">
-            <img src="{{ URL('images/logo.png') }}" alt="">
-        </div>
+    <div class="h-container" style="display:flex; justify-content:space-between;">
         <div class="menu">
           <a href="/admin/dashboard"  class="link">
             <i class="fa-solid fa-chart-line"></i>
             <div>{{trans('display.dashboard')}}</div>
           </a>
           <a href="/admin/information"  class="link">
-                <i class="fa-solid fa-bell"></i>
-                <div>{{trans("display.information")}}</div>
+            <i class="fa-solid fa-bell"></i>
+            <div>{{trans("display.information")}}</div>
+          </a>
+          <a href="/admin/online"  class="link">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>{{trans('display.online_course')}}</div>
+          </a>
+          <div class="dropdown">
+            <button class="dropbtn">
+              <a id="sub" href="/admin/exam"  class="link">
+                <i class="fa-solid fa-square-check"></i>
+                <div>{{trans('display.exam')}}</div>
               </a>
-              <a href="/admin/online"  class="link">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <div>{{trans('display.online_course')}}</div>
-              </a>
-              <div class="dropdown">
-                <button class="dropbtn">
-                  <a id="sub" href="/admin/exam"  class="link">
-                    <i class="fa-solid fa-square-check"></i>
-                    <div>{{trans('display.exam')}}</div>
-                  </a>
-                </button>
-                <div class="dropdown-content">
-                  <a href="/admin/exam">{{trans('display.exam')}}</a>
-                  <a href="/admin/question">{{trans('display.question')}}</a>
-                  <a href="/admin/result">{{trans('display.exam_takers')}}</a>
-                </div>
-              </div>
+            </button>
+            <div class="dropdown-content">
+              <a href="/admin/exam">{{trans('display.exam')}}</a>
+              <a href="/admin/question">{{trans('display.question')}}</a>
+              <a href="/admin/result">{{trans('display.exam_takers')}}</a>
+            </div>
+          </div>
             <!-- <a id="sub" href="/admin/exam"  class="link">
               <i class="fa-solid fa-graduation-cap"></i>
               <div>{{trans('display.exam')}}</div>
