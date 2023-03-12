@@ -9,6 +9,7 @@ use App\Models\Information;
 use App\Models\Codelists;
 use App\Models\Online;
 use App\Models\Aulevels;
+use App\Models\Certificate;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Http;
@@ -23,6 +24,7 @@ use Session;
 use \Config;
 use PDF;
 use QrCode;
+use Auth;
 
 class Controller extends BaseController
 {
@@ -37,11 +39,18 @@ class Controller extends BaseController
 
     public function aa()
     {
+        
         $informations = Information::select('*')->limit(3)->get();
-
+        $lessonCount = \DB::select('select count(*) from base.online_course')[0]->count;
+        if(\Auth::user()){
+            $userLessonCount = \Auth::user()->userToLesson()->count();
+            $data['userLessonCount'] = $userLessonCount;
+        }
+        // dd($lessonCount, $userLessonCount);
         $data['informations'] = $informations;
         $user_Data = Session::get('login_user');
         $data['userData'] = $user_Data;
+        $data['lessonCount'] = $lessonCount;
         
         return View::make('test', $data);
 
@@ -163,6 +172,14 @@ class Controller extends BaseController
         $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
         // return View::make('qrcode', $data);
         return $pdf->stream();
+    }
+    public function searchCertificate(request $request){
+
+        $input = $request->input();
+        // $inputValueType = gettype($input['value']);
+
+        $result = Certificate::where('certificate_id', $input['value'])->orWhere('register','ilike',  strtolower($input['value']))->get();;
+        dd($result);
     }
 }
 

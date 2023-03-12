@@ -63,8 +63,8 @@
               <div>{{trans('display.exam')}}</div>
             </a>
             <div class="dropdown-content">
-              <a href="/admin/exam">{{trans('display.exam')}}</a>
-              <a href="/admin/question">{{trans('display.question')}}</a>
+              <a href="/admin/exam">{{trans('display.legal_exam')}}</a>
+              <a href="/admin/question">{{trans('display.legal_exam_question')}}</a>
               <a href="/admin/result">{{trans('display.exam_takers')}}</a>
             </div>
           </div>

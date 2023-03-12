@@ -99,6 +99,6 @@ class User extends Authenticatable
 
     public function userToLesson()
     {
-        return $this->belongsToMany('App\Models\Online', 'online_course_view', 'lesson_id', 'user_id');
+        return $this->belongsToMany('App\Models\Online', 'online_course_view', 'user_id', 'lesson_id');
     }
 }

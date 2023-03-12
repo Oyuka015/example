@@ -18,6 +18,7 @@ return [
     'exam' => 'Шалгалт',
     'exam_register' => 'Шалгалтын бүртгэл',
     'certificate' => 'Гэрчилгээ',
+    'search_certificate' => 'Гэрчилгээ хайлт',
     'certificate_confirm' => 'Гэрчилгээ бүртгэх',
     'certificate_id' => 'Гэрчилгээний дугаар',
     'faq_register' => 'Асуулт хариулт бүртгэх',
@@ -42,6 +43,7 @@ return [
     'settings' => 'Тохиргоо',
     'log_out' => 'Гарах',
     'log_in' => 'Нэвтрэх',
+    'sign_in' => 'Бүртгүүлэх',
     'upload_video' => 'Бичлэг оруулах',
     'upload_image' => 'Бичлэг оруулах',
     'profile' => 'Хэрэглэгчийн мэдээлэл',
@@ -144,6 +146,10 @@ return [
     'description' => 'Тайлбар',
     'time' => 'Хугацаа',
     'dashboard' => 'Хянах самбар',
+    'registr_license' => 'Регистр/Гэрчилгээний дугаар',
+    'legal_exam' => 'Эрх зүйн шалгалт',
+    'legal_exam_question' => 'Эрх зүйн шалгалтын асуулт',
+    'practice_exam' => 'Практик шалгалт',
 ];
 
 

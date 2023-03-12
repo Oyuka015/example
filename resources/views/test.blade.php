@@ -53,35 +53,120 @@
 <body>
     <header>
         <div class="h-container">
-            <div class="ulayout-menu">
-                <a href="/"  class="link">
-                    <i class="fa-solid fa-house"></i>
-                    <p>Нүүр</p>
-                </a>
-                <a href="medeelel" class="link">
-                    <i class="fa-solid fa-bell"></i>
-                    <p>Мэдээлэл</p>
-                </a>
-                <a href="online" class="link" >
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <p>Цахим хичээл</p>
-                </a>
-                <a href="exam" class="link">
-                    <i class="fa-solid fa-square-check"></i>
-                    <p>Шалгалт</p>
-                </a>
-                <a href="certi" class="link">
-                    <i class="fa-solid fa-certificate"></i>
-                    <p>Гэрчилгээ хайлт</p>
-                </a>
-                <a href="faq" class="link">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <p>Асуулт хариулт</p>
-                </a>
-                <a href="feedback" class="link">
-                    <i class="fa-solid fa-envelope"></i>
-                    <p>Санал хүсэлт</p>
-                </a> 
+        <div class="ulay-menu">
+                <div class="xy">
+                    <a href="/"  class="link" >
+                        <i class="fa-solid fa-house"></i>
+                        <div>{{trans('display.home')}}</div>
+                    </a>
+                    <a href="medeelel" class="link">
+                        <i class="fa-solid fa-bell"></i>
+                        <div>{{trans('display.information')}}</div>
+                    </a>
+                    <a href="online" class="link" >
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <div>{{trans('display.online_course')}}</div>
+                    </a>
+                    @if(@Auth::user())
+                        @if($userLessonCount == $lessonCount)
+                        <div class="dropdown">
+                            <a class="links dropdown btn">
+                                <i class="fa-solid fa-square-check"></i>
+                                <div>{{trans('display.exam')}}</div>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="exam">
+                                    <div>{{trans('display.legal_exam')}}</div>
+                                </a>
+                                <a href="get/practice/exam/{{Auth::user()->id}}">
+                                    <div>{{trans('display.practice_exam')}}</div>
+                                </a>
+                            </div>
+                        </div>
+                        @else
+                        <div class="dropdown">
+                            <a class="links dropdown btn">
+                                <i class="fa-solid fa-square-check"></i>
+                                <div>{{trans('display.exam')}}</div>
+                            </a>
+                            <div class="dropdown-content" onclick="examAlert('lesson')">
+                                <button style="width:100%">
+                                    <a>
+                                        <div>{{trans('display.legal_exam')}}</div>
+                                    </a>
+                                </button>
+                                <button style="width:100%">
+                                    <a>
+                                        <div>{{trans('display.practice_exam')}}</div>
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                        @endif
+                    @else
+                    <div class="dropdown">
+                        <a class="links dropdown btn">
+                            <i class="fa-solid fa-square-check"></i>
+                            <div>{{trans('display.exam')}}</div>
+                        </a>
+                        <div class="dropdown-content" onclick="examAlert('login')">
+                            <button style="width:100%">
+                                <a>
+                                    <div>{{trans('display.legal_exam')}}</div>
+                                </a>
+                            </button>
+                            <button style="width:100%">
+                                <a>
+                                    <div>{{trans('display.practice_exam')}}</div>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    @endif
+                    <a href="certi" class="link">
+                        <i class="fa-solid fa-certificate"></i>
+                        <div>{{trans('display.search_certificate')}}</div>
+                    </a>
+                    <a href="faq" class="link">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <div>{{trans('display.faq')}}</div>
+                    </a>
+                    <a href="feedback" class="link">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>{{trans('display.feedback')}}</div>
+                    </a> 
+                    <div style="padding-top:0; width: 100%; display:flex; justify-content:space-between; ">
+                    <div>
+                        <div style="display:flex; padding:1%;">
+                            <input id="search_certificate" style="padding-left: 2%; width: 350px; border:1px solid grey; border-top-left-radius:10px; border-bottom-left-radius:10px; text: center;" name="certificate_id" type="text" placeholder="{{trans('display.registr_license')}}" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
+                            <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+
+                    </div>
+                        @if(@Auth::user())
+                        <div class="dropdown" style="margin-left: 2%;">
+                            <a href="login" class=" drop btn" style="width:100%; height:100%;">
+                                <i class="fa-solid fa-user"></i>
+                                <div>{{@Auth::user()->firstname}}</div>
+                            </a> 
+                            <div class="dropdown-content">
+                                <a href="profile" class="">
+                                    <div>{{trans('display.profile')}}</div>
+                                </a> 
+                                <a href="do/logout" class="">
+                                    <div>{{trans('display.log_out')}}</div>
+                                </a> 
+                            </div>
+                        </div>
+                        @else
+                            <a href="login" class="" style="width: 120px; padding-left: 2%;  margin-left: 2%; border: 1px solid gray; border-radius:20px;">
+                                <i class="fa-solid fa-user"></i>
+                                <div>{{trans('display.log_in')}}</div>
+                            </a> 
+                        <!-- <a href="login" class="info-btn" id="info-btn">Нэвтрэх</a> -->
+                        @endif
+                </div>
+                </div>
             </div>
             <!-- <div id="user-menu">
             @if(Auth::user())
@@ -108,7 +193,9 @@
     <div class="header-section">
         <div class="content">
             <div class="info">
-                <h2>Газрын удирдлагын мэдээллийн системийн Газрын кадастрын мэдээллийн системийн сургалтын цахим систем тавтай морилно уу</h2>
+                <h2>Газрын удирдлагын мэдээллийн системийн</h2>
+                <h2>Газрын кадастрын мэдээллийн системийн сургалтын цахим систем </h2>
+                <h2>тавтай морилно уу</h2>
                 <p>Энэхүү цахим систем нь Газрын кадастрын мэдээллийн системийн хэрэглэгчийн сургалтад хамрагдаж, гэрчилгээ авах мэргэжилтэн, судлаач, оюутнуудад зориулагдсан болно.</p>
                 <p>Хэрэглэгч бүртгүүлж, сургалтын төлбөрөө төлснөөр цахим хичээл үзэх, дадлага ажил хийх, эрх зүйн шалгалт өгөх, гэрчилгээ авах шалгалт өгөх, тэнцсэн тохиолдолд сертификатаа хэвлэж авах боломжтой болно.</p>
                 <div class="training-login-btn">
@@ -118,22 +205,13 @@
                 @endif
                 </div>
             </div>
-            <div class="schema" style="display: grid; grid-template-rows: 10% 90%;">
-                <div style="padding-top:0; width: 100%; display:flex; justify-content:space-between; ">
-                    <div>
-                        <div style="display:flex; padding:1%;">
-                            <input id="certificate_id" style="width: 350px; border:1px solid grey; " name="certificate_id" type="text" placeholder="Гэрчилгээний дугаар оруулна уу?" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
-                            <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-
-                    </div>
-                    <div style="padding:1%;">
-                        <a style="border:2px outset grey; border-radius:10px; font-size: 50%;" href="login" class="info-btn new_btn" id="info-btn">{{trans('display.log_in')}}</a>
-                    </div>
-                </div>
-                <div style="display: grid; grid-template-rows: 15% 85%; margin-top:10%;">
+            <div class="schema">
+                <div style="display: grid; grid-template-rows: 13% 87%; margin-top:7%; color: #0072b5;">
                     <h2>Газрын кадастрын мэдээллийн системийн хэрэглэгчийн сургалтад хамрагдаж, гэрчилгээг дараахыг алхмын дагуу авна.</h2>
-                    <img src="/images/cadastre.png" alt="">            
+                    <div style="display: flex;">
+                        <img src="/images/sys_algo1.png" alt="">            
+                        <img src="/images/sys_algo2.png" alt="">            
+                    </div>
                 </div>
             </div>
         </div>
@@ -224,13 +302,6 @@
 <footer>
     <div class="f-container">
         <div class="intro">
-            <div class="f-title">
-                <div class="text">Танилцуулга</div>
-                <div class="line"></div>
-            </div>
-            <div class="i-text">
-                <p>Цахим шалгалт, гэрчилгээ лавлагаа, цахим хичээл, мэдээ мэдээлэл, зар мэдээ, цахим шалгалт удирдлага хяналт, гэрчилгээ хэвлэлт зэргийг багтаасан сургалтын дараах шалгалт авах систем.</p>
-            </div>
             <div class="i-img">
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
@@ -238,10 +309,15 @@
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
         </div>
-        <div class="sys">
+        <div class="intro">
             <div class="f-title">
-                <div class="text">Цахим системүүд</div>
-                <div class="line"></div>
+                <div class="f-title">
+                    <div class="text">Танилцуулга</div>
+                    <div class="line"></div>
+                </div>
+                <div class="i-text">
+                    <p>Цахим шалгалт, гэрчилгээ лавлагаа, цахим хичээл, мэдээ мэдээлэл, зар мэдээ, цахим шалгалт удирдлага хяналт, гэрчилгээ хэвлэлт зэргийг багтаасан сургалтын дараах шалгалт авах систем.</p>
+                </div>
             </div>
         </div>
         <div class="holboo">
@@ -262,8 +338,8 @@
                 </div>
                 <div class="info-1">
                     <p>Имэйл: cadastremongolia@gmail.com</p>
-                    <p>Утас: +976 99064943</p>
-                    <a href="https://sites.google.com/view/mcango"> <p>Веб сайт: sites.google.com/view/mcango</p></a>
+                    <!-- <p>Утас: +976 99064943</p>lk -->
+                    <p>Веб сайт:<a href="https://sites.google.com/view/mcango">  sites.google.com/view/mcango</a></p>
                 </div>
             </div>
         </div>
@@ -279,3 +355,60 @@
 <script src="/js/sweetalert2.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/jquery.inputmask/dist/jquery.inputmask.bundle.min.js"></script>
+<script>
+    $('#mid-search-button').on('click', function(){
+        var value = $('#search_certificate').val();
+        var type = typeof value;
+        $.ajax({
+            url: '/customer/search/certificate',
+            type: 'post',
+            data: {value: value},
+            beforeSend: function() {
+                //$('#preloader').show();
+            },
+            success: function(response) {
+                alert="hi";
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            },
+            async: false          
+        }).done(function(data) {
+            //submitButton.prop('disabled', false);
+        });    });
+        function examAlert(name){
+            if(name == 'lesson'){
+                Swal.fire({
+                    title: 'Цахим хичээл бүрэн үзэх шаардлагатай.',
+                    icon: 'error',
+                    iconHtml: '',
+                    cancelButtonText: 'Цуцлах',
+                    confirmButtonText: 'За',
+                    showCancelButton: true
+                    // showCloseButton: true
+                }).then((result) => {
+                    if (result.isConfirmed == true) {
+                        window.location.href = '/online';
+                    }
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Эхлээд нэврэнэ үү.',
+                    icon: 'error',
+                    iconHtml: '',
+                    cancelButtonText: 'Цуцлах',
+                    confirmButtonText: 'За',
+                    showCancelButton: true
+                    // showCloseButton: true
+                }).then((result) => {
+                    if (result.isConfirmed == true) {
+                        window.location.href = '/login';
+                    }
+                })
+            }
+            
+        }
+</script>

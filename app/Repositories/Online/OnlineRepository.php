@@ -65,10 +65,9 @@ class OnlineRepository implements OnlineInterface
     }
 
     public function storeLessonId($id){
-        $users = new User;
-        $users->userToLesson->lesson_id = $id;
-        $users->userToLesson->user_id = @Auth::user()->id;
-        $users->save();
+
+    Auth::user()->userToLesson()->sync($id, false);
+    
     }
     public function update($id, $input, $file)
     {

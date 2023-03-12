@@ -148,7 +148,7 @@
         <div style="display:flex; gap:5px; ">
             <label for="">{{trans('display.active_status')}}</label>
             <label style="margin-top:4px;" class="switch" name="switch">
-                <input type="checkbox">
+                <input type="checkbox" checked>
                 <span class="slider round"></span>
             </label>  
         </div>
@@ -278,7 +278,7 @@
           <input type="number" name="gpa" autocomplete="off">
       </label>
       <label for="diploma_number">
-          {{trans('display.diploma_num')}}
+          {{trans('display.diploma_number')}}
           <input type="text" name="diploma_number" autocomplete="off">
       </label>
       <label for="diploma_register">
@@ -291,7 +291,7 @@
       </label>
   </div>
   <div type="submit" id="register-form-submit" class="register-form-submit">
-      <button>Төлбөр төлөх</button>
+      <button>{{trans('display.sign_in')}}</button>
   </div>
 </form>
 

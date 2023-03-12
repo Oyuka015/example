@@ -42,9 +42,9 @@
 </div>
 
 <script>
-    // function getDatas(id){
-    //     window.location.assign('/get/datas/'+ id);
-    // }
+    function getDatas(id){
+        window.location.assign('/get/datas/'+ id);
+    }
 
     function saveIdtoUser(id){
         $.ajax({

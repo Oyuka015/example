@@ -18,6 +18,7 @@ Route::get('/medeelel', 'App\Http\Controllers\Controller@medeelel');
 Route::get('/getAuLevel2/{id}', 'App\Http\Controllers\Controller@getAuLevel2');
 Route::any('/get/data/{id}', 'App\Http\Controllers\Controller@getDataForInformation')->name('get.data');
 Route::any('/get/datas/{id}', 'App\Http\Controllers\Controller@getDatasForLesson')->name('get.datas');
+Route::any('/customer/search/certificate', 'App\Http\Controllers\Controller@searchCertificate')->name('search.certificate');
 
 Route::get('login', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\LoginController::class, 'dashboard']); 
@@ -81,6 +82,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
     Route::group(['prefix'=>'', 'middleware' => 'role:Customer'], function () {
         //Customer
         Route::resource('/exam', 'App\Http\Controllers\HomeExamController');
+        Route::get('/get/practice/exam/{id}', 'App\Http\Controllers\HomeExamController@getPracticeExam');
         Route::get('/exam/detail/{id}', 'App\Http\Controllers\HomeExamController@examDetail');
         Route::any('/feedback/store', 'App\Http\Controllers\FeedbackController@store');
         Route::get('/certi', 'App\Http\Controllers\Controller@certi');

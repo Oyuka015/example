@@ -2,13 +2,6 @@
 <footer>
     <div class="f-container">
         <div class="intro">
-            <div class="f-title">
-                <div class="text">Танилцуулга</div>
-                <div class="line"></div>
-            </div>
-            <div class="i-text">
-                <p>Цахим шалгалт, гэрчилгээ лавлагаа, цахим хичээл, мэдээ мэдээлэл, зар мэдээ, цахим шалгалт удирдлага хяналт, гэрчилгээ хэвлэлт зэргийг багтаасан сургалтын дараах шалгалт авах систем.</p>
-            </div>
             <div class="i-img">
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
@@ -16,10 +9,15 @@
                 <img src="{{URL('images/footer_logo.png') }}" alt="">
             </div>
         </div>
-        <div class="sys">
+        <div class="intro">
             <div class="f-title">
-                <div class="text">Цахим системүүд</div>
-                <div class="line"></div>
+                <div class="f-title">
+                    <div class="text">Танилцуулга</div>
+                    <div class="line"></div>
+                </div>
+                <div class="i-text">
+                    <p>Цахим шалгалт, гэрчилгээ лавлагаа, цахим хичээл, мэдээ мэдээлэл, зар мэдээ, цахим шалгалт удирдлага хяналт, гэрчилгээ хэвлэлт зэргийг багтаасан сургалтын дараах шалгалт авах систем.</p>
+                </div>
             </div>
         </div>
         <div class="holboo">
@@ -40,8 +38,8 @@
                 </div>
                 <div class="info-1">
                     <p>Имэйл: cadastremongolia@gmail.com</p>
-                    <p>Утас: +976 99064943</p>
-                    <a href="https://sites.google.com/view/mcango"> <p>Веб сайт: sites.google.com/view/mcango</p></a>
+                    <!-- <p>Утас: +976 99064943</p> -->
+                    <p>Веб сайт: <a href="https://sites.google.com/view/mcango"> sites.google.com/view/mcango</a></p>
                 </div>
             </div>
         </div>

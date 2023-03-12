@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="/css/mystyle.css">
+<script src="/js/sweetalert2.js"></script>
+
 <style>
         .dropbtn {
             background-color: inherit;
@@ -42,31 +44,64 @@
                 <div class="xy">
                     <a href="/"  class="link" >
                         <i class="fa-solid fa-house"></i>
-                        <div>Нүүр</div>
+                        <div>{{trans('display.home')}}</div>
                     </a>
                     <a href="medeelel" class="link">
                         <i class="fa-solid fa-bell"></i>
-                        <div>Мэдээлэл</div>
+                        <div>{{trans('display.information')}}</div>
                     </a>
                     <a href="online" class="link" >
                         <i class="fa-solid fa-graduation-cap"></i>
-                        <div>Цахим хичээл</div>
+                        <div>{{trans('display.online_course')}}</div>
                     </a>
-                    <a href="exam" class="link">
-                        <i class="fa-solid fa-square-check"></i>
-                        <div>Шалгалт</div>
-                    </a>
+                    if(@Auth::user())
+                        @if($userLessonCount == $lessonCount)
+                        <div class="dropdown">
+                            <a class="links dropdown btn">
+                                <i class="fa-solid fa-square-check"></i>
+                                <div>{{trans('display.exam')}}</div>
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="exam">
+                                    <div>{{trans('display.legal_exam')}}</div>
+                                </a>
+                                <a href="get/practice/exam/{{Auth::user()->id}}">
+                                    <div>{{trans('display.practice_exam')}}</div>
+                                </a>
+                            </div>
+                        </div>
+                        @else
+                        <div class="dropdown">
+                            <a class="links dropdown btn">
+                                <i class="fa-solid fa-square-check"></i>
+                                <div>{{trans('display.exam')}}</div>
+                            </a>
+                            <div class="dropdown-content" onclick="examAlert('lesson')">
+                                <button style="width:100%">
+                                    <a>
+                                        <div>{{trans('display.legal_exam')}}</div>
+                                    </a>
+                                </button>
+                                <button style="width:100%">
+                                    <a>
+                                        <div>{{trans('display.practice_exam')}}</div>
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                        @endif
+                    @else
                     <a href="certi" class="link">
                         <i class="fa-solid fa-certificate"></i>
-                        <div>Гэрчилгээ хайлт</div>
+                        <div>{{trans('display.search_certificate')}}</div>
                     </a>
                     <a href="faq" class="link">
                         <i class="fa-solid fa-circle-info"></i>
-                        <div>Асуулт хариулт</div>
+                        <div>{{trans('display.faq')}}</div>
                     </a>
                     <a href="feedback" class="link">
                         <i class="fa-solid fa-envelope"></i>
-                        <div>Санал хүсэлт</div>
+                        <div>{{trans('display.feedback')}}</div>
                     </a> 
                 </div>
                 <div id="user-menu">
@@ -167,3 +202,38 @@
         </div> -->
         
     </header>
+    <script>
+        function examAlert(name){
+            if(name == 'lesson'){
+                Swal.fire({
+                    title: 'Цахим хичээл бүрэн үзэх шаардлагатай.',
+                    icon: 'error',
+                    iconHtml: '',
+                    cancelButtonText: 'Цуцлах',
+                    confirmButtonText: 'За',
+                    showCancelButton: true
+                    // showCloseButton: true
+                }).then((result) => {
+                    if (result.isConfirmed == true) {
+                        window.location.href = '/online';
+                    }
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Эхлээд нэврэнэ үү.',
+                    icon: 'error',
+                    iconHtml: '',
+                    cancelButtonText: 'Цуцлах',
+                    confirmButtonText: 'За',
+                    showCancelButton: true
+                    // showCloseButton: true
+                }).then((result) => {
+                    if (result.isConfirmed == true) {
+                        window.location.href = '/login';
+                    }
+                })
+            }
+            
+        }
+    </script>

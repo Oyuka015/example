@@ -50,8 +50,9 @@
       <tr>
         <th style="width:30px">№</th>
         <th style="width:30%">{{trans('display.user_name')}}</th>
-        <th style="width:30%">Явцын шалгалт 1</th>
-        <th style="width:30%">Явцын шалгалт 2</th>
+        @foreach($exams as $exam)
+        <th style="width:30%">{{$exam->name}}</th>
+        @endforeach
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>

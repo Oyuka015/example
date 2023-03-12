@@ -23,16 +23,16 @@
     </label>
     <div class="collapse search-collapse" id="collapseExample">
       <div class="card card-body">
-        <form method="POST" id="exam-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
+        <form method="POST" id="question-search-form" class="form-horizontal form-bordered smart-form" action="javascript:;" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-4">
               <div style="padding:5px">
-                <input type="text" id="name" name="name" placeholder="{{trans('display.name')}}">
+                <input type="text" id="question" name="question" placeholder="{{trans('display.question')}}">
               </div>
             </div>
             <div class="col-md-4">
               <div style="padding:5px">
-                <button type="submit" class="btn btn-primary" >{{trans('display.search')}}</button>
+                <button type="submit" class="btn btn-primary" style="float:right">{{trans('display.search')}}</button>
               </div>
             </div>
             <div class="col-md-4">
@@ -46,31 +46,28 @@
   </div>
   <!-- collapse end -->
   <div style="margin-bottom: 10px">
-    <button type="button" class="link-1" id="exam-add" data-toggle="modal" data-target="#exam-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
+    <button type="button" class="link-1" id="question-add" data-toggle="modal" data-target="#question-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
   </div>
 
-  <table cellpadding="0" cellspacing="0" border="0" id="exam-table">
+  <table cellpadding="0" cellspacing="0" border="0" id="question-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:10%">{{trans('display.exam_name')}}</th>
-        <th style="width:10%">{{trans('display.exam_score')}}</th>
-        <th style="width:10%">{{trans('display.question')}}</th>
-        <th style="width:10%">{{trans('display.question_score')}}</th>
-        <th style="width:10%">{{trans('display.required_exam')}}</th>
-        <th style="width:10%">{{trans('display.is_active')}}</th>
-        <th style="width:120px">{{trans('display.manage')}}</th>
+        <th style="width:15%">{{trans('display.question')}}</th>
+        <th style="width:15%">{{trans('display.answer1')}}</th>
+        <th style="width:15%">{{trans('display.answer2')}}</th>
+        <th style="width:15%">{{trans('display.answer3')}}</th>
       </tr>
     </thead>
     <tbody>
 
     </tbody>
   </table>
-  <div class="modal fade" id="exam-add-modal" tabindex="-1" role="dialog" aria-labelledby="exam-add-modalLabel" aria-hidden="true">
+  <div class="modal fade" id="question-add-modal" tabindex="-1" role="dialog" aria-labelledby="question-add-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exam-add-modalLabel">{{trans('display.add_new')}}</h4>
+          <h4 class="modal-title" id="question-add-modalLabel">{{trans('display.add_new')}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -85,11 +82,11 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exam-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exam-edit-modalLabel" aria-hidden="true">
+  <div class="modal fade" id="question-edit-modal" tabindex="-1" role="dialog" aria-labelledby="question-edit-modalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exam-edit-modalLabel">{{trans('display.edit')}}</h4>
+          <h4 class="modal-title" id="question-edit-modalLabel">{{trans('display.edit')}}</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -146,8 +143,9 @@
     color: white;
     padding: 12px 20px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    float: right; 
+    float: right;
   }
 
   input[type=submit]:hover {
@@ -182,7 +180,7 @@
 </style>
 <!-- collapse style end -->
 <script>
-  var examTable = $('#exam-table').DataTable( {
+  var questionTable = $('#question-table').DataTable( {
       // searching: false,
       paging: true,
       lengthChange: false,
@@ -197,18 +195,14 @@
       dataType: 'json',
       paginationType: "full_numbers",
       ajax: {
-          url: '{!! route('exam.datalist') !!}',
+          url: '{!! route('question.datalist') !!}',
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
-              var dateArr = {};
-              $('#app-search-form input[name^="search_date"]').map(function(){ 
-                  dateArr[this.id] = this.value;
-              }).get();
 
               d.register_number = $('#app-search-form input[id="search_register_number"]').val();
-              d.date = dateArr;
-              d.name = $('#exam-search-form input[id="name"]').val();
+              
+              d.question = $('#question-search-form input[id="question"]').val();
           }
       },
       columns: [
@@ -218,24 +212,25 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'name', "defaultContent": ''},
-        { data: 'lower_percent', "defaultContent": ''},
-        { data: 'question_count', "defaultContent": ''},
-        { data: 'question_score', "defaultContent": ''},
-        { data: 'required_exam', "defaultContent": ''},
-        { data: 'is_active', "defaultContent": ''},
+        { data: 'question', "defaultContent": ''},
+        { data: 'answer1', "defaultContent": ''},
+        { data: 'answer2', "defaultContent": ''},
+        { data: 'answer3', "defaultContent": ''},
+        { data: 'answer4', "defaultContent": ''},
+        { data: 'correct_answer', "defaultContent": ''},
+        { data: 'score', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,7]
+            targets: [0,8]
         },{
             class: "text-center",
-            targets: [0,7]
+            targets: [0,8]
         },{
-            targets: [0,6],
+            targets: [0,7],
             class: "border-right"
         }
       ],
@@ -273,10 +268,10 @@
         }
   }); 
   //add role
-  $("#exam-add").on('click', function(){
-    $.get( '/admin/exam/create', function( data ) {
-      $('#exam-add-modal .modal-body').html(data);
-      $('#exam-add-form').validate({
+  $("#question-add").on('click', function(){
+    $.get( '/admin/question/create', function( data ) {
+      $('#question-add-modal .modal-body').html(data);
+      $('#question-add-form').validate({
         ignore: [],
         highlight:function(element) {
             $(element).parents('.form-group').addClass('has-error has-feedback');
@@ -287,18 +282,18 @@
         submitHandler: function(form) {
           var formData = new FormData(form);
           $.ajax({
-            url: '{!! route('exam.store') !!}',
+            url: '{!! route('question.store') !!}',
             type: form.method,
             data: $(form).serialize(),
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#exam-add-modal').modal('hide');
+                $('#question-add-modal').modal('hide');
                 // $("#role-add-modal").trigger('click');
                 // $('#role-add-modal').modal('hide');
                 $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                examTable.draw();
+                questionTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
@@ -317,13 +312,13 @@
     });
   });
   //edit role
-  $('#exam-table tbody').on( 'click', 'tr td a.exam-edit', function () {
-    var examId = $(this).data('examid');
+  $('#question-table tbody').on( 'click', 'tr td a.question-edit', function () {
+    var questionId = $(this).data('questionid');
 
-    $.get( '/admin/exam/'+examId+'/edit', function( data ) {
-      $("#exam-edit-modal").modal('show');
-      $('#exam-edit-modal .modal-body').html(data);
-      $('#exam-edit-form').validate({
+    $.get( '/admin/question/'+questionId+'/edit', function( data ) {
+      $("#question-edit-modal").modal('show');
+      $('#question-edit-modal .modal-body').html(data);
+      $('#question-edit-form').validate({
         ignore: [],
         highlight:function(element) {
             $(element).parents('.form-group').addClass('has-error has-feedback');
@@ -334,16 +329,16 @@
         submitHandler: function(form) {
           var formData = new FormData(form);
           $.ajax({
-            url: '/admin/exam/'+examId,
+            url: '/admin/question/'+questionId,
             type: 'PUT',
             data: $(form).serialize(),
             beforeSend: function() {
                 //$('#preloader').show();
             },
             success: function(response) {
-                $('#exam-edit-modal').modal('hide');
+                $('#question-edit-modal').modal('hide');
                 $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                examTable.draw();
+                questionTable.draw();
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
@@ -362,8 +357,8 @@
     });
   });
   //delete role
-  $('#exam-table tbody').on( 'click', 'tr td a.exam-delete', function () {
-    var examId = $(this).data('examid');
+  $('#question-table tbody').on( 'click', 'tr td a.question-delete', function () {
+    var questionId = $(this).data('questionid');
 
     $.confirm({
       title: '{{trans('messages.warning_title')}}',
@@ -379,11 +374,11 @@
             action: function(){
               $.ajax({
                 type: 'POST',
-                url: '/admin/exam/' + examId,
+                url: '/admin/question/' + questionId,
                 data: {_method: 'DELETE'},
                 success: function (response) {
                   $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
-                  examTable.draw();
+                  questionTable.draw();
                 },
                 error: function (xhr, textStatus, error) {
                     console.log(xhr.statusText);
@@ -404,8 +399,8 @@
     });
   });
 
-  $('#exam-search-form').on('submit', function(e) {
-    examTable.draw();
+  $('#question-search-form').on('submit', function(e) {
+    questionTable.draw();
     e.preventDefault();
   });
 

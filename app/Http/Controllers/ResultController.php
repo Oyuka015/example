@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Result;
+use App\Models\Exam;
 
 use App\Repositories\Result\ResultInterface;
 
@@ -31,7 +32,10 @@ class ResultController extends BaseController
 
     public function index(Request $request)
     {
-        return view($this->view_path.'.index');
+        $exams = Exam::select('*')->orderBy('created_at')->get();
+       
+        $data['exams'] = $exams;
+        return view($this->view_path.'.index', $data);
     }
 
     public function create()

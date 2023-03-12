@@ -142,4 +142,12 @@ class HomeExamController extends BaseController
 
         return View::make('core.alert.messages', $data);
     }
+    public function getPracticeExam($id)
+    {
+        dd($id);
+        $exam = Exam::find($id);
+        $data['exam'] = $exam;
+        
+        return View::make('exam.practiceExam', $data);
+    }
 }

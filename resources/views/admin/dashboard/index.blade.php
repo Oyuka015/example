@@ -3,7 +3,7 @@
 <header>
     <div class="h-container" style="display:flex; justify-content:space-between;">
         <div class="menu">
-          <a href="/admin/dashboard"  class="link">
+          <a href="/admin/dashboard"  class="link" style="margin-left: 12%;">
             <i class="fa-solid fa-chart-line"></i>
             <div>{{trans('display.dashboard')}}</div>
           </a>
