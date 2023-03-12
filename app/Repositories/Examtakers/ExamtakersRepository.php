@@ -7,6 +7,7 @@ use App\Repositories\Examtakers\ExamtakersInterface as ExamtakersInterface;
 use App\Models\Examtakers;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
+use DB;
 
 class ExamtakersRepository implements ExamtakersInterface
 {
@@ -45,10 +46,12 @@ class ExamtakersRepository implements ExamtakersInterface
         return $examtakers->delete();
     }
 
-    public function getDatatableList($searchData)
+    public function getDatatableList($searchData, $id)
     {
-
-        $examtakers = Examtakers::select('*');
+        $examtakers = DB::select('select u.id as id, u.firstname as name, es.is_passed as passed, es.exam_date as date from base.exam_student es 
+        join base.exam ex on ex.id = es.exam_id 
+        join base.users u on u.id = es.user_id 
+        where es.is_passed = true');
         $qry = $examtakers;
         
         $data = Datatables::make($qry) 

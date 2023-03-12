@@ -41,6 +41,9 @@
   <!-- collapse end -->
   <div style="margin-bottom: 10px">
     <button type="button" class="link-1" id="online-add" data-toggle="modal" data-target="#online-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
+    <a href="/admin/online/group">
+      <button type="button" class="link-1" id="online-group-delete" data-toggle="modal"  style="border-color:white">{{trans('display.lesson_groups')}}</button>
+    </a>
   </div>
 
   <table cellpadding="0" cellspacing="0" border="0" id="online-table">

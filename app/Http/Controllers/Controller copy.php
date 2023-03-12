@@ -22,8 +22,8 @@ use \View as View;
 use Illuminate\Http\Request;
 use Session;
 use \Config;
-use \PDF;
-use \QrCode;
+use PDF;
+use QrCode;
 use Auth;
 
 class Controller extends BaseController
@@ -176,30 +176,10 @@ class Controller extends BaseController
     public function searchCertificate(request $request){
 
         $input = $request->input();
-        $inputValueType = gettype($input['value']);
-        $result = Certificate::where('certificate_id', $input['value'])->orWhere('register','ilike',  strtolower($input['value']))->get();
-        if(@$result[0]){
-            $data = [
-                'certificate_no' => @$result[0]->certificate_id,
-                'lastname' => @$result[0]->user ? @$result[0]->user->lastname : '',
-                'firstname' => @$result[0]->user ? @$result[0]->user->firstname : '',
-                'year' => @$result[0]->created_at->year,
-                'month' => @$result[0]->created_at->month,
-                'day' => @$result[0]->created_at->day,
-                'image_url' => asset('images/qrcode_'.$result[0]->user_id.'.png')
-            ];
-            
-            QrCode::generate('/certificate/download/public/'.$result[0]->user_id, public_path('images/qrcode_'.$result[0]->user_id.'.png'));
-            $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
-            dd('ss');
-            // return View::make('qrcode', $data);
-            return $pdf->stream();
-        }
-        else{
-            return  View::make('sub_blades.error');
-        }
-        // dd($result[0]->user_id);
-       
+        // $inputValueType = gettype($input['value']);
+
+        $result = Certificate::where('certificate_id', $input['value'])->orWhere('register','ilike',  strtolower($input['value']))->get();;
+        dd($result);
     }
 }
 

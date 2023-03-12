@@ -141,7 +141,6 @@
                             <input id="search_certificate" style="padding-left: 2%; width: 350px; border:1px solid grey; border-top-left-radius:10px; border-bottom-left-radius:10px; text: center;" name="certificate_id" type="text" placeholder="{{trans('display.registr_license')}}" autocomplete="off"  oninvalid="InvalidMsg(this);" oninput="InvalidMsg(this);" required="required" />
                             <button id="mid-search-button" style="background-color:white; border: 1px solid #B5B5B5; padding:5px 10px; border-top-right-radius:10px; border-bottom-right-radius:10px;"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-
                     </div>
                         @if(@Auth::user())
                         <div class="dropdown" style="margin-left: 2%;">
@@ -190,6 +189,21 @@
         </div>
 
     </header>
+        <!-- <div class="modal fade" id="certi-result" tabindex="-1" role="dialog" aria-labelledby="certi-result-Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="certi-result-Label">{{trans('display.search_certificate')}}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+            </div>
+            </div>
+        </div> -->
     <div class="header-section">
         <div class="content">
             <div class="info">
@@ -349,7 +363,7 @@
     </div>
 </footer>
 <script type="text/javascript" charset="utf8" src="/js/datatables.min.js"></script>
-  <script type="text/javascript" charset="utf8" src="/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="/js/dataTables.buttons.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
 <script type="text/javascript" charset="utf8" src="/js/confirm/jquery-confirm.min.js"></script>
 <script src="/js/sweetalert2.js"></script>
@@ -364,10 +378,9 @@
             type: 'post',
             data: {value: value},
             beforeSend: function() {
-                //$('#preloader').show();
             },
             success: function(response) {
-                alert="hi";
+                $('#certi-result .modal-body').html(response);
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);
@@ -377,7 +390,8 @@
             async: false          
         }).done(function(data) {
             //submitButton.prop('disabled', false);
-        });    });
+        });    
+    });
         function examAlert(name){
             if(name == 'lesson'){
                 Swal.fire({

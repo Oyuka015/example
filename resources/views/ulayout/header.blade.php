@@ -54,8 +54,8 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                         <div>{{trans('display.online_course')}}</div>
                     </a>
-                    if(@Auth::user())
-                        @if($userLessonCount == $lessonCount)
+                    @if(@Auth::user())
+                        @if(@Auth::user()->userToLesson()->count() == DB::select('select count(*) from base.online_course')[0]->count)
                         <div class="dropdown">
                             <a class="links dropdown btn">
                                 <i class="fa-solid fa-square-check"></i>
@@ -91,6 +91,25 @@
                         </div>
                         @endif
                     @else
+                    <div class="dropdown">
+                        <a class="links dropdown btn">
+                            <i class="fa-solid fa-square-check"></i>
+                            <div>{{trans('display.exam')}}</div>
+                        </a>
+                        <div class="dropdown-content" onclick="examAlert('login')">
+                            <button style="width:100%">
+                                <a>
+                                    <div>{{trans('display.legal_exam')}}</div>
+                                </a>
+                            </button>
+                            <button style="width:100%">
+                                <a>
+                                    <div>{{trans('display.practice_exam')}}</div>
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                    @endif
                     <a href="certi" class="link">
                         <i class="fa-solid fa-certificate"></i>
                         <div>{{trans('display.search_certificate')}}</div>

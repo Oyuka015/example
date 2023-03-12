@@ -26,7 +26,7 @@ class ExamtakersController extends BaseController
 
     public function __construct(ExamtakersInterface $examtakers) {
         $this->examtakers = $examtakers;
-        $this->view_path = 'admin.examtakers';
+        $this->view_path = 'admin.exam.prictice';
     }
 
     public function index(Request $request)
