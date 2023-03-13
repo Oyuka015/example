@@ -17,7 +17,7 @@
           </a>
           <div class="dropdown" style="width:10%">
             <button class="dropbtn">
-              <a id="sub" href="/admin/exam"  class="link">
+              <a id="sub" class="link">
                 <i class="fa-solid fa-square-check"></i>
                 <div>{{trans('display.exam')}}</div>
               </a>

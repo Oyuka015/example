@@ -49,7 +49,7 @@
     </div>
   </div>
   <div class="form-group">
-    <iframe src="/{{$online->pdf_file}}#toolbar=4" type="application/pdf" height="450" style="width: 100%;"></iframe>
+    <iframe src="/{{$online->pdf_file}}#toolbar=4" type="application/pdf, application/octet-stream" height="450" style="width: 100%;"></iframe>
   </div>
   <div class="form-group">
     <button type="button" style="right:0; position:absolute; margin-bottom: 10px;" class="close file_edit">

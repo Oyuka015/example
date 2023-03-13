@@ -144,7 +144,7 @@ class HomeExamController extends BaseController
     }
     public function getPracticeExam($id)
     {
-        dd($id);
+        // dd($id);
         $exam = Exam::find($id);
         $data['exam'] = $exam;
         

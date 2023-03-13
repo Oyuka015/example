@@ -575,6 +575,7 @@ footer {
     max-width: 80%;
     margin: 0 auto;
     min-height: 400px;
+    /* height: 100vh; */
     /* border:1px solid blue; */
 }
 /* register section title */

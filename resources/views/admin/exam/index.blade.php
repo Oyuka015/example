@@ -3,7 +3,7 @@
 @section('content')
 <section class="admin_register_section">
   
-  <h1 class="admin_register_title">{{trans('display.practice_exam')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.legal_exam')}}</h1>
   
   <div class="form-sub-heading">
 

@@ -62,7 +62,7 @@ Route::group(['prefix'=>'', 'middleware' => ['auth']], function() {
         Route::resource('/question', "App\Http\Controllers\QuestionController");
         Route::any('/question/list/datatable', "App\Http\Controllers\QuestionController@dataTableList")->name('question.datalist');
 
-        Route::resource('/takeradmin/exams', "App\Http\Controllers\ExamtakersController");
+        Route::resource('/taker/exams', "App\Http\Controllers\ExamtakersController",[ 'names' => 'examtakers']);
         Route::any('/examtakers/list/datatable', "App\Http\Controllers\ExamtakersController@dataTableList")->name('examtakers.datalist');
 
         Route::resource('/result', "App\Http\Controllers\ResultController");

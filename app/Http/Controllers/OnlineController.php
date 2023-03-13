@@ -59,7 +59,7 @@ class OnlineController extends BaseController
 
     public function store(Request $request)
     {
-        
+        // dd($request->file());
         $this->validate($request, [
             'file0' => 'required|file|mimetypes:video/mp4',
             'pdf0' => 'required|file|mimetypes:application/pdf',

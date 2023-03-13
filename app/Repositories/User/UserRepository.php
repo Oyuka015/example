@@ -50,12 +50,16 @@ class UserRepository implements UserInterface
         $users->diploma_register = @$input['diploma_register'];
         $users->diploma_doc = @$input['diploma_doc'];
         $users->password = md5(@$input['password']);
+        $users->role_id = 2;
+        $users->is_active = true;
+        $users->is_active = false;
 
         if ($file['file0'])
         {
             $path = $file['file0']->store('images', ['disk' => 'my_files']);
             $users->image_url = $path;
         }
+        // dd($users);
         return $users->save();
     }
 

@@ -21,9 +21,9 @@ class ExamtakersRepository implements ExamtakersInterface
         $examtakers = new Examtakers;
 
         $examtakers->user_id = @$input['user_id'];
-        $examtakers->exam_id = @$input['exam_id'];
-        $examtakers->score = @$input['score'];
-        $examtakers->exam_date = @$input['exam_date'];
+        $examtakers->begin_date = @$input['begin_date'];
+        $examtakers->end_date = @$input['end_date'];
+        $examtakers->link = @$input['zoom_link'];
 
         return $examtakers->save();
     }
@@ -33,9 +33,9 @@ class ExamtakersRepository implements ExamtakersInterface
         $examtakers = Examtakers::find($id);
 
         $examtakers->user_id = @$input['user_id'];
-        $examtakers->exam_id = @$input['exam_id'];
-        $examtakers->score = @$input['score'];
-        $examtakers->exam_date = @$input['exam_date'];
+        $examtakers->begin_date = @$input['begin_date'];
+        $examtakers->end_date = @$input['end_date'];
+        $examtakers->link = @$input['zoom_link'];
 
         return $examtakers->save();
     }
@@ -46,12 +46,9 @@ class ExamtakersRepository implements ExamtakersInterface
         return $examtakers->delete();
     }
 
-    public function getDatatableList($searchData, $id)
+    public function getDatatableList($searchData)
     {
-        $examtakers = DB::select('select u.id as id, u.firstname as name, es.is_passed as passed, es.exam_date as date from base.exam_student es 
-        join base.exam ex on ex.id = es.exam_id 
-        join base.users u on u.id = es.user_id 
-        where es.is_passed = true');
+        $examtakers = Examtakers::select('*');
         $qry = $examtakers;
         
         $data = Datatables::make($qry) 
@@ -63,13 +60,22 @@ class ExamtakersRepository implements ExamtakersInterface
                 }
 
             })
+            ->editColumn('user_id', function($examtakers){
+                return @$examtakers->user->lastname.' '.@$examtakers->user->firstname;
+            })
+            ->addColumn('link', function($examtakers){
+                $actionHtml = "";
+                $actionHtml .= '<a href="'.@$examtakers->link.'" class="">'.@$examtakers->link.'</a>';
+                return $actionHtml;
+
+            })
             ->addColumn('action', function ($examtakers) {
                 $actionHtml = "";
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-primary examtakers-edit" style="margin:3px" data-examtakersid="'.@$examtakers->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.edit\')}}"><i class="fa fa-pencil"></i></a>';
                 $actionHtml .= '<a href="javascript:;" class="btn btn-circle btn-danger examtakers-delete" style="margin:3px" data-examtakersid="'.@$examtakers->id.'" data-toggle="tooltip" data-placement="top" data-original-title="{{trans(\'display.delete\')}}"><i class="fa fa-times"></i></a>';
                 return $actionHtml;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'link'])
             ->make(true);
 
         return $data;

@@ -88,7 +88,7 @@ class User extends Authenticatable
         // cause a delete of a product to cascade to children so they are also deleted
         static::creating(function($user)
         {
-            $user->created_by = Auth::user()->id;
+            // $user->created_by = Auth::user()->id;
         });
 
         static::updating(function($user)

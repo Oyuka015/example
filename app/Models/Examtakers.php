@@ -11,14 +11,18 @@ use Eloquent;
 
 class Examtakers extends Eloquent
 {
-    protected $table = 'exam_student';
+    protected $table = 'practice_exam_list';
     protected $primaryKey = 'id';
     public $timestamps = false;
     
     public static $rules = array(
         'user_id' => 'required',
-        'exam_id' => 'required',
-        'score' => 'required',
-        'exam_date' => 'required',
+        'begin_date' => 'required',
+        'end_date' => 'required',
+        'zoom_link' => 'required',
     );
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'id');
+    }
 }

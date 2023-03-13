@@ -191,7 +191,7 @@ class Controller extends BaseController
             
             QrCode::generate('/certificate/download/public/'.$result[0]->user_id, public_path('images/qrcode_'.$result[0]->user_id.'.png'));
             $pdf = PDF::loadView('pdfview', $data)->setPaper('a4', 'landscape');
-            dd('ss');
+            // dd('ss');
             // return View::make('qrcode', $data);
             return $pdf->stream();
         }

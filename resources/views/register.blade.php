@@ -342,6 +342,7 @@
             },
             success: function(response) {
               $('.form-sub-heading').html(response).fadeIn().delay(5000).fadeOut();
+              window.location.href = '/login';
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.statusText);

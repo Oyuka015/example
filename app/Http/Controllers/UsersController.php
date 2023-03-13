@@ -51,7 +51,7 @@ class UsersController extends BaseController
 
     public function store(Request $request)
     {   
-        $validator = Validator::make($request->input(), Users::$rules);
+        $validator = Validator::make($request->input(), User::$rules);
         // process the save
         if ($validator->fails()) 
         {
@@ -134,8 +134,7 @@ class UsersController extends BaseController
     public function storeRegister(Request $request)
     {   
         
-        // dd($request);
-        $validator = Validator::make($request->input(), Users::$rules);
+        $validator = Validator::make($request->input(), User::$rules);
         // process the save
         if ($validator->fails()) 
         {

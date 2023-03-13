@@ -3,7 +3,7 @@
 @section('content')
 <section class="admin_register_section">
   
-  <h1 class="admin_register_title">{{trans('display.exam')}}</h1>
+  <h1 class="admin_register_title">{{trans('display.practice_exam')}}</h1>
   
   <div class="form-sub-heading">
 
@@ -17,7 +17,7 @@
       padding:5px 10px;
     }
   </style>
-  <div style="margin-bottom: 10px">
+  <!-- <div style="margin-bottom: 10px">
     <label class="search-form" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       {{trans('display.filter_search')}}
     </label>
@@ -43,22 +43,19 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- collapse end -->
   <div style="margin-bottom: 10px">
     <button type="button" class="link-1" id="exam-add" data-toggle="modal" data-target="#exam-add-modal" style="border-color:white">{{trans('display.add_new')}}</button>
   </div>
-
   <table cellpadding="0" cellspacing="0" border="0" id="exam-table">
     <thead class="tbl-header">
       <tr>
         <th style="width:30px">№</th>
-        <th style="width:10%">{{trans('display.exam_name')}}</th>
-        <th style="width:10%">{{trans('display.exam_score')}}</th>
-        <th style="width:10%">{{trans('display.question')}}</th>
-        <th style="width:10%">{{trans('display.question_score')}}</th>
-        <th style="width:10%">{{trans('display.required_exam')}}</th>
-        <th style="width:10%">{{trans('display.is_active')}}</th>
+        <th style="width:10%">{{trans('display.student')}}</th>
+        <th style="width:10%">{{trans('display.begin_date')}}</th>
+        <th style="width:10%">{{trans('display.end_date')}}</th>
+        <th style="width:10%">{{trans('display.zoom_link')}}</th>
         <th style="width:120px">{{trans('display.manage')}}</th>
       </tr>
     </thead>
@@ -197,7 +194,7 @@
       dataType: 'json',
       paginationType: "full_numbers",
       ajax: {
-          url: '{!! route('exam.datalist') !!}',
+          url: '{!! route('examtakers.datalist') !!}',
           dataType: "JSON",
           type: 'post',
           data: function ( d ) {
@@ -218,24 +215,22 @@
               return meta.row + meta.settings._iDisplayStart + 1;
           }
         },
-        { data: 'name', "defaultContent": ''},
-        { data: 'lower_percent', "defaultContent": ''},
-        { data: 'question_count', "defaultContent": ''},
-        { data: 'question_score', "defaultContent": ''},
-        { data: 'required_exam', "defaultContent": ''},
-        { data: 'is_active', "defaultContent": ''},
+        { data: 'user_id', "defaultContent": ''},
+        { data: 'begin_date', "defaultContent": ''},
+        { data: 'end_date', "defaultContent": ''},
+        { data: 'link', "defaultContent": ''},
         { data: 'action', "defaultContent": ''},
       ],
       columnDefs: [
         {
             searchable: false,
             orderable: false,
-            targets: [0,7]
+            targets: [0,5]
         },{
             class: "text-center",
-            targets: [0,7]
+            targets: [0,5]
         },{
-            targets: [0,6],
+            targets: [0,4],
             class: "border-right"
         }
       ],
@@ -274,7 +269,7 @@
   }); 
   //add role
   $("#exam-add").on('click', function(){
-    $.get( '/admin/exam/create', function( data ) {
+    $.get( '/admin/taker/exams/create', function( data ) {
       $('#exam-add-modal .modal-body').html(data);
       $('#exam-add-form').validate({
         ignore: [],
@@ -287,7 +282,7 @@
         submitHandler: function(form) {
           var formData = new FormData(form);
           $.ajax({
-            url: '{!! route('exam.store') !!}',
+            url: '{!! route('examtakers.store') !!}',
             type: form.method,
             data: $(form).serialize(),
             beforeSend: function() {

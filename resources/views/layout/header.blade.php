@@ -58,7 +58,7 @@
             <div>{{trans('display.online_course')}}</div>
           </a>
           <div class="dropdown">
-            <a id="sub" href="" class="link dropbtn" >
+            <a id="sub"class="link dropbtn" >
               <i class="fa-solid fa-square-check"></i>
               <div>{{trans('display.exam')}}</div>
             </a>

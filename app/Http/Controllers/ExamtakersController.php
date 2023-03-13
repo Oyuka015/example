@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Http;
 use App\Models\Examtakers;
+use App\Models\Exam;
+use App\Models\User;
 
 use App\Repositories\Examtakers\ExamtakersInterface;
 
@@ -26,7 +28,7 @@ class ExamtakersController extends BaseController
 
     public function __construct(ExamtakersInterface $examtakers) {
         $this->examtakers = $examtakers;
-        $this->view_path = 'admin.exam.prictice';
+        $this->view_path = 'admin.exam.practice';
     }
 
     public function index(Request $request)
@@ -36,7 +38,11 @@ class ExamtakersController extends BaseController
 
     public function create()
     {
-        return view($this->view_path.'.add');
+        $exams = Exam::count();
+        $customers = User::where('license_active', '!=', true)->where('is_active', true)->withCount('passedExams')->get()->where('passed_exams_count', $exams);
+        // dd(User::where('license_active', '!=', true)->where('is_active', true)->withCount('passedExams')->get()->where('passed_exams_count', $exams));
+        $data['customers'] = $customers;
+        return view($this->view_path.'.add', $data);
     }
 
     public function edit($id)
@@ -50,7 +56,7 @@ class ExamtakersController extends BaseController
 
     public function store(Request $request)
     {
-        
+        // dd($request->input());
         $validator = Validator::make($request->input(), Examtakers::$rules);
         // process the save
         if ($validator->fails()) 
